@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "ad-llm-embeddings-benchmark"
+version = "0.1.0"
+description = "Benchmarking vectorizer performance on Alzheimer's disease concept definitions"
+authors = [
+    "Tim Adams <tim.adams@scai.fraunhofer.de>"
+]
+readme = "README.md"
+packages = [
+    { include = "ad-llm-embeddings-benchmark" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^2.0"
+numpy = "^1.24"
+sentence-transformers = "^2.2.2"
+openai = "^1.0.0"
+google-genai = "^1.16.1"
