@@ -1,0 +1,20 @@
+"Column_Name","Description","csv_name"
+"SUBJID","Subject Identifier","geras_EU_demorel.csv"
+"SEX","Code indicating sex","geras_EU_demorel.csv"
+"ENTAGE","Age at study entry (years)","geras_EU_demorel.csv"
+"EDCRN","Years of formal education subject received","geras_EU_edc.csv"
+"LVACCLNM","Long-form variable for the patient's current living accommodation","geras_EU_lvarr.csv"
+"ALCSTLNM","Long-form variable for status of Alcohol use","geras_EU_habits.csv"
+"DISCDLNM","Long-form variable for disease code for any selected diagnoses as the response to the question ""Does the subject/caregiver currently have any of the following diagnoses?""","geras_EU_mhcmbd.csv"
+"FALLSFLG","Flag variable for the answer to ""Has the subject had any falls since the last data collection (or in the last three months at the baseline observation)?""","geras_EU_fall.csv"
+"PSHYPRN","Flag variable for a YES answer to any of the questions ""Is the subject currently taking any psychiatric/hypnotic treatments?/ Has the subject taken any psychiatric/hypnotic treatment since baseline?/ Has the subject taken any psychiatric/hypnotic treatment since the last visit?""","geras_EU_cmtpy.csv"
+"CMNAME","Treatment name; one of 
+Antidepressants
+Antipsychotics
+Anxiolytic
+Benzodiazepines
+Hypnotics and sedatives
+Mood stabilizer
+Other (CMNAME='Other' if rdcCMTRT_CCT_PHM=99)","geras_EU_cmtpy.csv"
+"MMSERN","Indicator variable for MMSE Item correct response; if MMSE Item is Total Score, value ranges from 0-30","geras_EU_mmse.csv"
+"NPIRN","NPI Item Result Numeric (See documentation in Other Resources in ADDI GERAS-EU dataset description)","geras_EU_npi.csv"

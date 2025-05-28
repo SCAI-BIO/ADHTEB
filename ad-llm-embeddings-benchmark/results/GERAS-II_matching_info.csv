@@ -1,0 +1,10 @@
+cohort_variable,cohort_definition,matched_top_1_cdm_definition,matched_top_1_cdm_concept,in_top_1,in_top_2,in_top_3,in_top_4,in_top_5,in_top_6,in_top_7,in_top_8,in_top_9,in_top_10
+SUBJID,Subject Identifier,An alphanumeric identifier assigned to a specific patient.,SUBJID,True,True,True,True,True,True,True,True,True,True
+SEX,Sex,The assemblage of physical properties or qualities by which male is distinguished from female; the physical difference between male and female; the distinguishing peculiarity of male or female.,SEX,True,True,True,True,True,True,True,True,True,True
+ENTAGE,Age at Study Entry,The number of education years that a subject has competed.,,False,False,False,False,False,False,False,False,False,False
+FALLSFLG,Falls Flag,"A sudden movement downward, usually resulting in injury. [ NCI ]",FALLSFLG,True,True,True,True,True,True,True,True,True,True
+PSHYPRN,Any psychiatric/hypnotic treatments? (num),Neuropsychiatric Inventory (NPI) Total of (Frequency Sub-total) x (Severity Sub-total).,NPIRN,False,False,False,False,False,False,False,False,False,True
+CMNAME,Therapy Name,An alphanumeric identifier assigned to a specific patient.,SUBJID,False,False,False,False,False,False,False,False,False,False
+URINFLG,Urinary Tract Disorder Medication Flag,Medical history pertaining to the genital and urinary organs or their functions.,URINFLG,True,True,True,True,True,True,True,True,True,True
+MMSERN,MMSE Item Result Numeric,Mini-Mental State Examination (MMSE) Total score.,MMSERN,True,True,True,True,True,True,True,True,True,True
+NPIRN,NPI Item Result Numeric,Neuropsychiatric Inventory (NPI) Total of (Frequency Sub-total) x (Severity Sub-total).,NPIRN,True,True,True,True,True,True,True,True,True,True

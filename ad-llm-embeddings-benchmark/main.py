@@ -1,7 +1,7 @@
 
 import os
 from benchmarking import Benchmark
-from vectorizers import OpenAIVectorizer
+from vectorizers import OpenAIVectorizer, LinqEmbedMistralVectorizer
 import logging
 
 logging.basicConfig(
@@ -13,8 +13,9 @@ logging.basicConfig(
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
 openai_vectorizer = OpenAIVectorizer(api_key=openai_api_key)
+linq_embed_mistral = LinqEmbedMistralVectorizer()
 
-vectorizers = [openai_vectorizer]
+vectorizers = [linq_embed_mistral]
 
 for vectorizer in vectorizers:
     print(f"Running benchmark for {vectorizer.model_name}...")

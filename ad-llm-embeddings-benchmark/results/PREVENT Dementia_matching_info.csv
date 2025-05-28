@@ -1,0 +1,54 @@
+cohort_variable,cohort_definition,matched_top_1_cdm_definition,matched_top_1_cdm_concept,in_top_1,in_top_2,in_top_3,in_top_4,in_top_5,in_top_6,in_top_7,in_top_8,in_top_9,in_top_10
+subjectID,Subject ID,An alphanumeric identifier assigned to a specific patient.,subjectID,True,True,True,True,True,True,True,True,True,True
+apoe,APOE: genotype (hetorozygous/ homozygous),"Human APOE*4 allele is located in the vicinity of 19q13.2 and is approximately 4 kb in length. This allele, which encodes apolipoprotein E4, plays a role in triglyceride metabolism. The allele is associated with increased occurrence of both Alzheimer disease and coronary artery disease.",apoe4,False,True,True,True,True,True,True,True,True,True
+apoe4,APOE4: at least one allele 4,"Human APOE*4 allele is located in the vicinity of 19q13.2 and is approximately 4 kb in length. This allele, which encodes apolipoprotein E4, plays a role in triglyceride metabolism. The allele is associated with increased occurrence of both Alzheimer disease and coronary artery disease.",apoe,False,True,True,True,True,True,True,True,True,True
+meddepr_act,"Medical history: Depression, Currently","Medical history of symptoms, physical examination results, and/or laboratory test results related to mental health.",,False,False,False,False,False,False,False,False,False,False
+medpark_act,"Medical history: Parkinson's disease, Currently","A progressive degenerative disorder of the central nervous system characterized by loss of dopamine producing neurons in the substantia nigra and the presence of Lewy bodies in the substantia nigra and locus coeruleus. Signs and symptoms include tremor which is most pronounced during rest, muscle rigidity, slowing of the voluntary movements, a tendency to fall back, and a mask-like facial expression.",medpark_act,True,True,True,True,True,True,True,True,True,True
+meddiab_act,"Medical history: Diabetes mellitus, Currently",Medical history pertaining to the metabolic system,,False,False,False,False,False,False,False,False,False,True
+medanx_act,"Medical history: Anxiety disorder, Currently",Medical history pertaining to allergies or drug sensitivities,meddall_ac,False,False,False,False,False,False,False,False,False,False
+medob_act,"Medical history: Obesity, Currently",Medical history pertaining to the metabolic system,,False,False,False,False,False,False,False,False,False,False
+medlip_act,"Medical history: Hyperlipidemia, Currently",Medical history pertaining to the metabolic system,,False,False,False,False,False,False,False,False,True,True
+medhear_act,"Medical history: Hearing disorder, Currently",Medical history pertaining to major surgical procedures,risk_surg,False,False,False,False,True,True,True,True,True,True
+medconst_act,"Medical history: Chronic constipation, Currently",Medical history pertaining to the stomach and intestines.,phys_gastrc,False,False,False,False,False,False,False,False,False,False
+meddall_act,"Medical history: Drug allergies/reactions, Currently",Medical history pertaining to allergies or drug sensitivities,meddall_ac,False,False,False,False,False,False,False,False,False,False
+medcancer1,Cancer: Treatment 1,Medical history pertaining to lymph,,False,False,True,True,True,True,True,True,True,True
+phys_cardc,"Physical examination: Cardiovascular, Clinically significant",Medical history pertaining to the heart or blood vessels.,phys_cardc,True,True,True,True,True,True,True,True,True,True
+phys_respc,"Physical examination: Respiratory, Clinically significant",Medical history pertaining to respiration.,phys_respc,True,True,True,True,True,True,True,True,True,True
+phys_gastrc,"Physical examination: Gastrointestinal, Clinically significant",Medical history pertaining to the stomach and intestines.,phys_gastrc,True,True,True,True,True,True,True,True,True,True
+risk_surg,Risk factors: Had surgery?,Medical history pertaining to major surgical procedures,risk_surg,True,True,True,True,True,True,True,True,True,True
+risk_surgc1,Risk factors: Cardiovascular surgery,Medical history pertaining to major surgical procedures,risk_surg,False,False,False,False,False,False,False,False,False,False
+risk_surgc2,Risk factors: Gastrointestinal surgery,Medical history pertaining to major surgical procedures,risk_surg,False,False,False,False,False,False,False,False,False,False
+risk_surgc3,Risk factors: Obtretics/ Gynaecology surgery,Medical history pertaining to major surgical procedures,risk_surg,False,False,False,False,False,False,False,False,False,False
+risk_surgc4,Risk factors: HEENT surgery,Medical history pertaining to major surgical procedures,risk_surg,False,False,False,False,False,False,False,False,False,False
+risk_surgc5,Risk factors: Metabolic surgery,Medical history pertaining to the metabolic system,,False,False,False,False,False,False,False,False,False,False
+risk_surgc6,Risk factors: Musculoskeletal surgery,Medical history pertaining to major surgical procedures,risk_surg,False,False,False,False,False,False,False,False,False,False
+risk_surgc7,Risk factors: Neurological surgery,Medical history pertaining to major surgical procedures,risk_surg,False,False,False,False,False,False,False,False,False,False
+risk_surgc8,Risk factors:  Endocrine surgery,Medical history pertaining to the endocrine system.,,False,False,False,False,False,False,False,False,False,False
+risk_surgc9,Risk factors: Dermatological surgery,Medical history pertaining to injury to the skin tissue.,,False,False,False,False,False,False,False,False,False,False
+risk_surgc10,Risk factors: Urology surgery,Medical history pertaining to major surgical procedures,risk_surg,False,False,False,False,False,False,False,False,False,False
+risk_surgc11,Risk factors: Other surgery,Medical history pertaining to major surgical procedures,risk_surg,False,False,False,False,False,False,False,False,False,False
+sex,Gender,The assemblage of physical properties or qualities by which male is distinguished from female; the physical difference between male and female; the distinguishing peculiarity of male or female.,sex,True,True,True,True,True,True,True,True,True,True
+age,Age of participant,The year in which a person was born.,,False,False,False,False,True,True,True,True,True,True
+nbeduc,No years of Education,The number of education years that a subject has competed.,education,False,False,False,False,False,False,False,False,False,False
+race,Race of the participant,The number of education years that a subject has competed.,education,False,True,True,True,True,True,True,True,True,True
+ethnicity,Ethnicity of participant,A social group characterized by a distinctive social and cultural tradition that is maintained from generation to generation. Members share a common history and origin and a sense of identification with the group. They have similar and distinctive features in their lifestyle habits and shared experiences. They often have a common genetic heritage which may be reflected in their experience of health and disease.,ethnicity,True,True,True,True,True,True,True,True,True,True
+marital,Current marital status,A demographic parameter indicating a person's current conjugal status.,marital,True,True,True,True,True,True,True,True,True,True
+occup,Occupation title,A grouping of occupations and fields of study.,occup,True,True,True,True,True,True,True,True,True,True
+druguse,Lifestyle interview: Drug use,Medical history pertaining to allergies or drug sensitivities,meddall_ac,False,True,True,True,True,True,True,True,True,True
+alcohol,Lifestyle interview: Alcohol intake,"Consumption of liquids containing ethanol, including the behaviors associated with drinking the alcohol.",alcohol,True,True,True,True,True,True,True,True,True,True
+epwor1,Epworth sleeping scale: Sitting and reading,"Geriatric Depression Scale, Short Form (GDS-SF) Do you feel full of energy?",,False,False,False,False,False,False,False,False,False,False
+epwor2,Epworth sleeping scale: Watching TV,"Geriatric Depression Scale, Short Form (GDS-SF) Do you often get bored?",,False,False,False,False,False,False,False,False,False,False
+epwor3,Epworth sleeping scale: Sitting inactive in a Public place,"Geriatric Depression Scale, Short Form (GDS-SF) Do you prefer to stay at home, rather than going out and doing new things?",,False,False,False,False,False,False,False,False,False,False
+epwor4,Epworth sleeping scale: As a passenger in a motor vehicle for an hour or more,A self-rated questionnaire which assesses sleep quality and disturbances over a one month time interval.,,False,False,False,False,False,False,False,False,False,False
+epwor5,Epworth sleeping scale: Lying down to rest in the afternoon when circumstances permit,A self-rated questionnaire which assesses sleep quality and disturbances over a one month time interval.,,False,False,False,False,False,False,False,False,False,False
+epwor6,Epworth sleeping scale: Sitting and talking to someone,"Geriatric Depression Scale, Short Form (GDS-SF) Do you feel full of energy?",,False,False,False,False,False,False,False,False,False,False
+epwor7,Epworth sleeping scale: Sitting quietly after lunch without alcohol,"Geriatric Depression Scale, Short Form (GDS-SF) Do you feel full of energy?",,False,False,False,False,False,False,False,False,False,False
+epwor8,"Epworth sleeping scale: In a car, while stopped for a few minutes in traffic","Geriatric Depression Scale, Short Form (GDS-SF) Do you often get bored?",,False,False,False,False,False,False,False,False,False,False
+iadl_a,IADL: Ability to use telephone,Alzheimer's Disease Cooperative Study-Activities of Daily Living Inventory (ADCS-ADL) Total score.,,False,False,False,False,False,False,False,False,False,False
+iadl_b,IADL: Shopping,"Functional Activities Questionnaire (FAQ) Shopping alone for clothes, household necessities, or groceries.",,False,False,False,False,False,False,False,False,False,False
+iadl_c,IADL: Food preparation,Functional Activities Questionnaire (FAQ) Preparing a balanced meal.,,False,False,False,False,False,False,False,False,False,False
+iadl_d,IADL: Housekeeping,Clinical Dementia Rating (CDR) Home and hobbies.,,False,False,False,False,False,False,False,False,False,False
+iadl_e,IADL: Laudry,Alzheimer's Disease Cooperative Study-Activities of Daily Living Inventory (ADCS-ADL) Total score.,,False,False,False,False,False,False,False,False,False,False
+iadl_f,IADL: Mode of transportation,"Functional Activities Questionnaire (FAQ) Traveling out of neighborhood, driving, arranging to take buses.",,False,False,False,False,False,False,False,False,False,False
+iadl_g,IADL: Responsibility for own medications,Alzheimer's Disease Cooperative Study-Activities of Daily Living Inventory (ADCS-ADL) Total score.,,False,False,False,False,False,False,False,False,False,False
+iadl_h,IADL: Ability to handle finances,"Functional Activities Questionnaire (FAQ) Writing checks, paying bills, balancing checkbook.",,False,False,False,False,False,False,False,False,False,False

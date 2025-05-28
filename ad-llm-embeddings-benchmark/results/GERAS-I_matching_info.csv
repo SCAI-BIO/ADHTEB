@@ -1,0 +1,20 @@
+cohort_variable,cohort_definition,matched_top_1_cdm_definition,matched_top_1_cdm_concept,in_top_1,in_top_2,in_top_3,in_top_4,in_top_5,in_top_6,in_top_7,in_top_8,in_top_9,in_top_10
+SUBJID,Subject Identifier,An alphanumeric identifier assigned to a specific patient.,SUBJID,True,True,True,True,True,True,True,True,True,True
+SEX,Code indicating sex,The assemblage of physical properties or qualities by which male is distinguished from female; the physical difference between male and female; the distinguishing peculiarity of male or female.,SEX,True,True,True,True,True,True,True,True,True,True
+ENTAGE,Age at study entry (years),The number of education years that a subject has competed.,EDCRN,False,False,False,False,False,False,False,False,False,False
+EDCRN,Years of formal education subject received,The number of education years that a subject has competed.,EDCRN,True,True,True,True,True,True,True,True,True,True
+LVACCLNM,Long-form variable for the patient's current living accommodation,A description of a personal residence and the relationship between the occupants that reside there.,LVACCLNM,True,True,True,True,True,True,True,True,True,True
+ALCSTLNM,Long-form variable for status of Alcohol use,"Consumption of liquids containing ethanol, including the behaviors associated with drinking the alcohol.",ALCSTLNM,True,True,True,True,True,True,True,True,True,True
+DISCDLNM,"Long-form variable for disease code for any selected diagnoses as the response to the question ""Does the subject/caregiver currently have any of the following diagnoses?""",Clinical Dementia Rating (CDR) Personal care.,,False,False,False,False,False,False,False,False,False,False
+FALLSFLG,"Flag variable for the answer to ""Has the subject had any falls since the last data collection (or in the last three months at the baseline observation)?""",A question about whether an individual has or had shortness of breath.,,False,False,False,False,False,False,False,False,False,False
+PSHYPRN,"Flag variable for a YES answer to any of the questions ""Is the subject currently taking any psychiatric/hypnotic treatments?/ Has the subject taken any psychiatric/hypnotic treatment since baseline?/ Has the subject taken any psychiatric/hypnotic treatment since the last visit?""",Modified Hachinski Ischemic Scale-NACC Version (MHIS-NACC) History or presence of hypertension.,,False,False,True,True,True,True,True,True,True,True
+CMNAME,"Treatment name; one of 
+Antidepressants
+Antipsychotics
+Anxiolytic
+Benzodiazepines
+Hypnotics and sedatives
+Mood stabilizer
+Other (CMNAME='Other' if rdcCMTRT_CCT_PHM=99)",Hospital Anxiety and Depression Scale (HADS) Total score depression.,,False,False,False,False,False,False,False,False,False,False
+MMSERN,"Indicator variable for MMSE Item correct response; if MMSE Item is Total Score, value ranges from 0-30",Mini-Mental State Examination (MMSE) Total score.,MMSERN,True,True,True,True,True,True,True,True,True,True
+NPIRN,NPI Item Result Numeric (See documentation in Other Resources in ADDI GERAS-EU dataset description),Neuropsychiatric Inventory (NPI) Total of (Frequency Sub-total) x (Severity Sub-total).,NPIRN,True,True,True,True,True,True,True,True,True,True

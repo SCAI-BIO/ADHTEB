@@ -1,0 +1,12 @@
+"Column_Name","Description","csv_name"
+"SUBJID","Subject Identifier","DEMOREL.csv"
+"SEX","Sex","DEMOREL.csv"
+"ENTAGE","Age at Study Entry","DEMOREL.csv"
+"RACE","Race","DEMOREL.csv"
+"ETHNIC","Ethnicity","DEMOREL.csv"
+"PSHYPRN","Any psychiatric/hypnotic
+treatments? (num)","CMTPY.csv"
+"CMNAME","Therapy Name","CMTPY.csv"
+"FAQRN","FAQ Item Result Numeric","FAQ.csv"
+"NPIRN","NPI Item Result Numeric","NPI.csv"
+"MMSERN","MMSE Item Result Numeric","MMSE.csv"
