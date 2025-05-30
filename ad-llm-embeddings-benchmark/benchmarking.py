@@ -77,6 +77,10 @@ class Benchmark:
         cdm_norms = np.linalg.norm(cdm_matrix, axis=1)
 
         for _, row in cohort_with_vectors.iterrows():
+            # if there is no corrsponding vector in the groundtruth, skip this row
+            if self.groundtruth[self.groundtruth[cohort_name] == row["Column_Name"]].empty:
+                total = total - 1
+                continue
             vector = row["vector"]
             v_norm = np.linalg.norm(vector)
             similarities = (cdm_matrix @ vector) / (cdm_norms * v_norm)
@@ -93,6 +97,8 @@ class Benchmark:
                     "cohort_variable": row["Column_Name"],
                     "cohort_definition": row["Description"],
                     "matched_top_1_cdm_definition": self.groundtruth.iloc[top_indices[0]]["Definition"],
+                    #"groundtruth_definition": self.groundtruth.loc[row["Column_Name"]]["Definition"],
+                    "matched_top_1_cdm_variable": self.groundtruth.iloc[top_indices[0]]["Feature"],
                     "matched_top_1_similarity": similarities[top_indices[0]],
                     **{f"in_top_{i + 1}": row["Column_Name"] in top_concepts[:i + 1] for i in range(n)}
                 })
@@ -101,7 +107,7 @@ class Benchmark:
 
         if self.debug:
             os.makedirs(self.debug_dest_dir, exist_ok=True)
-            pd.DataFrame(matching_info).to_csv(f"{self.debug_dest_dir}/{cohort_name}_matching_info.csv", index=False)
+            pd.DataFrame(matching_info).to_csv(f"{self.debug_dest_dir}/{self.vectorizer.model_name}_{cohort_name}_matching_info.csv", index=False)
 
         return cumulative_accuracies
 
