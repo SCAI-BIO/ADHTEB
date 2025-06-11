@@ -71,7 +71,7 @@ class Benchmark:
         """
         self.logger.info(f"Computing vectors for cohort from {cohort_file}...")
         cohort = pd.read_csv(cohort_file)
-        # FIXME: we have no definitions in the CDM for these rowsc in PREVENT Dementia -> skip them for now
+        # FIXME: we have no definitions in the CDM for these rows in PREVENT Dementia -> skip them for now
         if cohort_file == "data/PREVENT_DEMENTIA_dict.csv":
             rows_to_drop = ["medthyrp_act", "medthyrm", "Left_Hippocampus", "Right_Hippocampus", "smoker",
                             "smokern", "smokere"]
