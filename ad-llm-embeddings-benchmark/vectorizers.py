@@ -66,7 +66,7 @@ class OpenAIVectorizer(Vectorizer):
 
         try:
             response = self.client.embeddings.create(input=self.sanitize_text(text),
-            model=self.model)
+                                                     model=self.model)
             return response.data[0].embedding
 
         except Exception as e:
@@ -93,8 +93,8 @@ class GeminiVectorizer(Vectorizer):
             client = genai.Client(api_key="GEMINI_API_KEY")
 
             result = client.models.embed_content(
-                    model="gemini-embedding-exp-03-07",
-                    contents=self.sanitize_text(text))
+                model="gemini-embedding-exp-03-07",
+                contents=self.sanitize_text(text))
             return result
 
         except Exception as e:
@@ -105,6 +105,7 @@ class _HuggingFaceVectorizer(Vectorizer):
     """
     Shared base for HF models.
     """
+
     def __init__(self, model_name: str):
         self.model = SentenceTransformer(model_name)
 
@@ -113,40 +114,28 @@ class _HuggingFaceVectorizer(Vectorizer):
         return [float(x) for x in embedding]
 
 
-class LinqEmbedMistralVectorizer(_HuggingFaceVectorizer): 
+class LinqEmbedMistralVectorizer(_HuggingFaceVectorizer):
     """
     Linq-Embed-Mistral from Baichuan
     """
+
     def __init__(self):
         super().__init__("Linq-AI-Research/Linq-Embed-Mistral")
 
-class NVEmbedV2Vectorizer(_HuggingFaceVectorizer):
+
+class Qwen38BVectorizer(_HuggingFaceVectorizer):
     """
-    NV-Embed-v2 from NVIDIA (Mistral-7B based)
+    Qwen3, 2nd best performning model after gemini from MTEB
     """
+
     def __init__(self):
-        super().__init__("nvidia/nv-embed-v2")
+        super().__init__("Qwen/Qwen3-Embedding-8B")
 
 
-class NomicEmbedTextV15Vectorizer(_HuggingFaceVectorizer):
+class AllMiniLMVectorizer(_HuggingFaceVectorizer):
     """
-    Nomic-Embed-Text-v1.5
+    all-MiniLM-L6-v2 - most used vectorizer from HF
     """
+
     def __init__(self):
-        super().__init__("Nomic/embed-text-v1.5")
-
-
-class BGEEnICLVectorizer(_HuggingFaceVectorizer):
-    """
-    bge-en-icl from BAAI
-    """
-    def __init__(self):
-        super().__init__("BAAI/bge-en-icl")
-
-
-class StellaEn15BV5Vectorizer(_HuggingFaceVectorizer):
-    """
-    stella_en_1.5B_v5 (Alibaba-NLP/GTE-based)
-    """
-    def __init__(self):
-        super().__init__("dunzhang/stella_en_1.5B_v5")
+        super().__init__("sentence-transformers/all-MiniLM-L6-v2")
