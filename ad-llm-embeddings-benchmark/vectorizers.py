@@ -120,33 +120,9 @@ class LinqEmbedMistralVectorizer(_HuggingFaceVectorizer):
     def __init__(self):
         super().__init__("Linq-AI-Research/Linq-Embed-Mistral")
 
-class NVEmbedV2Vectorizer(_HuggingFaceVectorizer):
+class Qwen38BVectorizer(_HuggingFaceVectorizer):
     """
-    NV-Embed-v2 from NVIDIA (Mistral-7B based)
-    """
-    def __init__(self):
-        super().__init__("nvidia/nv-embed-v2")
-
-
-class NomicEmbedTextV15Vectorizer(_HuggingFaceVectorizer):
-    """
-    Nomic-Embed-Text-v1.5
+    Qwen3, 2nd best performning model after gemini from MTEB
     """
     def __init__(self):
-        super().__init__("Nomic/embed-text-v1.5")
-
-
-class BGEEnICLVectorizer(_HuggingFaceVectorizer):
-    """
-    bge-en-icl from BAAI
-    """
-    def __init__(self):
-        super().__init__("BAAI/bge-en-icl")
-
-
-class StellaEn15BV5Vectorizer(_HuggingFaceVectorizer):
-    """
-    stella_en_1.5B_v5 (Alibaba-NLP/GTE-based)
-    """
-    def __init__(self):
-        super().__init__("dunzhang/stella_en_1.5B_v5")
+        super().__init__("Qwen/Qwen3-Embedding-8B")
