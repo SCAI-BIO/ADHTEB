@@ -25,3 +25,5 @@ for vectorizer in vectorizers:
     benchmark = Benchmark(vectorizer=vectorizer)
     accuracies = benchmark.get_accuracies()
     print(f"Accuracies for {vectorizer.model_name}: {accuracies}")
+    precision_recall = benchmark.get_precision_recall()
+    print(f"Precision and Recall for {vectorizer.model_name}: {precision_recall}")
