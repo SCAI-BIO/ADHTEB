@@ -17,6 +17,7 @@ class ModelMetadata(BaseModel):
 class LeaderboardEntry(BaseModel):
     """Leaderboard entry for a model."""
     model: ModelMetadata
+    aggregate_score: float
     cohort_benchmarks: List[BenchmarkResult]
     
 def publish_entry(entry: LeaderboardEntry):
