@@ -1,7 +1,6 @@
 import logging
 import os
 from typing import Dict, List
-from warnings import deprecated
 
 import pandas as pd
 import numpy as np
@@ -11,7 +10,6 @@ from results import BenchmarkResult
 
 
 class Benchmark:
-    
     logger = logging.getLogger(__name__)
 
     def __init__(self,
@@ -36,7 +34,7 @@ class Benchmark:
         self.debug = debug
         self.debug_dest_dir = debug_dest_dir
         # tested text embedder
-        self.vectorizer  = vectorizer
+        self.vectorizer = vectorizer
         # common data model
         cdm = pd.read_csv("data/AD_CDM_JPAD.csv", na_values=[""])
         self.groundtruth = self._compute_groundtruth_vectors(cdm)
@@ -45,43 +43,175 @@ class Benchmark:
         self.geras_ii = self._compute_cohort_vectors("data/GERAS_II_dict.csv")
         self.geras_us = self._compute_cohort_vectors("data/GERAS_US_dict.csv")
         self.geras_j = self._compute_cohort_vectors("data/GERAS_J_dict.csv")
+        # other cohorts
         self.prevent_dementia = self._compute_cohort_vectors("data/PREVENT_DEMENTIA_dict.csv")
-        # other cohorts 
-        # TODO
+        #self.a4 = self._compute_cohort_vectors("data/A4_dict.csv")
+        self.aibl = self._compute_cohort_vectors("data/AIBL_dict.csv")
         # Result sets
-        results_geras: BenchmarkResult = None
-        results_adni: BenchmarkResult = None
-        results_abvib: BenchmarkResult = None
-        results_aibl: BenchmarkResult = None
-        results_a4: BenchmarkResult = None
-        
-    
+        self.results_prevent_dementia: BenchmarkResult = None  # n=37
+        self.results_geras: BenchmarkResult = None  # n=61
+        self.results_aibl: BenchmarkResult = None  # n=54
+        #self.results_a4: BenchmarkResult = None  # n=73
+
     def run(self) -> None:
         """
         Generate results sets for each cohort dataset for configured vectorizer.
         """
         self.logger.info("Benchmarking GERAS cohorts...")
         self.results_geras = self._benchmark_geras()
-        self.logger.info("Benchmarking completed.")
-
+        self.logger.info("Benchmarking PREVENT Dementia cohort...")
+        self.results_prevent_dementia = self._benchmark_cohort(
+            self.prevent_dementia, "PREVENT Dementia", self.n_bins)
+        self.logger.info("Benchmarking AIBL cohort...")
+        self.results_aibl = self._benchmark_cohort(self.aibl, "AIBL", self.n_bins)
+        self.logger.info("Benchmarking A4 cohort...")
+        #self.results_a4 = self._benchmark_cohort(self.a4, "A4", self.n_bins)
+        self.logger.info("Benchmarking completed for all cohorts.")
 
     def publish(self) -> None:
         """
-        Publish benchmark results 
+        Publish benchmark results to leaderboard.
         """
-
+        model_metadata = {
+            "name": self.vectorizer.model_name,
+            "description": self.vectorizer.description,
+            "url": self.vectorizer.url
+        }
 
     def _benchmark_geras(self) -> BenchmarkResult:
         """
-        Compute and combine benchmark results from all GERAS cohorts + PREVENT Dementia.
+        Compute and combine benchmark results from all GERAS cohorts.
         """
         cohort_label = "GERAS"
-        n_variables = len(self.geras_i) + len(self.geras_ii) + \
-                       len(self.geras_us) + len(self.geras_j) + len(self.prevent_dementia)  
-        top_n_accuracy = self.get_accuracies(n=20)  
-        return None
-        
+        n_variables = [len(self.geras_i), len(self.geras_ii),
+                       len(self.geras_us), len(self.geras_j), len(self.prevent_dementia)]
+        cohorts = [self.geras_i, self.geras_ii, self.geras_us, self.geras_j, self.prevent_dementia]
+        cohort_labels = ["GERAS-I", "GERAS-II", "GERAS-US", "GERAS-J", "PREVENT Dementia"]
 
+        total_tp = []
+        total_fp = []
+        total_fn = []
+
+        zero_shot_accuracies = []
+
+        for cohort, label in zip(cohorts, cohort_labels):
+            zero_shot_accuracy = self._get_accuracy(cohort, label, 1)[0]
+            zero_shot_accuracies.append(zero_shot_accuracy)
+
+            tp, fp, fn = self._compute_confusion_matrix(cohort, label, self.n_bins)
+
+            total_tp = tp if not total_tp else [x + y for x, y in zip(total_tp, tp)]
+            total_fp = fp if not total_fp else [x + y for x, y in zip(total_fp, fp)]
+            total_fn = fn if not total_fn else [x + y for x, y in zip(total_fn, fn)]
+
+        # calculate weighted averages (weighted by number of variables) of metrics for all cohorts
+        n_total = sum(n_variables)
+        precisions = [tp / (tp + fp) if (tp + fp) > 0 else 1.0 for tp, fp in zip(total_tp, total_fp)]
+        recalls = [tp / (tp + fn) if (tp + fn) > 0 else 0.0 for tp, fn in zip(total_tp, total_fn)]
+        zero_shot_accuracy = sum(zs * n for zs, n in zip(zero_shot_accuracies, n_variables)) / n_total
+
+        # create result set
+        results = BenchmarkResult(
+            cohort_label=cohort_label,
+            n_variables=n_total,
+            top_n_accuracy=[zero_shot_accuracy],
+            precisions=precisions,
+            recalls=recalls
+        )
+
+        return results
+
+    def _benchmark_cohort(self, cohort: pd.DataFrame, cohort_name: str, n_bins: int = 100) -> BenchmarkResult:
+        """
+        Compute benchmark result for a specific cohort.
+        
+        :param cohort: The cohort DataFrame containing vectors.
+        :param cohort_name: Name of the cohort column in CDM.
+        :param n_bins: Binning param to calculate similarity thresholds.
+        :return: BenchmarkResult containing precision, recall, and zero-shot accuracy.
+        """
+        self.logger.info(f"Benchmarking cohort {cohort_name}...")
+
+        # compute confusion matrix
+        tp, fp, fn = self._compute_confusion_matrix(cohort, cohort_name, n_bins)
+
+        # calculate precision and recall
+        precisions = [t / (t + f) if (t + f) > 0 else 1.0 for t, f in zip(tp, fp)]
+        recalls = [t / (t + f) if (t + f) > 0 else 0.0 for t, f in zip(tp, fn)]
+
+        # compute zero-shot accuracy
+        zero_shot_accuracy = self._get_accuracy(cohort, cohort_name, 1)[0]
+
+        # create result set
+        results = BenchmarkResult(
+            cohort_label=cohort_name,
+            n_variables=len(cohort),
+            top_n_accuracy=[zero_shot_accuracy],
+            precisions=precisions,
+            recalls=recalls
+        )
+
+        return results
+
+    def _compute_confusion_matrix(self, cohort: pd.DataFrame, cohort_name: str, n_bins: int = 100):
+        """
+        Computes precision and recall for a given cohort DataFrame.
+        
+        :param cohort: The cohort DataFrame containing vectors.
+        :param cohort_name: Name of the cohort column in CDM.
+        :param n_bins: Number of thresholds to evaluate between max and min similarity.
+        :return: number of TP, FP, FN
+        """
+        # initialize lists to store results
+        true_positives = []
+        false_positives = []
+        false_negatives = []
+
+        for i in range(n_bins):
+            # all vectors with similarity of at least this are considered positives
+            min_similarity = 1 - ((1 / n_bins) * i)
+
+            tp = 0
+            fp = 0
+            fn = 0
+
+            cdm_matrix = np.vstack(self.groundtruth["vector"].values)
+            cdm_norms = np.linalg.norm(cdm_matrix, axis=1)
+
+            for _, row in cohort.iterrows():
+                # if there is no corresponding vector in the groundtruth, skip this row
+                if self.groundtruth[self.groundtruth[cohort_name] == row["Column_Name"]].empty:
+                    self.logger.error(f"Skipping row {row['Column_Name']} in cohort {cohort_name} "
+                                      f"due to missing ground truth vector.")
+                    continue
+                vector = row["vector"]
+                v_norm = np.linalg.norm(vector)
+                similarities = (cdm_matrix @ vector) / (cdm_norms * v_norm)
+
+                # get indices of all vectors that are at least min_similarity
+                positive_indices = np.where(similarities >= min_similarity)[0]
+
+                # check if the current variable is in the positive indices
+                predicted_labels = self.groundtruth[cohort_name].values[positive_indices]
+                actual_label = row["Column_Name"]
+
+                # now: 
+                # - all labels that match the current variable count as true positives, can be more than one for upper
+                # level concepts
+                # - all labels that do not match the current variable count as false positives
+                # - if the current variable is not in the positive indices, it counts as a false negative
+                if actual_label in predicted_labels:
+                    tp += np.sum(predicted_labels == actual_label)
+                    fp += np.sum(predicted_labels != actual_label)
+                else:
+                    fn += 1
+
+            # append for current bin
+            true_positives.append(tp)
+            false_positives.append(fp)
+            false_negatives.append(fn)
+
+        return true_positives, false_positives, false_negatives
 
     def _compute_groundtruth_vectors(self, cdm: pd.DataFrame) -> pd.DataFrame:
         """
@@ -129,7 +259,6 @@ class Benchmark:
         cohort_with_vectors["vector"] = cohort_with_vectors["Description"].apply(self.vectorizer.get_embedding)
         return cohort_with_vectors
 
-    @deprecated
     def _get_accuracy(self, cohort: pd.DataFrame, cohort_name: str, n: int) -> List[float]:
         """
         Compute cumulative top-N accuracy list for a cohort.
@@ -183,100 +312,3 @@ class Benchmark:
                 f"{self.debug_dest_dir}/{self.vectorizer.model_name}_{cohort_name}_matching_info.csv", index=False)
 
         return cumulative_accuracies
-
-    @deprecated
-    def get_precision_recall(self, n_bins: int = 100) -> Dict[str, Dict[str, List[float]]]:
-        """
-        Get precision and recall curves for each cohort over a fixed range of
-        similarity thresholds.
-
-        :param n_bins: Number of thresholds to evaluate between max and min similarity.
-        :return: dict mapping cohort name to {'precision': [...], 'recall': [...]}.
-        """
-        results: Dict[str, Dict[str, List[float]]] = {}
-        cohort_labels = ["GERAS-I", "GERAS-US", "GERAS-J", "GERAS-II", "PREVENT Dementia"]
-        cohorts = [self.geras_i, self.geras_us, self.geras_j, self.geras_ii, self.prevent_dementia]
-
-        # precompute CDM embeddings matrix once
-        cdm_matrix = np.vstack(self.groundtruth["vector"].values)
-        cdm_norms = np.linalg.norm(cdm_matrix, axis=1)
-
-        for cohort_label, cohort in zip(cohort_labels, cohorts):
-            sims = []
-            gt_indices_list = []
-
-            for _, row in cohort.iterrows():
-                # compute similarities of this cohort vector to all CDM vectors
-                v = row["vector"]
-                v_norm = np.linalg.norm(v)
-                sim = (cdm_matrix @ v) / (cdm_norms * v_norm)
-                sims.append(sim)
-
-                # find _all_ indices in groundtruth that match this cohort variable
-                matches = np.where(self.groundtruth[cohort_label] == row["Column_Name"])[0]
-                if matches.size == 0:
-                    # no groundtruth: skip this row entirely
-                    continue
-                gt_indices_list.append(matches.tolist())
-
-            if not gt_indices_list:
-                raise ValueError(f"No groundtruth found for any row in cohort {cohort_label}")
-
-            sims = np.array(sims)  # shape = (n_cohort, n_cdm)
-            n_cohort, n_cdm = sims.shape
-
-            # flatten sims and build binary labels: 1 if (i,j) is any true match
-            sims_flat = sims.ravel()
-            labels = np.zeros_like(sims_flat, dtype=int)
-
-            total_positives = 0
-            for i, match_indices in enumerate(gt_indices_list):
-                total_positives += len(match_indices)
-                base = i * n_cdm
-                for idx in match_indices:
-                    labels[base + idx] = 1
-
-            # define thresholds between max and min similarity
-            max_sim, min_sim = sims_flat.max(), sims_flat.min()
-            thresholds = np.linspace(max_sim, min_sim, n_bins)
-
-            precision = []
-            recall = []
-
-            for t in thresholds:
-                preds = sims_flat >= t
-                TP = int((preds & (labels == 1)).sum())
-                FP = int((preds & (labels == 0)).sum())
-                FN = total_positives - TP
-
-                prec = TP / (TP + FP) if (TP + FP) > 0 else 1.0
-                rec = TP / (TP + FN) if (TP + FN) > 0 else 0.0
-
-                precision.append(prec)
-                recall.append(rec)
-
-            results[cohort_label] = {
-                "precision": precision,
-                "recall": recall,
-                "thresholds": thresholds.tolist()
-            }
-
-        return results
-
-    @deprecated
-    def get_accuracies(self, n: int = 20) -> Dict[str, List[float]]:
-        """
-        Get cumulative top-N accuracy lists for all cohorts.
-
-        :param n: Number of top matches to consider.
-        :return: Dictionary of cohort name → list of cumulative top-n accuracies.
-        """
-        results = {}
-        cohort_labels = ["GERAS-I", "GERAS-US", "GERAS-J", "GERAS-II", "PREVENT Dementia"]
-        cohorts = [self.geras_i, self.geras_us, self.geras_j, self.geras_ii, self.prevent_dementia]
-
-        for cohort_label, cohort in zip(cohort_labels, cohorts):
-            cumulative_accuracies = self._get_accuracy(cohort, cohort_label, n)
-            results[cohort_label] = cumulative_accuracies
-
-        return results

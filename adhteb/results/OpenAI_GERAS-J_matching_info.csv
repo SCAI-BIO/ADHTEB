@@ -1,0 +1,21 @@
+cohort_variable,cohort_definition,matched_top_1_cdm_definition,matched_top_1_cdm_variable,matched_top_1_similarity,in_top_1
+SUBJID,Subject Identifier for the Study,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4902565451433722,True
+SEX,Sex,The assemblage of physical properties or qualities by which male is distinguished from female; the physical difference between male and female; the distinguishing peculiarity of male or female.,Biological Sex,0.3934827967326753,True
+AGE,Age (years),The year in which a person was born.,Year of Birth,0.43362836940891014,False
+HGTCMB,Height (cm) at Baseline,Huntington's Disease Cognitive Assessment Battery (HD-CAB) Trail Making Test-B key variable for composite score: Time to completion (sec) of TMT Part B with upper time limit of 240 seconds (reverse scored).,Trail Making Test (TMT) B,0.32466980049758776,False
+WGTKGB,Weight (kg) at Baseline,An individual's weight in kilograms divided by the square of the height in meters.,BMI,0.4205913819443876,False
+BMIB,Body Mass Index (BMI) (kg/m2)  at Baseline,An individual's weight in kilograms divided by the square of the height in meters.,BMI,0.49389524999083406,True
+EDUC,Level of Education,The number of education years that a subject has competed.,Education,0.560262109299849,True
+MRTLST,Marital Status,A demographic parameter indicating a person's current conjugal status.,Marital Status,0.6641846811547413,True
+ALCO,Alcohol Consumption,"Consumption of liquids containing ethanol, including the behaviors associated with drinking the alcohol.",Alcohol,0.6423874777431559,True
+PCC01,Depression Diagnosis,Hospital Anxiety and Depression Scale (HADS) Total score depression.,Hospital Anxiety and Depression Scale (HADs) (Depression),0.47154540429045544,False
+PCC05,Stroke Diagnosis,A sudden loss of neurological function secondary to hemorrhage or ischemia in the brain parenchyma due to a vascular event.,Stroke,0.5061220227624401,True
+PCC11,Diabetes Mellitus Diagnosis,A metabolic disorder characterized by abnormally high blood sugar levels due to diminished production of insulin or insulin resistance/desensitization.,Diabetes,0.4217807350876255,True
+PCC15,Carcinoma Diagnosis,The determination of the amount of human epidermal growth factor receptor 2 present in a sample.,NEU Protein (HER2) in Plasma,0.3603748656647964,False
+PCC17,Urinary tract disorder Diagnosis,Medical history pertaining to the kidney,Renal,0.4424072893591778,False
+PCC21,Anxiety Diagnosis,"An instrument for measuring anxiety. It is designed to differentiate between temporary \state anxiety\ and general, long-standing \trait anxiety\. (Copyright Mind Garden, Inc.)",The State-Trait Anxiety Inventory (STAI),0.4766484199550108,False
+PCC23,Insomnia Diagnosis,A sleep disorder characterized by difficulty in falling asleep and/or remaining asleep.,Insomnia,0.5071345700175962,True
+FALLSYN,Any Falls,"A sudden movement downward, usually resulting in injury. [ NCI ]",Fall,0.4291638828932366,True
+MMSETOT,Mini-Mental State Examination (MMSE) Total Score,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.9465168556873554,True
+ADASTOT11,ADAS-Cog11 Total Score,Alzheimer's Disease Cooperative Study-Activities of Daily Living Inventory (ADCS-ADL) Total score.,Alzheimer's Disease Cooperative Study - Activities of Daily Living (ADCS_ADL),0.6944748260183915,False
+ADCSTOT,ADCS-ADL Total Score,Alzheimer's Disease Cooperative Study-Activities of Daily Living Inventory (ADCS-ADL) Total score.,Alzheimer's Disease Cooperative Study - Activities of Daily Living (ADCS_ADL),0.8166503398959523,True

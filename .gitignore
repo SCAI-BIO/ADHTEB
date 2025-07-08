@@ -4,3 +4,8 @@ data/GERAS_II_dict.csv
 data/GERAS_J_dict.csv
 data/GERAS_US_dict.csv
 data/PREVENT_DEMENTIA_dict.csv
+
+.idea
+
+__pycache__
+*.pyc

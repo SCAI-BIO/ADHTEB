@@ -34,18 +34,21 @@ class Vectorizer(ABC):
         - Optionally strip or lower-case text
         - Collapse multiple spaces
         """
+        try:
+            # Remove control characters and normalize line breaks
+            text = re.sub(r'[\r\n\t]+', ' ', text)
 
-        # Remove control characters and normalize line breaks
-        text = re.sub(r'[\r\n\t]+', ' ', text)
+            # Remove everything except common punctuation
+            text = re.sub(r'[^\w\s\.,!\?;:\'\"\-]', ' ', text)
 
-        # Remove everything except common punctuation
-        text = re.sub(r'[^\w\s\.,!\?;:\'\"\-]', ' ', text)
+            # Lowercase
+            text = text.lower()
 
-        # Lowercase
-        text = text.lower()
+            # Collapse extra whitespace
+            text = re.sub(r'\s+', ' ', text).strip()
 
-        # Collapse extra whitespace
-        text = re.sub(r'\s+', ' ', text).strip()
+        except Exception as e:
+            raise ValueError(f"Error sanitizing text {text}: {e}")
 
         return text
 

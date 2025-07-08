@@ -11,7 +11,6 @@ logger = logging.getLogger(__name__)
 class ModelMetadata(BaseModel):
     """Metadata for a model."""
     name: str
-    description: str
     url: str
     
 class LeaderboardEntry(BaseModel):

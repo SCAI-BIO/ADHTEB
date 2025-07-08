@@ -1,7 +1,7 @@
 # AD Text Embedding Benchmark 
 
 ## Zero Shot - Best Match Accuracy
-![Summary Table](ad-llm-embeddings-benchmark/plots/summary_table.png)
+![Summary Table](adhteb/plots/summary_table.png)
 
 ## Top-N Accuracies
 

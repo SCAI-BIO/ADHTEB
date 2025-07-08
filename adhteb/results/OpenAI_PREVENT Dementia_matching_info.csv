@@ -1,0 +1,24 @@
+cohort_variable,cohort_definition,matched_top_1_cdm_definition,matched_top_1_cdm_variable,matched_top_1_similarity,in_top_1
+subjectID,Subject ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4023776364952357,True
+apoe,APOE: genotype (hetorozygous/ homozygous),"Human APOE*4 allele is located in the vicinity of 19q13.2 and is approximately 4 kb in length. This allele, which encodes apolipoprotein E4, plays a role in triglyceride metabolism. The allele is associated with increased occurrence of both Alzheimer disease and coronary artery disease.",APOE Allele 1,0.5736800534954556,True
+apoe4,APOE4: at least one allele 4,"Human APOE*4 allele is located in the vicinity of 19q13.2 and is approximately 4 kb in length. This allele, which encodes apolipoprotein E4, plays a role in triglyceride metabolism. The allele is associated with increased occurrence of both Alzheimer disease and coronary artery disease.",APOE Allele 1,0.6793648094206549,False
+meddepr_act,"Medical history: Depression, Currently","Medical history of symptoms, physical examination results, and/or laboratory test results related to mental health.",Psychiatric,0.45582500990157887,False
+medpark_act,"Medical history: Parkinson's disease, Currently","A progressive degenerative disorder of the central nervous system characterized by loss of dopamine producing neurons in the substantia nigra and the presence of Lewy bodies in the substantia nigra and locus coeruleus. Signs and symptoms include tremor which is most pronounced during rest, muscle rigidity, slowing of the voluntary movements, a tendency to fall back, and a mask-like facial expression.",Parkinson’s Disease,0.4567938287959081,True
+meddiab_act,"Medical history: Diabetes mellitus, Currently",Medical history pertaining to the metabolic system,Metabolic,0.5928577149451952,False
+medanx_act,"Medical history: Anxiety disorder, Currently",Medical history pertaining to allergies or drug sensitivities,Allergies or Drug Sensitivities,0.4751825628834494,False
+medob_act,"Medical history: Obesity, Currently",Medical history pertaining to the metabolic system,Metabolic,0.5640966079269282,False
+medlip_act,"Medical history: Hyperlipidemia, Currently",Medical history pertaining to the metabolic system,Metabolic,0.5395128247363193,False
+medhear_act,"Medical history: Hearing disorder, Currently",Medical history pertaining to major surgical procedures,Major Surgical Procedures,0.45373455098391124,False
+medcancer1,Cancer: Treatment 1,Medical history pertaining to lymph,Lymphatic,0.3378866751296625,False
+phys_cardc,"Physical examination: Cardiovascular, Clinically significant",Medical history pertaining to the heart or blood vessels.,Cardiovascular,0.45408518161006967,True
+phys_respc,"Physical examination: Respiratory, Clinically significant",Medical history pertaining to respiration.,Respiratory,0.6018788971428988,True
+phys_gastrc,"Physical examination: Gastrointestinal, Clinically significant",Medical history pertaining to the stomach and intestines.,Gastrointestinal,0.5037001862221006,True
+risk_surg,Risk factors: Had surgery?,Medical history pertaining to major surgical procedures,Major Surgical Procedures,0.5680155805987589,True
+sex,Gender,The assemblage of physical properties or qualities by which male is distinguished from female; the physical difference between male and female; the distinguishing peculiarity of male or female.,Biological Sex,0.4058941566986436,True
+age,Age of participant,The year in which a person was born.,Year of Birth,0.38971354842538974,False
+race,Race of the participant,The number of education years that a subject has competed.,Education,0.34974647038921125,False
+ethnicity,Ethnicity of participant,A social group characterized by a distinctive social and cultural tradition that is maintained from generation to generation. Members share a common history and origin and a sense of identification with the group. They have similar and distinctive features in their lifestyle habits and shared experiences. They often have a common genetic heritage which may be reflected in their experience of health and disease.,Ethnicity,0.4082847207294312,True
+marital,Current marital status,A demographic parameter indicating a person's current conjugal status.,Marital Status,0.6852270206404875,True
+occup,Occupation title,A grouping of occupations and fields of study.,Profession,0.444095361431303,True
+druguse,Lifestyle interview: Drug use,Medical history pertaining to allergies or drug sensitivities,Allergies or Drug Sensitivities,0.4113501713440141,False
+alcohol,Lifestyle interview: Alcohol intake,"Consumption of liquids containing ethanol, including the behaviors associated with drinking the alcohol.",Alcohol,0.4629201073071471,True
