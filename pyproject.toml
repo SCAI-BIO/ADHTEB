@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "ad-llm-embeddings-benchmark"
+name = "ADHTEB"
 version = "0.1.0"
 description = "Benchmarking vectorizer performance on Alzheimer's disease concept definitions"
 authors = [
@@ -7,7 +7,7 @@ authors = [
 ]
 readme = "README.md"
 packages = [
-    { include = "ad-llm-embeddings-benchmark" }
+    { include = "adhteb" }
 ]
 
 [tool.poetry.dependencies]
@@ -20,4 +20,4 @@ google-genai = "^1.16.1"
 google-cloud-aiplatform = "^1.38"
 matplotlib = "^3.10.3"
 seaborn = "^0.13.2"
-pydantic = "^1.10"
+pydantic = "^2.0"
