@@ -1,11 +1,11 @@
 cohort_variable,cohort_definition,matched_top_1_cdm_definition,matched_top_1_cdm_variable,matched_top_1_similarity,in_top_1
-SUBJID,Subject Identifier,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5064745546334407,True
-SEX,Sex,The assemblage of physical properties or qualities by which male is distinguished from female; the physical difference between male and female; the distinguishing peculiarity of male or female.,Biological Sex,0.3934827967326753,True
+SUBJID,Subject Identifier,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5064831149056026,True
+SEX,Sex,The assemblage of physical properties or qualities by which male is distinguished from female; the physical difference between male and female; the distinguishing peculiarity of male or female.,Biological Sex,0.39344933751566435,True
 ENTAGE,Age at Study Entry,The number of education years that a subject has competed.,Education,0.39353513787380057,False
-RACE,Race,A geographic ancestral origin category that is assigned to a population group based mainly on physical characteristics that are thought to be distinct and inherent.,Race,0.28897687292188823,True
-ETHNIC,Ethnicity,A social group characterized by a distinctive social and cultural tradition that is maintained from generation to generation. Members share a common history and origin and a sense of identification with the group. They have similar and distinctive features in their lifestyle habits and shared experiences. They often have a common genetic heritage which may be reflected in their experience of health and disease.,Ethnicity,0.5178276594646487,True
+RACE,Race,A geographic ancestral origin category that is assigned to a population group based mainly on physical characteristics that are thought to be distinct and inherent.,Race,0.2890039405294149,True
+ETHNIC,Ethnicity,A social group characterized by a distinctive social and cultural tradition that is maintained from generation to generation. Members share a common history and origin and a sense of identification with the group. They have similar and distinctive features in their lifestyle habits and shared experiences. They often have a common genetic heritage which may be reflected in their experience of health and disease.,Ethnicity,0.5177137251482483,True
 PSHYPRN,"Any psychiatric/hypnotic
-treatments? (num)",Neuropsychiatric Inventory (NPI) Total of (Frequency Sub-total) x (Severity Sub-total).,Neuropsychiatric Inventory (NPI),0.35470158453431616,False
-FAQRN,FAQ Item Result Numeric,Functional Activities Questionnaire (FAQ) Total Score.,Functional Activities Questionnaire (FAQ),0.47303928475254364,True
-NPIRN,NPI Item Result Numeric,Neuropsychiatric Inventory (NPI) Total of (Frequency Sub-total) x (Severity Sub-total).,Neuropsychiatric Inventory (NPI),0.520102687972433,True
-MMSERN,MMSE Item Result Numeric,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.6052380986482079,True
+treatments? (num)",Neuropsychiatric Inventory (NPI) Total of (Frequency Sub-total) x (Severity Sub-total).,Neuropsychiatric Inventory (NPI),0.35467825917214174,False
+FAQRN,FAQ Item Result Numeric,Functional Activities Questionnaire (FAQ) Total Score.,Functional Activities Questionnaire (FAQ),0.47312219461693733,True
+NPIRN,NPI Item Result Numeric,Neuropsychiatric Inventory (NPI) Total of (Frequency Sub-total) x (Severity Sub-total).,Neuropsychiatric Inventory (NPI),0.5200573112421011,True
+MMSERN,MMSE Item Result Numeric,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.6052109823460612,True

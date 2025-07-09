@@ -1,10 +1,11 @@
 import logging
 import os
-from typing import Dict, List
+from typing import List
 
 import pandas as pd
 import numpy as np
 
+from adhteb.leaderboard import LeaderboardEntry, publish_entry
 from vectorizers import Vectorizer
 from results import BenchmarkResult
 
@@ -45,27 +46,33 @@ class Benchmark:
         self.geras_j = self._compute_cohort_vectors("data/GERAS_J_dict.csv")
         # other cohorts
         self.prevent_dementia = self._compute_cohort_vectors("data/PREVENT_DEMENTIA_dict.csv")
-        #self.a4 = self._compute_cohort_vectors("data/A4_dict.csv")
+        self.a4 = self._compute_cohort_vectors("data/A4_dict.csv")
         self.aibl = self._compute_cohort_vectors("data/AIBL_dict.csv")
         # Result sets
         self.results_prevent_dementia: BenchmarkResult = None  # n=37
         self.results_geras: BenchmarkResult = None  # n=61
         self.results_aibl: BenchmarkResult = None  # n=54
-        #self.results_a4: BenchmarkResult = None  # n=73
+        self.results_a4: BenchmarkResult = None  # n=73
 
     def run(self) -> None:
         """
         Generate results sets for each cohort dataset for configured vectorizer.
         """
         self.logger.info("Benchmarking GERAS cohorts...")
+        self.geras_i = self._drop_cohort_records_without_groundtruth(self.geras_i, "GERAS-I")
+        self.geras_ii = self._drop_cohort_records_without_groundtruth(self.geras_ii, "GERAS-II")
+        self.geras_us = self._drop_cohort_records_without_groundtruth(self.geras_us, "GERAS-US")
+        self.geras_j = self._drop_cohort_records_without_groundtruth(self.geras_j, "GERAS-J")
         self.results_geras = self._benchmark_geras()
         self.logger.info("Benchmarking PREVENT Dementia cohort...")
-        self.results_prevent_dementia = self._benchmark_cohort(
-            self.prevent_dementia, "PREVENT Dementia", self.n_bins)
+        self.prevent_dementia = self._drop_cohort_records_without_groundtruth(self.prevent_dementia, "PREVENT Dementia")
+        self.results_prevent_dementia = self._benchmark_cohort(self.prevent_dementia, "PREVENT Dementia", self.n_bins)
         self.logger.info("Benchmarking AIBL cohort...")
+        self.aibl = self._drop_cohort_records_without_groundtruth(self.aibl, "AIBL")
         self.results_aibl = self._benchmark_cohort(self.aibl, "AIBL", self.n_bins)
         self.logger.info("Benchmarking A4 cohort...")
-        #self.results_a4 = self._benchmark_cohort(self.a4, "A4", self.n_bins)
+        self.a4 = self._drop_cohort_records_without_groundtruth(self.a4, "A4")
+        self.results_a4 = self._benchmark_cohort(self.a4, "A4", self.n_bins)
         self.logger.info("Benchmarking completed for all cohorts.")
 
     def publish(self) -> None:
@@ -74,9 +81,34 @@ class Benchmark:
         """
         model_metadata = {
             "name": self.vectorizer.model_name,
-            "description": self.vectorizer.description,
-            "url": self.vectorizer.url
+            "url": None
         }
+        entry = LeaderboardEntry(
+            model=model_metadata,
+            cohort_benchmarks=[
+                self.results_geras,
+                self.results_prevent_dementia,
+                self.results_aibl,
+                self.results_a4
+            ]
+        )
+        self.logger.info("Publishing benchmark results to leaderboard...")
+        publish_entry(entry)
+
+    def _drop_cohort_records_without_groundtruth(self, cohort: pd.DataFrame, cohort_name: str) -> pd.DataFrame:
+        """
+        Drop records from the cohort that Column_Name does not exist in the ground truth for that cohort name.
+
+        :param cohort: The cohort DataFrame.
+        :param cohort_name: Name of the cohort column in CDM.
+        """
+        self.logger.debug(f"Dropping records without ground truth for cohort {cohort_name}...")
+        # filter out rows where Column_Name does not exist in the ground truth for the given cohort name
+        valid_rows = cohort[cohort["Column_Name"].isin(self.groundtruth[cohort_name])]
+        if len(valid_rows) < len(cohort):
+            self.logger.warning(f"Dropped {len(cohort) - len(valid_rows)} records from cohort {cohort_name} "
+                                f"due to missing ground truth vectors.")
+        return valid_rows
 
     def _benchmark_geras(self) -> BenchmarkResult:
         """
@@ -84,9 +116,9 @@ class Benchmark:
         """
         cohort_label = "GERAS"
         n_variables = [len(self.geras_i), len(self.geras_ii),
-                       len(self.geras_us), len(self.geras_j), len(self.prevent_dementia)]
-        cohorts = [self.geras_i, self.geras_ii, self.geras_us, self.geras_j, self.prevent_dementia]
-        cohort_labels = ["GERAS-I", "GERAS-II", "GERAS-US", "GERAS-J", "PREVENT Dementia"]
+                       len(self.geras_us), len(self.geras_j)]
+        cohorts = [self.geras_i, self.geras_ii, self.geras_us, self.geras_j]
+        cohort_labels = ["GERAS-I", "GERAS-II", "GERAS-US", "GERAS-J"]
 
         total_tp = []
         total_fp = []
@@ -136,8 +168,8 @@ class Benchmark:
         tp, fp, fn = self._compute_confusion_matrix(cohort, cohort_name, n_bins)
 
         # calculate precision and recall
-        precisions = [t / (t + f) if (t + f) > 0 else 1.0 for t, f in zip(tp, fp)]
-        recalls = [t / (t + f) if (t + f) > 0 else 0.0 for t, f in zip(tp, fn)]
+        precisions = [tp / (tp + fp) if (tp + fp) > 0 else 1.0 for tp, fp in zip(tp, fp)]
+        recalls = [tp / (tp + fn) if (tp + fn) > 0 else 0.0 for tp, fn in zip(tp, fn)]
 
         # compute zero-shot accuracy
         zero_shot_accuracy = self._get_accuracy(cohort, cohort_name, 1)[0]
@@ -250,6 +282,8 @@ class Benchmark:
         """
         self.logger.info(f"Computing vectors for cohort from {cohort_file}...")
         cohort = pd.read_csv(cohort_file)
+        # drop rows with invalid or empty descriptions
+        cohort = self._drop_cohort_records_without_descriptions(cohort)
         # FIXME: we have no definitions in the CDM for these rows in PREVENT Dementia -> skip them for now
         if cohort_file == "data/PREVENT_DEMENTIA_dict.csv":
             rows_to_drop = ["medthyrp_act", "medthyrm", "Left_Hippocampus", "Right_Hippocampus", "smoker",
@@ -258,6 +292,21 @@ class Benchmark:
         cohort_with_vectors = cohort.copy()
         cohort_with_vectors["vector"] = cohort_with_vectors["Description"].apply(self.vectorizer.get_embedding)
         return cohort_with_vectors
+
+    def _drop_cohort_records_without_descriptions(self, cohort: pd.DataFrame) -> pd.DataFrame:
+        """
+        Drop records from the cohort that do not have a description.
+
+        :param cohort: The cohort DataFrame.
+        :return: Filtered DataFrame with only records that have a description.
+        """
+        self.logger.debug("Dropping records without descriptions...")
+        # filter out rows where Description is NaN or empty
+        valid_rows = cohort[cohort["Description"].notna() & (cohort["Description"] != "")]
+        if len(valid_rows) < len(cohort):
+            self.logger.warning(f"Dropped {len(cohort) - len(valid_rows)} records from cohort "
+                                f"due to missing descriptions.")
+        return valid_rows
 
     def _get_accuracy(self, cohort: pd.DataFrame, cohort_name: str, n: int) -> List[float]:
         """
@@ -298,7 +347,6 @@ class Benchmark:
                     "cohort_variable": row["Column_Name"],
                     "cohort_definition": row["Description"],
                     "matched_top_1_cdm_definition": self.groundtruth.iloc[top_indices[0]]["Definition"],
-                    # "groundtruth_definition": self.groundtruth.loc[row["Column_Name"]]["Definition"],
                     "matched_top_1_cdm_variable": self.groundtruth.iloc[top_indices[0]]["Feature"],
                     "matched_top_1_similarity": similarities[top_indices[0]],
                     **{f"in_top_{i + 1}": row["Column_Name"] in top_concepts[:i + 1] for i in range(n)}

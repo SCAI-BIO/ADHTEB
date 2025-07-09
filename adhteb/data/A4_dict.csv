@@ -1,4 +1,4 @@
-"FLDNAME","TBLNAME","CRFNAME","Description","LENGTH","TYPE","CODE","NOTE","update_stamp"
+"Column_Name","TBLNAME","CRFNAME","Description","LENGTH","TYPE","CODE","NOTE","update_stamp"
 "BID","ADLPQ","ADCS ADL-Prevention Questionnaire for Participant","Blinded Participant ID","10","T","","","2018-11-27 11:12:55.0"
 "VISCODE","ADLPQ","ADCS ADL-Prevention Questionnaire for Participant","VISIT CODE","1","T","1=scv1;2=scv2;3=scv3;4=scv4;5=scv5","","2018-11-27 11:12:55.0"
 "DONE","ADLPQ","ADCS ADL-Prevention Questionnaire for Participant","Was assessment/procedure done?","3","N","1=Yes;0=No","","2018-11-27 11:12:55.0"

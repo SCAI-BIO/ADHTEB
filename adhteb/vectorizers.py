@@ -1,7 +1,7 @@
 from abc import ABC
-from calendar import c
 import re
 
+from google import genai
 from openai import OpenAI
 
 from sentence_transformers import SentenceTransformer
@@ -104,7 +104,7 @@ class GeminiVectorizer(Vectorizer):
             raise RuntimeError(f"Failed to get embedding: {e}")
 
 
-class _HuggingFaceVectorizer(Vectorizer):
+class HuggingFaceVectorizer(Vectorizer):
     """
     Shared base for HF models.
     """
@@ -117,7 +117,7 @@ class _HuggingFaceVectorizer(Vectorizer):
         return [float(x) for x in embedding]
 
 
-class LinqEmbedMistralVectorizer(_HuggingFaceVectorizer):
+class LinqEmbedMistralVectorizer(HuggingFaceVectorizer):
     """
     Linq-Embed-Mistral from Baichuan
     """
@@ -126,7 +126,7 @@ class LinqEmbedMistralVectorizer(_HuggingFaceVectorizer):
         super().__init__("Linq-AI-Research/Linq-Embed-Mistral")
 
 
-class Qwen38BVectorizer(_HuggingFaceVectorizer):
+class Qwen38BVectorizer(HuggingFaceVectorizer):
     """
     Qwen3, 2nd best performning model after gemini from MTEB
     """
@@ -135,7 +135,7 @@ class Qwen38BVectorizer(_HuggingFaceVectorizer):
         super().__init__("Qwen/Qwen3-Embedding-8B")
 
 
-class AllMiniLMVectorizer(_HuggingFaceVectorizer):
+class AllMiniLMVectorizer(HuggingFaceVectorizer):
     """
     all-MiniLM-L6-v2 - most used vectorizer from HF
     """

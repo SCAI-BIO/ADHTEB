@@ -1,0 +1,77 @@
+cohort_variable,cohort_definition,matched_top_1_cdm_definition,matched_top_1_cdm_variable,matched_top_1_similarity,in_top_1
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+ASSCORE,Total Score,Functional Activities Questionnaire (FAQ) Total Score.,Functional Activities Questionnaire (FAQ),0.5306969891749128,False
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+MEMORY,Memory Score,Clinical Dementia Rating (CDR) Memory.,CDR - Memory,0.5913095689247931,True
+ORIENT,Orientation Score,Clinical Dementia Rating (CDR) Orientation.,CDR - Orientation,0.4808319831221108,True
+JUDGE,Judgment and Problem Solving Score,Clinical Dementia Rating (CDR) Judgment and problem solving.,CDR - Judgment and Problem Solving Score,0.6765065297701381,True
+COMMUN,Community Affairs Score,Clinical Dementia Rating (CDR) Community affairs.,CDR - Community Affairs,0.5354902521267904,True
+HOME,Home and Hobbies Score,Clinical Dementia Rating (CDR) Home and hobbies.,CDR - Home and Hobbies,0.5979135016715192,True
+CARE,Personal Care Score,Clinical Dementia Rating (CDR) Personal care.,CDR - Personal Care,0.6216378858455718,True
+CDSOB,Sum of Boxes (system populated),Clinical Dementia Rating (CDR) Sum of Boxes.,Clinical Dementia Rating Scale Sum of Boxes (CDRSB),0.47182034481074797,True
+CDGLOBAL,Global CDR (system populated),Clinical Dementia Rating (CDR) Community affairs.,CDR - Community Affairs,0.4660035514922144,False
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.412981158817064,True
+MEMORY,"1. Compared to one year ago, do you feel that your memory has declined substantially?","Geriatric Depression Scale, Short Form (GDS-SF) Do you feel you have more problems with memory than most?",GDS-SF - More Memory Problems Than Most,0.627259084132864,False
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.41289223450744683,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+ALCOHOL,Average number of alcoholic drinks consumed per day:,"Consumption of liquids containing ethanol, including the behaviors associated with drinking the alcohol.",Alcohol,0.40841825154052414,True
+SUBUSE,Has the participant used other substances (e.g. non-pharmacologic substances such as medical marijuana)?,Medical history pertaining to allergies or drug sensitivities,Allergies or Drug Sensitivities,0.41139626111563676,False
+AEROBIC,"Average number of hours of aerobic exercise (i.e. jogging, swimming, bicycling) PER WEEK:","Any form of exercise or movement. Physical activity may include planned activity such as walking, running, basketball, or other sports. Physical activity may also include other daily activities such as household chores, yard work, walking the dog, etc.",Activity,0.2769510382178266,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+IHSYMPTOM,System/Category,A grouping of occupations and fields of study.,Profession,0.3302364564974348,False
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+MMSCORE,MMSE TOTAL SCORE,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.8075385805841928,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.41276592814024726,True
+PXCARD,Cardiac,Medical history pertaining to the heart or blood vessels.,Cardiovascular,0.44434253696464077,False
+PXMUSCUL,Musculoskeletal,"Pain that originates in the bones, muscles, tendons or ligaments.",Musculoskeletal Pain,0.5094535043377959,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+GDSATIS,1. Are you basically satisfied with your life?,"Geriatric Depression Scale, Short Form (GDS-SF) Are you basically satisfied with your life?",GDS-SF - Basically Satisfied With Life,0.6271545399578943,True
+GDDROP,2. Have you dropped many of your activities and interests?,"Geriatric Depression Scale, Short Form (GDS-SF) Have you dropped many of your activities and interests?",GDS-SF - Dropped Activities and Interests,0.6576642591978282,True
+GDEMPTY,3. Do you feel that your life is empty?,"Geriatric Depression Scale, Short Form (GDS-SF) Do you feel that your life is empty?",GDS-SF - Feel Life Is Empty,0.6588219485815151,True
+GDBORED,4. Do you often get bored?,"Geriatric Depression Scale, Short Form (GDS-SF) Do you often get bored?",GDS-SF - Often Get Bored,0.6333654492848139,True
+GDSPIRIT,5. Are you in good spirits most of the time?,"Geriatric Depression Scale, Short Form (GDS-SF) Are you in good spirits most of the time?",GDS-SF - Good Spirits Most of Time,0.6380646175644089,True
+GDAFRAID,6. Are you afraid that something bad is going to happen to you?,"Geriatric Depression Scale, Short Form (GDS-SF) Are you afraid that something bad is going to happen to you?",GDS-SF - Afraid of Something Bad Happening,0.6350193279260957,True
+GDHAPPY,7. Do you feel happy most of the time?,"Geriatric Depression Scale, Short Form (GDS-SF) Do you feel happy most of the time?",GDS-SF - Feel Happy Most of Time,0.6238675067032299,True
+GDHELP,8. Do you often feel helpless?,"Geriatric Depression Scale, Short Form (GDS-SF) Do you often feel helpless?",GDS-SF - Often Feel Helpless,0.6866849152200252,True
+GDHOME,"9. Do you prefer to stay at home, rather than going out and doing new things?","Geriatric Depression Scale, Short Form (GDS-SF) Do you prefer to stay at home, rather than going out and doing new things?",GDS-SF - Prefer to Stay Home,0.6265017046564328,True
+GDMEMORY,10. Do you feel you have more problems with memory than most?,"Geriatric Depression Scale, Short Form (GDS-SF) Do you feel you have more problems with memory than most?",GDS-SF - More Memory Problems Than Most,0.6908051246345019,True
+GDALIVE,11. Do you think its wonderful to be alive now?,"Geriatric Depression Scale, Short Form (GDS-SF) Do you think it is wonderful to be alive now?",GDS-SF - Think Wonderful to Be Alive,0.649011600001315,True
+GDWORTH,12. Do you feel pretty worthless the way you are now?,"Geriatric Depression Scale, Short Form (GDS-SF) Do you feel pretty worthless the way you are now?",GDS-SF - Feel Worthless,0.6971732115000048,True
+GDENERGY,13. Do you feel full of energy?,"Geriatric Depression Scale, Short Form (GDS-SF) Do you feel full of energy?",GDS-SF - Feel Full of Energy,0.6364008699892967,True
+GDHOPE,14. Do you feel that your situation is hopeless?,"Geriatric Depression Scale, Short Form (GDS-SF) Do you feel that your situation is hopeless?",GDS-SF - Feel Situation is Hopeless,0.6751603265304967,True
+GDBETTER,15. Do you think that most people are better off than you are?,"Geriatric Depression Scale, Short Form (GDS-SF) Do you think that most people are better off than you are?",GDS-SF - Think Most People Better Off Than You,0.6916850704553886,True
+GDTOTAL,Total Score,Functional Activities Questionnaire (FAQ) Total Score.,Functional Activities Questionnaire (FAQ),0.5306304220176576,False
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+PTGENDER,Gender,The assemblage of physical properties or qualities by which male is distinguished from female; the physical difference between male and female; the distinguishing peculiarity of male or female.,Biological Sex,0.4059002983784367,True
+PTAGE,Age at Screening Visit,Geriatric Depression Scale Short Form total score.,Geriatric Depression Scale (GDS),0.3545516832934074,False
+PTETHNIC,Ethnic Category,A geographic ancestral origin category that is assigned to a population group based mainly on physical characteristics that are thought to be distinct and inherent.,Race,0.5035454766683247,False
+PTRACE,Racial Categories,A geographic ancestral origin category that is assigned to a population group based mainly on physical characteristics that are thought to be distinct and inherent.,Race,0.5478989158378142,True
+PTEDUCAT,Education (years),The number of education years that a subject has competed.,Education,0.5705086231362716,True
+PTMARRY,Marital Status,A demographic parameter indicating a person's current conjugal status.,Marital Status,0.6642108003259619,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.41287066588413934,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.412981158817064,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+VSWEIGHT,1a. Weight,An individual's weight in kilograms divided by the square of the height in meters.,BMI,0.4112728883618687,False
+VSHEIGHT,2a. Height,The vertical measurement or distance from the base to the top of an object; the vertical dimension of extension.,Height,0.4398905760482064,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.412981158817064,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+suvr_cer,Standard uptake value ratio (blcere_all),Right-UnsegmentedWhiteMatter-from_Qdec_wmparc.volume.stats_file,Right-UnsegmentedWhiteMatter-from Qdec Wmparc,0.4100497408556175,False
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4128597717563373,True
+BID,Subject Identifier,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5064831149056026,True
+AGEYR,Age in Years at Consent,The year in which a person was born.,Year of Birth,0.3810894360091401,True
+APOEGN,ApoE4 Genotype,"Human APOE*4 allele is located in the vicinity of 19q13.2 and is approximately 4 kb in length. This allele, which encodes apolipoprotein E4, plays a role in triglyceride metabolism. The allele is associated with increased occurrence of both Alzheimer disease and coronary artery disease.",APOE,0.6618809628144168,True
+BID,Subject Identifier,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5064831149056026,True
