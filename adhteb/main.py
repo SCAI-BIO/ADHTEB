@@ -32,3 +32,4 @@ for vectorizer in vectorizers:
     benchmark.results_prevent_dementia.save_pr_curve()
     benchmark.results_aibl.save_pr_curve()
     benchmark.results_a4.save_pr_curve()
+    print(benchmark.aggregate_score())

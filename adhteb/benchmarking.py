@@ -75,6 +75,29 @@ class Benchmark:
         self.results_a4 = self._benchmark_cohort(self.a4, "A4", self.n_bins)
         self.logger.info("Benchmarking completed for all cohorts.")
 
+    def aggregate_score(self) -> float:
+        """
+        Computes a aggregated score for all cohorts based on their AUC values and zero-shot accuracies, weighted by the
+        number of variables per cohort.
+
+        :return: Composite score as a float.
+        """
+        if not all([self.results_geras, self.results_prevent_dementia, self.results_aibl, self.results_a4]):
+            raise ValueError("Benchmark results for all cohorts must be computed before aggregating score.")
+
+        total_score = 0.0
+        total_n_variables = 0
+
+        for results in [self.results_geras, self.results_prevent_dementia, self.results_aibl, self.results_a4]:
+            auc = results.auc
+            n_variables = results.n_variables
+            zero_shot_accuracy = results.top_n_accuracy[0]
+            score = ((0.5 * auc) + (0.5 * zero_shot_accuracy)) * n_variables
+            total_score += score
+            total_n_variables += n_variables
+
+        return total_score / total_n_variables
+
     def publish(self) -> None:
         """
         Publish benchmark results to leaderboard.
@@ -108,6 +131,8 @@ class Benchmark:
         if len(valid_rows) < len(cohort):
             self.logger.warning(f"Dropped {len(cohort) - len(valid_rows)} records from cohort {cohort_name} "
                                 f"due to missing ground truth vectors.")
+            dropped_rows = cohort[~cohort["Column_Name"].isin(self.groundtruth[cohort_name])]
+            self.logger.debug(f'The dropped records were: {dropped_rows}')
         return valid_rows
 
     def _benchmark_geras(self) -> BenchmarkResult:
@@ -284,11 +309,6 @@ class Benchmark:
         cohort = pd.read_csv(cohort_file)
         # drop rows with invalid or empty descriptions
         cohort = self._drop_cohort_records_without_descriptions(cohort)
-        # FIXME: we have no definitions in the CDM for these rows in PREVENT Dementia -> skip them for now
-        if cohort_file == "data/PREVENT_DEMENTIA_dict.csv":
-            rows_to_drop = ["medthyrp_act", "medthyrm", "Left_Hippocampus", "Right_Hippocampus", "smoker",
-                            "smokern", "smokere"]
-            cohort = cohort[~cohort["Column_Name"].isin(rows_to_drop)]
         cohort_with_vectors = cohort.copy()
         cohort_with_vectors["vector"] = cohort_with_vectors["Description"].apply(self.vectorizer.get_embedding)
         return cohort_with_vectors
@@ -306,6 +326,8 @@ class Benchmark:
         if len(valid_rows) < len(cohort):
             self.logger.warning(f"Dropped {len(cohort) - len(valid_rows)} records from cohort "
                                 f"due to missing descriptions.")
+            dropped_rows = cohort[~cohort["Description"].notna() | (cohort["Description"] == "")]
+            self.logger.debug(f'The dropped records were: {dropped_rows}')
         return valid_rows
 
     def _get_accuracy(self, cohort: pd.DataFrame, cohort_name: str, n: int) -> List[float]:

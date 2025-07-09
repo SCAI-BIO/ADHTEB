@@ -3,7 +3,7 @@ SUBJID,Subject Identifier,An alphanumeric identifier assigned to a specific pati
 SEX,Sex,The assemblage of physical properties or qualities by which male is distinguished from female; the physical difference between male and female; the distinguishing peculiarity of male or female.,Biological Sex,0.39344933751566435,True
 ENTAGE,Age at Study Entry,The number of education years that a subject has competed.,Education,0.39353513787380057,False
 FALLSFLG,Falls Flag,"A sudden movement downward, usually resulting in injury. [ NCI ]",Fall,0.36058758871292274,True
-PSHYPRN,Any psychiatric/hypnotic treatments? (num),Neuropsychiatric Inventory (NPI) Total of (Frequency Sub-total) x (Severity Sub-total).,Neuropsychiatric Inventory (NPI),0.35467825917214174,False
-URINFLG,Urinary Tract Disorder Medication Flag,Medical history pertaining to the genital and urinary organs or their functions.,Genitourinary,0.35797586288406485,True
+PSHYPRN,Any psychiatric/hypnotic treatments? (num),Neuropsychiatric Inventory (NPI) Total of (Frequency Sub-total) x (Severity Sub-total).,Neuropsychiatric Inventory (NPI),0.35467133174003623,False
+URINFLG,Urinary Tract Disorder Medication Flag,Medical history pertaining to the genital and urinary organs or their functions.,Genitourinary,0.35801246620497507,True
 MMSERN,MMSE Item Result Numeric,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.6052109823460612,True
-NPIRN,NPI Item Result Numeric,Neuropsychiatric Inventory (NPI) Total of (Frequency Sub-total) x (Severity Sub-total).,Neuropsychiatric Inventory (NPI),0.5200573112421011,True
+NPIRN,NPI Item Result Numeric,Neuropsychiatric Inventory (NPI) Total of (Frequency Sub-total) x (Severity Sub-total).,Neuropsychiatric Inventory (NPI),0.5199374086722276,True
