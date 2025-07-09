@@ -15,6 +15,10 @@ class BenchmarkResult(BaseModel):
     precisions: List[float]
     recalls: List[float]
 
+    model_config = {
+        "frozen": True
+    }
+
     @property
     def auc(self) -> float:
         """
@@ -88,5 +92,3 @@ class BenchmarkResult(BaseModel):
             f"auc={self.auc: .4f})"
         )
 
-    class Config:
-        allow_mutation = False
