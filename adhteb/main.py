@@ -25,3 +25,4 @@ for vectorizer in vectorizers:
     benchmark = Benchmark(vectorizer=vectorizer)
     benchmark.run()
     print(benchmark.results_summary())
+    benchmark.publish()

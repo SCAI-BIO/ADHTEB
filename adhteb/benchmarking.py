@@ -85,10 +85,10 @@ class Benchmark:
             raise ValueError("Benchmark results for all cohorts must be computed before generating summary.")
 
         summary_data = {
-            "GERAS": [self.results_geras.auprc, self.results_geras.top_n_accuracy[0]],
-            "PREVENT Dementia": [self.results_prevent_dementia.auprc, self.results_prevent_dementia.top_n_accuracy[0]],
-            "AIBL": [self.results_aibl.auprc, self.results_aibl.top_n_accuracy[0]],
-            "A4": [self.results_a4.auprc, self.results_a4.top_n_accuracy[0]],
+            "GERAS": [self.results_geras.auc, self.results_geras.top_n_accuracy[0]],
+            "PREVENT Dementia": [self.results_prevent_dementia.auc, self.results_prevent_dementia.top_n_accuracy[0]],
+            "AIBL": [self.results_aibl.auc, self.results_aibl.top_n_accuracy[0]],
+            "A4": [self.results_a4.auc, self.results_a4.top_n_accuracy[0]],
         }
         summary_df = pd.DataFrame(summary_data, index=["AUPRC", "Zero-shot Accuracy"])
 
@@ -125,7 +125,7 @@ class Benchmark:
         """
         model_metadata = {
             "name": self.vectorizer.model_name,
-            "url": None
+            "url": ""
         }
         entry = LeaderboardEntry(
             model=model_metadata,
