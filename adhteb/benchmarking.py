@@ -4,6 +4,7 @@ from typing import List
 
 import pandas as pd
 import numpy as np
+from tabulate import tabulate
 
 from adhteb.leaderboard import LeaderboardEntry, publish_entry
 from vectorizers import Vectorizer
@@ -74,6 +75,26 @@ class Benchmark:
         self.a4 = self._drop_cohort_records_without_groundtruth(self.a4, "A4")
         self.results_a4 = self._benchmark_cohort(self.a4, "A4", self.n_bins)
         self.logger.info("Benchmarking completed for all cohorts.")
+
+    def results_summary(self) -> str:
+        """
+        Generates a summary of the benchmark results for all cohorts.
+        Stores AUPRC and zero-shot accuracy in a DataFrame and pretty prints the results.
+        """
+        if not all([self.results_geras, self.results_prevent_dementia, self.results_aibl, self.results_a4]):
+            raise ValueError("Benchmark results for all cohorts must be computed before generating summary.")
+
+        summary_data = {
+            "GERAS": [self.results_geras.auprc, self.results_geras.top_n_accuracy[0]],
+            "PREVENT Dementia": [self.results_prevent_dementia.auprc, self.results_prevent_dementia.top_n_accuracy[0]],
+            "AIBL": [self.results_aibl.auprc, self.results_aibl.top_n_accuracy[0]],
+            "A4": [self.results_a4.auprc, self.results_a4.top_n_accuracy[0]],
+        }
+        summary_df = pd.DataFrame(summary_data, index=["AUPRC", "Zero-shot Accuracy"])
+
+        aggregate_score = self.aggregate_score()
+
+        return f"{tabulate(summary_df, headers='keys', tablefmt='pretty')}\nAggregate Score: {aggregate_score:.4f}"
 
     def aggregate_score(self) -> float:
         """
