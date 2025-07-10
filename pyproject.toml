@@ -3,7 +3,8 @@ name = "ADHTEB"
 version = "0.1.0"
 description = "Benchmarking vectorizer performance on Alzheimer's disease concept definitions"
 authors = [
-    "Tim Adams <tim.adams@scai.fraunhofer.de>"
+    "Tim Adams <tim.adams@scai.fraunhofer.de>",
+    "Mehmet Can Ay <mehmet.ay@scai.fraunhofer.de>",
 ]
 readme = "README.md"
 packages = [
