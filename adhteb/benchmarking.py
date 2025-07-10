@@ -80,8 +80,15 @@ class Benchmark:
         """
         Generates a summary of the benchmark results for all cohorts.
         Stores AUPRC and zero-shot accuracy in a DataFrame and pretty prints the results.
+        Results are rounded to 2 decimal places and the DataFrame is transposed so that
+        cohorts are rows and metrics are columns.
         """
-        if not all([self.results_geras, self.results_prevent_dementia, self.results_aibl, self.results_a4]):
+        if not all([
+            self.results_geras,
+            self.results_prevent_dementia,
+            self.results_aibl,
+            self.results_a4
+        ]):
             raise ValueError("Benchmark results for all cohorts must be computed before generating summary.")
 
         summary_data = {
@@ -90,7 +97,9 @@ class Benchmark:
             "AIBL": [self.results_aibl.auc, self.results_aibl.top_n_accuracy[0]],
             "A4": [self.results_a4.auc, self.results_a4.top_n_accuracy[0]],
         }
-        summary_df = pd.DataFrame(summary_data, index=["AUPRC", "Zero-shot Accuracy"])
+
+        summary_df = pd.DataFrame(summary_data, index=["AUPRC", "Zero-shot Accuracy"]).T
+        summary_df = summary_df.round(2)
 
         aggregate_score = self.aggregate_score()
 
