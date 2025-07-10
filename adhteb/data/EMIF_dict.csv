@@ -1,0 +1,124 @@
+Variable,Description,Type,Units,Range,Missing,Coding,Comment
+SubjectId,Clinical SubjectID,String,,,,,
+Fu,Indication of follow-up,Numeric,,0-5,,"0=baseline, 1=first follow-up etc.",
+VisitTime,Time of visit since baseline,String,,Baseline - Month 96,,,
+Studyname,Name of study,String,,,,,
+Study,Study coded as number,Numeric,,1-11,,"1=Amsterdam, 2=Antwerp, 3=DESCRIPA, 4=EDAR, 5=GAP, 6=Gothenburg, 7=IDIBAPS, 8=Lausanne, 9=Leuven, 10=Pharmacog, 11=St Pau",
+Center,Name of center,String,,,,,
+Eduy,Years of education,Numeric,Years,0-24,,,
+Eduy_IMP,Years of education with imputed values for missings,Numeric,Years,0-24,,,Values were imputed using regression analyses per cohort
+Age,Age when assessed,Numeric,Years,45-94,,,
+Gender,Gender,Numeric,,0-1,,"0=Male, 1=Female",
+Diagnosis,Clinical diagnosis,String,,,No value,"NL = normal (Control), SCI = Subjective Cognitive Impairment, MCI = Mild Cognitive Impairment, AD=Alzheimer's disease type dementia",
+Diag_num,Clinical diagnosis as number,Numeric,,1-6,No value,"1=NL, 2=SCI, 3=MCI, 4=AD, 5=Other dementia, 6=Other diagnosis",
+BL_Diaggroups,Diagnosis groups at baseline coded as number,Numeric,,1-3,,"1=Cognitively normal (NL + Subjective Cognitive Impairment), 2=MCI, 3=AD-type dementia",Both NL and SCI subjects were coded as 1 in this variable
+AMYLOIDstatus,Dichotomous amyloid variable,Numeric,,0-1,,"0=normal, 1=abnormal","Based on 42/40 ratio from central analyses, amyloid PET or local ab 42. Variable abmethod specifies which method is used"
+ABmethod,Method of defining amyloidstatus,Numeric,,1-3,,"1=central 42/40 ratio, 2=amyloid PET, 3=local ab42 with local cut-off",
+MMSE,Mini Mental State Examination,Numeric,Score,0-30,No value,,
+DateMMSE,Relative date of MMSE assessment since baseline clinical visit or neuropsych exam,Numeric,Years, -1.48 - 8.04,No value,,Years since baseline visit
+DateBloodCollection,Relative date of Blood collection in years since baseline clinical visit or neuropsych exam,Numeric,Years, -2.8 - 4.43,No value,,Years since baseline visit
+DateCSFCollection,Relative date of CSF collection in years since baseline clinical visit or neuropsych exam,Numeric,Years, -2.8 - 4.43,No value,,Years since baseline visit
+DateMRI,Relative date of MRI assessment in years since baseline clinical visit or neuropsych exam,Numeric,Years, -8.74 - 10.55,No value,,Years since baseline visit
+DatePET,Relative date of PET assessment in years since baseline clinical visit or neuropsych exam,Numeric,Years,0,No value,,Years since baseline visit
+DateofNeuropsychExam,Relative date of Neuropsych assessment in years since baseline clinical visit or neuropsych exam,Numeric,Years, -0.98 - 8.03,No value,,Years since baseline visit
+FU_available,Follow-up available ,Numeric,,0-1,No value,"0=no follow-up available, 1=follow-up available",
+LastFU,Variable that indicates the last follow-up,Numeric,,1,No value,1= last Follow-up,
+LastFU_Date,Relative date of last Follow-up in years since baseline visit,Numeric,, 0 - 8.04,No value,,
+LastFU_Diagnosis,Diagnosis at last Follow-up,String,,,No value,"NL = normal (Control), SCI = Subjective Cognitive Impairment, MCI = Mild Cognitive Impairment, AD=Alzheimer's disease type dementia, AD+LBD = mixed AD and Lewy Body Dementia",
+LastFU_MMSE,MMSE at last Follow-up,Numeric,Score,0-30,No value,,
+MCI_Convert,Baseline MCI converter,Numeric,,0-1,No value,"0=non-converter, 1=converter",Converter is specified as a diagnosis of dementia (AD or other dementia) at last follow-up or a decrease of 3 points on MMSE
+CTR_Convert,Baseline CTR (NL + SCI) converter,Numeric,,0-1,No value,"0=non-converter, 1=converter",Converter is specified as a diagnosis of MCI/Dementia (AD or other dementia) at last follow-up or a decrease of 3 points on MMSE
+Plasma_ID,ID of plasma sample,String,,,No value,,
+DNA_ID,ID of DNA sample,String,,,No value,,
+MRI_ID,MRI ID,String,,,No value,,
+CSF_ID,ID of CSF sample,String,,,No value,,
+Local_AB42,CSF AB 42 value of local assessment,Numeric,pg/ml,10.3 - 1584.0,No value,,
+Local_AB42,Dichotomous CSF AB42 of local assessment,Numeric,,0-1,No value,"0=normal, 1=abnormal",
+Local_AB42_Cutoff,Local cut-off of CSF AB42 assessment,String,,,No value,,
+Local_Ptau,CSF ptau value of local assessment,Numeric,pg/ml,5.19 - 282.0,No value,,
+Local_Ptau_Abnormal,Dichotomous CSF ptau of local assessment,Numeric,,0-1,No value,"0=normal, 1=abnormal",
+Local_Ptau_Cutoff,Local cut-off of CSF ptau assessment,String,,,No value,,
+Local_Ttau,CSF ttau value of local assessment,Numeric,pg/ml,4.52 - 2722.0,No value,,
+Local_Ttau_Abnormal,CSF dichotomous ttau of local assessment,Numeric,,0-1,No value,"0=normal, 1=abnormal",
+Local_Ttau_Cutoff,Local cut-off of ttau assessment,String,,,No value,,
+AmyPET_SUVR,SUVR of Amyloid PET assessment,Numeric,kBq/ml,1.06 - 2.27,No value,,
+AmyPET_SUVRAbnormal,Dichotomous Amyloid PET,Numeric,,0-1,No value,"0=normal, 1=abnormal",
+AmyPET_SUVRCutoff,Local cut-off of Amyloid PET,String,,,No value,,
+AmyPET_Manufacturer,Manufacturer of PET scanner,String,,,No value,,
+AmyPET_Method,Method used for Amyloid PET,String,,,No value,,
+AmyPET_Tracer,Tracer used for amyloid PET scanning,String,,,No value,,
+AB_Zscore,Z-score for amyloid pathology,Numeric,, -5 - 5,No value," If zscore was below -5 we rounded this to -5, if zscore was higher than 5 we rounded this to 5","if abmethod=1 Z-score is zscore of Ab4240ratio of central analyses with controls (BL_Diaggroup=1) across studies with central ratio analyses available as reference, if abmethod=2 z-score is AMYPET zscore with controls with AMYPET available (only Leuven) as reference, if abmethod=3 z-score is zscore of local ab42 with controls within study as reference"
+Ptau_ASSAY_Zscore,Z-score for CSF ptau pathology,Numeric,, -5 - 5,No value," If zscore was below -5 we rounded this to -5, if zscore was higher than 5 we rounded this to 5",Z-scores of local ptau assessment with controls within the same assay as a reference
+Ttau_ASSAY_Zscore,Z-score for CSF ttau pathology,Numeric,, -5 - 5,No value," If zscore was below -5 we rounded this to -5, if zscore was higher than 5 we rounded this to 5",Z-scores of local ttau assessment with controls within the same assay as a reference
+Central_CSF_NFL,Neurofilament light values of central CSF analyses,Numeric,pg/ml,153.0 - 39664.0,No value,,
+Central_CSF_Neurogranin,Neurogranin values of central CSF analyses,Numeric,pg/ml,10 - 2898.05,No value,,Values below detection limit were set at 10 
+Central_CSF_YKL40,YKL-40 values of central CSF analyses,Numeric,pg/ml,12864.40-400000,No value,,Values above detection limit were set at the highest value = 400000
+Central_CSF_AB38,Amyloidbeta 38 of central CSF analyses,Numeric,pg/ml,371.6 - 5942.70,No value,,
+Central_CSF_AB40,Amyloidbeta 40 of central CSF analyses,Numeric,pg/ml,748.5 - 11345.3,No value,,
+Central_CSF_AB42,Amyloidbeta 42 of central CSF analyses,Numeric,pg/ml,39.44 - 1173.60,No value,,
+Central_CSF_AB4240ratio,Amyloid beta 42/40 ratio of central CSF analyses,Numeric,,0.02 - 0.33,No value,,
+Central_CSF_ratiodich,Dichotomous variable based on central amyloid 42/40 ratio,Numeric,,0-1,No value,"0=normal, 1=abnormal",cut-off is 0.061 based on mixture modeling assessment for these analyses
+Fazekas,Overall score on Fazekas scale as measure of white matter hyperintensities,Numeric,,0-3,No value,"0=absent, 1=punctate foci, 2=beginning confluence of foci, 3=large confluent areas",
+Hippo_sum_FS_adj,Sum of hippocampal volume left and right adjusted for ICV,Numeric,mm/cm3,3274.2 - 10327.6,No value,,Hippocampal volumes were adjusted for total intracranial volume based on relation between HCV and ICV in CN/SCI amyloid negative subjects. Volumes were measured using Freesurfer 5.3.0.
+Lhippo_FS_adj,Volume of left hippocampus adjusted for ICV,Numeric,mm/cm3,1651.7 - 5168.8,No value,,Hippocampal volumes were adjusted for total intracranial volume based on relation between HCV and ICV in CN/SCI amyloid negative subjects. Volumes were measured using Freesurfer 5.3.0.
+Rhippo_FS_adj,Volume of right hippocampus adjusted for ICV,Numeric,mm/cm3,1526.4 - 5339.8,No value,,Hippocampal volumes were adjusted for total intracranial volume based on relation between HCV and ICV in CN/SCI amyloid negative subjects. Volumes were measured using Freesurfer 5.3.0.
+Thickness_average,Average cortical thickness across the whole brain,Numeric,mm/cm3,1.9 - 2.6,No value,,
+Thickavg_ADsign,"Cortical thickness in AD signature regions as defined in Jack et al., Alzheimer Dementia 2017 ",Numeric,mm/cm3,2.1 - 3.1,No value,,"surface-area weighted average of the mean cortical thickness of entorhinal, inferior temporal, middle temporal, and fusiform"
+Bloodfreezethawcycles,Number of freeze thaw cycles blood (plasma) samples,Numeric,,0-2,No value,,
+Local_CSFAssay,Assay used for local CSF measurements,String,,,No value,,
+Local_CSFAssayCompany,Assay company for local CSF measurements,String,,,No value,,
+CDR_Global,Clinical Dementia Rating Scale Global score,Numeric,,0-2,No value,,
+GDS15,Geriatric Depression Scale - 15 items,Numeric,,0-13,No value,,
+GDS15_Abnormal,Dichotomous variable of GDS-15 ,Numeric,,0-1,No value,"0=normal, 1=abnormal",Cut-off >5 was used to define abnormality based on Schreiner et al. 2003 Int. journal of geriatric psychiatry
+PriorityAttention,Raw score in domain of attention,Numeric,Depends on test used,0-365,No value,,
+PriorityAttentionType,Test used in domain of attention,String,,,No value,,"Priority tests in order of preference: Trail Making Test part A, Stroop 1, Stroop 2, Symbol Digit Substitution test"
+PriorityAttentionZscore,Z-score in domain of attention,Numeric,, -10 - 10,No value," If zscore was below -10 we rounded this to -10, if zscore was higher than 10 we rounded this to 10",
+PriorityAttentionAbnormal,Abnormal score in domain of attention,Numeric,,0-1,No value,"0=normal, 1=abnormal",
+PriorityExecutive,Raw score in domain of executive functioning,Numeric,Depends on test used,0-978,No value,,
+PriorityExecutiveType,Test used in domain of executive functioning,String,,,No value,,"Priority tests in order of preference: Trail Making Test part B, Stroop 3"
+PriorityExecutiveZscore,Z-score in domain of executive functioning,Numeric,, -10 - 10,No value," If zscore was below -10 we rounded this to -10, if zscore was higher than 10 we rounded this to 10",
+PriorityExecutiveAbnormal,Abnormal score in domain of executive functioning,Numeric,,0-1,No value,"0=normal, 1=abnormal",
+PriorityLanguage,Raw score in domain of language,Numeric,Depends on test used,0-113,No value,,
+PriorityLanguageType,Test used in domain of language,String,,,No value,,"Priority tests in order of preference: Animal Fluency 1 min, Category Fluency 1 min, Letter Fluency 1 min, Any type of fluency 2 min, Boston Naming Test, Any picture naming test"
+PriorityLanguageZscore,Z-score in domain of language,Numeric,, -5 - 5,No value," If zscore was below -5 we rounded this to -5, if zscore was higher than 5 we rounded this to 5",
+PriorityLanguageAbnormal,Abnormal score in domain of language,Numeric,,0-1,No value,"0=normal, 1=abnormal",
+PriorityMemoryDelayed,Raw score in domain of memory delayed,Numeric,Depends on test used,0-36,No value,,
+PriorityMemoryDelayedZscore,Z-score in domain of memory delayed,Numeric,, -5 - 5,No value," If zscore was below -5 we rounded this to -5, if zscore was higher than 5 we rounded this to 5",
+PriorityMemoryDelayedAbnormal,Abnormal score in domain of memory delayed,Numeric,,0-1,No value,"0=normal, 1=abnormal",
+PriorityMemoryImmediate,Raw score in domain of memory immediate,Numeric,Depends on test used,0-110,No value,,
+PriorityMemoryImmediateZscore,Z-score in domain of memory immediate,Numeric,, -5 - 5,No value," If zscore was below -5 we rounded this to -5, if zscore was higher than 5 we rounded this to 5",
+PriorityMemoryImmediateAbnormal,Abnormal score in domain of memory immediate,Numeric,,0-1,No value,"0=normal, 1=abnormal",
+PriorityMemoryType,Test used in domain of memory,String,,,No value,,"Priority tests in order of preference: AVLT, CERAD wordlist, FCSRT, Story recall test, Logical Memory, Hopkins, VAT "
+PriorityVisuoconstruction,Raw score in domain of visuoconstruction,String,Depends on test used,0-96,No value,,
+PriorityVisuoconstructionType,Test used in domain of visuoconstruction,String,,,No value,,"Priority tests in order of preference: Rey complex Figure, CERAD Figures copy, "
+PriorityVisuoconstructionZscore,Z-score in domain of visuoconstruction,Numeric,, -5 - 5,No value," If zscore was below -5 we rounded this to -5, if zscore was higher than 5 we rounded this to 5",
+PriorityVisuoconstructionAbnormal,Abnormal score in domain of visuoconstruction,Numeric,,0-1,No value,,
+CardiovascularDis,History of cardiovascular disorders,Numeric,,0-1,No value,"0=absent, 1=present",Measured at baseline
+Alcohol,Alcohol use ,Numeric,,0-2,No value,"0=absent, 1=present, 2=past",Measured at baseline
+AlcoholAmount,Alcohol units per week ,String,,,No value,,Measured at baseline
+AntiHyptDrugs,Use of antihypertensive medication,Numeric,,0-1,No value,"0=absent, 1=present",Measured at baseline
+CerebrovascularDis,History of cerebrovascular disorders,Numeric,,0-1,No value,"0=absent, 1=present",Measured at baseline
+CholesterolloweringDrugs,Use of cholesterol lowering drugs,Numeric,,0-1,No value,"0=absent, 1=present",Measured at baseline
+Depression,History of depression,Numeric,,0-1,No value,"0=absent, 1=present",Measured at baseline
+Hypertension,History of hypertension,Numeric,,0-1,No value,"0=absent, 1=present",Measured at baseline
+Obesity,Current obesity,Numeric,,0-1,No value,"0=absent, 1=present",Measured at baseline
+Smoking,Smoking status,Numeric,,0-2,No value,"0=absent, 1=present, 2=past",Measured at baseline
+SmokingAmount,Indicate the number of cigarettes per day,String,,,No value,,Measured at baseline
+Statines,Use of statins,Numeric,,0-1,No value,"0=absent, 1=present",Measured at baseline
+Stroke,History of Stroke,Numeric,,0-1,No value,"0=absent, 1=present",Measured at baseline
+TIA,History of TIA,Numeric,,0-1,No value,"0=absent, 1=present",Measured at baseline
+IntervalAB_Cog,Time in years between amyloid measure and cognition at baseline,Numeric,Years, -2.79 - 4.42,No value,continious variable: relative time in years,
+IntervalAB_MRI,Time in years between amyloid measure and MRI at baseline,Numeric,Years, -8.74 - 10.77,No value,continious variable: relative time in years,
+IntervalAB_Blood,Time in years between amyloid measure and blood collection at baseline,Numeric,Years, -8.00 - 1.23,No value,continious variable: relative time in years,
+IntervalMRI_Blood,Time in years between MRI and blood collection at baseline,Numeric,Years, -10.8 - 8.75,No value,continious variable: relative time in years,
+Sel_intervalABCog,Selection with amyloid measure and baseline cognition within 1 year window,Numeric,,0-1,No value,"0= window> 1 year, 1=window <=1 year","If modality (DNA, Blood, Cog, MRI) was assessed before Amyloid status and Amyloidstatus=0 then selection=1. If modality (DNA, Blood, Cog, MRI) was assessed after Amyloid status and Amyloidstatus=1 then selection=1. "
+Sel_intervalABMRI,Selection with amyloid measure and baseline MRI within 1 year window,Numeric,,0-1,No value,"0= window> 1 year, 1=window <=1 year","If modality (DNA, Blood, Cog, MRI) was assessed before Amyloid status and Amyloidstatus=0 then selection=1. If modality (DNA, Blood, Cog, MRI) was assessed after Amyloid status and Amyloidstatus=1 then selection=1. "
+Sel_intervalABBlood,Selection with amyloid measure and baseline blood within 1 year window,Numeric,,0-1,No value,"0= window> 1 year, 1=window <=1 year","If modality (DNA, Blood, Cog, MRI) was assessed before Amyloid status and Amyloidstatus=0 then selection=1. If modality (DNA, Blood, Cog, MRI) was assessed after Amyloid status and Amyloidstatus=1 then selection=1. "
+Sel_intervalCogMRI,Selection with baseline cognition and baseline MRI within 1 year window,Numeric,,0-1,No value,"0= window> 1 year, 1=window <=1 year",
+Sel_intervalCogBlood,Selection with baseline cognition and blood collection within 1 year window,Numeric,,0-1,No value,"0= window> 1 year, 1=window <=1 year",
+Sel_intervalMRIBlood,Selection with baseline MRI and blood within 1 year window,Numeric,,0-1,No value,"0= window> 1 year, 1=window <=1 year",
+APOEdich,Dichotomous APOEe4 carrier,Numeric,,0-1,No value,"0= APOE e4 non carrier, 1= APOE e4 carrier",
+APOEdich_IMP,Dichotomous APOEe4 carrier with imputed values for missings,Numeric,,0-1,,"0= APOE e4 non carrier, 1= APOE e4 carrier","Values were imputed using logistic regression analyses per cohort. Calculated values <0.5 were coded as 0, values >=0.5 were coded as 1."
+APOE_Allele1,Values for APOE allele 1,String,,e2/e3/e4,No value,,
+APOE_Allele2,Values for APOE allele 2,String,,e2/e3/e4,No value,,
+APOE_flag,Indicates discrepancy between multiple APOE analyses,Numeric,,0-1,No value,"0=no discrepancy, 1=discrepancy","When genetic analyses where done three times or more, we used the genotype that was most frequent. If frequency of genotypes was equal, we used the genotype from the central analyses"

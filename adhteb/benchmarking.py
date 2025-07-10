@@ -38,22 +38,22 @@ class Benchmark:
         # tested text embedder
         self.vectorizer = vectorizer
         # common data model
-        cdm = pd.read_csv("adhteb/data/AD_CDM_JPAD.csv", na_values=[""])
+        cdm = pd.read_csv("data/AD_CDM_JPAD.csv", na_values=[""])
         self.groundtruth = self._compute_groundtruth_vectors(cdm)
         # GERAS cohorts
-        self.geras_i = self._compute_cohort_vectors("adhteb/data/GERAS_I_dict.csv")
-        self.geras_ii = self._compute_cohort_vectors("adhteb/data/GERAS_II_dict.csv")
-        self.geras_us = self._compute_cohort_vectors("adhteb/data/GERAS_US_dict.csv")
-        self.geras_j = self._compute_cohort_vectors("adhteb/data/GERAS_J_dict.csv")
+        self.geras_i = self._compute_cohort_vectors("data/GERAS_I_dict.csv")
+        self.geras_ii = self._compute_cohort_vectors("data/GERAS_II_dict.csv")
+        self.geras_us = self._compute_cohort_vectors("data/GERAS_US_dict.csv")
+        self.geras_j = self._compute_cohort_vectors("data/GERAS_J_dict.csv")
         # other cohorts
-        self.prevent_dementia = self._compute_cohort_vectors("adhteb/data/PREVENT_DEMENTIA_dict.csv")
-        self.a4 = self._compute_cohort_vectors("adhteb/data/A4_dict.csv")
-        self.aibl = self._compute_cohort_vectors("adhteb/data/AIBL_dict.csv")
+        self.prevent_dementia = self._compute_cohort_vectors("data/PREVENT_DEMENTIA_dict.csv")
+        self.prevent_ad = self._compute_cohort_vectors("data/PREVENT_AD_dict.csv")
+        self.emif = self._compute_cohort_vectors("data/EMIF_dict.csv")
         # Result sets
         self.results_prevent_dementia: BenchmarkResult = None  # n=37
         self.results_geras: BenchmarkResult = None  # n=61
-        self.results_aibl: BenchmarkResult = None  # n=54
-        self.results_a4: BenchmarkResult = None  # n=73
+        self.prevent_ad: BenchmarkResult = None  # n=54
+        self.emif: BenchmarkResult = None  # n=73
 
     def run(self) -> None:
         """
@@ -69,11 +69,11 @@ class Benchmark:
         self.prevent_dementia = self._drop_cohort_records_without_groundtruth(self.prevent_dementia, "PREVENT Dementia")
         self.results_prevent_dementia = self._benchmark_cohort(self.prevent_dementia, "PREVENT Dementia", self.n_bins)
         self.logger.info("Benchmarking AIBL cohort...")
-        self.aibl = self._drop_cohort_records_without_groundtruth(self.aibl, "AIBL")
-        self.results_aibl = self._benchmark_cohort(self.aibl, "AIBL", self.n_bins)
+        self.emif = self._drop_cohort_records_without_groundtruth(self.emif, "AIBL")
+        self.prevent_ad = self._benchmark_cohort(self.emif, "AIBL", self.n_bins)
         self.logger.info("Benchmarking A4 cohort...")
-        self.a4 = self._drop_cohort_records_without_groundtruth(self.a4, "A4")
-        self.results_a4 = self._benchmark_cohort(self.a4, "A4", self.n_bins)
+        self.prevent_ad = self._drop_cohort_records_without_groundtruth(self.prevent_ad, "A4")
+        self.emif = self._benchmark_cohort(self.prevent_ad, "A4", self.n_bins)
         self.logger.info("Benchmarking completed for all cohorts.")
 
     def results_summary(self) -> str:
@@ -86,16 +86,16 @@ class Benchmark:
         if not all([
             self.results_geras,
             self.results_prevent_dementia,
-            self.results_aibl,
-            self.results_a4
+            self.prevent_ad,
+            self.emif
         ]):
             raise ValueError("Benchmark results for all cohorts must be computed before generating summary.")
 
         summary_data = {
             "GERAS": [self.results_geras.auc, self.results_geras.top_n_accuracy[0]],
             "PREVENT Dementia": [self.results_prevent_dementia.auc, self.results_prevent_dementia.top_n_accuracy[0]],
-            "AIBL": [self.results_aibl.auc, self.results_aibl.top_n_accuracy[0]],
-            "A4": [self.results_a4.auc, self.results_a4.top_n_accuracy[0]],
+            "PREVENT AD": [self.prevent_ad.auc, self.prevent_ad.top_n_accuracy[0]],
+            "EMIF": [self.emif.auc, self.emif.top_n_accuracy[0]],
         }
 
         summary_df = pd.DataFrame(summary_data, index=["AUPRC", "Zero-shot Accuracy"]).T
@@ -112,13 +112,13 @@ class Benchmark:
 
         :return: Composite score as a float.
         """
-        if not all([self.results_geras, self.results_prevent_dementia, self.results_aibl, self.results_a4]):
+        if not all([self.results_geras, self.results_prevent_dementia, self.prevent_ad, self.emif]):
             raise ValueError("Benchmark results for all cohorts must be computed before aggregating score.")
 
         total_score = 0.0
         total_n_variables = 0
 
-        for results in [self.results_geras, self.results_prevent_dementia, self.results_aibl, self.results_a4]:
+        for results in [self.results_geras, self.results_prevent_dementia, self.prevent_ad, self.emif]:
             auc = results.auc
             n_variables = results.n_variables
             zero_shot_accuracy = results.top_n_accuracy[0]
@@ -141,8 +141,8 @@ class Benchmark:
             cohort_benchmarks=[
                 self.results_geras.model_dump(),
                 self.results_prevent_dementia.model_dump(),
-                self.results_aibl.model_dump(),
-                self.results_a4.model_dump()
+                self.prevent_ad.model_dump(),
+                self.emif.model_dump()
             ]
         )
         print(entry.model_dump_json())

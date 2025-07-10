@@ -1,0 +1,273 @@
+index,data_table,column_number,variable,description,units,coding,possible_data_values,value_type,notes
+1,AD8_Registered_PREVENTAD,1,CONP_ID,Participant identification code in the Open/Registered data repositories,,,,string,
+2,AD8_Registered_PREVENTAD,2,CONP_CandID,Alternate participant identification code,,,,string,
+3,AD8_Registered_PREVENTAD,3,Study_visit_label,Complete visit label including the prefix PRE or NAP and time point,,,NAPBL00;NAPFU03;NAPFU12;NAPFU24;NAPFU36;NAPFU48;PREBL00;PREFU12;PREFU24;PREFU36;PREFU48,string,
+4,AD8_Registered_PREVENTAD,4,Visit_label,Time point at which data were collected,,,BL00;FU03;FU12;FU24;FU36;FU48,string,Baseline (BL); follow-up (FU)
+5,AD8_Registered_PREVENTAD,5,Date_taken,Date of the visit (YYYY-MM),,,,date,
+6,AD8_Registered_PREVENTAD,6,Candidate_Age,Age in months at the time of test,months,,,integer,
+7,AD8_Registered_PREVENTAD,7,AD8_total_score,Total AD8 Dementia Screening Score,,,0::8,integer,AD8 is an eight-item informant interview
+8,AD8_Registered_PREVENTAD,8,1_judgment_problems,"AD8 1. Does your family member have problems with judgment (problems making decisions, bad financial decisions, problems with thinking, etc.)?",,"0 = No, no change; 1 = Yes, a change; 2 = NA, don't know",0;1;2,integer,
+9,AD8_Registered_PREVENTAD,9,2_less_interest,AD8 2. Does your family member show less interest in hobbies/activities?,,"0 = No, no change; 1 = Yes, a change; 2 = NA, don't know",0;1;2,integer,
+10,AD8_Registered_PREVENTAD,10,3_repeat,"AD8 3. Does your family member repeat the same things over and over (questions, stories, or statements)?",,"0 = No, no change; 1 = Yes, a change; 2 = NA, don't know",0;1;2,integer,
+11,AD8_Registered_PREVENTAD,11,4_trouble_learning_tool,"AD8 4. Does your family member have trouble learning how to use a tool, appliance, or gadget (e.g., VCR, computer, microwave, remote control)?",,"0 = No, no change; 1 = Yes, a change; 2 = NA, don't know",0;1;2,integer,
+12,AD8_Registered_PREVENTAD,12,5_forget_month_year,AD8 5. Does your family member forget the correct month or year?,,"0 = No, no change; 1 = Yes, a change; 2 = NA, don't know",0;1;2,integer,
+13,AD8_Registered_PREVENTAD,13,6_trouble_financial_affairs,"AD8 6. Does your family member have trouble handling complicated financial affairs (balancing checkbook, income taxes, paying bills, etc.)?",,"0 = No, no change; 1 = Yes, a change; 2 = NA, don't know",0;1;2,integer,
+14,AD8_Registered_PREVENTAD,14,7_trouble_appointments,AD8 7. Does your family member have trouble remembering appointments?,,"0 = No, no change; 1 = Yes, a change; 2 = NA, don't know",0;1;2,integer,
+15,AD8_Registered_PREVENTAD,15,8_daily_memory_trouble,AD8 8. Does your family member have daily problems with thinking or memory?,,"0 = No, no change; 1 = Yes, a change; 2 = NA, don't know",0;1;2,integer,
+16,APS_Registered_PREVENTAD,1,CONP_ID,Participant identification code in the Open/Registered data repositories,,,,string,
+17,APS_Registered_PREVENTAD,2,CONP_CandID,Alternate participant identification code,,,,string,
+18,APS_Registered_PREVENTAD,3,Study_visit_label,Complete visit label including the prefix PRE or NAP in addition to the time point,,,NAPBL00;NAPFU03;NAPFU12;NAPFU24,string,
+19,APS_Registered_PREVENTAD,4,Visit_label,Time point at which data were collected,,,BL00;FU03;FU12;FU24,string,Baseline (BL); follow-up (FU)
+20,APS_Registered_PREVENTAD,5,APS_score,"Alzheimer Progression Score, composite score ",,,-3.000::3.000,decimal,"Calculated for INTREPAD participants only. For more information about APS score, refer to doi:10.14283/jpad.2016.120 "
+21,Auditory_processing_Registered_PREVENTAD,1,CONP_ID,Participant identification code in the Open/Registered data repositories,,,,string,
+22,Auditory_processing_Registered_PREVENTAD,2,CONP_CandID,Alternate participant identification code,,,,string,
+23,Auditory_processing_Registered_PREVENTAD,3,Study_visit_label,Complete visit label including the prefix PRE or NAP in addition to the time point,,,NAPBL00;NAPFU03;NAPFU12;NAPFU24;NAPFU36;NAPFU48;PREBL00;PREFU12;PREFU24;PREFU36;PREFU48,string,
+24,Auditory_processing_Registered_PREVENTAD,4,Visit_label,Time point at which data were collected,,,BL00;FU03;FU12;FU24;FU36;FU48,string,Baseline (BL); follow-up (FU)
+25,Auditory_processing_Registered_PREVENTAD,5,Date_taken,Date of the visit (YYYY-MM),,,,date,
+26,Auditory_processing_Registered_PREVENTAD,6,Candidate_Age,Candidate Age (Months) when auditory processing was done,months,,,integer,
+27,Auditory_processing_Registered_PREVENTAD,7,diagnosed_impairment,Does the participant have a diagnosed hearing impairment?,,0 = no; 1 = yes hearing impairment other than tinnitus; 2 = hearing impairment is tinnitus; 3 = yes tinnitus and other hearing impairment,0;1;2;3,integer,
+28,Auditory_processing_Registered_PREVENTAD,8,hearing_aid,Does the participant wear a hearing aid?,,1 = yes; 0 = no,0;1,integer,
+29,Auditory_processing_Registered_PREVENTAD,9,subjective_hearing_impairment,Does the participant have a subjective hearing impairment?,,1 = yes; 0 = no,0;1,integer,
+30,Auditory_processing_Registered_PREVENTAD,10,subjective_processing_impairment,Does the participant have a subjective processing in noise impairment?,,1 = yes; 0 = no,0;1,integer,
+31,Auditory_processing_Registered_PREVENTAD,11,500_hz_left,Can the participant hear 500 Hz tone in left ear?,,1 = yes; 0 = no,0;1,integer,
+32,Auditory_processing_Registered_PREVENTAD,12,500_hz_right,Can the participant hear 500 Hz tone in right ear?,,1 = yes; 0 = no,0;1,integer,
+33,Auditory_processing_Registered_PREVENTAD,13,1000_hz_left,Can the participant hear 1000 Hz tone in left ear?,,1 = yes; 0 = no,0;1,integer,
+34,Auditory_processing_Registered_PREVENTAD,14,1000_hz_right,Can the participant hear 1000 Hz tone in right ear?,,1 = yes; 0 = no,0;1,integer,
+35,Auditory_processing_Registered_PREVENTAD,15,4000_hz_left,Can the participant hear 4000 Hz tone in left ear?,,1 = yes; 0 = no,0;1,integer,
+36,Auditory_processing_Registered_PREVENTAD,16,4000_hz_right,Can the participant hear 4000 Hz tone in right ear?,,1 = yes; 0 = no,0;1,integer,
+37,Auditory_processing_Registered_PREVENTAD,17,dsi_left,"Left ear score on Dichotic Sentence Identification (DSI) test, in free report mode, Canadian French DSI adaptation",,,0::10,integer,
+38,Auditory_processing_Registered_PREVENTAD,18,dsi_right,"Right ear score on Dichotic Sentence Identification (DSI) test, in free report mode, Canadian French DSI adaptation",,,0::10,integer,
+39,Auditory_processing_Registered_PREVENTAD,19,dsi_right_left,"Right ear score minus Left ear score of Dichotic Sentence Identification (DSI) test, also known as right ear advantage",,,-10::10,integer,
+40,Auditory_processing_Registered_PREVENTAD,20,worse_ear_dsi,Worse ear score on Dichotic Sentence Identification (DSI) test (lesser of Right ear score and Left ear score),,,0::10,integer,
+41,Auditory_processing_Registered_PREVENTAD,21,worse_ear_minus10db,"Worse ear score on Synthetic Sentence with Ipsilateral Competing Message (SSI-ICM) test (lesser of Right ear score and Left ear score), -10dB message-to-competition ratio (MCR) condition, Canadian French SSI-ICM adaptation",,,0::10,integer,
+42,BP_Pulse_Weight_Registered_PREVENTAD,1,CONP_ID,Participant identification code in the Open/Registered data repositories,,,,string,
+43,BP_Pulse_Weight_Registered_PREVENTAD,2,CONP_CandID,Alternate participant identification code,,,,string,
+44,BP_Pulse_Weight_Registered_PREVENTAD,3,Study_visit_label,Complete visit label including the prefix PRE or NAP and time point,,,NAPEN00;NAPBL00;NAPFU03;NAPFU12;NAPFU24;NAPFU36;NAPFU48;NAPFU60;PREEL00;PREEN00;PREBL00;PREFU12;PREFU24;PREFU36;PREFU48,string,
+45,BP_Pulse_Weight_Registered_PREVENTAD,4,Visit_label,Time point at which data were collected,,,EL00;EN00;BL00;FU03;FU12;FU24;FU36;FU48;FU60,string,Eligibility (EL); enrollment (EN); baseline (BL); follow-up (FU)
+46,BP_Pulse_Weight_Registered_PREVENTAD,5,Date_taken,Date of the visit (YYYY-MM),,,,date,
+47,BP_Pulse_Weight_Registered_PREVENTAD,6,Candidate_Age,Age in months at the time of test,months,,,integer,
+48,BP_Pulse_Weight_Registered_PREVENTAD,7,Systolic_blood_pressure,Systolic blood pressure,mmHg,,60::250,integer,
+49,BP_Pulse_Weight_Registered_PREVENTAD,8,Diastolic_blood_pressure,Diastolic Blood Pressure,mmHg,,30::160,integer,
+50,BP_Pulse_Weight_Registered_PREVENTAD,9,Pulse,Pulse,bpm,,35::199,integer,
+51,BP_Pulse_Weight_Registered_PREVENTAD,10,Weight,Weight,kg,,40::200,decimal,Weight not measured at EN00 or BL00
+52,CSF_proteins_Registered_PREVENTAD,1,CONP_ID,Participant identification code in the Open/Registered data repositories,,,,string,
+53,CSF_proteins_Registered_PREVENTAD,2,CONP_CandID,Alternate participant identification code,,,,string,
+54,CSF_proteins_Registered_PREVENTAD,3,Study_visit_label,Complete visit label including the prefix PRE or NAP and time point,,,NAPBL00;NAPFU03;NAPFU12;NAPFU24;NAPFU36;NAPFU48;PREBL00;PREFU12;PREFU24;PREFU36;PREFU48,string,
+55,CSF_proteins_Registered_PREVENTAD,4,Visit_label,Time point at which data were collected (which time point was associated with separate lumbar puncture visit),,,BL00;FU03;FU12;FU24;FU36;FU48,string,Baseline (BL); follow-up (FU)
+56,CSF_proteins_Registered_PREVENTAD,5,Date_taken,Date of the visit (YYYY-MM),,,,date,
+57,CSF_proteins_Registered_PREVENTAD,6,Candidate_Age,Candidate Age (Months) at Lumbar Puncture,months,,,integer,
+58,CSF_proteins_Registered_PREVENTAD,7,tau,Total tau (t-tau) concentration in CSF,pg/mL,,0::9999.999,decimal,"Measured by ELISA (INNOTEST, Fujirebio)"
+59,CSF_proteins_Registered_PREVENTAD,8,ptau,Tau phosphorylated at Thr181 (P-tau) concentration in CSF,pg/mL,,0::999.999,decimal,"Measured by ELISA (INNOTEST, Fujirebio)"
+60,CSF_proteins_Registered_PREVENTAD,9,Amyloid_beta_1_42,Beta-amyloid 1-42 concentration in CSF,pg/mL,,0::9999.999,decimal,"Measured by ELISA (INNOTEST, Fujirebio)"
+61,CSF_proteins_Registered_PREVENTAD,10,ApoE,Apolipoprotein E concentration in CSF,ug/mL,,0::99.99,decimal,"Measured by Luminex (MILLIPLEX, Millipore)"
+62,CSF_proteins_Registered_PREVENTAD,11,G_CSF,Granulocyte Colony Stimulating Factor (G-CSF) concentration in CSF,pg/mL,,0::99.99,decimal,"Measured by Luminex (MILLIPLEX, Millipore)"
+63,CSF_proteins_Registered_PREVENTAD,12,IL_15,Interleukin 15 concentration in CSF,pg/mL,,0::99.99,decimal,"Measured by Luminex (MILLIPLEX, Millipore)"
+64,CSF_proteins_Registered_PREVENTAD,13,IL_8,Interleukin 8 concentration in CSF,pg/mL,,0::999.99,decimal,"Measured by Luminex (MILLIPLEX, Millipore)"
+65,CSF_proteins_Registered_PREVENTAD,14,VEGF,Vascular Endothelial Growth Factor concentration in CSF,pg/mL,,0::999.99,decimal,"Measured by Luminex (MILLIPLEX, Millipore)"
+66,CSF_proteins_Registered_PREVENTAD,15,PCSK9,Proprotein Convertase Subtilisin/Kexin type 9 concentration in CSF,ng/mL,,0::99.99,decimal,"Measured by ELISA (Quantikine, R&D Systems)"
+67,Demographics_Registered_PREVENTAD,1,CONP_ID,Participant identification code in the Open/Registered data repositories,,,,string,
+68,Demographics_Registered_PREVENTAD,2,CONP_CandID,Alternate participant identification code,,,,string,
+69,Demographics_Registered_PREVENTAD,3,INTREPAD_Tx_assignment,Treatment assignment in INTREPAD trial: Placebo or Active (Naproxen Sodium 220mg b.i.d.),,,active;placebo,string,Please refer to accompanying list of 11 participants who did not complete the initial 3-month trial period in INTREPAD. Visits after baseline for these participants are labeled PRE instead of NAP.
+70,Demographics_Registered_PREVENTAD,4,probable_MCI,"Has the participant shown a low cognitive performance, in the range of mild cognitive impairment (MCI), determined by clinical consensus",,,yes,string,
+71,Demographics_Registered_PREVENTAD,5,probable_MCI_visit,"Time point at which the participant showed a low cognitive performance, in the range of mild cognitive impairment, determined by clinical consensus",,,NAPFU12;NAPFU24;NAPFU36;NAPFU48;NAPFU60;NAPFU72;PREFU12;PREFU24;PREFU36;PREFU48;PREFU60;PREFU72,string,
+72,Demographics_Registered_PREVENTAD,6,Sex,Sex,,,Female;Male,string,
+73,Demographics_Registered_PREVENTAD,7,Mother_tongue,Participant's Mother Tongue,,,French;English;Other,string,
+74,Demographics_Registered_PREVENTAD,8,Test_language,Test language,,,French;English,string,
+75,Demographics_Registered_PREVENTAD,9,Ethnicity,Ethnicity,,,caucasian; other,string,
+76,Demographics_Registered_PREVENTAD,10,Education_years,Total number of years of formal education,years,,7::29,integer,Ineligible for study if years of formal education is less than 6
+77,Demographics_Registered_PREVENTAD,11,Education_level,Level of education,,,elementary;some_highschool;highschool;some_collegeclassic;collegeclassic;some_undergraduate;undergraduate;some_postgraduate;postgraduate,string,
+78,Demographics_Registered_PREVENTAD,12,Work_by_category,What kind of work/profession do you have/have you had?,,,"Architecture and Engineering;Arts, Design, Entertainment, Sports and Media;Building and Grounds Cleaning and Maintenance;Business and Financial;Community and Social Service;Computer and Mathematical;Construction;Education, Training and Library;Farming, Fishing and Forestry;Food Preparation and Service;Healthcare;Installation, Maintenance and Repair;Legal;Life, Physical and Social Science;Management;Office and Administrative Support;Personal Care;Production;Protective Service (Police, Fire etc.);Sales;Transportation and Material Moving",string,Post hoc categorization of free responses
+79,Demographics_Registered_PREVENTAD,13,Retirement_status,Are you are retired?,,,yes;no;semi-retired,string,Semi-retired means the person is working part-time
+80,Demographics_Registered_PREVENTAD,14,Height,Height measured at eligibility visit (PREEL00),cm,,0::999.99,decimal,
+81,Demographics_Registered_PREVENTAD,15,Handedness_result,Edinburgh Handedness Inventory Laterality Quotient (LQ) Score ,,,-100::100,decimal,(Difference / Cumulative Total) * 100
+82,Demographics_Registered_PREVENTAD,16,Handedness_interpretation,Edinburgh Handedness Inventory Interpretation,,,Right-handed;Left-handed;Ambidextrous,string,LQ <-40 = Left-handed; -40 < LQ < 40: Ambidextrous; LQ >40 = Right-handed
+83,Demographics_Registered_PREVENTAD,17,Handedness_left_total,Left Total (Sum of the L),,,0::20,integer,
+84,Demographics_Registered_PREVENTAD,18,Handedness_right_total,Right Total (Sum of the R),,,0::20,integer,
+85,Demographics_Registered_PREVENTAD,19,Handedness_right_left_difference,Difference (Left Total minus Right Total),,,-20::20,integer,
+86,Demographics_Registered_PREVENTAD,20,Handedness_cumulative_total,Cumulative Total (Left Total plus Right Total),,,10::20,integer,
+87,Demographics_Registered_PREVENTAD,21,father_dx_ad_dementia,Father affected with AD-like dementia,,0 = No; 1 = Yes,0;1,integer,Reported by study participant
+88,Demographics_Registered_PREVENTAD,22,father_onset_age,Age of father at AD-like dementia onset,years,,50::90,integer,Reported by study participant
+89,Demographics_Registered_PREVENTAD,23,mother_dx_ad_dementia,Mother affected with AD-like dementia,,0 = No; 1 = Yes,0;1,integer,Reported by study participant
+90,Demographics_Registered_PREVENTAD,24,mother_onset_age,Age of mother at AD-like dementia onset,years,,50::90,integer,Reported by study participant
+91,Demographics_Registered_PREVENTAD,25,sibling_dx_ad_dementia,Sibling(s) affected with AD-like dementia?,,0 = No; 1 = Yes,0;1,integer,"Reported by study participant. Please refer to accompanying list of participants who had no parental history and only 1 affected sibling, but were included in the study."
+92,Demographics_Registered_PREVENTAD,26,sibling_dx_ad_dementia_count,"If sibling(s) affected, number of siblings",,0 = 0; 1 = 1; 2 = 2; 3 = 3 or more,0;1;2;3,integer,Reported by study participant
+93,Demographics_Registered_PREVENTAD,27,sibling_onset_age_1,"If sibling(s) affected, age of the sibling at the time of onset of AD-like dementia ",years,,50::90,integer,"Reported by study participant. If more than 3 siblings, youngest 3 ages of onset."
+94,Demographics_Registered_PREVENTAD,28,sibling_onset_age_2,"If sibling(s) affected, age of the sibling at the time of onset of AD-like dementia ",years,,50::90,integer,"Reported by study participant. If more than 3 siblings, youngest 3 ages of onset."
+95,Demographics_Registered_PREVENTAD,29,sibling_onset_age_3,"If sibling(s) affected, age of the sibling at the time of onset of AD-like dementia ",years,,50::90,integer,"Reported by study participant. If more than 3 siblings, youngest 3 ages of onset."
+96,Demographics_Registered_PREVENTAD,30,other_family_members_AD,Total number of other (not first degree relatives) family members affected with AD-like dementia,,0 = 0; 1 = 1; 2 = 2; 3 = 3; 4 = 4; 5 = 5 or more,0;1;2;3;4;5,integer,Reported by study participant
+97,Demographics_Registered_PREVENTAD,31,other_maternal_family_members_AD,Number of other (not first degree relatives) family members on the maternal side affected with AD-like dementia,,0 = 0; 1 = 1; 2 = 2; 3 = 3; 4 = 4; 5 = 5 or more,0;1;2;3;4;5,integer,Reported by study participant
+98,Demographics_Registered_PREVENTAD,32,other_paternal_family_members_AD,Number of other (not first degree relatives) family members on the paternal side affected with AD-like dementia,,0 = 0; 1 = 1; 2 = 2; 3 = 3; 4 = 4; 5 = 5 or more,0;1;2;3;4;5,integer,Reported by study participant
+99,EL_CAIDE_Registered_PREVENTAD,1,CONP_ID,Participant identification code in the Open/Registered data repositories,,,,string,
+100,EL_CAIDE_Registered_PREVENTAD,2,CONP_CandID,Alternate participant identification code,,,,string,
+101,EL_CAIDE_Registered_PREVENTAD,3,Study_visit_label,Complete visit label including the prefix PRE or NAP and time point,,,,string,
+102,EL_CAIDE_Registered_PREVENTAD,4,Visit_label,Time point at which data were collected,,EL00 = eligibility visit,EL00,string,
+103,EL_CAIDE_Registered_PREVENTAD,5,Date_taken,Date of the visit (YYYY-MM),,,,date,
+104,EL_CAIDE_Registered_PREVENTAD,6,Candidate_Age,Candidate Age at eligibility visit (PREEL00),months,,,integer,
+105,EL_CAIDE_Registered_PREVENTAD,7,CAIDE_total_score,CAIDE Dementia Risk Score total score,,,0::18,integer,"Using CAIDE model that includes APOE e4 status. Refer to Table 2, Model 2 at doi:10.1016/S1474-4422(06)70537-3"
+106,EL_CAIDE_Registered_PREVENTAD,8,CAIDE_age_subscore,CAIDE age subscore,,0 = age <47 years; 3 = age 47-53 years; 5 = age >53 years,0;3;5,integer,"Using CAIDE model that includes APOE e4 status. Refer to Table 2, Model 2 at doi:10.1016/S1474-4422(06)70537-3"
+107,EL_CAIDE_Registered_PREVENTAD,9,CAIDE_education_subscore,CAIDE education subscore,,0 = education >9 years; 3 = education 7-9 years; 4 = education 0-6 years,0;3;4,integer,"Using CAIDE model that includes APOE e4 status. Refer to Table 2, Model 2 at doi:10.1016/S1474-4422(06)70537-3"
+108,EL_CAIDE_Registered_PREVENTAD,10,CAIDE_sex_subscore,CAIDE sex subscore ,,0 = Women; 1 = Men,0;1,integer,"Using CAIDE model that includes APOE e4 status. Refer to Table 2, Model 2 at doi:10.1016/S1474-4422(06)70537-3"
+109,EL_CAIDE_Registered_PREVENTAD,11,CAIDE_systolic_bp_subscore,CAIDE systolic blood pressure subscore,,0 = Systolic BP less than or equal to 140 mmHg; 2 = Systolic BP greater than 140 mmHg,0;2,integer,"Using CAIDE model that includes APOE e4 status. Refer to Table 2, Model 2 at doi:10.1016/S1474-4422(06)70537-3"
+110,EL_CAIDE_Registered_PREVENTAD,12,CAIDE_BMI_subscore,CAIDE body mass index (BMI) subscore,,0 = BMI less than or equal to 30 kg/m^2; 2 = BMI greater than 30 kg/m^2,0;2,integer,"Using CAIDE model that includes APOE e4 status. Refer to Table 2, Model 2 at doi:10.1016/S1474-4422(06)70537-3"
+111,EL_CAIDE_Registered_PREVENTAD,13,CAIDE_cholesterol_subscore,CAIDE total cholesterol subscore,,0 = total cholesterol less than or equal to 6.5 mmol/L; 1 = total cholesterol greater than 6.5 mmol/L,0;1,integer,"Using CAIDE model that includes APOE e4 status. Refer to Table 2, Model 2 at doi:10.1016/S1474-4422(06)70537-3"
+112,EL_CAIDE_Registered_PREVENTAD,14,CAIDE_activity_subscore,CAIDE physical activity subscore,,0 = active; 1 = inactive,0;1,integer,"Using CAIDE model that includes APOE e4 status. Refer to Table 2, Model 2 at doi:10.1016/S1474-4422(06)70537-3"
+113,EL_CAIDE_Registered_PREVENTAD,15,CAIDE_APOE4_subscore,CAIDE APOE e4 status subscore ,,0 = Non-e4; 1 = e4,0;2,integer,"Using CAIDE model that includes APOE e4 status. Refer to Table 2, Model 2 at doi:10.1016/S1474-4422(06)70537-3"
+114,EL_CDR_MoCA_Registered_PREVENTAD,1,CONP_ID,Participant identification code in the Open/Registered data repositories,,,,string,
+115,EL_CDR_MoCA_Registered_PREVENTAD,2,CONP_CandID,Alternate participant identification code,,,,string,
+116,EL_CDR_MoCA_Registered_PREVENTAD,3,Study_visit_label,Complete visit label including the prefix PRE or NAP and time point,,,PREEL00,string,
+117,EL_CDR_MoCA_Registered_PREVENTAD,4,Visit_label,Time point at which data were collected,,EL00 = eligibility visit,EL00,string,
+118,EL_CDR_MoCA_Registered_PREVENTAD,5,Date_taken,Date of the visit (YYYY-MM),,,,date,
+119,EL_CDR_MoCA_Registered_PREVENTAD,6,Candidate_Age,Age in months at the time of test,months,,,integer,
+120,EL_CDR_MoCA_Registered_PREVENTAD,7,CDR_total_score,Clinical Dementia Rating (CDR) total score,,0 = Normal; 0.5 = Very Mild Dementia; 1 = Mild Dementia; 2 = Moderate Dementia; 3 = Severe Dementia,0;0.5;1;2;3,decimal,
+121,EL_CDR_MoCA_Registered_PREVENTAD,8,MOCA_total_score,Montreal Cognitive Assessment (MoCA) Total Score,,,0::30,integer,Adjusted for years of education; 1 point was added if score < 30 and education <=12 years
+122,EL_CDR_MoCA_Registered_PREVENTAD,9,version_MOCA,MoCA test version number,,,7.1;7.2,string,
+123,EL_CDR_MoCA_Registered_PREVENTAD,10,1_trace,MoCA 1. Trace letters to numbers score,,,0;1,integer,
+124,EL_CDR_MoCA_Registered_PREVENTAD,11,2_cube,MoCA 2. Cube copy score,,,0;1,integer,
+125,EL_CDR_MoCA_Registered_PREVENTAD,12,3_clock_contour,MoCA 3.a. Clock Contour score,,,0;1,integer,
+126,EL_CDR_MoCA_Registered_PREVENTAD,13,3_clock_numbers,MoCA 3.b. Clock Numbers score,,,0;1,integer,
+127,EL_CDR_MoCA_Registered_PREVENTAD,14,3_clock_hands,MoCA 3.c. Clock Hands score,,,0;1,integer,
+128,EL_CDR_MoCA_Registered_PREVENTAD,15,visuospatial_score,MoCA total visuospatial score,,,0;1;2;3;4;5,integer,
+129,EL_CDR_MoCA_Registered_PREVENTAD,16,4_lion,MoCA 4. Lion naming score,,,0;1,integer,
+130,EL_CDR_MoCA_Registered_PREVENTAD,17,5_rhino,MoCA 5. Rhino naming score,,,0;1,integer,
+131,EL_CDR_MoCA_Registered_PREVENTAD,18,6_camel,MoCA 6. Camel naming score,,,0;1,integer,
+132,EL_CDR_MoCA_Registered_PREVENTAD,19,naming_score,MoCA total naming score,,,0;1;2;3,integer,
+133,EL_CDR_MoCA_Registered_PREVENTAD,20,7_memory_NoPoint,MoCA 7. FACE VELVET CHURCH DAISY RED repetition/memorization (no score),,,,,
+134,EL_CDR_MoCA_Registered_PREVENTAD,21,8_numbers_forward,MoCA 8. 2 1 8 5 4 digits repeated forward order score,,,0;1,integer,
+135,EL_CDR_MoCA_Registered_PREVENTAD,22,9_numbers_backward,MoCA 9. 7 4 2 digits repreated backwards order score,,,0;1,integer,
+136,EL_CDR_MoCA_Registered_PREVENTAD,23,attention_numbers_score,MoCA attention numbers score,,,0;1;2,integer,
+137,EL_CDR_MoCA_Registered_PREVENTAD,24,10_letters,MoCA 10. F B A C M N A A J K L B A F A K D E A A A J A M O F A A B tap at each letter A score,,,0;1,integer,
+138,EL_CDR_MoCA_Registered_PREVENTAD,25,attention_letters_score,MoCA attention letters score,,,0;1,integer,
+139,EL_CDR_MoCA_Registered_PREVENTAD,26,11_subtraction_93,MoCA 11.a. 93 serial 7 subtraction,,,0;1,integer,
+140,EL_CDR_MoCA_Registered_PREVENTAD,27,11_subtraction_86,MoCA 11.b. 86 serial 7 subtraction,,,0;1,integer,
+141,EL_CDR_MoCA_Registered_PREVENTAD,28,11_subtraction_79,MoCA 11.c. 79 serial 7 subtraction,,,0;1,integer,
+142,EL_CDR_MoCA_Registered_PREVENTAD,29,11_subtraction_72,MoCA 11.d. 72 serial 7 subtraction,,,0;1,integer,
+143,EL_CDR_MoCA_Registered_PREVENTAD,30,11_subtraction_65,MoCA 11.e. 65 serial 7 subtraction,,,0;1,integer,
+144,EL_CDR_MoCA_Registered_PREVENTAD,31,attention_subtractions_score,MoCA 11. serial 7 subtraction score,,,0;1;2;3,integer,
+145,EL_CDR_MoCA_Registered_PREVENTAD,32,attention_total_score,MoCA total attention score,,,0;1;2;3;4;5;6,integer,
+146,EL_CDR_MoCA_Registered_PREVENTAD,33,12_repeat_1,"MoCA 12.a. ""I only know that John is the one to help today."" Repetition score",,,0;1,integer,
+147,EL_CDR_MoCA_Registered_PREVENTAD,34,12_repeat_2,"MoCA 12.b. ""The cat always hid under the couch when dogs were in the room."" Repetition score",,,0;1,integer,
+148,EL_CDR_MoCA_Registered_PREVENTAD,35,language_repeat_score,MoCA 12. Language repetition score,,,0;1;2,integer,
+149,EL_CDR_MoCA_Registered_PREVENTAD,36,13_fluency,MoCA 13. Maximum number of words in 1 min that begin with the letter F score,,,0;1,integer,
+150,EL_CDR_MoCA_Registered_PREVENTAD,37,language_fluency_score,MoCA 13. Total language fluency score,,,0;1,integer,
+151,EL_CDR_MoCA_Registered_PREVENTAD,38,language_total_score,MoCA total language score,,,0;1;2;3,integer,
+152,EL_CDR_MoCA_Registered_PREVENTAD,39,14_similarity_train_bicycle,MoCA 14.a.Similarity between Train-bicycle score,,,0;1,integer,
+153,EL_CDR_MoCA_Registered_PREVENTAD,40,14_similarity_watch_ruler,MoCA 14.b. Similarity between Watch-ruler score,,,0;1,integer,
+154,EL_CDR_MoCA_Registered_PREVENTAD,41,abstraction_score,MoCA total abstraction score,,,0;1;2,integer,
+155,EL_CDR_MoCA_Registered_PREVENTAD,42,15_face,MoCA 15.a. FACE word recall (no cue) score,,,0;1,integer,
+156,EL_CDR_MoCA_Registered_PREVENTAD,43,15_velvet,MoCA 15.b. VELVET word recall (no cue) score,,,0;1,integer,
+157,EL_CDR_MoCA_Registered_PREVENTAD,44,15_church,MoCA 15.c. CHURCH word recall (no cue) score,,,0;1,integer,
+158,EL_CDR_MoCA_Registered_PREVENTAD,45,15_daisy,MoCA 15.d. DAISY word recall (no cue) score,,,0;1,integer,
+159,EL_CDR_MoCA_Registered_PREVENTAD,46,15_red,MoCA 15.e. RED word recall (no cue) score,,,0;1,integer,
+160,EL_CDR_MoCA_Registered_PREVENTAD,47,delayed_recall_score,MoCA total delayed recall score,,,0;1;2;3;4;5,integer,
+161,EL_CDR_MoCA_Registered_PREVENTAD,48,16_date,MoCA 16.a. Date provided,,,0;1,integer,
+162,EL_CDR_MoCA_Registered_PREVENTAD,49,16_month,MoCA 16.b. Month provided,,,0;1,integer,
+163,EL_CDR_MoCA_Registered_PREVENTAD,50,16_year,MoCA 16.c. Year provided,,,0;1,integer,
+164,EL_CDR_MoCA_Registered_PREVENTAD,51,16_day,MoCA 16.d. Day provided,,,0;1,integer,
+165,EL_CDR_MoCA_Registered_PREVENTAD,52,16_place,MoCA 16.e. Place provided,,,0;1,integer,
+166,EL_CDR_MoCA_Registered_PREVENTAD,53,16_city,MoCA 16.f. City provided,,,0;1,integer,
+167,EL_CDR_MoCA_Registered_PREVENTAD,54,orientation_score,MoCA total orientation score,,,0;1;2;3;4;5;6,integer,
+168,EL_Medical_history_Registered_PREVENTAD,1,CONP_ID,Participant identification code in the Open/Registered data repositories,,,,string,
+169,EL_Medical_history_Registered_PREVENTAD,2,CONP_CandID,Alternate participant identification code,,,,string,
+170,EL_Medical_history_Registered_PREVENTAD,3,Study_visit_label,Complete visit label including the prefix PRE or NAP in addition to the time point,,,PREEL00,string,
+171,EL_Medical_history_Registered_PREVENTAD,4,Visit_label,Time point at which data were collected,,EL00 = eligibility visit,EL00,string,
+172,EL_Medical_history_Registered_PREVENTAD,5,Date_taken,Date of the visit (YYYY-MM),,,,date,
+173,EL_Medical_history_Registered_PREVENTAD,6,Candidate_Age,Candidate Age at eligibility visit (PREEL00),months,,,integer,
+174,EL_Medical_history_Registered_PREVENTAD,7,treatment_hypertension,Treatment history for hypertension,,0 = Never treated; 1 = Treated in the past; 2 = Currently treated (at EL00),0;1;2,integer,Reported by study participant
+175,EL_Medical_history_Registered_PREVENTAD,8,treatment_hyperlipidemia,Treatment history for hyperlipidemia,,0 = Never treated; 1 = Treated in the past; 2 = Currently treated (at EL00),0;1;2,integer,Reported by study participant
+176,EL_Medical_history_Registered_PREVENTAD,9,treatment_diabetes,Treatment history for diabetes,,0 = Never treated; 1 = Treated in the past; 2 = Currently treated (at EL00),0;1;2,integer,Reported by study participant
+177,EL_Medical_history_Registered_PREVENTAD,10,past_cancer,Any diagnosis of cancer in the past?,,0 = No; 1 = Yes,0;1,integer,Reported by study participant
+178,EL_Medical_history_Registered_PREVENTAD,11,past_depression,Any diagnosis of depression in the past?,,0 = No; 1 = Yes,0;1,integer,Reported by study participant
+179,EL_Medical_history_Registered_PREVENTAD,12,past_osteoporosis,Any diagnosis of osteoporosis in the past?,,0 = No; 1 = Yes,0;1,integer,Reported by study participant
+180,EL_Medical_history_Registered_PREVENTAD,13,past_migraine,Any diagnosis of migraine in the past?,,0 = No; 1 = Yes,0;1,integer,Reported by study participant
+181,EL_Medical_history_Registered_PREVENTAD,14,past_asthma,Any diagnosis of asthma in the past?,,0 = No; 1 = Yes,0;1,integer,Reported by study participant
+182,EL_Medical_history_Registered_PREVENTAD,15,past_atrial_fibrillation,Any diagnosis of atrial fibrillation in the past?,,0 = No; 1 = Yes,0;1,integer,Reported by study participant
+183,EL_Medical_history_Registered_PREVENTAD,16,past_arthritis,Any diagnosis of arthritis in the past?,,0 = No; 1 = Yes,0;1,integer,Reported by study participant
+184,Genetics_Registered_PREVENTAD,1,CONP_ID,Participant identification code in the Open/Registered data repositories,,,,string,
+185,Genetics_Registered_PREVENTAD,2,CONP_CandID,Alternate participant identification code,,,,string,
+186,Genetics_Registered_PREVENTAD,3,APOE,"APOE genotype (SNP: rs429358/rs7412), alleles e2,e3,e4",,,3 3;4 3;3 2;4 2;4 4,string,
+187,Genetics_Registered_PREVENTAD,4,Method_ApoE,APOE genotyping method,,,PyroMark pyrosequencing,string,
+188,Genetics_Registered_PREVENTAD,5,BchE_K_variant,BCHE genotype (SNP: rs1803274) (K variant),,,GG;AG;AA,string,Minor allele: A
+189,Genetics_Registered_PREVENTAD,6,Method_BchE,BCHE genotyping method,,,PyroMark pyrosequencing,string,
+190,Genetics_Registered_PREVENTAD,7,BDNF,BDNF genotype (SNP: rs6265),,,GG;AG;AA,string,Minor allele: A
+191,Genetics_Registered_PREVENTAD,8,Method_BDNF,BDNF genotyping method,,,PyroMark pyrosequencing,string,
+192,Genetics_Registered_PREVENTAD,9,HMGCR_Intron_M,HMGCR genotype (SNP: rs3846662) (intron M),,,GA;AA;GG,string,Minor allele: G
+193,Genetics_Registered_PREVENTAD,10,Method_HMGCR,HMGCR genotyping method,,,PyroMark pyrosequencing,string,
+194,Genetics_Registered_PREVENTAD,11,TLR4_rs_4986790,TLR4 genotype (SNP: rs4986790),,,AA;AG,string,Minor allele: G
+195,Genetics_Registered_PREVENTAD,12,Method_TLR4,TLR4 genotyping method,,,PyroMark pyrosequencing;Illumina DNA microarray,string,
+196,Genetics_Registered_PREVENTAD,13,PPP2r1A_rs_10406151,PPP2R1A genotype (SNP: rs10406151),,,TT;CT;CC,string,Minor allele: C
+197,Genetics_Registered_PREVENTAD,14,Method_PPP2r1A,PPP2R1A genotyping method,,,PyroMark pyrosequencing;Illumina DNA microarray,string,
+198,Genetics_Registered_PREVENTAD,15,CDK5RAP2_rs10984186,CDK5RAP2 genotype (SNP: rs10984186),,,GG;GA;AA,string,Minor allele: A
+199,Genetics_Registered_PREVENTAD,16,Method_CDK5RAP2,CDK5RAP2 genotyping method,,,PyroMark pyrosequencing;Illumina DNA microarray,string,
+200,Lab_Registered_PREVENTAD,1,CONP_ID,Participant identification code in the Open/Registered data repositories,,,,string,
+201,Lab_Registered_PREVENTAD,2,CONP_CandID,Alternate participant identification code,,,,string,
+202,Lab_Registered_PREVENTAD,3,Study_visit_label,Complete visit label including the prefix PRE or NAP and time point,,,NAPEN00;NAPBL00;NAPFU03;NAPFU12;NAPFU24;NAPFU36;NAPFU48;NAPFU60;PREEL00;PREEN00;PREBL00;PREFU12;PREFU24;PREFU36;PREFU48;PREFU60,string,
+203,Lab_Registered_PREVENTAD,4,Visit_label,Time point at which data were collected,,,EL00;EN00;BL00;FU03;FU12;FU24;FU36;FU48;FU60,string,Eligibility (EL); enrollment (EN); baseline (BL); follow-up (FU)
+204,Lab_Registered_PREVENTAD,5,Date_taken,Date of the visit (YYYY-MM),,,,date,
+205,Lab_Registered_PREVENTAD,6,Candidate_Age,Age in months at the time of test,months,,,integer,
+206,Lab_Registered_PREVENTAD,7,hba1c_value,HbA1c result,,,0.04::0.15,decimal,Decimal percentage
+207,Lab_Registered_PREVENTAD,8,tsh_value,Thyroid Stimulating Hormone (TSH) result,mU/L,,0.00::30.00,decimal,Normal range: 0.34-5.60 mU/L
+208,Lab_Registered_PREVENTAD,9,b12_value,Vitamin B12 result,pmol/L,,50::2000,decimal,Normal range: 100-550 pmol/L. Measured since 2015.
+209,Lab_Registered_PREVENTAD,10,total_cholesterol_value,Nonfasting total cholesterol result,mmol/L,,1.0::10.0,decimal,Normal range: 2.8-5.2 mmol/L
+210,Lab_Registered_PREVENTAD,11,HDL_value,Nonfasting High Density Lipoprotein (HDL) cholesterol result,mmol/L,,0.00::6.00,decimal,Normal range: 0.90-2.00 mmol/L
+211,Lab_Registered_PREVENTAD,12,LDL_value,Nonfasting Low Density Lipoprotein (LDL) cholesterol result,mmol/L,,0.00::6.00,decimal,Normal range: 0.00-3.40 mmol/L
+212,Med_use_Registered_PREVENTAD,1,CONP_ID,Participant identification code in the Open/Registered data repositories,,,,string,
+213,Med_use_Registered_PREVENTAD,2,CONP_CandID,Alternate participant identification code,,,,string,
+214,Med_use_Registered_PREVENTAD,3,Study_visit_label,Complete visit label including the prefix PRE or NAP and time point,,,NAPEN00;NAPBL00;NAPFU03;NAPFU12;NAPFU24;NAPFU36;NAPFU48;PREEL00;PREEN00;PREBL00;PREFU12;PREFU24;PREFU36;PREFU48,string,
+215,Med_use_Registered_PREVENTAD,4,Visit_label,Time point at which data were collected,,,EL00;EN00;BL00;FU03;FU12;FU24;FU36;FU48,string,Eligibility (EL); enrollment (EN); baseline (BL); follow-up (FU)
+216,Med_use_Registered_PREVENTAD,5,Date_taken,Date of the visit (YYYY-MM),,,,date,
+217,Med_use_Registered_PREVENTAD,6,Candidate_Age,Candidate Age at the time of the questionnaire on medication use,months,,,integer,
+218,Med_use_Registered_PREVENTAD,7,SU_medication,"List of medication taken regularly (sustained use); 4 times or more per week, for 1 month or longer",,,,string,"Study participants reported medication use at eligibility visit, and reported changes to medication use at subsequent visits. Please refer to accompanying list of medication by category; medications not listed in a category are classified as ""other SU medication(s)"""
+219,Med_use_Registered_PREVENTAD,8,PRN_medication,"List of medication taken on as needed basis (PRN), or acute and short medication intake (less than 1 month)",,,,string,"Study participants reported medication use at eligibility visit, and reported changes to medication use at subsequent visits. Please refer to accompanying list of medication by category; medications not listed in a category are classified as ""other PRN medication(s)"""
+220,RBANS_Registered_PREVENTAD,1,CONP_ID,Participant identification code in the Open/Registered data repositories,,,,string,
+221,RBANS_Registered_PREVENTAD,2,CONP_CandID,Alternate participant identification code,,,,string,
+222,RBANS_Registered_PREVENTAD,3,Study_visit_label,Complete visit label including the prefix PRE or NAP and time point,,,NAPBL00;NAPFU03;NAPFU12;NAPFU24;NAPFU36;NAPFU48;NAPFU60;NAPFU72;NAPFU84;PREBL00;PREFU12;PREFU24;PREFU36;PREFU48;PREFU60;PREFU72;PREFU84,string,
+223,RBANS_Registered_PREVENTAD,4,Visit_label,Time point at which data were collected,,,BL00;FU03;FU12;FU24;FU36;FU48;FU60;FU72;FU84,string,Baseline (BL); follow-up (FU)
+224,RBANS_Registered_PREVENTAD,5,Date_taken,Date of the visit (YYYY-MM),,,,date,
+225,RBANS_Registered_PREVENTAD,6,Candidate_Age,Age in months at the time of test,months,,,integer,
+226,RBANS_Registered_PREVENTAD,7,probable_MCI_visit,"Time point at which the participant showed a low cognitive performance, in the range of mild cognitive impairment, determined by clinical consensus",,,,string,
+227,RBANS_Registered_PREVENTAD,8,RBANS_version,Version of RBANS administered,,,A;B;C;D,string,RBANS: Repeatable Battery for the Assessment of Neuropsychological Status
+228,RBANS_Registered_PREVENTAD,9,immediate_memory_index_score,Immediate Memory Index Score Adjusted For Candidate's Age,,,40::154,integer,
+229,RBANS_Registered_PREVENTAD,10,visuospatial_constructional_index_score,Visuospatial/Constructional Index Score Adjusted For Candidate's Age ,,,40::154,integer,
+230,RBANS_Registered_PREVENTAD,11,language_index_score,Language Index Score Adjusted For Candidate's Age,,,40::154,integer,
+231,RBANS_Registered_PREVENTAD,12,attention_index_score,Attention Index Score Adjusted For Candidate's Age ,,,40::154,integer,
+232,RBANS_Registered_PREVENTAD,13,delayed_memory_index_score,Delayed Memory Index Score Adjusted For Candidate's Age ,,,40::154,integer,
+233,RBANS_Registered_PREVENTAD,14,total_scale_index_score,Total Scale Index Score Adjusted For Candidate's Age ,,,40::160,integer,
+234,RBANS_Registered_PREVENTAD,15,immediate_memory_index_score_60_69,Immediate Memory Index Score Adjusted To Age Scale 60-69 ,,,40::154,integer,
+235,RBANS_Registered_PREVENTAD,16,visuospatial_constructional_index_score_60_69,Visuospatial/Constructional Index Score Adjusted To Age Scale 60-69,,,40::154,integer,
+236,RBANS_Registered_PREVENTAD,17,language_index_score_60_69,Language Index Score Adjusted To Age Scale 60-69,,,40::154,integer,
+237,RBANS_Registered_PREVENTAD,18,attention_index_score_60_69,Attention Index Score Adjusted To Age Scale 60-69,,,40::154,integer,
+238,RBANS_Registered_PREVENTAD,19,delayed_memory_index_score_60_69,Delayed Memory Index Score Adjusted To Age Scale 60-69,,,40::154,integer,
+239,RBANS_Registered_PREVENTAD,20,total_scale_index_score_60_69,Total Scale Index Score Adjusted To Age Scale 60-69,,,40::160,integer,
+240,RBANS_Registered_PREVENTAD,21,list_learning_trial1_score,List Learning 1 Trial 1,,,0::10,integer,
+241,RBANS_Registered_PREVENTAD,22,list_learning_trial2_score,List Learning 1 Trial 2,,,0::10,integer,
+242,RBANS_Registered_PREVENTAD,23,list_learning_trial3_score,List Learning 1 Trial 3,,,0::10,integer,
+243,RBANS_Registered_PREVENTAD,24,list_learning_trial4_score,List Learning 1 Trial 4,,,0::10,integer,
+244,RBANS_Registered_PREVENTAD,25,list_learning_total_score,List Learning Total Score (sum of the four list learning trial scores),,,0::40,integer,
+245,RBANS_Registered_PREVENTAD,26,story_memory_score,Story Memory Score,,,0::24,integer,
+246,RBANS_Registered_PREVENTAD,27,figure_copy_drawing_score,Figure Copy Total Drawing Score,,,0::10,integer,
+247,RBANS_Registered_PREVENTAD,28,figure_copy_placement_score,Figure Copy Total Placement Score,,,0::10,integer,
+248,RBANS_Registered_PREVENTAD,29,figure_copy_total_score,Figure Copy Total Score,,,0::20,integer,
+249,RBANS_Registered_PREVENTAD,30,line_orientation_score,Line Orientation Total Score,,,0::20,integer,
+250,RBANS_Registered_PREVENTAD,31,picture_naming_score,Picture Naming Total Score,,,0::10,integer,
+251,RBANS_Registered_PREVENTAD,32,semantic_fluency_score,"Semantic Fluency Total Score, adjusted for RBANS version",,,0::44,integer,"Adjustment for RBANS version: added 4 points if version B, added 4 points if version C, added 2 points if version D."
+252,RBANS_Registered_PREVENTAD,33,digit_span_score,Digit Span Total Score,,,0::16,integer,
+253,RBANS_Registered_PREVENTAD,34,digit_span,Highest digit span recalled,,,2::9,integer,
+254,RBANS_Registered_PREVENTAD,35,coding_score,Coding (Symbol to Digit) Total Score,,,0::89,integer,
+255,RBANS_Registered_PREVENTAD,36,list_recall_score,List Recall Total Score,,,0::10,integer,
+256,RBANS_Registered_PREVENTAD,37,list_recognition_score,List Recognition Total Score,,,0::20,integer,
+257,RBANS_Registered_PREVENTAD,38,list_recognition_targets_score,List Recognition Targets Score,,,0::10,integer,
+258,RBANS_Registered_PREVENTAD,39,list_recognition_distractors_score,List Recognition Distractors Score,,,0::10,integer,
+259,RBANS_Registered_PREVENTAD,40,story_recall_score,Story Recall Total Score,,,0::12,integer,
+260,RBANS_Registered_PREVENTAD,41,figure_recall_drawing_score,Figure Recall Total Drawing Score,,,0::10,integer,
+261,RBANS_Registered_PREVENTAD,42,figure_recall_placement_score,Figure Recall Total Placement Score,,,0::10,integer,
+262,RBANS_Registered_PREVENTAD,43,figure_recall_total_score,Figure Recall Total Score,,,0::20,integer,
+263,Smell_identification_Registered_PREVENTAD,1,CONP_ID,Participant identification code in the Open/Registered data repositories,,,,string,
+264,Smell_identification_Registered_PREVENTAD,2,CONP_CandID,Alternate participant identification code,,,,string,
+265,Smell_identification_Registered_PREVENTAD,3,Study_visit_label,Complete visit label including the prefix PRE or NAP and time point,,,NAPBL00;NAPFU03;NAPFU12;NAPFU24;NAPFU36;NAPFU48;NAPFU60;PREBL00;PREFU12;PREFU24;PREFU36;PREFU48;PREFU60,string,
+266,Smell_identification_Registered_PREVENTAD,4,Visit_label,Time point at which data were collected,,,BL00;FU03;FU12;FU24;FU36;FU48;FU60,string,Baseline (BL); follow-up (FU)
+267,Smell_identification_Registered_PREVENTAD,5,Date_taken,Date of the visit (YYYY-MM),,,,date,
+268,Smell_identification_Registered_PREVENTAD,6,Candidate_Age,Age in months at the time of test,months,,,integer,
+269,Smell_identification_Registered_PREVENTAD,7,ccsit_bsit,CCSIT/BSIT score determined from 12-item subset of UPSIT,,,0::12,decimal,Not directly administered. Cross-cultural smell identification test (CCSIT) also known as Brief Smell Identification Test (BSIT).
+270,Smell_identification_Registered_PREVENTAD,8,UPSIT_total_score,University of Pennsylvania Smell Identification Test (UPSIT) Total Score,,,0::40,decimal,Total score is sum of correct responses. In-house French Canadian translation of test used for francophone participants.
+271,Smell_identification_Registered_PREVENTAD,9,diagnosis,Olfactory Diagnosis,,,Normosia;Mild Microsmia;Moderate Microsmia;Severe Microsmia;Total Anosmia,string,Based on UPSIT total score. Normosmia: >34 for women and >33 for men; Mild Microsmia: 31-34 for women and 30-33 for men; Moderate Microsmia: 26-30 for women and 26-29 for men; Severe Microsmia: 19-25; Total Anosmia: <19
+272,Smell_identification_Registered_PREVENTAD,10,comments,"Participant comments during test, by category",,"0 = No comment; 1 = Participant reported a longstanding poor sense of smell; 2 = Participant reported a transient condition that could impact their performance in smell identification (congestion, allergies, cold, flu); 3 = Participant reported a pre-existing condition that could impact their performance in smell identification (surgery, polyps, birth defect, broken nose in the past)",0;1;2;3,integer,Post hoc categorization of ad hoc participant comments
