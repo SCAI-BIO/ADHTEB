@@ -1,21 +1,21 @@
 cohort_variable,cohort_definition,matched_top_1_cdm_definition,matched_top_1_cdm_variable,matched_top_1_similarity,in_top_1
-SUBJID,Subject Identifier for the Study,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4911371783881757,True
-SEX,Sex,The assemblage of physical properties or qualities by which male is distinguished from female; the physical difference between male and female; the distinguishing peculiarity of male or female.,Biological Sex,0.39344933751566435,True
-AGE,Age (years),The year in which a person was born.,Year of Birth,0.4336690383765571,False
+SUBJID,Subject Identifier for the Study,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4902843091855128,True
+SEX,Sex,The assemblage of physical properties or qualities by which male is distinguished from female; the physical difference between male and female; the distinguishing peculiarity of male or female.,Biological Sex,0.39344628000947174,True
+AGE,Age (years),The year in which a person was born.,Year of Birth,0.4336276706564993,False
 HGTCMB,Height (cm) at Baseline,"A quantitative measure of the anatomical size (typically in cubic millimeters or centimeters) of the right hippocampus, usually obtained via structural neuroimaging such as MRI.",Right Hippocampus Volume,0.33056873899169037,False
-WGTKGB,Weight (kg) at Baseline,An individual's weight in kilograms divided by the square of the height in meters.,BMI,0.4206561340813413,False
-BMIB,Body Mass Index (BMI) (kg/m2)  at Baseline,An individual's weight in kilograms divided by the square of the height in meters.,BMI,0.49389524999083406,True
+WGTKGB,Weight (kg) at Baseline,An individual's weight in kilograms divided by the square of the height in meters.,BMI,0.4205913819443876,False
+BMIB,Body Mass Index (BMI) (kg/m2)  at Baseline,An individual's weight in kilograms divided by the square of the height in meters.,BMI,0.49374975747379324,True
 EDUC,Level of Education,The number of education years that a subject has competed.,Education,0.560262109299849,True
 MRTLST,Marital Status,A demographic parameter indicating a person's current conjugal status.,Marital Status,0.6641846811547413,True
-ALCO,Alcohol Consumption,"Consumption of liquids containing ethanol, including the behaviors associated with drinking the alcohol.",Alcohol,0.6424045127850707,True
-PCC01,Depression Diagnosis,Hospital Anxiety and Depression Scale (HADS) Total score depression.,Hospital Anxiety and Depression Scale (HADs) (Anxiety),0.4715514552403743,False
-PCC05,Stroke Diagnosis,A sudden loss of neurological function secondary to hemorrhage or ischemia in the brain parenchyma due to a vascular event.,Stroke,0.5061220227624401,True
-PCC11,Diabetes Mellitus Diagnosis,A metabolic disorder characterized by abnormally high blood sugar levels due to diminished production of insulin or insulin resistance/desensitization.,Diabetes,0.4217992008229021,True
-PCC15,Carcinoma Diagnosis,The determination of the amount of human epidermal growth factor receptor 2 present in a sample.,NEU Protein (HER2) in Plasma,0.3603748656647964,False
-PCC17,Urinary tract disorder Diagnosis,Medical history pertaining to the kidney,Renal,0.44244259416649984,False
+ALCO,Alcohol Consumption,"Consumption of liquids containing ethanol, including the behaviors associated with drinking the alcohol.",Alcohol,0.6423874777431559,True
+PCC01,Depression Diagnosis,Hospital Anxiety and Depression Scale (HADS) Total score depression.,Hospital Anxiety and Depression Scale (HADs) (Anxiety),0.4715474666787884,False
+PCC05,Stroke Diagnosis,A sudden loss of neurological function secondary to hemorrhage or ischemia in the brain parenchyma due to a vascular event.,Stroke,0.5060235006085779,True
+PCC11,Diabetes Mellitus Diagnosis,A metabolic disorder characterized by abnormally high blood sugar levels due to diminished production of insulin or insulin resistance/desensitization.,Diabetes,0.4217704638439924,True
+PCC15,Carcinoma Diagnosis,The determination of the amount of human epidermal growth factor receptor 2 present in a sample.,NEU Protein (HER2) in Plasma,0.36049124821122797,False
+PCC17,Urinary tract disorder Diagnosis,Medical history pertaining to the kidney,Renal,0.4424647695229972,False
 PCC21,Anxiety Diagnosis,"An instrument for measuring anxiety. It is designed to differentiate between temporary \state anxiety\ and general, long-standing \trait anxiety\. (Copyright Mind Garden, Inc.)",The State-Trait Anxiety Inventory (STAI),0.4765178763811318,False
-PCC23,Insomnia Diagnosis,A sleep disorder characterized by difficulty in falling asleep and/or remaining asleep.,Insomnia,0.5071151016771066,True
+PCC23,Insomnia Diagnosis,A sleep disorder characterized by difficulty in falling asleep and/or remaining asleep.,Insomnia,0.5071478912045583,True
 FALLSYN,Any Falls,"A sudden movement downward, usually resulting in injury. [ NCI ]",Fall,0.4291246417051665,True
-MMSETOT,Mini-Mental State Examination (MMSE) Total Score,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.9463712784882564,True
-ADASTOT11,ADAS-Cog11 Total Score,Alzheimer's Disease Cooperative Study-Activities of Daily Living Inventory (ADCS-ADL) Total score.,Alzheimer's Disease Cooperative Study - Activities of Daily Living (ADCS_ADL),0.6944748260183915,False
+MMSETOT,Mini-Mental State Examination (MMSE) Total Score,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.9465056732256018,True
+ADASTOT11,ADAS-Cog11 Total Score,Alzheimer's Disease Cooperative Study-Activities of Daily Living Inventory (ADCS-ADL) Total score.,Alzheimer's Disease Cooperative Study - Activities of Daily Living (ADCS_ADL),0.6944101782864722,False
 ADCSTOT,ADCS-ADL Total Score,Alzheimer's Disease Cooperative Study-Activities of Daily Living Inventory (ADCS-ADL) Total score.,Alzheimer's Disease Cooperative Study - Activities of Daily Living (ADCS_ADL),0.8166729845444074,True
