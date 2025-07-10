@@ -1,4 +1,4 @@
-index,data_table,column_number,variable,description,units,coding,possible_data_values,value_type,notes
+index,data_table,column_number,Column_Name,Description,units,coding,possible_data_values,value_type,notes
 1,AD8_Registered_PREVENTAD,1,CONP_ID,Participant identification code in the Open/Registered data repositories,,,,string,
 2,AD8_Registered_PREVENTAD,2,CONP_CandID,Alternate participant identification code,,,,string,
 3,AD8_Registered_PREVENTAD,3,Study_visit_label,Complete visit label including the prefix PRE or NAP and time point,,,NAPBL00;NAPFU03;NAPFU12;NAPFU24;NAPFU36;NAPFU48;PREBL00;PREFU12;PREFU24;PREFU36;PREFU48,string,
