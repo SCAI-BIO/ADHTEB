@@ -103,7 +103,7 @@ class Benchmark:
 
         aggregate_score = self.aggregate_score()
 
-        return f"{tabulate(summary_df, headers='keys', tablefmt='pretty')}\nAggregate Score: {aggregate_score:.4f}"
+        return f"{tabulate(summary_df, headers='keys', tablefmt='pretty')}\nAggregate Score: {aggregate_score:.2f}"
 
     def aggregate_score(self) -> float:
         """
@@ -139,10 +139,10 @@ class Benchmark:
         entry = LeaderboardEntry(
             model=model_metadata,
             cohort_benchmarks=[
-                self.results_geras,
-                self.results_prevent_dementia,
-                self.results_aibl,
-                self.results_a4
+                self.results_geras.model_dump(),
+                self.results_prevent_dementia.model_dump(),
+                self.results_aibl.model_dump(),
+                self.results_a4.model_dump()
             ]
         )
         self.logger.info("Publishing benchmark results to leaderboard...")

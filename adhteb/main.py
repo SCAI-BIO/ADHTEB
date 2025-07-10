@@ -25,4 +25,8 @@ for vectorizer in vectorizers:
     benchmark = Benchmark(vectorizer=vectorizer)
     benchmark.run()
     print(benchmark.results_summary())
+    benchmark.results_geras.save_pr_curve()
+    benchmark.results_a4.save_pr_curve()
+    benchmark.results_prevent_dementia.save_pr_curve()
+    benchmark.results_aibl.save_pr_curve()
     benchmark.publish()
