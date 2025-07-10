@@ -145,6 +145,7 @@ class Benchmark:
                 self.results_a4.model_dump()
             ]
         )
+        print(entry.model_dump_json())
         self.logger.info("Publishing benchmark results to leaderboard...")
         publish_entry(entry)
 
