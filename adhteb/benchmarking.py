@@ -6,9 +6,9 @@ import pandas as pd
 import numpy as np
 from tabulate import tabulate
 
-from adhteb.leaderboard import LeaderboardEntry, publish_entry
-from vectorizers import Vectorizer
-from results import BenchmarkResult
+from .leaderboard import LeaderboardEntry, publish_entry
+from .vectorizers import Vectorizer
+from .results import BenchmarkResult
 
 
 class Benchmark:
@@ -38,17 +38,17 @@ class Benchmark:
         # tested text embedder
         self.vectorizer = vectorizer
         # common data model
-        cdm = pd.read_csv("data/AD_CDM_JPAD.csv", na_values=[""])
+        cdm = pd.read_csv("adhteb/data/AD_CDM_JPAD.csv", na_values=[""])
         self.groundtruth = self._compute_groundtruth_vectors(cdm)
         # GERAS cohorts
-        self.geras_i = self._compute_cohort_vectors("data/GERAS_I_dict.csv")
-        self.geras_ii = self._compute_cohort_vectors("data/GERAS_II_dict.csv")
-        self.geras_us = self._compute_cohort_vectors("data/GERAS_US_dict.csv")
-        self.geras_j = self._compute_cohort_vectors("data/GERAS_J_dict.csv")
+        self.geras_i = self._compute_cohort_vectors("adhteb/data/GERAS_I_dict.csv")
+        self.geras_ii = self._compute_cohort_vectors("adhteb/data/GERAS_II_dict.csv")
+        self.geras_us = self._compute_cohort_vectors("adhteb/data/GERAS_US_dict.csv")
+        self.geras_j = self._compute_cohort_vectors("adhteb/data/GERAS_J_dict.csv")
         # other cohorts
-        self.prevent_dementia = self._compute_cohort_vectors("data/PREVENT_DEMENTIA_dict.csv")
-        self.a4 = self._compute_cohort_vectors("data/A4_dict.csv")
-        self.aibl = self._compute_cohort_vectors("data/AIBL_dict.csv")
+        self.prevent_dementia = self._compute_cohort_vectors("adhteb/data/PREVENT_DEMENTIA_dict.csv")
+        self.a4 = self._compute_cohort_vectors("adhteb/data/A4_dict.csv")
+        self.aibl = self._compute_cohort_vectors("adhteb/data/AIBL_dict.csv")
         # Result sets
         self.results_prevent_dementia: BenchmarkResult = None  # n=37
         self.results_geras: BenchmarkResult = None  # n=61

@@ -1,6 +1,6 @@
 import os
-from benchmarking import Benchmark
-from vectorizers import *
+from .benchmarking import Benchmark
+from .vectorizers import *
 import logging
 
 logging.basicConfig(
@@ -17,8 +17,11 @@ logging.getLogger("benchmarking").setLevel(logging.INFO)
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
 openai_vectorizer = OpenAIVectorizer(api_key=openai_api_key)
+linq_vectorizer = LinqEmbedMistralVectorizer()
+mini_lm_vectorizer = AllMiniLMVectorizer()
+qwen_vectorizer = Qwen38BVectorizer()
 
-vectorizers = [openai_vectorizer]
+vectorizers = [mini_lm_vectorizer]
 
 for vectorizer in vectorizers:
     print(f"Running benchmark for {vectorizer.model_name}...")
@@ -29,4 +32,3 @@ for vectorizer in vectorizers:
     benchmark.results_a4.save_pr_curve()
     benchmark.results_prevent_dementia.save_pr_curve()
     benchmark.results_aibl.save_pr_curve()
-    benchmark.publish()

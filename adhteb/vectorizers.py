@@ -1,7 +1,6 @@
 from abc import ABC
 import re
 
-from google import genai
 from openai import OpenAI
 
 from sentence_transformers import SentenceTransformer
