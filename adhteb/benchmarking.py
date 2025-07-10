@@ -52,8 +52,8 @@ class Benchmark:
         # Result sets
         self.results_prevent_dementia: BenchmarkResult = None  # n=37
         self.results_geras: BenchmarkResult = None  # n=61
-        self.prevent_ad: BenchmarkResult = None  # n=54
-        self.emif: BenchmarkResult = None  # n=73
+        self.results_prevent_ad: BenchmarkResult = None  # n=54
+        self.results_emif: BenchmarkResult = None  # n=73
 
     def run(self) -> None:
         """
@@ -65,15 +65,18 @@ class Benchmark:
         self.geras_us = self._drop_cohort_records_without_groundtruth(self.geras_us, "GERAS-US")
         self.geras_j = self._drop_cohort_records_without_groundtruth(self.geras_j, "GERAS-J")
         self.results_geras = self._benchmark_geras()
+
         self.logger.info("Benchmarking PREVENT Dementia cohort...")
         self.prevent_dementia = self._drop_cohort_records_without_groundtruth(self.prevent_dementia, "PREVENT Dementia")
         self.results_prevent_dementia = self._benchmark_cohort(self.prevent_dementia, "PREVENT Dementia", self.n_bins)
-        self.logger.info("Benchmarking AIBL cohort...")
-        self.emif = self._drop_cohort_records_without_groundtruth(self.emif, "AIBL")
-        self.prevent_ad = self._benchmark_cohort(self.emif, "AIBL", self.n_bins)
-        self.logger.info("Benchmarking A4 cohort...")
-        self.prevent_ad = self._drop_cohort_records_without_groundtruth(self.prevent_ad, "A4")
-        self.emif = self._benchmark_cohort(self.prevent_ad, "A4", self.n_bins)
+
+        self.logger.info("Benchmarking EMIF cohort...")
+        self.emif = self._drop_cohort_records_without_groundtruth(self.emif, "EMIF")
+        self.results_emif = self._benchmark_cohort(self.emif, "EMIF", self.n_bins)
+
+        self.logger.info("Benchmarking PREVENT-AD cohort...")
+        self.prevent_ad = self._drop_cohort_records_without_groundtruth(self.prevent_ad, "PREVENT-AD")
+        self.results_prevent_ad = self._benchmark_cohort(self.prevent_ad, "PREVENT-AD", self.n_bins)
         self.logger.info("Benchmarking completed for all cohorts.")
 
     def results_summary(self) -> str:
