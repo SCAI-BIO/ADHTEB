@@ -106,8 +106,8 @@ class Benchmark:
         summary_data = {
             "GERAS": [self.results_geras.auc, self.results_geras.top_n_accuracy[0]],
             "PREVENT Dementia": [self.results_prevent_dementia.auc, self.results_prevent_dementia.top_n_accuracy[0]],
-            "PREVENT AD": [self.results_prevent_ad.auc, self.prevent_ad.top_n_accuracy[0]],
-            "EMIF": [self.results_emif.auc, self.emif.top_n_accuracy[0]],
+            "PREVENT AD": [self.results_prevent_ad.auc, self.results_prevent_ad.top_n_accuracy[0]],
+            "EMIF": [self.results_emif.auc, self.results_emif.top_n_accuracy[0]],
         }
 
         summary_df = pd.DataFrame(summary_data, index=["AUPRC", "Zero-shot Accuracy"]).T
@@ -124,7 +124,7 @@ class Benchmark:
 
         :return: Composite score as a float.
         """
-        if not all([self.results_geras, self.results_prevent_dementia, self.prevent_ad, self.emif]):
+        if not all([self.results_geras, self.results_prevent_dementia, self.results_prevent_ad, self.results_emif]):
             raise ValueError("Benchmark results for all cohorts must be computed before aggregating score.")
 
         total_score = 0.0
@@ -153,8 +153,8 @@ class Benchmark:
             cohort_benchmarks=[
                 self.results_geras.model_dump(),
                 self.results_prevent_dementia.model_dump(),
-                self.prevent_ad.model_dump(),
-                self.emif.model_dump()
+                self.results_prevent_ad.model_dump(),
+                self.results_emif.model_dump()
             ]
         )
         print(entry.model_dump_json())
