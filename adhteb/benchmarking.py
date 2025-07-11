@@ -106,8 +106,8 @@ class Benchmark:
         summary_data = {
             "GERAS": [self.results_geras.auc, self.results_geras.top_n_accuracy[0]],
             "PREVENT Dementia": [self.results_prevent_dementia.auc, self.results_prevent_dementia.top_n_accuracy[0]],
-            "PREVENT AD": [self.prevent_ad.auc, self.prevent_ad.top_n_accuracy[0]],
-            "EMIF": [self.emif.auc, self.emif.top_n_accuracy[0]],
+            "PREVENT AD": [self.results_prevent_ad.auc, self.prevent_ad.top_n_accuracy[0]],
+            "EMIF": [self.results_emif.auc, self.emif.top_n_accuracy[0]],
         }
 
         summary_df = pd.DataFrame(summary_data, index=["AUPRC", "Zero-shot Accuracy"]).T
