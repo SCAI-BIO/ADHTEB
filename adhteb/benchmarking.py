@@ -1,5 +1,6 @@
 import logging
 import os
+import pickle
 from typing import List
 
 import pandas as pd
@@ -79,6 +80,14 @@ class Benchmark:
         self.results_prevent_ad = self._benchmark_cohort(self.prevent_ad, "PREVENT-AD", self.n_bins)
         self.logger.info("Benchmarking completed for all cohorts.")
 
+    def save(self, filepath: str) -> None:
+        """
+        Serialize the Benchmark instance to a file.
+        """
+        with open(filepath, "wb") as f:
+            pickle.dump(self, f)
+        self.logger.info(f"Benchmark saved to {filepath}")
+
     def results_summary(self) -> str:
         """
         Generates a summary of the benchmark results for all cohorts.
@@ -89,8 +98,8 @@ class Benchmark:
         if not all([
             self.results_geras,
             self.results_prevent_dementia,
-            self.prevent_ad,
-            self.emif
+            self.results_prevent_ad,
+            self.results_emif
         ]):
             raise ValueError("Benchmark results for all cohorts must be computed before generating summary.")
 
