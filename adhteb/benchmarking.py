@@ -1,5 +1,6 @@
 import logging
 import os
+import pickle
 from typing import List
 
 import pandas as pd
@@ -79,6 +80,14 @@ class Benchmark:
         self.results_prevent_ad = self._benchmark_cohort(self.prevent_ad, "PREVENT-AD", self.n_bins)
         self.logger.info("Benchmarking completed for all cohorts.")
 
+    def save(self, filepath: str) -> None:
+        """
+        Serialize the Benchmark instance to a file.
+        """
+        with open(filepath, "wb") as f:
+            pickle.dump(self, f)
+        self.logger.info(f"Benchmark saved to {filepath}")
+
     def results_summary(self) -> str:
         """
         Generates a summary of the benchmark results for all cohorts.
@@ -89,16 +98,16 @@ class Benchmark:
         if not all([
             self.results_geras,
             self.results_prevent_dementia,
-            self.prevent_ad,
-            self.emif
+            self.results_prevent_ad,
+            self.results_emif
         ]):
             raise ValueError("Benchmark results for all cohorts must be computed before generating summary.")
 
         summary_data = {
             "GERAS": [self.results_geras.auc, self.results_geras.top_n_accuracy[0]],
             "PREVENT Dementia": [self.results_prevent_dementia.auc, self.results_prevent_dementia.top_n_accuracy[0]],
-            "PREVENT AD": [self.prevent_ad.auc, self.prevent_ad.top_n_accuracy[0]],
-            "EMIF": [self.emif.auc, self.emif.top_n_accuracy[0]],
+            "PREVENT AD": [self.results_prevent_ad.auc, self.results_prevent_ad.top_n_accuracy[0]],
+            "EMIF": [self.results_emif.auc, self.results_emif.top_n_accuracy[0]],
         }
 
         summary_df = pd.DataFrame(summary_data, index=["AUPRC", "Zero-shot Accuracy"]).T
@@ -115,13 +124,13 @@ class Benchmark:
 
         :return: Composite score as a float.
         """
-        if not all([self.results_geras, self.results_prevent_dementia, self.prevent_ad, self.emif]):
+        if not all([self.results_geras, self.results_prevent_dementia, self.results_prevent_ad, self.results_emif]):
             raise ValueError("Benchmark results for all cohorts must be computed before aggregating score.")
 
         total_score = 0.0
         total_n_variables = 0
 
-        for results in [self.results_geras, self.results_prevent_dementia, self.prevent_ad, self.emif]:
+        for results in [self.results_geras, self.results_prevent_dementia, self.results_prevent_ad, self.results_emif]:
             auc = results.auc
             n_variables = results.n_variables
             zero_shot_accuracy = results.top_n_accuracy[0]
@@ -144,8 +153,8 @@ class Benchmark:
             cohort_benchmarks=[
                 self.results_geras.model_dump(),
                 self.results_prevent_dementia.model_dump(),
-                self.prevent_ad.model_dump(),
-                self.emif.model_dump()
+                self.results_prevent_ad.model_dump(),
+                self.results_emif.model_dump()
             ]
         )
         print(entry.model_dump_json())
