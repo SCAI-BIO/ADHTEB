@@ -1,0 +1,110 @@
+cohort_variable,cohort_definition,matched_top_1_cdm_definition,matched_top_1_cdm_variable,matched_top_1_similarity,in_top_1
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+ASSCORE,Total Score,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.6845295593188861,False
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+MEMORY,Memory Score,Clinical Dementia Rating (CDR) Memory.,CDR - Memory,0.6801694731465768,True
+ORIENT,Orientation Score,Clinical Dementia Rating (CDR) Orientation.,CDR - Orientation,0.6519090312061906,True
+JUDGE,Judgment and Problem Solving Score,Clinical Dementia Rating (CDR) Judgment and problem solving.,CDR - Judgment and Problem Solving Score,0.6949756267528822,True
+COMMUN,Community Affairs Score,Clinical Dementia Rating (CDR) Community affairs.,CDR - Community Affairs,0.6749701360933354,True
+HOME,Home and Hobbies Score,A description of a personal residence and the relationship between the occupants that reside there.,Living Arrangement,0.6295146565147115,False
+CARE,Personal Care Score,Clinical Dementia Rating (CDR) Personal care.,CDR - Personal Care,0.6567217340963937,True
+CDSOB,Sum of Boxes (system populated),Clinical Dementia Rating (CDR) Sum of Boxes.,Clinical Dementia Rating Scale Sum of Boxes (CDRSB),0.6342408803391523,True
+CDGLOBAL,Global CDR (system populated),Clinical Dementia Rating (CDR) Community affairs.,CDR - Community Affairs,0.5683107107619948,False
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+MEMORY,"1. Compared to one year ago, do you feel that your memory has declined substantially?","Geriatric Depression Scale, Short Form (GDS-SF) Do you feel you have more problems with memory than most?",GDS-SF - More Memory Problems Than Most,0.6305897422449094,False
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+ALCOHOL,Average number of alcoholic drinks consumed per day:,"Consumption of liquids containing ethanol, including the behaviors associated with drinking the alcohol.",Alcohol,0.5956996780309408,True
+SUBUSE,Has the participant used other substances (e.g. non-pharmacologic substances such as medical marijuana)?,Medical history pertaining to allergies or drug sensitivities,Allergies or Drug Sensitivities,0.5981696834348258,False
+AEROBIC,"Average number of hours of aerobic exercise (i.e. jogging, swimming, bicycling) PER WEEK:",The number of education years that a subject has competed.,Education,0.4927649251637835,False
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+IHSYMPTOM,System/Category,Medical history pertaining to the metabolic system,Metabolic,0.5720356513252248,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+MMSCORE,MMSE TOTAL SCORE,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.8817383183180325,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+PXCARD,Cardiac,Medical history pertaining to the heart or blood vessels.,Cardiovascular,0.6799732493635063,False
+PXMUSCUL,Musculoskeletal,"Pain that originates in the bones, muscles, tendons or ligaments.",Musculoskeletal Pain,0.6597319822717176,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+GDSATIS,1. Are you basically satisfied with your life?,"Geriatric Depression Scale, Short Form (GDS-SF) Are you basically satisfied with your life?",GDS-SF - Basically Satisfied With Life,0.6597922008093139,True
+GDDROP,2. Have you dropped many of your activities and interests?,"Geriatric Depression Scale, Short Form (GDS-SF) Have you dropped many of your activities and interests?",GDS-SF - Dropped Activities and Interests,0.7512190237463113,True
+GDEMPTY,3. Do you feel that your life is empty?,"Geriatric Depression Scale, Short Form (GDS-SF) Do you feel that your life is empty?",GDS-SF - Feel Life Is Empty,0.6996697246224838,True
+GDBORED,4. Do you often get bored?,"Geriatric Depression Scale, Short Form (GDS-SF) Do you often get bored?",GDS-SF - Often Get Bored,0.6496427208919576,True
+GDSPIRIT,5. Are you in good spirits most of the time?,"Geriatric Depression Scale, Short Form (GDS-SF) Are you in good spirits most of the time?",GDS-SF - Good Spirits Most of Time,0.6556688839878839,True
+GDAFRAID,6. Are you afraid that something bad is going to happen to you?,"Geriatric Depression Scale, Short Form (GDS-SF) Are you afraid that something bad is going to happen to you?",GDS-SF - Afraid of Something Bad Happening,0.6659413738055644,True
+GDHAPPY,7. Do you feel happy most of the time?,"Geriatric Depression Scale, Short Form (GDS-SF) Do you feel happy most of the time?",GDS-SF - Feel Happy Most of Time,0.6794584302515342,True
+GDHELP,8. Do you often feel helpless?,"Geriatric Depression Scale, Short Form (GDS-SF) Do you often feel helpless?",GDS-SF - Often Feel Helpless,0.6918592605339788,True
+GDHOME,"9. Do you prefer to stay at home, rather than going out and doing new things?","Geriatric Depression Scale, Short Form (GDS-SF) Do you prefer to stay at home, rather than going out and doing new things?",GDS-SF - Prefer to Stay Home,0.6652251473092262,True
+GDMEMORY,10. Do you feel you have more problems with memory than most?,"Geriatric Depression Scale, Short Form (GDS-SF) Do you feel you have more problems with memory than most?",GDS-SF - More Memory Problems Than Most,0.7191045222867692,True
+GDALIVE,11. Do you think its wonderful to be alive now?,"Geriatric Depression Scale, Short Form (GDS-SF) Do you think it is wonderful to be alive now?",GDS-SF - Think Wonderful to Be Alive,0.67221534052301,True
+GDWORTH,12. Do you feel pretty worthless the way you are now?,"Geriatric Depression Scale, Short Form (GDS-SF) Do you feel pretty worthless the way you are now?",GDS-SF - Feel Worthless,0.7033065954473937,True
+GDENERGY,13. Do you feel full of energy?,"Geriatric Depression Scale, Short Form (GDS-SF) Do you feel full of energy?",GDS-SF - Feel Full of Energy,0.6437179343227656,True
+GDHOPE,14. Do you feel that your situation is hopeless?,"Geriatric Depression Scale, Short Form (GDS-SF) Do you feel that your situation is hopeless?",GDS-SF - Feel Situation is Hopeless,0.6789640546955641,True
+GDBETTER,15. Do you think that most people are better off than you are?,"Geriatric Depression Scale, Short Form (GDS-SF) Do you think that most people are better off than you are?",GDS-SF - Think Most People Better Off Than You,0.6878770724502958,True
+GDTOTAL,Total Score,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.6845295593188861,False
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+PTGENDER,Gender,Left_GC-ML-DG,Left GC-ML-DG Volume,0.5531661679631266,False
+PTAGE,Age at Screening Visit,The year in which a person was born.,Year of Birth,0.5137486465197921,False
+PTETHNIC,Ethnic Category,A geographic ancestral origin category that is assigned to a population group based mainly on physical characteristics that are thought to be distinct and inherent.,Race,0.547144879856384,False
+PTRACE,Racial Categories,A geographic ancestral origin category that is assigned to a population group based mainly on physical characteristics that are thought to be distinct and inherent.,Race,0.5565197265981229,True
+PTEDUCAT,Education (years),The number of education years that a subject has competed.,Education,0.8456977861201674,True
+PTMARRY,Marital Status,A demographic parameter indicating a person's current conjugal status.,Marital Status,0.7178943511325951,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+VSWEIGHT,1a. Weight,The vertical force exerted by a mass as a result of gravity.,Weight,0.5883095860497234,True
+VSHEIGHT,2a. Height,The vertical measurement or distance from the base to the top of an object; the vertical dimension of extension.,Height,0.532437923504089,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+LeftLateralVentricle,Volume of left lateral ventricle,"quantification of the volume of the left inferior lateral ventricle, usuallly through an MRI scan",Left Inferior Lateral Ventricle Volume,0.8209897328671328,False
+RightLateralVentricle,Volume of right lateral ventricle,"quantification of the volume of the left inferior lateral ventricle, usuallly through an MRI scan",Left Inferior Lateral Ventricle Volume,0.7247426760972991,False
+LeftInferiorLateralVentricle,Volume of left inferior lateral ventricle,"quantification of the volume of the left inferior lateral ventricle, usuallly through an MRI scan",Left Inferior Lateral Ventricle Volume,0.8788402981563359,True
+RightInferiorLateralVentricle,Volume of right inferior lateral ventricle,"quantification of the volume of the left inferior lateral ventricle, usuallly through an MRI scan",Left Inferior Lateral Ventricle Volume,0.8041643244596132,False
+LeftThalamus,Volume of left thalamus,Left cortical white matter volume,Left Cortical White Matter Volume From Qdec,0.7507810560798388,False
+RightThalamus,Volume of right thalamus,Right cortical white matter volume,Right Cortical White Matter Volume From Qdec,0.7571656879376892,False
+LeftCaudate,Volume of left caudate,Left cortical white matter volume,Left Cortical White Matter Volume From Qdec,0.7477745646671062,False
+RightCaudate,Volume of right caudate,Right cortical white matter volume,Right Cortical White Matter Volume From Qdec,0.7528328244230058,False
+LeftPutamen,Volume of left putamen,The volume of a putamen.,Right Putamen Volume,0.8412879236754923,False
+RightPutamen,Volume of right putamen,The volume of a putamen.,Right Putamen Volume,0.8405288232357353,True
+LeftPallidum,Volume of left pallidum,"Quantitative measure of the gray matter volume of the left pallidum, typically obtained through structural brain MRI and automated segmentation.",Left Pallidum Volume,0.7363114049390708,True
+RightPallidum,Volume of right pallidum,Right cortical white matter volume,Right Cortical White Matter Volume From Qdec,0.7369268504502721,False
+LeftHippocampus,Volume of left hippocampus,Measurement of the volume of the hippocampus,Hippocampus Volume,0.8336070982105542,False
+RightHippocampus,Volume of right hippocampus,Measurement of the volume of the hippocampus,Hippocampus Volume,0.8275618071539493,False
+LeftAmygdala,Volume of left amygdala,The volume of a amygdala.,Left Amygdala Volume,0.8292679199387964,True
+RightAmygdala,Volume of right amygdala,The volume of a amygdala.,Left Amygdala Volume,0.8326989264139578,False
+LeftVentralDiencephalon,Volume of left ventral diencephalon,The volume of a diencephalon.,Right Ventral Diencephalon Volume,0.8179015856305958,False
+RightVentralDiencephalon,Volume of right ventral diencephalon,The volume of a diencephalon.,Right Ventral Diencephalon Volume,0.8258892608050531,True
+LeftCerebellarWhiteMatter,Volume of left cerebellar white matter,Left cortical white matter volume,Left Cortical White Matter Volume From Qdec,0.8547619473404208,False
+RightCerebellarWhiteMatter,Volume of right cerebellar white matter,Right cortical white matter volume,Right Cortical White Matter Volume From Qdec,0.8436593227524357,False
+LeftCerebellarGrayMatter,Volume of left cerebellar gray matter,"A quantitative measurement of the gray matter volume in the left cerebellum, typically obtained through structural imaging (e.g., MRI) usin automated or manual segmentation techniques.",Left Cerebellum Gray Matter Volume,0.776306734281961,True
+RightCerebellarGrayMatter,Volume of left cerebellar gray matter,"A quantitative measurement of the gray matter volume in the left cerebellum, typically obtained through structural imaging (e.g., MRI) usin automated or manual segmentation techniques.",Left Cerebellum Gray Matter Volume,0.776306734281961,False
+LeftEntorhinal,Volume of left entorhinal,Left cortical white matter volume,Left Cortical White Matter Volume From Qdec,0.7307134353027613,False
+RightEntorhinal,Volume of right entorhinal,Right cortical white matter volume,Right Cortical White Matter Volume From Qdec,0.7366619614463966,False
+LeftFusiform,Volume of left fusiform,Left cortical white matter volume,Left Cortical White Matter Volume From Qdec,0.7512775572256534,False
+RightFusiform,Volume of right fusiform,Right cortical white matter volume,Right Cortical White Matter Volume From Qdec,0.7450032655717449,False
+LeftInferiortemporal,Volume of left inferior temporal,"quantification of the volume of the left inferior lateral ventricle, usuallly through an MRI scan",Left Inferior Lateral Ventricle Volume,0.7113750677293144,False
+LeftMiddletemporal,Volume of left middle temporal,Left cortical white matter volume,Left Cortical White Matter Volume From Qdec,0.719544673372496,False
+RightMiddletemporal,Volume of right middle temporal,Right cortical white matter volume,Right Cortical White Matter Volume From Qdec,0.7228173868113362,False
+RightSuperiorparietal,Volume of right superior parietal,Right cortical white matter volume,Right Cortical White Matter Volume From Qdec,0.7609206831989803,False
+LeftTemporalpole,Volume of left temporal pole,"The total volume of the left temporal pole as measured via cortical parcellation in Qdec (Query, Design, Estimate).",Left Temporal Pole Volume (Qdec),0.7861232366449695,False
+RightTemporalpole,Volume of right temporal pole,White-matter-Right-temporalpole-from_Qdec_wmparc.volume.stats_file,White-matter-Right-temporalpole-from Qdec Wmparc,0.7623478183498013,False
+IntraCranialVolume,Total intracranial volume,Is a quantification of intracranial volume.,Intracranial Volume,0.7971788963217387,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+suvr_cer,Standard uptake value ratio (blcere_all),Florbetapir F18 Positron Emission Tomography,AV45 PET,0.5632006703098417,True
+BID,Blinded Participant ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5581029890760102,True
+BID,Subject Identifier,The number of education years that a subject has competed.,Education,0.577200683890223,False
+AGEYR,Age in Years at Consent,The year in which a person was born.,Year of Birth,0.6058652884710934,True
+APOEGN,ApoE4 Genotype,Florbetapir F18 Positron Emission Tomography,AV45 PET,0.5976756949084341,False
+BID,Subject Identifier,The number of education years that a subject has competed.,Education,0.577200683890223,False

@@ -1,0 +1,27 @@
+cohort_variable,cohort_definition,matched_top_1_cdm_definition,matched_top_1_cdm_variable,matched_top_1_similarity,in_top_1
+VisitTime,Time of visit since baseline,How long something has existed; elapsed time since birth.,Age,0.5349018987250848,False
+Eduy,Years of education,The number of education years that a subject has competed.,Education,0.8456524571261718,True
+Age,Age when assessed,The year in which a person was born.,Year of Birth,0.5972273268622222,False
+Gender,Gender,Left_GC-ML-DG,Left GC-ML-DG Volume,0.5531661679631266,False
+Diagnosis,Clinical diagnosis,Medical history pertaining to lymph,Lymphatic,0.6192398457604769,False
+AMYLOIDstatus,Dichotomous amyloid variable,Florbetapir F18 Positron Emission Tomography,AV45 PET,0.6039417632388637,True
+MMSE,Mini Mental State Examination,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.8253383113673313,True
+Local_AB42,CSF AB 42 value of local assessment,The determination of the amount of the 1-42 amino acid beta amyloid protein isoform present in a sample.,A-beta 1-42 in CSF,0.5887821949827844,True
+Local_AB42,Dichotomous CSF AB42 of local assessment,The determination of the amount of the 1-42 amino acid beta amyloid protein isoform present in a sample.,A-beta 1-42 in Plasma,0.5847723973247321,False
+Central_CSF_NFL,Neurofilament light values of central CSF analyses,"Quantification of the levels of neurofilament light chain, typically in blood or cerebrospinal fluid. Used as a marker of neurodegeneration, in Alzheimer's disease, Amyotrophic Lateral Sclerosis, multiple sclerosis and Huntington's disease.",Neurofilament Light Chain (NfL) in Plasma,0.6429599546257879,False
+Central_CSF_Neurogranin,Neurogranin values of central CSF analyses,A neurogranin that is encoded in the genome of human.,Neurogranin (NRGN) in CSF,0.6707056087914444,True
+Central_CSF_YKL40,YKL-40 values of central CSF analyses,The determination of the amount of YKL-40 protein present in a sample.,YKL-40 in CSF,0.7096465673826432,True
+Hippo_sum_FS_adj,Sum of hippocampal volume left and right adjusted for ICV,Measurement of the volume of the hippocampus,Hippocampus Volume,0.7122527086859609,True
+Lhippo_FS_adj,Volume of left hippocampus adjusted for ICV,Measurement of the volume of the hippocampus,Hippocampus Volume,0.7286205499566315,False
+Rhippo_FS_adj,Volume of right hippocampus adjusted for ICV,Measurement of the volume of the hippocampus,Hippocampus Volume,0.7356008979641682,False
+CDR_Global,Clinical Dementia Rating Scale Global score,Clinical Dementia Rating (CDR) Sum of Boxes.,Clinical Dementia Rating Scale Sum of Boxes (CDRSB),0.7954390224380244,False
+GDS15,Geriatric Depression Scale - 15 items,Geriatric Depression Scale Short Form total score.,Geriatric Depression Scale (GDS),0.8081340615500476,True
+CardiovascularDis,History of cardiovascular disorders,Medical history pertaining to the heart or blood vessels.,Cardiovascular,0.7639557814132181,True
+Alcohol,Alcohol use ,"Consumption of liquids containing ethanol, including the behaviors associated with drinking the alcohol.",Alcohol,0.6881173227227787,True
+AlcoholAmount,Alcohol units per week ,"The use of alcoholic beverages to excess, either on individual occasions (\binge drinking\) or as a regular practice.",Alcohol Abuse,0.5675017561976622,True
+Depression,History of depression,Medical history pertaining to lymph,Lymphatic,0.5913890892267338,False
+Obesity,Current obesity,A disorder involving an excessive amount of body fat.,Obesity,0.6176216825993925,True
+Stroke,History of Stroke,Modified Hachinski Ischemic Scale-NACC Version (MHIS-NACC) History of stroke.,MHIS-NACC - History of Stroke,0.6428608685731592,False
+APOEdich,Dichotomous APOEe4 carrier,MCP-1,Monocyte Chemoattractant Protein 1 in CSF,0.5488112522100208,False
+APOE_Allele1,Values for APOE allele 1,"Human APOE*4 allele is located in the vicinity of 19q13.2 and is approximately 4 kb in length. This allele, which encodes apolipoprotein E4, plays a role in triglyceride metabolism. The allele is associated with increased occurrence of both Alzheimer disease and coronary artery disease.",APOE,0.5341174959030558,False
+APOE_Allele2,Values for APOE allele 2,The determination of the amount of the 1-42 amino acid beta amyloid protein isoform present in a sample.,A-beta 1-42 in Plasma,0.5412471313078774,False

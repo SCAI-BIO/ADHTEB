@@ -1,0 +1,27 @@
+cohort_variable,cohort_definition,matched_top_1_cdm_definition,matched_top_1_cdm_variable,matched_top_1_similarity,in_top_1
+VisitTime,Time of visit since baseline,Functional Activities Questionnaire (FAQ) Keeping track of current events.,FAQ - Keep Track of Current Events,0.5890812790631873,False
+Eduy,Years of education,The number of education years that a subject has competed.,Education,0.8354851312651203,True
+Age,Age when assessed,The year in which a person was born.,Year of Birth,0.678761897315399,False
+Gender,Gender,Right_GC-ML-DG,Right GC-ML-DG Volume,0.6258807736201627,False
+Diagnosis,Clinical diagnosis,Clinical Dementia Rating (CDR) Judgment and problem solving.,CDR - Judgment and Problem Solving Score,0.6175866729481274,False
+AMYLOIDstatus,Dichotomous amyloid variable,The determination of the amount of the 1-42 amino acid beta amyloid protein isoform present in a sample.,A-beta 1-42 in Plasma,0.6770134868738781,False
+MMSE,Mini Mental State Examination,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.8940968567942985,True
+Local_AB42,CSF AB 42 value of local assessment,A constructional praxis subtest from the Consortium to Establish a Registry for Alzheimer's Disease.,Consortium to Establish a Registry for Alzheimer's Disease,0.7036951366290709,False
+Local_AB42,Dichotomous CSF AB42 of local assessment,A constructional praxis subtest from the Consortium to Establish a Registry for Alzheimer's Disease.,Consortium to Establish a Registry for Alzheimer's Disease,0.7236696634959965,False
+Central_CSF_NFL,Neurofilament light values of central CSF analyses,"Quantification of the levels of neurofilament light chain, typically in blood or cerebrospinal fluid. Used as a marker of neurodegeneration, in Alzheimer's disease, Amyotrophic Lateral Sclerosis, multiple sclerosis and Huntington's disease.",Neurofilament Light Chain (NfL) in Plasma,0.7114331202057198,False
+Central_CSF_Neurogranin,Neurogranin values of central CSF analyses,Measurement of the volume of the hippocampus,Hippocampus Volume,0.6791321313050263,False
+Central_CSF_YKL40,YKL-40 values of central CSF analyses,Measurement of the volume of the hippocampus,Hippocampus Volume,0.6686886494797115,False
+Hippo_sum_FS_adj,Sum of hippocampal volume left and right adjusted for ICV,Measurement of the volume of the hippocampus,Hippocampus Volume,0.8652230443070879,True
+Lhippo_FS_adj,Volume of left hippocampus adjusted for ICV,Left_Whole_hippocampus,Left Whole Hippocampus Volume,0.8819181466967693,False
+Rhippo_FS_adj,Volume of right hippocampus adjusted for ICV,Right_hippocampal-fissure,Right Hippocampal-fissure Volume,0.840399815306836,False
+CDR_Global,Clinical Dementia Rating Scale Global score,Clinical Dementia Rating (CDR) Sum of Boxes.,Clinical Dementia Rating Scale Sum of Boxes (CDRSB),0.862534035919609,False
+GDS15,Geriatric Depression Scale - 15 items,Geriatric Depression Scale Short Form total score.,Geriatric Depression Scale (GDS),0.9127449768953095,True
+CardiovascularDis,History of cardiovascular disorders,Medical history pertaining to the heart or blood vessels.,Cardiovascular,0.7175288182857144,True
+Alcohol,Alcohol use ,"Consumption of liquids containing ethanol, including the behaviors associated with drinking the alcohol.",Alcohol,0.7259168519395991,True
+AlcoholAmount,Alcohol units per week ,"Consumption of liquids containing ethanol, including the behaviors associated with drinking the alcohol.",Alcohol,0.606236042821281,False
+Depression,History of depression,"Geriatric Depression Scale, Short Form (GDS-SF) Do you feel that your situation is hopeless?",GDS-SF - Feel Situation is Hopeless,0.6599752431831398,False
+Obesity,Current obesity,A disorder involving an excessive amount of body fat.,Obesity,0.6091110715151649,True
+Stroke,History of Stroke,Modified Hachinski Ischemic Scale-NACC Version (MHIS-NACC) History of stroke.,MHIS-NACC - History of Stroke,0.702329146139585,False
+APOEdich,Dichotomous APOEe4 carrier,Right_CA4,Right CA4 Volume,0.6762171859463763,False
+APOE_Allele1,Values for APOE allele 1,"Human APOE*4 allele is located in the vicinity of 19q13.2 and is approximately 4 kb in length. This allele, which encodes apolipoprotein E4, plays a role in triglyceride metabolism. The allele is associated with increased occurrence of both Alzheimer disease and coronary artery disease.",APOE,0.7024380026859399,False
+APOE_Allele2,Values for APOE allele 2,"Human APOE*4 allele is located in the vicinity of 19q13.2 and is approximately 4 kb in length. This allele, which encodes apolipoprotein E4, plays a role in triglyceride metabolism. The allele is associated with increased occurrence of both Alzheimer disease and coronary artery disease.",APOE Allele 2,0.6932365912620428,True

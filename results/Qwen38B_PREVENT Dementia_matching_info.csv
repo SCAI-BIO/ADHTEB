@@ -1,0 +1,26 @@
+cohort_variable,cohort_definition,matched_top_1_cdm_definition,matched_top_1_cdm_variable,matched_top_1_similarity,in_top_1
+subjectID,Subject ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.7254382007527083,True
+apoe,APOE: genotype (hetorozygous/ homozygous),"Human APOE*4 allele is located in the vicinity of 19q13.2 and is approximately 4 kb in length. This allele, which encodes apolipoprotein E4, plays a role in triglyceride metabolism. The allele is associated with increased occurrence of both Alzheimer disease and coronary artery disease.",APOE,0.6739218487117974,True
+apoe4,APOE4: at least one allele 4,"Human APOE*4 allele is located in the vicinity of 19q13.2 and is approximately 4 kb in length. This allele, which encodes apolipoprotein E4, plays a role in triglyceride metabolism. The allele is associated with increased occurrence of both Alzheimer disease and coronary artery disease.",APOE,0.7561653874588974,False
+meddepr_act,"Medical history: Depression, Currently","Geriatric Depression Scale, Short Form (GDS-SF) Do you feel happy most of the time?",GDS-SF - Feel Happy Most of Time,0.6617537440440818,False
+medpark_act,"Medical history: Parkinson's disease, Currently",Medical history pertaining to the kidney,Renal,0.616237558970549,False
+meddiab_act,"Medical history: Diabetes mellitus, Currently",Medical history pertaining to the metabolic system,Metabolic,0.7363881865028568,False
+medanx_act,"Medical history: Anxiety disorder, Currently",Medical history pertaining to allergies or drug sensitivities,Allergies or Drug Sensitivities,0.6099536915606969,False
+medob_act,"Medical history: Obesity, Currently",Medical history pertaining to the metabolic system,Metabolic,0.6981533533263932,False
+medlip_act,"Medical history: Hyperlipidemia, Currently",Medical history pertaining to the metabolic system,Metabolic,0.6634251835112606,False
+medhear_act,"Medical history: Hearing disorder, Currently",Medical history pertaining to the metabolic system,Metabolic,0.6044858245039237,False
+medcancer1,Cancer: Treatment 1,MCP-1,Monocyte Chemoattractant Protein 1 in CSF,0.5731622975933682,False
+phys_cardc,"Physical examination: Cardiovascular, Clinically significant",Medical history pertaining to the heart or blood vessels.,Cardiovascular,0.5933213365584444,True
+phys_respc,"Physical examination: Respiratory, Clinically significant",Medical history pertaining to respiration.,Respiratory,0.7179110893469649,True
+phys_gastrc,"Physical examination: Gastrointestinal, Clinically significant",Medical history pertaining to the stomach and intestines.,Gastrointestinal,0.665571471185737,True
+risk_surg,Risk factors: Had surgery?,Medical history pertaining to major surgical procedures,Major Surgical Procedures,0.699904038295517,True
+sex,Gender,Right_GC-ML-DG,Right GC-ML-DG Volume,0.6258807736201627,False
+age,Age of participant,The year in which a person was born.,Year of Birth,0.6965341281417592,False
+race,Race of the participant,Right_HATA,Right HATA Volume,0.6253968998667275,False
+ethnicity,Ethnicity of participant,Functional Activities Questionnaire (FAQ) Keeping track of current events.,FAQ - Keep Track of Current Events,0.6176986282372484,False
+marital,Current marital status,A demographic parameter indicating a person's current conjugal status.,Marital Status,0.7188647314741116,True
+occup,Occupation title,Functional Activities Questionnaire (FAQ) Keeping track of current events.,FAQ - Keep Track of Current Events,0.5502969810726964,False
+druguse,Lifestyle interview: Drug use,Functional Activities Questionnaire (FAQ) Keeping track of current events.,FAQ - Keep Track of Current Events,0.5515080827843051,False
+alcohol,Lifestyle interview: Alcohol intake,"Consumption of liquids containing ethanol, including the behaviors associated with drinking the alcohol.",Alcohol,0.6508378316838246,True
+Left_Hippocampus,Left Hippocampus,Left_Whole_hippocampus,Left Whole Hippocampus Volume,0.9315461000607931,False
+Right_Hippocampus,Right Hippocampus,Right_hippocampal-fissure,Right Hippocampal-fissure Volume,0.9150110801825334,False

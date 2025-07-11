@@ -1,0 +1,9 @@
+cohort_variable,cohort_definition,matched_top_1_cdm_definition,matched_top_1_cdm_variable,matched_top_1_similarity,in_top_1
+SUBJID,Subject Identifier,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.48307532047892177,True
+SEX,Sex,Medical history pertaining to the genital and urinary organs or their functions.,Genitourinary,0.3198938514921079,False
+ENTAGE,Age at Study Entry,The number of education years that a subject has competed.,Education,0.48793157359910483,False
+FALLSFLG,Falls Flag,"A sudden movement downward, usually resulting in injury. [ NCI ]",Fall,0.23616353989564723,True
+PSHYPRN,Any psychiatric/hypnotic treatments? (num),Modified Hachinski Ischemic Scale-NACC Version (MHIS-NACC) Abrupt onset (re: cognitive status).,MHIS-NACC - Abrupt Onset,0.3336583110678485,False
+URINFLG,Urinary Tract Disorder Medication Flag,"Urination at short intervals; it may result from increased urine formation, decreased bladder capacity, or lower urinary tract irritation.",Urinary Frequency,0.3533040248360365,False
+MMSERN,MMSE Item Result Numeric,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.4595010868460797,True
+NPIRN,NPI Item Result Numeric,Neuropsychiatric Inventory (NPI) Total of (Frequency Sub-total) x (Severity Sub-total).,Neuropsychiatric Inventory (NPI),0.40109242973030784,True

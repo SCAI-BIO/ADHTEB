@@ -1,0 +1,62 @@
+cohort_variable,cohort_definition,matched_top_1_cdm_definition,matched_top_1_cdm_variable,matched_top_1_similarity,in_top_1
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5706527107808795,True
+Visit_label,Time point at which data were collected,The year in which a person was born.,Year of Birth,0.5426665411804724,False
+Candidate_Age,Age in months at the time of test,The month in which a person was born.,Month of Birth,0.6077295815439304,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5706527107808795,True
+Visit_label,Time point at which data were collected,The year in which a person was born.,Year of Birth,0.5426665411804724,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5706527107808795,True
+Visit_label,Time point at which data were collected,The year in which a person was born.,Year of Birth,0.5426665411804724,False
+Candidate_Age,Candidate Age (Months) when auditory processing was done,The number of education years that a subject has competed.,Education,0.5266124919733708,False
+diagnosed_impairment,Does the participant have a diagnosed hearing impairment?,A question about whether an individual has or had shortness of breath.,Shortness of Breath,0.5599330101559181,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5706527107808795,True
+Visit_label,Time point at which data were collected,The year in which a person was born.,Year of Birth,0.5426665411804724,False
+Candidate_Age,Age in months at the time of test,The month in which a person was born.,Month of Birth,0.6077295815439304,False
+Diastolic_blood_pressure,Diastolic Blood Pressure,Blood pressure that is abnormally high.,High Blood Pressure,0.5790436438621939,True
+Weight,Weight,The vertical force exerted by a mass as a result of gravity.,Weight,0.5587940938121793,True
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5706527107808795,True
+Visit_label,Time point at which data were collected (which time point was associated with separate lumbar puncture visit),Medical history pertaining to lymph,Lymphatic,0.5369244069022977,False
+Candidate_Age,Candidate Age (Months) at Lumbar Puncture,Medical history pertaining to lymph,Lymphatic,0.522682652894917,False
+tau,Total tau (t-tau) concentration in CSF,"Is a quantification of total tau protein, a biomarker for Alzheimer's disease.",tTau in CSF,0.7160025421506935,True
+Amyloid_beta_1_42,Beta-amyloid 1-42 concentration in CSF,The determination of the amount of the 1-42 amino acid beta amyloid protein isoform present in a sample.,A-beta 1-42 in Plasma,0.7492407286496335,False
+G_CSF,Granulocyte Colony Stimulating Factor (G-CSF) concentration in CSF,quantification of the amount of granulocyte colony-stimulating factor in a sample,Granulocyte Colony Stimulating Factor (G-CSF) in Plasma,0.7599694543442271,False
+IL_15,Interleukin 15 concentration in CSF,The determination of the amount of interleukin-10 in a sample,Interleukin-10 (IL-10) in Plasma,0.6253576668101909,False
+IL_8,Interleukin 8 concentration in CSF,The determination of the amount of interleukin 6 present in a sample.,Interleukin-6 (IL-6) in CSF,0.5959201180774136,False
+VEGF,Vascular Endothelial Growth Factor concentration in CSF,The determination of the amount of vascular epithelial growth factor present in a sample.,Vascular Endothelial Growth Factor (VEGF) in Plasma,0.6873306458548922,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5706527107808795,True
+probable_MCI,"Has the participant shown a low cognitive performance, in the range of mild cognitive impairment (MCI), determined by clinical consensus",Modified Hachinski Ischemic Scale-NACC Version (MHIS-NACC) Stepwise deterioration (re: cognitive status).,MHIS-NACC - Stepwise Deterioration,0.625406279257827,False
+Sex,Sex,MCP-1,Monocyte Chemoattractant Protein 1 in CSF,0.5520833308403112,False
+Ethnicity,Ethnicity,A geographic ancestral origin category that is assigned to a population group based mainly on physical characteristics that are thought to be distinct and inherent.,Race,0.5224146080012178,True
+Education_years,Total number of years of formal education,The number of education years that a subject has competed.,Education,0.8032767713237204,True
+Work_by_category,What kind of work/profession do you have/have you had?,A grouping of occupations and fields of study.,Profession,0.5317707753428936,True
+Height,Height measured at eligibility visit (PREEL00),Measurement of the volume of the hippocampus,Hippocampus Volume,0.510081560623217,False
+Handedness_interpretation,Edinburgh Handedness Inventory Interpretation,Left_Hippocampal_tail,Left Hippocampal Tail Volume,0.4823337899583587,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5706527107808795,True
+Visit_label,Time point at which data were collected,The year in which a person was born.,Year of Birth,0.5426665411804724,False
+Candidate_Age,Candidate Age at eligibility visit (PREEL00),The number of education years that a subject has competed.,Education,0.5028838397017613,False
+CAIDE_BMI_subscore,CAIDE body mass index (BMI) subscore,Left_CA1,Left CA1 Volume,0.6057124143922148,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5706527107808795,True
+Visit_label,Time point at which data were collected,The year in which a person was born.,Year of Birth,0.5426665411804724,False
+Candidate_Age,Age in months at the time of test,The month in which a person was born.,Month of Birth,0.6077295815439304,False
+CDR_total_score,Clinical Dementia Rating (CDR) total score,Clinical Dementia Rating (CDR) Sum of Boxes.,Clinical Dementia Rating Scale Sum of Boxes (CDRSB),0.8468431794019862,False
+MOCA_total_score,Montreal Cognitive Assessment (MoCA) Total Score,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.7791334419329485,False
+orientation_score,MoCA total orientation score,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.6627804125426571,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5706527107808795,True
+Visit_label,Time point at which data were collected,The year in which a person was born.,Year of Birth,0.5426665411804724,False
+Candidate_Age,Candidate Age at eligibility visit (PREEL00),The number of education years that a subject has competed.,Education,0.5028838397017613,False
+treatment_diabetes,Treatment history for diabetes,Medical history pertaining to the metabolic system,Metabolic,0.6843401707473507,False
+past_cancer,Any diagnosis of cancer in the past?,Medical history pertaining to lymph,Lymphatic,0.6026357557343459,False
+past_depression,Any diagnosis of depression in the past?,"Geriatric Depression Scale, Short Form (GDS-SF) Do you feel you have more problems with memory than most?",GDS-SF - More Memory Problems Than Most,0.6097950877674538,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5706527107808795,True
+APOE,"APOE genotype (SNP: rs429358/rs7412), alleles e2,e3,e4","Human APOE*4 allele is located in the vicinity of 19q13.2 and is approximately 4 kb in length. This allele, which encodes apolipoprotein E4, plays a role in triglyceride metabolism. The allele is associated with increased occurrence of both Alzheimer disease and coronary artery disease.",APOE,0.5936130859907789,True
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5706527107808795,True
+Visit_label,Time point at which data were collected,The year in which a person was born.,Year of Birth,0.5426665411804724,False
+Candidate_Age,Age in months at the time of test,The month in which a person was born.,Month of Birth,0.6077295815439304,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5706527107808795,True
+Visit_label,Time point at which data were collected,The year in which a person was born.,Year of Birth,0.5426665411804724,False
+Candidate_Age,Candidate Age at the time of the questionnaire on medication use,Medical history pertaining to allergies or drug sensitivities,Allergies or Drug Sensitivities,0.5416897563064795,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5706527107808795,True
+Visit_label,Time point at which data were collected,The year in which a person was born.,Year of Birth,0.5426665411804724,False
+Candidate_Age,Age in months at the time of test,The month in which a person was born.,Month of Birth,0.6077295815439304,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.5706527107808795,True
+Visit_label,Time point at which data were collected,The year in which a person was born.,Year of Birth,0.5426665411804724,False
+Candidate_Age,Age in months at the time of test,The month in which a person was born.,Month of Birth,0.6077295815439304,False

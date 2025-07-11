@@ -1,0 +1,48 @@
+cohort_variable,cohort_definition,matched_top_1_cdm_definition,matched_top_1_cdm_variable,matched_top_1_similarity,in_top_1
+AIBL Id,Participant ID.,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.6224372927917295,True
+Collection,Collection 18 month timepoint.,MCP-1,Monocyte Chemoattractant Protein 1 in CSF,0.4821115816472508,False
+CSF.Ab42_INNX_MELB,Ab1-42 CSF measurement using INNOTEST kit. Melbourne QXL.,The determination of the amount of the 1-42 amino acid beta amyloid protein isoform present in a sample.,A-beta 1-42 in Plasma,0.6935425739710307,False
+CSF.Tau_INNX_MELB,Total Tau CSF measurement using INNOTEST kit. Melbourne QXL.,"Is a quantification of total tau protein, a biomarker for Alzheimer's disease.",tTau in CSF,0.6655360523641346,True
+Demographic.Sex,Participant gender.,The number of education years that a subject has competed.,Education,0.527414444007976,False
+Demographic.YearMonthOfBirth,Participant year and month of birth (YYYYMM).,The year in which a person was born.,Year of Birth,0.6287505610247451,True
+Demographic.Present Living Arrangements,Present Living Arrangements,A description of a personal residence and the relationship between the occupants that reside there.,Living Situation,0.6255922395722779,True
+Demographic.Handedness,Handedness,The preferred hand of use for controlled and efficient performance of motor tasks.,Handedness,0.62552813926754,True
+Demographic.Years of Education Exact,Exact Years of Education,The number of education years that a subject has competed.,Education,0.767151401892863,True
+Demographic.AD/MCI/H/O at presentation,Classification at Presentation,Right_presubiculum,Right Presubiculum Volume,0.5478831409176345,False
+Demographic.GDS,Total Score,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.6845295593188861,False
+Demographic.ApoE genotype,ApoE Genotype,Florbetapir F18 Positron Emission Tomography,AV45 PET,0.5682413012886287,False
+Demographic.Ever been diagnosed with Schizophrenia or Schizoaffective Disorder,Schizophrenia Diagnosis,Florbetapir F18 Positron Emission Tomography,AV45 PET,0.5236042045780297,False
+Demographic.Ever been diagnosed with Bipolar Disorder,Bipolar Diagnosis,Medical history pertaining to lymph,Lymphatic,0.5275191024248109,False
+Demographic.Ever been diagnosed with Parkinsons Disease,Parkinsons Diagnosis,Florbetapir F18 Positron Emission Tomography,AV45 PET,0.5390988665332942,False
+Image.PET.Amyloid.PIB_NAV.Status,Amyloid status for PiB,Florbetapir F18 Positron Emission Tomography,AV45 PET,0.7455451994645161,False
+Image.PET.Amyloid.Florbetapir.Status,Amyloid status for Florbetapir,Florbetapir F18 Positron Emission Tomography,AV45 PET,0.8775723870406722,True
+Image.MR.CorticalGM.Vol.ICVCorr,Volume Grey Matter (ml),Right cortical white matter volume,Right Cortical White Matter Volume From Qdec,0.7080999654454243,False
+Image.MR.CorticalWM.Vol.ICVCorr,Volume White Matter (ml),Right cortical white matter volume,Right Cortical White Matter Volume From Qdec,0.7952342511294536,False
+Image.MR.Hippocampus.Vol.ICVCorr,Volume of the Hippocampus computed from MRI (mL).,Measurement of the volume of the hippocampus,Hippocampus Volume,0.8272315479191752,True
+Medical History.Stroke,Stroke,A sudden loss of neurological function secondary to hemorrhage or ischemia in the brain parenchyma due to a vascular event.,Stroke,0.6175980717449493,True
+Medical History.Diabetes,Diabetes,Medical history pertaining to the metabolic system,Metabolic,0.621739638502544,False
+Medical History.Visual Defects,Visual Defects,"Tests to assess the ability to focus on and discern objects, colors, depth, etc.",Vision,0.6400125453875087,True
+Medical History.Cancer,Cancer,MCP-1,Monocyte Chemoattractant Protein 1 in CSF,0.5929010564343555,False
+Medical History.History of Falls,Falls,Left_HATA,Left HATA Volume,0.5733942642493564,False
+Medical History.Kidney Disease,Kidney Disease,Medical history pertaining to the kidney,Renal,0.7819245202593718,True
+Medical History.Serious Head Injury,Serious Head Injury,Trauma to the brain.,Traumatic Brain Injury,0.759245689992781,False
+Medical History.Neurological Disorders,Neurological Disorder,Trauma to the brain.,Traumatic Brain Injury,0.6733380747577722,False
+Medical History.Depression,Depression,A melancholy feeling of sadness and despair.,Depression,0.6924923961163193,True
+Medical History.Anxiety,Anxiety,"A feeling of worry, nervousness, or unease about something with an uncertain outcome.",Anxiety,0.6817513663646476,True
+Medical History.Ever have an alcoholic drink,Ever had an alcoholic drink?,"Consumption of liquids containing ethanol, including the behaviors associated with drinking the alcohol.",Alcohol,0.6199518251888865,True
+Medical History.How often,How often take a drink?,"Consumption of liquids containing ethanol, including the behaviors associated with drinking the alcohol.",Alcohol,0.5554480931641452,False
+Neuropsych.MMSE,Total score.,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.7004463820744976,True
+Neuropsych.Total fwd + bk,Digital Span Test,A test to assess the visual memory.,Landscape Test,0.505050489951117,False
+Neuropsych.Recall RAW (LMII),Logical Memory Test Raw 2,A test to assess the visual memory.,Landscape Test,0.598346792938733,False
+Neuropsych.FAS (total),Controlled Oral Word Association Test Total,A constructional praxis subtest from the Consortium to Establish a Registry for Alzheimer's Disease.,Consortium to Establish a Registry for Alzheimer's Disease,0.566263788270792,False
+Neuropsych.Animals + Names (RAW),Animal + Names Raw score,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.4804579173824182,False
+Neuropsych.Clock Score,Clock Score,A test of the ability of an individual to accurately place the numbers and hands of a clock in their usual and specified positions.,Clock Drawing Test,0.5515874080167665,True
+Neuropsych.CDR score,CDR Global,Clinical Dementia Rating (CDR) Orientation.,CDR - Orientation,0.6123513854684705,False
+Neuropsych.CDR Sum of Boxes,Sum Of Boxes,Clinical Dementia Rating (CDR) Sum of Boxes.,Clinical Dementia Rating Scale Sum of Boxes (CDRSB),0.6344264917636311,True
+Neuropsych.HADS (D),Depression Total,Hospital Anxiety and Depression Scale (HADS) Total score depression.,Hospital Anxiety and Depression Scale (HADs) (Depression),0.6776130726797089,True
+Neuropsych.HADS (A),Anxiety Total,Hospital Anxiety and Depression Scale (HADS) Total score depression.,Hospital Anxiety and Depression Scale (HADs) (Depression),0.6240152863240999,False
+Vital Signs.Height,Height,The vertical measurement or distance from the base to the top of an object; the vertical dimension of extension.,Height,0.5615860596913299,True
+Vital Signs.Weight,Weight,The vertical force exerted by a mass as a result of gravity.,Weight,0.5587940938121793,True
+Vital Signs.Heart rate,Heart rate,"The number of heartbeats per unit of time, usually expressed as beats per minute.",Heart Rate,0.6606655204034991,True
+Vital Signs.Body Mass Index,Body Mass Index,An individual's weight in kilograms divided by the square of the height in meters.,BMI,0.6906251355821676,True
+Physical Activity.Days per week doing vigorous activity during leisure time,"As part of Recreation, sport and leisure, time spent doing vigorous activity answered in days per week","Functional Activities Questionnaire (FAQ) Playing a game of skill, working on a hobby.","FAQ - Play Game of Skill, Work on Hobby",0.49825312147958795,False

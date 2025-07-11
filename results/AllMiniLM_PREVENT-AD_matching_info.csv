@@ -1,0 +1,62 @@
+cohort_variable,cohort_definition,matched_top_1_cdm_definition,matched_top_1_cdm_variable,matched_top_1_similarity,in_top_1
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.35453268067487664,True
+Visit_label,Time point at which data were collected,Functional Activities Questionnaire (FAQ) Keeping track of current events.,FAQ - Keep Track of Current Events,0.2546454530770288,False
+Candidate_Age,Age in months at the time of test,The month in which a person was born.,Month of Birth,0.4083107101558154,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.35453268067487664,True
+Visit_label,Time point at which data were collected,Functional Activities Questionnaire (FAQ) Keeping track of current events.,FAQ - Keep Track of Current Events,0.2546454530770288,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.35453268067487664,True
+Visit_label,Time point at which data were collected,Functional Activities Questionnaire (FAQ) Keeping track of current events.,FAQ - Keep Track of Current Events,0.2546454530770288,False
+Candidate_Age,Candidate Age (Months) when auditory processing was done,A subtest of the Boston Diagnostic Aphasia Examination to to evaluate auditory perception.,Boston Diagnostic Aphasia Examination Auditory Subtest,0.5105540090272308,False
+diagnosed_impairment,Does the participant have a diagnosed hearing impairment?,A subtest of the Boston Diagnostic Aphasia Examination to to evaluate auditory perception.,Boston Diagnostic Aphasia Examination Auditory Subtest,0.5433793991702638,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.35453268067487664,True
+Visit_label,Time point at which data were collected,Functional Activities Questionnaire (FAQ) Keeping track of current events.,FAQ - Keep Track of Current Events,0.2546454530770288,False
+Candidate_Age,Age in months at the time of test,The month in which a person was born.,Month of Birth,0.4083107101558154,False
+Diastolic_blood_pressure,Diastolic Blood Pressure,Blood pressure that is abnormally high.,High Blood Pressure,0.5611326633988611,True
+Weight,Weight,An individual's weight in kilograms divided by the square of the height in meters.,BMI,0.5242609467576865,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.35453268067487664,True
+Visit_label,Time point at which data were collected (which time point was associated with separate lumbar puncture visit),"Medical history of symptoms, physical examination results, and/or laboratory test results related to mental health.",Psychiatric,0.3507805059073271,False
+Candidate_Age,Candidate Age (Months) at Lumbar Puncture,The month in which a person was born.,Month of Birth,0.29030387329292917,False
+tau,Total tau (t-tau) concentration in CSF,"Is a quantification of total tau protein, a biomarker for Alzheimer's disease.",tTau in CSF,0.5231495440929054,True
+Amyloid_beta_1_42,Beta-amyloid 1-42 concentration in CSF,The determination of the amount of amyloid beta protein which is composed of peptides 1 to 40 in a sample.,A-beta 1-40 in Plasma,0.6720528081446291,False
+G_CSF,Granulocyte Colony Stimulating Factor (G-CSF) concentration in CSF,"Granulocyte colony-stimulating factor (207 aa, ~22 kDa) is encoded by the human CSF3 gene. This protein is involved in the regulation of the production, differentiation, and function of granulocytes.",Granulocyte Colony Stimulating Factor (G-GCSF) in CSF,0.7701401178420879,True
+IL_15,Interleukin 15 concentration in CSF,The determination of the amount of interleukin 23 present in a sample.,Interleukin-23 (IL-23) in CSF,0.6285622230518081,False
+IL_8,Interleukin 8 concentration in CSF,"Is a quantification of interleukin-8, is a chemokine produced by macrophages and other cell types such as epithelial cells. It is also synthesized by endothelial cells, which store IL-8 in their storage vesicles, the Weibel-Palade bodies. IL-8 is secreted and is an important mediator of the immune reaction in the innate immune system response.",Interleukin-8 (IL-8) in Plasma,0.6153473450852934,False
+VEGF,Vascular Endothelial Growth Factor concentration in CSF,The determination of the amount of vascular epithelial growth factor present in a sample.,Vascular Endothelial Growth Factor (VEGF) in Plasma,0.6494092264101563,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.35453268067487664,True
+probable_MCI,"Has the participant shown a low cognitive performance, in the range of mild cognitive impairment (MCI), determined by clinical consensus","A standardized rating scale developed by John C. Morris in 1997 to evaluate the severity of an individual's cognitive impairment. This instrument contains 6 areas which include memory, orientation, judgment and problem solving, community affairs, home and hobbies, and personal care. Each item is rated on a scale from 0 to 3 with 0 being none and 3 being severe.",Clinical Dementia Rating (CDR),0.5647645115975887,False
+Sex,Sex,Medical history pertaining to the genital and urinary organs or their functions.,Genitourinary,0.3198938514921079,False
+Ethnicity,Ethnicity,A geographic ancestral origin category that is assigned to a population group based mainly on physical characteristics that are thought to be distinct and inherent.,Race,0.4620451913204925,True
+Education_years,Total number of years of formal education,The number of education years that a subject has competed.,Education,0.7510947964483525,True
+Work_by_category,What kind of work/profession do you have/have you had?,A grouping of occupations and fields of study.,Profession,0.48489875319826725,True
+Height,Height measured at eligibility visit (PREEL00),An individual's weight in kilograms divided by the square of the height in meters.,BMI,0.3907765327455428,False
+Handedness_interpretation,Edinburgh Handedness Inventory Interpretation,The preferred hand of use for controlled and efficient performance of motor tasks.,Handedness,0.3832818089510062,True
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.35453268067487664,True
+Visit_label,Time point at which data were collected,Functional Activities Questionnaire (FAQ) Keeping track of current events.,FAQ - Keep Track of Current Events,0.2546454530770288,False
+Candidate_Age,Candidate Age at eligibility visit (PREEL00),A demographic parameter indicating a person's current conjugal status.,Marital Status,0.3696368882076176,False
+CAIDE_BMI_subscore,CAIDE body mass index (BMI) subscore,An individual's weight in kilograms divided by the square of the height in meters.,BMI,0.3530365775969918,True
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.35453268067487664,True
+Visit_label,Time point at which data were collected,Functional Activities Questionnaire (FAQ) Keeping track of current events.,FAQ - Keep Track of Current Events,0.2546454530770288,False
+Candidate_Age,Age in months at the time of test,The month in which a person was born.,Month of Birth,0.4083107101558154,False
+CDR_total_score,Clinical Dementia Rating (CDR) total score,Clinical Dementia Rating (CDR) Orientation.,CDR - Orientation,0.8696536024486586,False
+MOCA_total_score,Montreal Cognitive Assessment (MoCA) Total Score,"A standardized rating scale developed by John C. Morris in 1997 to evaluate the severity of an individual's cognitive impairment. This instrument contains 6 areas which include memory, orientation, judgment and problem solving, community affairs, home and hobbies, and personal care. Each item is rated on a scale from 0 to 3 with 0 being none and 3 being severe.",Clinical Dementia Rating (CDR),0.5492296864781233,False
+orientation_score,MoCA total orientation score,Modified Hachinski Ischemic Scale-NACC Version (MHIS-NACC) Sum all circled answers for a total score.,Hachinski,0.3841339859219874,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.35453268067487664,True
+Visit_label,Time point at which data were collected,Functional Activities Questionnaire (FAQ) Keeping track of current events.,FAQ - Keep Track of Current Events,0.2546454530770288,False
+Candidate_Age,Candidate Age at eligibility visit (PREEL00),A demographic parameter indicating a person's current conjugal status.,Marital Status,0.3696368882076176,False
+treatment_diabetes,Treatment history for diabetes,Medical history pertaining to the metabolic system,Metabolic,0.4793971569629335,False
+past_cancer,Any diagnosis of cancer in the past?,"A tumor composed of atypical neoplastic, often pleomorphic cells that invade other tissues. Malignant neoplasms often metastasize to distant anatomic sites and may recur after excision. The most common malignant neoplasms are carcinomas (adenocarcinomas or squamous cell carcinomas), Hodgkin and non-Hodgkin lymphomas, leukemias, melanomas, and sarcomas.",Cancer,0.4382411367831184,True
+past_depression,Any diagnosis of depression in the past?,"Geriatric Depression Scale, Short Form (GDS-SF) Do you often feel helpless?",GDS-SF - Often Feel Helpless,0.6249119923858305,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.35453268067487664,True
+APOE,"APOE genotype (SNP: rs429358/rs7412), alleles e2,e3,e4","Human APOE*4 allele is located in the vicinity of 19q13.2 and is approximately 4 kb in length. This allele, which encodes apolipoprotein E4, plays a role in triglyceride metabolism. The allele is associated with increased occurrence of both Alzheimer disease and coronary artery disease.",APOE,0.644061667022642,True
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.35453268067487664,True
+Visit_label,Time point at which data were collected,Functional Activities Questionnaire (FAQ) Keeping track of current events.,FAQ - Keep Track of Current Events,0.2546454530770288,False
+Candidate_Age,Age in months at the time of test,The month in which a person was born.,Month of Birth,0.4083107101558154,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.35453268067487664,True
+Visit_label,Time point at which data were collected,Functional Activities Questionnaire (FAQ) Keeping track of current events.,FAQ - Keep Track of Current Events,0.2546454530770288,False
+Candidate_Age,Candidate Age at the time of the questionnaire on medication use,Geriatric Depression Scale Short Form total score.,Geriatric Depression Scale (GDS),0.40435869752799136,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.35453268067487664,True
+Visit_label,Time point at which data were collected,Functional Activities Questionnaire (FAQ) Keeping track of current events.,FAQ - Keep Track of Current Events,0.2546454530770288,False
+Candidate_Age,Age in months at the time of test,The month in which a person was born.,Month of Birth,0.4083107101558154,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.35453268067487664,True
+Visit_label,Time point at which data were collected,Functional Activities Questionnaire (FAQ) Keeping track of current events.,FAQ - Keep Track of Current Events,0.2546454530770288,False
+Candidate_Age,Age in months at the time of test,The month in which a person was born.,Month of Birth,0.4083107101558154,False
