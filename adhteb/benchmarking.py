@@ -130,7 +130,7 @@ class Benchmark:
         total_score = 0.0
         total_n_variables = 0
 
-        for results in [self.results_geras, self.results_prevent_dementia, self.prevent_ad, self.emif]:
+        for results in [self.results_geras, self.results_prevent_dementia, self.results_prevent_ad, self.results_emif]:
             auc = results.auc
             n_variables = results.n_variables
             zero_shot_accuracy = results.top_n_accuracy[0]
