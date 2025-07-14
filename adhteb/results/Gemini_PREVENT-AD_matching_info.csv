@@ -1,0 +1,62 @@
+cohort_variable,cohort_definition,matched_top_1_cdm_definition,matched_top_1_cdm_variable,matched_top_1_similarity,in_top_1
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.7398509609055274,True
+Visit_label,Time point at which data were collected,The year in which a person was born.,Year of Birth,0.6626141011594824,False
+Candidate_Age,Age in months at the time of test,The month in which a person was born.,Month of Birth,0.7240376878495868,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.7398509609055274,True
+Visit_label,Time point at which data were collected,The year in which a person was born.,Year of Birth,0.6626141011594824,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.7398509609055274,True
+Visit_label,Time point at which data were collected,The year in which a person was born.,Year of Birth,0.6626141011594824,False
+Candidate_Age,Candidate Age (Months) when auditory processing was done,A subtest of the Boston Diagnostic Aphasia Examination to to evaluate auditory perception.,Boston Diagnostic Aphasia Examination Auditory Subtest,0.7293257431165638,False
+diagnosed_impairment,Does the participant have a diagnosed hearing impairment?,"Partial or complete loss of the ability to detect or understand sounds resulting from damage to the outer, middle, or inner ear structures. Causes include exposure to loud noise, ear infections, injuries to the Partial or complete loss of the ability to detect or understand sounds resulting from damage to the outer, middle, or inner ear structures. Causes include exposure to loud noise, ear infections, injuries to the ear, genetic, and congenital disorders.",Hypoacusis,0.7106120133714049,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.7398509609055274,True
+Visit_label,Time point at which data were collected,The year in which a person was born.,Year of Birth,0.6626141011594824,False
+Candidate_Age,Age in months at the time of test,The month in which a person was born.,Month of Birth,0.7240376878495868,False
+Diastolic_blood_pressure,Diastolic Blood Pressure,Blood pressure that is abnormally high.,High Blood Pressure,0.7665239254293126,True
+Weight,Weight,An individual's weight in kilograms divided by the square of the height in meters.,BMI,0.7078645052831061,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.7398509609055274,True
+Visit_label,Time point at which data were collected (which time point was associated with separate lumbar puncture visit),"Measurement of glucose metabolism in the left hippocampus, with values normalized to the glucose uptake in the pons.",Glucose Metabolism in Left Hippocampus (Normalized to Pons),0.7055079353509682,False
+Candidate_Age,Candidate Age (Months) at Lumbar Puncture,Is a quantification of intracranial volume.,Intracranial Volume,0.6782931850289399,False
+tau,Total tau (t-tau) concentration in CSF,"Is a quantification of total tau protein, a biomarker for Alzheimer's disease.",tTau in CSF,0.7987954304951833,True
+Amyloid_beta_1_42,Beta-amyloid 1-42 concentration in CSF,The determination of the amount of the 1-42 amino acid beta amyloid protein isoform present in a sample.,A-beta 1-42 in Plasma,0.7959467304290331,False
+G_CSF,Granulocyte Colony Stimulating Factor (G-CSF) concentration in CSF,quantification of the amount of granulocyte colony-stimulating factor in a sample,Granulocyte Colony Stimulating Factor (G-CSF) in Plasma,0.8472136249745031,False
+IL_15,Interleukin 15 concentration in CSF,The determination of the amount of interleukin 23 present in a sample.,Interleukin-23 (IL-23) in CSF,0.7618410394727729,False
+IL_8,Interleukin 8 concentration in CSF,The determination of the amount of interleukin 6 present in a sample.,Interleukin-6 (IL-6) in CSF,0.7842336842761107,False
+VEGF,Vascular Endothelial Growth Factor concentration in CSF,The determination of the amount of vascular epithelial growth factor present in a sample.,Vascular Endothelial Growth Factor (VEGF) in Plasma,0.8183623131787288,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.7398509609055274,True
+probable_MCI,"Has the participant shown a low cognitive performance, in the range of mild cognitive impairment (MCI), determined by clinical consensus",Clinical Dementia Rating (CDR) Memory.,CDR - Memory,0.7220728081599955,False
+Sex,Sex,The assemblage of physical properties or qualities by which male is distinguished from female; the physical difference between male and female; the distinguishing peculiarity of male or female.,Biological Sex,0.6580225227081681,True
+Ethnicity,Ethnicity,A geographic ancestral origin category that is assigned to a population group based mainly on physical characteristics that are thought to be distinct and inherent.,Race,0.7138907764077028,True
+Education_years,Total number of years of formal education,The number of education years that a subject has competed.,Education,0.8403955544706452,True
+Work_by_category,What kind of work/profession do you have/have you had?,A grouping of occupations and fields of study.,Profession,0.7056302574115042,True
+Height,Height measured at eligibility visit (PREEL00),An individual's weight in kilograms divided by the square of the height in meters.,BMI,0.6579622936865844,False
+Handedness_interpretation,Edinburgh Handedness Inventory Interpretation,Modified Hachinski Ischemic Scale-NACC Version (MHIS-NACC) Emotional incontinence.,MHIS-NACC - Emotional Incontinence,0.6958467473265727,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.7398509609055274,True
+Visit_label,Time point at which data were collected,The year in which a person was born.,Year of Birth,0.6626141011594824,False
+Candidate_Age,Candidate Age at eligibility visit (PREEL00),The year in which a person was born.,Year of Birth,0.6444499771059787,False
+CAIDE_BMI_subscore,CAIDE body mass index (BMI) subscore,Modified Hachinski Ischemic Scale-NACC Version (MHIS-NACC) Emotional incontinence.,MHIS-NACC - Emotional Incontinence,0.6924671193649008,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.7398509609055274,True
+Visit_label,Time point at which data were collected,The year in which a person was born.,Year of Birth,0.6626141011594824,False
+Candidate_Age,Age in months at the time of test,The month in which a person was born.,Month of Birth,0.7240376878495868,False
+CDR_total_score,Clinical Dementia Rating (CDR) total score,Clinical Dementia Rating (CDR) Sum of Boxes.,Clinical Dementia Rating Scale Sum of Boxes (CDRSB),0.9242034310039587,False
+MOCA_total_score,Montreal Cognitive Assessment (MoCA) Total Score,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.7825639554266115,False
+orientation_score,MoCA total orientation score,Clinical Dementia Rating (CDR) Orientation.,CDR - Orientation,0.7015682655216565,True
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.7398509609055274,True
+Visit_label,Time point at which data were collected,The year in which a person was born.,Year of Birth,0.6626141011594824,False
+Candidate_Age,Candidate Age at eligibility visit (PREEL00),The year in which a person was born.,Year of Birth,0.6444499771059787,False
+treatment_diabetes,Treatment history for diabetes,Medical history pertaining to the metabolic system,Metabolic,0.7970664835452514,False
+past_cancer,Any diagnosis of cancer in the past?,Medical history pertaining to allergies or drug sensitivities,Allergies or Drug Sensitivities,0.7513124633310061,False
+past_depression,Any diagnosis of depression in the past?,"Medical history of symptoms, physical examination results, and/or laboratory test results related to mental health.",Psychiatric,0.7476397835622883,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.7398509609055274,True
+APOE,"APOE genotype (SNP: rs429358/rs7412), alleles e2,e3,e4","Human APOE*4 allele is located in the vicinity of 19q13.2 and is approximately 4 kb in length. This allele, which encodes apolipoprotein E4, plays a role in triglyceride metabolism. The allele is associated with increased occurrence of both Alzheimer disease and coronary artery disease.",APOE,0.8107139046851244,True
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.7398509609055274,True
+Visit_label,Time point at which data were collected,The year in which a person was born.,Year of Birth,0.6626141011594824,False
+Candidate_Age,Age in months at the time of test,The month in which a person was born.,Month of Birth,0.7240376878495868,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.7398509609055274,True
+Visit_label,Time point at which data were collected,The year in which a person was born.,Year of Birth,0.6626141011594824,False
+Candidate_Age,Candidate Age at the time of the questionnaire on medication use,Medical history pertaining to allergies or drug sensitivities,Allergies or Drug Sensitivities,0.7102854570845005,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.7398509609055274,True
+Visit_label,Time point at which data were collected,The year in which a person was born.,Year of Birth,0.6626141011594824,False
+Candidate_Age,Age in months at the time of test,The month in which a person was born.,Month of Birth,0.7240376878495868,False
+CONP_ID,Participant identification code in the Open/Registered data repositories,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.7398509609055274,True
+Visit_label,Time point at which data were collected,The year in which a person was born.,Year of Birth,0.6626141011594824,False
+Candidate_Age,Age in months at the time of test,The month in which a person was born.,Month of Birth,0.7240376878495868,False

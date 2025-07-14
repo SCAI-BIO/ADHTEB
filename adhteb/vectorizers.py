@@ -1,6 +1,6 @@
 from abc import ABC
 import re
-import time  # Import time for rate limiting
+import time
 from typing import List
 
 from openai import OpenAI
@@ -108,7 +108,7 @@ class GeminiVectorizer(Vectorizer):
     Vectorizer using Gemini's API.
     """
 
-    def __init__(self, model: str = "gemini-embedding-001", api_key: str = None):
+    def __init__(self, model: str = "embedding-001", api_key: str = None):
         self.model = model
         self.api_key = api_key
         if self.api_key:
@@ -142,12 +142,13 @@ class GeminiVectorizer(Vectorizer):
         self.last_request_time = time.time()
 
         try:
-            # Gemini's embed_content takes contents as a list of strings
-            response = genai.embed_content(
+            response = self.client.models.embed_content(
                 model=self.model,
-                content=sanitized_texts,  # 'content' for batch embedding
+                contents=sanitized_texts,
             )
-            return [embedding for embedding in response['embeddings']]
+            embeddings = [embedding.values for embedding in response.embeddings]
+
+            return embeddings
 
         except Exception as e:
             raise RuntimeError(f"Failed to get embeddings for batch: {e}")

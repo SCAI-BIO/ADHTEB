@@ -1,0 +1,9 @@
+cohort_variable,cohort_definition,matched_top_1_cdm_definition,matched_top_1_cdm_variable,matched_top_1_similarity,in_top_1
+SUBJID,Subject Identifier,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.7780371394911255,True
+SEX,Sex,The assemblage of physical properties or qualities by which male is distinguished from female; the physical difference between male and female; the distinguishing peculiarity of male or female.,Biological Sex,0.6580225227081681,True
+ENTAGE,Age at Study Entry,The number of education years that a subject has competed.,Education,0.6973841194835133,False
+FALLSFLG,Falls Flag,Left_GC-ML-DG,Left GC-ML-DG Volume,0.5838229933153516,False
+PSHYPRN,Any psychiatric/hypnotic treatments? (num),"Medical history of symptoms, physical examination results, and/or laboratory test results related to mental health.",Psychiatric,0.6624768649633392,True
+URINFLG,Urinary Tract Disorder Medication Flag,"Urination at short intervals; it may result from increased urine formation, decreased bladder capacity, or lower urinary tract irritation.",Urinary Frequency,0.6783884022535344,False
+MMSERN,MMSE Item Result Numeric,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.7211566437038066,True
+NPIRN,NPI Item Result Numeric,Neuropsychiatric Inventory (NPI) Total of (Frequency Sub-total) x (Severity Sub-total).,Neuropsychiatric Inventory (NPI),0.6880292634848866,True
