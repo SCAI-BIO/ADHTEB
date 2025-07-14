@@ -1,233 +1,152 @@
-from typing import Dict, List, Optional
+import os
+import pickle
+from typing import List, Tuple
 
 import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
 import seaborn as sns
-import pickle
 
-from pandas.plotting import table
+from adhteb import BenchmarkResult, Benchmark  # Assuming correct import path
 
 
-def plot_top_n_accuracies(
-        accuracies: Dict[str, List[float]],
-        save_path: Optional[str] = None,
-        palette: Optional[str] = "Set2",
-        vectorizer_name: Optional[str] = None,
+def plot_prauc_curves_per_cohort(
+        benchmarks: List[Benchmark],
+        labels: List[str],
+        output_dir: str = "plots"
 ) -> None:
     """
-    Plot cumulative top-N accuracies for a single vectorizer with a modern style.
+    Generates and saves Precision-Recall (PR) curves for each cohort, comparing
+    different vectorizers. Each plot will show the PR curves for all
+    benchmarked models for a specific cohort.
 
-    :param accuracies: Output from Benchmark.get_accuracies(n), i.e., Dict[cohort → List[accuracy@1...n]]
-    :param title: Plot title.
-    :param save_path: If provided, save the figure to this path instead of showing it.
-    :param palette: Optional seaborn color palette name.
+    Applies Seaborn styling, uses a custom color scheme, and sorts legend
+    labels by AUPRC in descending order.
+
+    :param benchmarks: A list of Benchmark objects, each containing results
+                       for a different vectorizer.
+    :param labels: A list of string labels, corresponding one-to-one with the
+                   `benchmarks` list, used for plot legends.
+    :param output_dir: Directory to save the plots.
     """
-    sns.set(style="whitegrid", font_scale=1.2)
-    plt.figure(figsize=(10, 6))
+    os.makedirs(output_dir, exist_ok=True)
 
-    n = len(next(iter(accuracies.values())))
-    x = list(range(1, n + 1))
+    if len(benchmarks) != len(labels):
+        raise ValueError("The 'benchmarks' list and 'labels' list must have the same number of elements.")
 
-    color_palette = sns.color_palette(palette, n_colors=len(accuracies))
+    sns.set_theme(style="whitegrid", palette="deep")
 
-    for (cohort_name, acc_list), color in zip(accuracies.items(), color_palette):
-        plt.plot(x, acc_list, marker='o', linewidth=2.5, label=cohort_name, color=color)
-
-    title: str = "Top-N Accuracy per Cohort " + vectorizer_name if vectorizer_name else "Top-N Accuracy per Cohort"
-
-    plt.title(title, fontsize=16, fontweight='bold')
-    plt.xlabel("Top-N", fontsize=13)
-    plt.ylabel("Cumulative Accuracy", fontsize=13)
-    plt.xticks(x)
-    plt.ylim(0, 1.05)
-    plt.grid(True, linestyle="--", alpha=0.6)
-    plt.legend(title="Cohort", fontsize=11, title_fontsize=12, loc="lower right")
-    plt.tight_layout()
-
-    if save_path:
-        plt.savefig(save_path + "/" + "overall_" + vectorizer_name + ".png", dpi=300)
-        plt.close()
-    else:
-        plt.show()
-
-
-def summarize_top1_accuracies(all_accuracies: Dict[str, Dict[str, List[float]]], save_path=None) -> pd.DataFrame:
-    """
-    Summarize top-1 accuracies for multiple vectorizers in a table format.
-
-    :param all_accuracies: Dict[vectorizer_name → Dict[cohort → List[float (length N)]]]
-    :param save_path: If provided, save the summary table as an image in the specified directory.
-    :return: DataFrame with cohorts as rows, vectorizers as columns, and top-1 accuracies as values.
-    """
-    # Create a DataFrame with cohorts as rows and vectorizers as columns
-    summary = {
-        vectorizer_name: {cohort: round(acc_list[0], 2) for cohort, acc_list in cohort_dict.items()}
-        for vectorizer_name, cohort_dict in all_accuracies.items()
+    model_specific_colors = {
+        "Qwen38B": "#B19CD9",
+        "OpenAI": "#E980A2",
+        "Gemini": "#5EB5A6",
+        "AllMiniLM": "#F29C7B",
+        "LinqEmbedMistral": "#8A2BE2"
     }
-    df_summary = pd.DataFrame(summary).sort_index()
 
-    # Add bold formatting for the largest entry per row
-    def format_bold_row(row):
-        max_value = row.max()
-        return [f"**{value}**" if value == max_value else f"{value}" for value in row]
+    plot_palette = sns.color_palette([model_specific_colors.get(label, "#CCCCCC") for label in labels])
+    sns.set_palette(plot_palette)
 
-    formatted_data = df_summary.apply(format_bold_row, axis=1).to_list()
-    df_summary_formatted = pd.DataFrame(formatted_data, index=df_summary.index, columns=df_summary.columns)
+    all_cohort_labels = set()
+    for benchmark in benchmarks:
+        if benchmark.results_geras:
+            all_cohort_labels.add(benchmark.results_geras.cohort_label)
+        if benchmark.results_prevent_dementia:
+            all_cohort_labels.add(benchmark.results_prevent_dementia.cohort_label)
+        if benchmark.results_prevent_ad:
+            all_cohort_labels.add(benchmark.results_prevent_ad.cohort_label)
+        if benchmark.results_emif:
+            all_cohort_labels.add(benchmark.results_emif.cohort_label)
 
-    if save_path:
-        plt.figure(figsize=(12, 6))
-        ax = plt.gca()
-        ax.axis('off')  # Turn off the axis
-        tbl = table(ax, df_summary_formatted, loc='center', cellLoc='center')  # Render table
-        tbl.auto_set_font_size(False)
-        tbl.set_fontsize(10)
-        tbl.scale(1.2, 1.2)  # Scale table for better readability
-        plt.savefig(f"{save_path}/summary_table.png", dpi=300, bbox_inches='tight', pad_inches=0.1)
-        plt.close()
+    sorted_cohort_labels = sorted(list(all_cohort_labels))
 
-    return df_summary
+    for cohort_label in sorted_cohort_labels:
+        # --- Collect data for sorting first ---
+        plot_data = []
 
+        for i, (benchmark, label_name) in enumerate(zip(benchmarks, labels)):
+            current_cohort_result: BenchmarkResult = None
+            if cohort_label == "GERAS" and benchmark.results_geras and benchmark.results_geras.cohort_label == cohort_label:
+                current_cohort_result = benchmark.results_geras
+            elif cohort_label == "PREVENT Dementia" and benchmark.results_prevent_dementia and benchmark.results_prevent_dementia.cohort_label == cohort_label:
+                current_cohort_result = benchmark.results_prevent_dementia
+            elif cohort_label == "PREVENT-AD" and benchmark.results_prevent_ad and benchmark.results_prevent_ad.cohort_label == cohort_label:
+                current_cohort_result = benchmark.results_prevent_ad
+            elif cohort_label == "EMIF" and benchmark.results_emif and benchmark.results_emif.cohort_label == cohort_label:
+                current_cohort_result = benchmark.results_emif
 
-def plot_topn_per_cohort(
-        all_accuracies: Dict[str, Dict[str, List[float]]],
-        title_prefix: str = "Top-N Accuracy",
-        palette: Optional[str] = "Set2",
-        save_path: Optional[str] = None
-) -> None:
-    """
-    Plot Top-N accuracy curves per cohort comparing multiple vectorizers.
+            if current_cohort_result and current_cohort_result.precisions and current_cohort_result.recalls:
+                recalls = current_cohort_result.recalls
+                precisions = current_cohort_result.precisions
 
-    :param all_accuracies: Dict[vectorizer_name → Dict[cohort → List[float]]]
-    :param title_prefix: Prefix for the plot titles.
-    :param palette: Seaborn color palette.
-    """
-    sns.set(style="whitegrid", font_scale=1.1)
+                if len(recalls) > 1 and recalls[0] > recalls[-1]:
+                    recalls = recalls[::-1]
+                    precisions = precisions[::-1]
 
-    # Get all cohorts from any one vectorizer
-    example_vectorizer = next(iter(all_accuracies.values()))
-    cohorts = list(example_vectorizer.keys())
-    n = len(next(iter(example_vectorizer.values())))  # Number of top-N levels
-    x = list(range(1, n + 1))
+                auprc = current_cohort_result.auc
+                color = plot_palette[i]
 
-    for cohort in cohorts:
-        plt.figure(figsize=(10, 6))
-        color_palette = sns.color_palette(palette, n_colors=len(all_accuracies))
+                plot_data.append((auprc, label_name, recalls, precisions, color))
+            else:
+                # Changed to a more informative logging if you want to keep track
+                # Consider using Python's `logging` module for more robust logging
+                print(
+                    f"INFO: No PR data for {label_name} on cohort {cohort_label}. Skipping this model for this cohort's plot."
+                )
 
-        for (vectorizer_name, vectorizer_accuracies), color in zip(all_accuracies.items(), color_palette):
-            y = vectorizer_accuracies[cohort]
-            plt.plot(x, y, marker='o', label=vectorizer_name, linewidth=2.5, color=color)
+        # --- Only create and save the plot if there is data to plot ---
+        if not plot_data:
+            print(
+                f"WARNING: No PR data found for any model on cohort {cohort_label}. Skipping plot generation for this cohort.")
+            continue  # Skip to the next cohort
 
-        plt.title(f"{title_prefix}: {cohort}", fontsize=15, fontweight='bold')
-        plt.xlabel("Top-N", fontsize=12)
-        plt.ylabel("Cumulative Accuracy", fontsize=12)
-        plt.xticks(x)
-        plt.ylim(0, 1.05)
-        plt.grid(True, linestyle="--", alpha=0.6)
-        plt.legend(title="Vectorizer", fontsize=10, title_fontsize=11, loc="lower right")
-        plt.tight_layout()
-        if save_path:
-            plt.savefig(save_path + "/" + cohort + ".png", dpi=300)
-            plt.close()
-        else:
-            plt.show()
+        # If we reached here, plot_data is not empty, so proceed to plot
+        fig, ax = plt.subplots(figsize=(8, 6))
+        ax.set_xlabel('Recall', fontsize=12)
+        ax.set_ylabel('Precision', fontsize=12)
+        ax.set_title(f'Precision-Recall Curve: {cohort_label}', fontsize=14)
+        ax.set_xlim([0.0, 1.0])
+        ax.set_ylim([0.0, 1.05])
 
+        # Sort plot_data by AUPRC in descending order
+        plot_data.sort(key=lambda x: x[0], reverse=True)
 
-def plot_precision_recall_curves(
-        pr_results: Dict[str, Dict[str, List[float]]],
-        save_path: Optional[str] = None,
-        palette: Optional[str] = "Set2",
-) -> None:
-    """
-    Plot Precision-Recall curves for each cohort and display the AUC in the legend.
+        # Plot in sorted order
+        for auprc, label_name, recalls, precisions, color in plot_data:
+            ax.plot(recalls, precisions, drawstyle='steps-post',
+                    label=f'{label_name} (AUPRC = {auprc:.4f})',
+                    color=color,
+                    linewidth=2)
 
-    :param pr_results: Output from Benchmark.get_precision_recall(), i.e., Dict[cohort → {'precision': [...], 'recall': [...], 'thresholds': [...]}]
-    :param save_path: If provided, save the figure to this path instead of showing it.
-    :param palette: Optional seaborn color palette name.
-    """
-    sns.set(style="whitegrid", font_scale=1.2)
-    plt.figure(figsize=(10, 6))
-    color_palette = sns.color_palette(palette, n_colors=len(pr_results))
+        ax.legend(loc='upper right', frameon=True, fontsize=10)
 
-    for (cohort_name, metrics), color in zip(pr_results.items(), color_palette):
-        precision = metrics.get("precision", [])
-        recall = metrics.get("recall", [])
-        if not precision or not recall:
-            continue
-        # Compute AUC using trapezoidal rule: area under Precision-Recall curve
-        auc = np.trapz(precision, recall)
-        plt.plot(
-            recall,
-            precision,
-            marker='o',
-            linewidth=2.5,
-            label=f"{cohort_name} (AUC={auc:.2f})",
-            color=color
-        )
-
-    plt.title("Precision-Recall Curve per Cohort", fontsize=16, fontweight='bold')
-    plt.xlabel("Recall", fontsize=13)
-    plt.ylabel("Precision", fontsize=13)
-    plt.xlim(0, 1.05)
-    plt.ylim(0, 1.05)
-    plt.grid(True, linestyle="--", alpha=0.6)
-    plt.legend(title="Cohort", fontsize=11, title_fontsize=12, loc="lower left")
-    plt.tight_layout()
-
-    if save_path:
-        plt.savefig(f"{save_path}/precision_recall_curves.png", dpi=300)
-        plt.close()
-    else:
-        plt.show()
+        filename = f"pr_curve_comparison_{cohort_label.replace(' ', '_').lower()}.png"
+        path = os.path.join(output_dir, filename)
+        fig.savefig(path, bbox_inches='tight', dpi=300)
+        plt.close(fig)
+        print(f"Saved PR curve comparison for {cohort_label} to {path}")
 
 
-def plot_auprc_per_cohort(
-        all_pr_results: Dict[str, Dict[str, Dict[str, List[float]]]],
-        save_path: Optional[str] = None,
-        palette: Optional[str] = "Set2",
-) -> None:
-    """Plot AUPRC (Precision-Recall curves) per cohort, comparing multiple vectorizers.
+# --- Your Existing Loading Code and Call ---
 
-    :param all_pr_results: A nested dictionary containing precision and recall values as lists.
-    :param save_path: Optional path to save the plots, defaults to None
-    :param palette: Seaborn color palette for styling, defaults to "Set2"
-    """
-    sns.set_theme(style="whitegrid", font_scale=1.1)
+# Load your benchmark results from pickle files
+try:
+    results_openai = pickle.load(open("results/OpenAI.pkl", "rb"))
+    results_gemini = pickle.load(open("results/Gemini.pkl", "rb"))
+    results_allminilm = pickle.load(open("results/AllMiniLM.pkl", "rb"))
+    results_qwen = pickle.load(open("results/Qwen38B.pkl", "rb"))
+    results_linq = pickle.load(open("results/LinqEmbedMistral.pkl", "rb"))
+except FileNotFoundError as e:
+    print(
+        f"Error loading pickle file: {e}. Please ensure 'results/' directory exists and contains all required .pkl files.")
+    exit()
+except Exception as e:
+    print(f"An unexpected error occurred while loading pickle files: {e}")
+    exit()
 
-    # Get list of cohorts from the first vectorizer
-    first_vectorizer = next(iter(all_pr_results.values()))
-    cohorts = list(first_vectorizer.keys())
+# Create the list of Benchmark objects
+benchmarks = [results_qwen, results_openai, results_gemini, results_allminilm, results_linq]
 
-    for cohort in cohorts:
-        plt.figure(figsize=(10, 6))
-        color_palette = sns.color_palette(palette, n_colors=len(all_pr_results))
+# Create the corresponding list of labels (ensure order matches 'benchmarks' for initial color assignment)
+labels = ["Qwen38B", "OpenAI", "Gemini", "AllMiniLM", "LinqEmbedMistral"]
 
-        for (vectorizer_name, vectorizer_results), color in zip(all_pr_results.items(), color_palette):
-            cohort_data = vectorizer_results.get(cohort, {})
-            precision = cohort_data.get("precision", [])
-            recall = cohort_data.get("recall", [])
-            if not precision or not recall:
-                continue
-            auc = np.trapz(precision, recall)
-            plt.plot(recall, precision, label=f"{vectorizer_name} (AUC={auc:.2f})", linewidth=2.5, color=color)
-
-        plt.title(f"{cohort}", fontsize=15, fontweight="bold")
-        plt.xlabel("Recall", fontsize=12)
-        plt.ylabel("Precision", fontsize=12)
-        plt.xlim(0, 1.05)
-        plt.ylim(0, 1.05)
-        plt.grid(True, linestyle="--", alpha=0.6)
-        plt.legend(title="Vectorizer", fontsize=10, title_fontsize=11, loc="upper right")
-        plt.tight_layout()
-
-        if save_path:
-            plt.savefig(f"{save_path}/auprc_{cohort}.png", dpi=300)
-            plt.close()
-        else:
-            plt.show()
-
-
-# load oai from pickle
-results_openai = pickle.load(open("results/OpenAI.pkl", "rb"))
-
-print("")
+# Call the plotting function
+plot_prauc_curves_per_cohort(benchmarks, labels, output_dir="plots/benchmark_comparison")
