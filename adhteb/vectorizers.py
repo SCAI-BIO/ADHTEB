@@ -1,7 +1,10 @@
 from abc import ABC
 import re
+import time
+from typing import List
 
 from openai import OpenAI
+from google import genai
 
 from sentence_transformers import SentenceTransformer
 
@@ -22,6 +25,14 @@ class Vectorizer(ABC):
         Get the embedding of a given text.
         """
         raise NotImplementedError("Subclasses should implement this method.")
+
+    def get_embeddings_batch(self, texts: List[str]) -> List[list]:
+        """
+        Get embeddings for a list of texts in a batch.
+        Default implementation calls get_embedding for each text.
+        Subclasses can override for optimized batch processing.
+        """
+        return [self.get_embedding(text) for text in texts]
 
     def sanitize_text(self, text: str) -> str:
         """
@@ -60,19 +71,36 @@ class OpenAIVectorizer(Vectorizer):
     def __init__(self, model: str = "text-embedding-3-large", api_key: str = None):
         self.model = model
         self.client = OpenAI(api_key=api_key)
+        self.rate_limit_per_minute = 3000  # OpenAI's default rate limit for embedding models
+        self.last_request_time = 0
 
     def get_embedding(self, text: str) -> list:
         """
         Get the embedding of a given text using OpenAI's API.
         """
+        return self.get_embeddings_batch([text])[0]
+
+    def get_embeddings_batch(self, texts: List[str]) -> List[list]:
+        """
+        Get embeddings for a list of texts using OpenAI's API in a batch.
+        """
+        sanitized_texts = [self.sanitize_text(text) for text in texts]
+
+        # Implement a basic rate limiting mechanism
+        current_time = time.time()
+        time_elapsed = current_time - self.last_request_time
+        min_time_between_requests = 60 / self.rate_limit_per_minute
+        if time_elapsed < min_time_between_requests:
+            time.sleep(min_time_between_requests - time_elapsed)
+        self.last_request_time = time.time()
 
         try:
-            response = self.client.embeddings.create(input=self.sanitize_text(text),
+            response = self.client.embeddings.create(input=sanitized_texts,
                                                      model=self.model)
-            return response.data[0].embedding
+            return [data.embedding for data in response.data]
 
         except Exception as e:
-            raise RuntimeError(f"Failed to get embedding: {e}")
+            raise RuntimeError(f"Failed to get embeddings for batch: {e}")
 
 
 class GeminiVectorizer(Vectorizer):
@@ -80,27 +108,50 @@ class GeminiVectorizer(Vectorizer):
     Vectorizer using Gemini's API.
     """
 
-    def __init__(self, model: str = "gemini-embedding", api_key: str = None):
+    def __init__(self, model: str = "embedding-001", api_key: str = None):
         self.model = model
+        self.api_key = api_key
+        if self.api_key:
+            self.client = genai.Client(api_key=api_key)
+        else:
+            raise ValueError("API key is required to initialize GeminiVectorizer.")
+        self.rate_limit_per_minute = 150
+        self.last_request_time = 0
 
     def get_embedding(self, text: str) -> list:
         """
         Get the embedding of a given text using Gemini's API.
         """
+        return self.get_embeddings_batch([text])[0]
 
+    def get_embeddings_batch(self, texts: List[str]) -> List[list]:
+        """
+        Get embeddings for a list of texts using Gemini's API in a batch.
+        """
         if not hasattr(self, 'api_key') or not self.api_key:
             raise ValueError("API key is required to use Gemini's API.")
 
-        try:
-            client = genai.Client(api_key="GEMINI_API_KEY")
+        sanitized_texts = [self.sanitize_text(text) for text in texts]
 
-            result = client.models.embed_content(
-                model="gemini-embedding-exp-03-07",
-                contents=self.sanitize_text(text))
-            return result
+        # Implement a basic rate limiting mechanism
+        current_time = time.time()
+        time_elapsed = current_time - self.last_request_time
+        min_time_between_requests = 60 / self.rate_limit_per_minute
+        if time_elapsed < min_time_between_requests:
+            time.sleep(min_time_between_requests - time_elapsed)
+        self.last_request_time = time.time()
+
+        try:
+            response = self.client.models.embed_content(
+                model=self.model,
+                contents=sanitized_texts,
+            )
+            embeddings = [embedding.values for embedding in response.embeddings]
+
+            return embeddings
 
         except Exception as e:
-            raise RuntimeError(f"Failed to get embedding: {e}")
+            raise RuntimeError(f"Failed to get embeddings for batch: {e}")
 
 
 class HuggingFaceVectorizer(Vectorizer):
@@ -114,6 +165,11 @@ class HuggingFaceVectorizer(Vectorizer):
     def get_embedding(self, text: str) -> list:
         embedding = self.model.encode(self.sanitize_text(text))
         return [float(x) for x in embedding]
+
+    def get_embeddings_batch(self, texts: List[str]) -> List[list]:
+        sanitized_texts = [self.sanitize_text(text) for text in texts]
+        embeddings = self.model.encode(sanitized_texts)
+        return [[float(x) for x in emb] for emb in embeddings]
 
 
 class LinqEmbedMistralVectorizer(HuggingFaceVectorizer):

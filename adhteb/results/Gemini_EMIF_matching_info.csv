@@ -1,0 +1,27 @@
+cohort_variable,cohort_definition,matched_top_1_cdm_definition,matched_top_1_cdm_variable,matched_top_1_similarity,in_top_1
+VisitTime,Time of visit since baseline,How long something has existed; elapsed time since birth.,Age,0.6655259441546955,False
+Eduy,Years of education,The number of education years that a subject has competed.,Education,0.8580187505698358,True
+Age,Age when assessed,The year in which a person was born.,Year of Birth,0.7158769714506704,False
+Gender,Gender,The assemblage of physical properties or qualities by which male is distinguished from female; the physical difference between male and female; the distinguishing peculiarity of male or female.,Biological Sex,0.7335641310190321,True
+Diagnosis,Clinical diagnosis,"The investigation, analysis and recognition of the presence and nature of disease, condition, or injury from expressed signs and symptoms; also, the scientific determination of any kind; the concise results of such an investigation.",Diagnosis,0.7636285225896329,True
+AMYLOIDstatus,Dichotomous amyloid variable,The determination of the amount of the 1-42 amino acid beta amyloid protein isoform present in a sample.,A-beta 1-42 in CSF,0.7434559361367872,False
+MMSE,Mini Mental State Examination,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.8265771073775734,True
+Local_AB42,CSF AB 42 value of local assessment,Clinical Dementia Rating (CDR) Personal care.,CDR - Personal Care,0.6136551203023402,False
+Local_AB42,Dichotomous CSF AB42 of local assessment,Clinical Dementia Rating (CDR) Personal care.,CDR - Personal Care,0.6605006662681931,False
+Central_CSF_NFL,Neurofilament light values of central CSF analyses,"Quantification of the levels of neurofilament light chain, typically in blood or cerebrospinal fluid. Used as a marker of neurodegeneration, in Alzheimer's disease, Amyotrophic Lateral Sclerosis, multiple sclerosis and Huntington's disease.",Neurofilament Light Protein (NfL) in CSF,0.8044260592472536,True
+Central_CSF_Neurogranin,Neurogranin values of central CSF analyses,"Quantification of the levels of neurofilament light chain, typically in blood or cerebrospinal fluid. Used as a marker of neurodegeneration, in Alzheimer's disease, Amyotrophic Lateral Sclerosis, multiple sclerosis and Huntington's disease.",Neurofilament Light Protein (NfL) in CSF,0.7313131749142284,False
+Central_CSF_YKL40,YKL-40 values of central CSF analyses,The determination of the amount of YKL-40 protein present in a sample.,YKL-40 in CSF,0.7785719404889286,True
+Hippo_sum_FS_adj,Sum of hippocampal volume left and right adjusted for ICV,Measurement of the volume of the hippocampus,Hippocampus Volume,0.8299358376346079,True
+Lhippo_FS_adj,Volume of left hippocampus adjusted for ICV,Measurement of the volume of the hippocampus,Hippocampus Volume,0.8626219949307871,False
+Rhippo_FS_adj,Volume of right hippocampus adjusted for ICV,Right cortical white matter volume,Right Cortical White Matter Volume From Qdec,0.860019931637,False
+CDR_Global,Clinical Dementia Rating Scale Global score,Clinical Dementia Rating (CDR) Memory.,CDR - Memory,0.8679761863108845,False
+GDS15,Geriatric Depression Scale - 15 items,Geriatric Depression Scale Short Form total score.,Geriatric Depression Scale (GDS),0.8888051341721046,True
+CardiovascularDis,History of cardiovascular disorders,Medical history pertaining to the heart or blood vessels.,Cardiovascular,0.8326642148398882,True
+Alcohol,Alcohol use ,"The use of alcoholic beverages to excess, either on individual occasions (\binge drinking\) or as a regular practice.",Alcohol Abuse,0.8199766725243132,False
+AlcoholAmount,Alcohol units per week ,"Consumption of liquids containing ethanol, including the behaviors associated with drinking the alcohol.",Alcohol,0.6888359227999566,False
+Depression,History of depression,A melancholy feeling of sadness and despair.,Depression,0.6862882702313237,True
+Obesity,Current obesity,A disorder involving an excessive amount of body fat.,Obesity,0.7246288886675566,True
+Stroke,History of Stroke,Modified Hachinski Ischemic Scale-NACC Version (MHIS-NACC) History of stroke.,MHIS-NACC - History of Stroke,0.7219022851647957,False
+APOEdich,Dichotomous APOEe4 carrier,"Human APOE*4 allele is located in the vicinity of 19q13.2 and is approximately 4 kb in length. This allele, which encodes apolipoprotein E4, plays a role in triglyceride metabolism. The allele is associated with increased occurrence of both Alzheimer disease and coronary artery disease.",APOE,0.6920145977111731,False
+APOE_Allele1,Values for APOE allele 1,"Human APOE*4 allele is located in the vicinity of 19q13.2 and is approximately 4 kb in length. This allele, which encodes apolipoprotein E4, plays a role in triglyceride metabolism. The allele is associated with increased occurrence of both Alzheimer disease and coronary artery disease.",APOE,0.7696571622339069,False
+APOE_Allele2,Values for APOE allele 2,"Human APOE*4 allele is located in the vicinity of 19q13.2 and is approximately 4 kb in length. This allele, which encodes apolipoprotein E4, plays a role in triglyceride metabolism. The allele is associated with increased occurrence of both Alzheimer disease and coronary artery disease.",APOE,0.7689225382582112,False

@@ -1,0 +1,12 @@
+cohort_variable,cohort_definition,matched_top_1_cdm_definition,matched_top_1_cdm_variable,matched_top_1_similarity,in_top_1
+SUBJID,Subject Identifier,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.7780371394911255,True
+SEX,Code indicating sex,A demographic parameter indicating a person's current conjugal status.,Marital Status,0.6965897067688132,False
+ENTAGE,Age at study entry (years),The number of education years that a subject has competed.,Education,0.7304439261573149,False
+EDCRN,Years of formal education subject received,The number of education years that a subject has competed.,Education,0.8664963736946516,True
+LVACCLNM,Long-form variable for the patient's current living accommodation,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.6979698792559947,False
+ALCSTLNM,Long-form variable for status of Alcohol use,"Consumption of liquids containing ethanol, including the behaviors associated with drinking the alcohol.",Alcohol,0.7307173917977368,True
+DISCDLNM,"Long-form variable for disease code for any selected diagnoses as the response to the question ""Does the subject/caregiver currently have any of the following diagnoses?""",An alphanumeric identifier assigned to a specific patient.,Participant ID,0.696876395012592,False
+FALLSFLG,"Flag variable for the answer to ""Has the subject had any falls since the last data collection (or in the last three months at the baseline observation)?""",Functional Activities Questionnaire (FAQ) Total Score.,Functional Activities Questionnaire (FAQ),0.6718117939894915,False
+PSHYPRN,"Flag variable for a YES answer to any of the questions ""Is the subject currently taking any psychiatric/hypnotic treatments?/ Has the subject taken any psychiatric/hypnotic treatment since baseline?/ Has the subject taken any psychiatric/hypnotic treatment since the last visit?""","Medical history of symptoms, physical examination results, and/or laboratory test results related to mental health.",Psychiatric,0.6771243241634344,True
+MMSERN,"Indicator variable for MMSE Item correct response; if MMSE Item is Total Score, value ranges from 0-30",Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.7511640728516824,True
+NPIRN,NPI Item Result Numeric (See documentation in Other Resources in ADDI GERAS-EU dataset description),Neuropsychiatric Inventory (NPI) Total of (Frequency Sub-total) x (Severity Sub-total).,Neuropsychiatric Inventory (NPI),0.677129135015636,True

@@ -1,21 +1,21 @@
 cohort_variable,cohort_definition,matched_top_1_cdm_definition,matched_top_1_cdm_variable,matched_top_1_similarity,in_top_1
-SUBJID,Subject Identifier for the Study,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4903983476238579,True
-SEX,Sex,The assemblage of physical properties or qualities by which male is distinguished from female; the physical difference between male and female; the distinguishing peculiarity of male or female.,Biological Sex,0.39344933751566435,True
-AGE,Age (years),The year in which a person was born.,Year of Birth,0.43362836940891014,False
-HGTCMB,Height (cm) at Baseline,"A quantitative measure of the anatomical size (typically in cubic millimeters or centimeters) of the right hippocampus, usually obtained via structural neuroimaging such as MRI.",Right Hippocampus Volume,0.3304761860969935,False
-WGTKGB,Weight (kg) at Baseline,An individual's weight in kilograms divided by the square of the height in meters.,BMI,0.4205913819443876,False
-BMIB,Body Mass Index (BMI) (kg/m2)  at Baseline,An individual's weight in kilograms divided by the square of the height in meters.,BMI,0.49389524999083406,True
-EDUC,Level of Education,The number of education years that a subject has competed.,Education,0.5603390998485366,True
-MRTLST,Marital Status,A demographic parameter indicating a person's current conjugal status.,Marital Status,0.6640352137171663,True
-ALCO,Alcohol Consumption,"Consumption of liquids containing ethanol, including the behaviors associated with drinking the alcohol.",Alcohol,0.6423853193695553,True
-PCC01,Depression Diagnosis,Hospital Anxiety and Depression Scale (HADS) Total score depression.,Hospital Anxiety and Depression Scale (HADs) (Anxiety),0.4715474666787884,False
-PCC05,Stroke Diagnosis,A sudden loss of neurological function secondary to hemorrhage or ischemia in the brain parenchyma due to a vascular event.,Stroke,0.5061156293834022,True
-PCC11,Diabetes Mellitus Diagnosis,A metabolic disorder characterized by abnormally high blood sugar levels due to diminished production of insulin or insulin resistance/desensitization.,Diabetes,0.42171091973970126,True
-PCC15,Carcinoma Diagnosis,The determination of the amount of human epidermal growth factor receptor 2 present in a sample.,NEU Protein (HER2) in Plasma,0.36043805595757006,False
-PCC17,Urinary tract disorder Diagnosis,Medical history pertaining to the kidney,Renal,0.44249692064192797,False
-PCC21,Anxiety Diagnosis,"An instrument for measuring anxiety. It is designed to differentiate between temporary \state anxiety\ and general, long-standing \trait anxiety\. (Copyright Mind Garden, Inc.)",The State-Trait Anxiety Inventory (STAI),0.4766484199550108,False
-PCC23,Insomnia Diagnosis,A sleep disorder characterized by difficulty in falling asleep and/or remaining asleep.,Insomnia,0.5071151016771066,True
-FALLSYN,Any Falls,"A sudden movement downward, usually resulting in injury. [ NCI ]",Fall,0.4291246417051665,True
-MMSETOT,Mini-Mental State Examination (MMSE) Total Score,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.9463618300064028,True
-ADASTOT11,ADAS-Cog11 Total Score,Alzheimer's Disease Cooperative Study-Activities of Daily Living Inventory (ADCS-ADL) Total score.,Alzheimer's Disease Cooperative Study - Activities of Daily Living (ADCS_ADL),0.6963927331004625,False
-ADCSTOT,ADCS-ADL Total Score,Alzheimer's Disease Cooperative Study-Activities of Daily Living Inventory (ADCS-ADL) Total score.,Alzheimer's Disease Cooperative Study - Activities of Daily Living (ADCS_ADL),0.8165877056702145,True
+SUBJID,Subject Identifier for the Study,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.49034410216451463,True
+SEX,Sex,The assemblage of physical properties or qualities by which male is distinguished from female; the physical difference between male and female; the distinguishing peculiarity of male or female.,Biological Sex,0.3934639911349396,True
+AGE,Age (years),The year in which a person was born.,Year of Birth,0.4336505393858373,False
+HGTCMB,Height (cm) at Baseline,"A quantitative measure of the anatomical size (typically in cubic millimeters or centimeters) of the right hippocampus, usually obtained via structural neuroimaging such as MRI.",Right Hippocampus Volume,0.3305181133508844,False
+WGTKGB,Weight (kg) at Baseline,An individual's weight in kilograms divided by the square of the height in meters.,BMI,0.4206073988693521,False
+BMIB,Body Mass Index (BMI) (kg/m2)  at Baseline,An individual's weight in kilograms divided by the square of the height in meters.,BMI,0.4939539704973024,True
+EDUC,Level of Education,The number of education years that a subject has competed.,Education,0.5603360716337776,True
+MRTLST,Marital Status,A demographic parameter indicating a person's current conjugal status.,Marital Status,0.6643581313569362,True
+ALCO,Alcohol Consumption,"Consumption of liquids containing ethanol, including the behaviors associated with drinking the alcohol.",Alcohol,0.6424367618886687,True
+PCC01,Depression Diagnosis,Hospital Anxiety and Depression Scale (HADS) Total score depression.,Hospital Anxiety and Depression Scale (HADs) (Anxiety),0.4715659154941998,False
+PCC05,Stroke Diagnosis,A sudden loss of neurological function secondary to hemorrhage or ischemia in the brain parenchyma due to a vascular event.,Stroke,0.506142998396996,True
+PCC11,Diabetes Mellitus Diagnosis,A metabolic disorder characterized by abnormally high blood sugar levels due to diminished production of insulin or insulin resistance/desensitization.,Diabetes,0.42176832015534893,True
+PCC15,Carcinoma Diagnosis,The determination of the amount of human epidermal growth factor receptor 2 present in a sample.,NEU Protein (HER2) in Plasma,0.3604443528243026,False
+PCC17,Urinary tract disorder Diagnosis,Medical history pertaining to the kidney,Renal,0.44237595189344864,False
+PCC21,Anxiety Diagnosis,"An instrument for measuring anxiety. It is designed to differentiate between temporary \state anxiety\ and general, long-standing \trait anxiety\. (Copyright Mind Garden, Inc.)",The State-Trait Anxiety Inventory (STAI),0.4764115936159473,False
+PCC23,Insomnia Diagnosis,A sleep disorder characterized by difficulty in falling asleep and/or remaining asleep.,Insomnia,0.5074084014577005,True
+FALLSYN,Any Falls,"A sudden movement downward, usually resulting in injury. [ NCI ]",Fall,0.42914950045508926,True
+MMSETOT,Mini-Mental State Examination (MMSE) Total Score,Mini-Mental State Examination (MMSE) Total score.,Mini-Mental State Examination (MMSE),0.9463602209728877,True
+ADASTOT11,ADAS-Cog11 Total Score,Alzheimer's Disease Cooperative Study-Activities of Daily Living Inventory (ADCS-ADL) Total score.,Alzheimer's Disease Cooperative Study - Activities of Daily Living (ADCS_ADL),0.6950725211138009,False
+ADCSTOT,ADCS-ADL Total Score,Alzheimer's Disease Cooperative Study-Activities of Daily Living Inventory (ADCS-ADL) Total score.,Alzheimer's Disease Cooperative Study - Activities of Daily Living (ADCS_ADL),0.8169249396698337,True
