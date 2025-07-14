@@ -1,14 +1,15 @@
 import logging
 import os
 import pickle
-from typing import List
-
+import copy
 import pandas as pd
 import numpy as np
+
+from typing import List
 from tabulate import tabulate
 
 from .leaderboard import LeaderboardEntry, publish_entry
-from .vectorizers import Vectorizer
+from .vectorizers import Vectorizer, GeminiVectorizer, OpenAIVectorizer  # Import specific vectorizers for batching
 from .results import BenchmarkResult
 
 
@@ -80,13 +81,13 @@ class Benchmark:
         self.results_prevent_ad = self._benchmark_cohort(self.prevent_ad, "PREVENT-AD", self.n_bins)
         self.logger.info("Benchmarking completed for all cohorts.")
 
-    def save(self, filepath: str) -> None:
-        """
-        Serialize the Benchmark instance to a file.
-        """
-        with open(filepath, "wb") as f:
-            pickle.dump(self, f)
-        self.logger.info(f"Benchmark saved to {filepath}")
+    def save(self, path):
+        copy_self = copy.copy(self)
+        # can't pickle this due to threading
+        copy_self.vectorizer = None
+
+        with open(path, 'wb') as f:
+            pickle.dump(copy_self, f)
 
     def results_summary(self) -> str:
         """
@@ -224,7 +225,7 @@ class Benchmark:
     def _benchmark_cohort(self, cohort: pd.DataFrame, cohort_name: str, n_bins: int = 100) -> BenchmarkResult:
         """
         Compute benchmark result for a specific cohort.
-        
+
         :param cohort: The cohort DataFrame containing vectors.
         :param cohort_name: Name of the cohort column in CDM.
         :param n_bins: Binning param to calculate similarity thresholds.
@@ -256,7 +257,7 @@ class Benchmark:
     def _compute_confusion_matrix(self, cohort: pd.DataFrame, cohort_name: str, n_bins: int = 100):
         """
         Computes precision and recall for a given cohort DataFrame.
-        
+
         :param cohort: The cohort DataFrame containing vectors.
         :param cohort_name: Name of the cohort column in CDM.
         :param n_bins: Number of thresholds to evaluate between max and min similarity.
@@ -295,7 +296,7 @@ class Benchmark:
                 predicted_labels = self.groundtruth[cohort_name].values[positive_indices]
                 actual_label = row["Column_Name"]
 
-                # now: 
+                # now:
                 # - all labels that match the current variable count as true positives, can be more than one for upper
                 # level concepts
                 # - all labels that do not match the current variable count as false positives
@@ -321,20 +322,44 @@ class Benchmark:
         iterates through its rows, and generates embedding vectors for the "Definition"
         column using the vectorizer. The resulting DataFrame includes the original data
         along with the computed vectors.
-
         """
         self.logger.info("Computing ground truth vectors...")
         cdm_with_vectors = cdm.copy()
-        # drop columns with nan value in "Definition"
         cdm_with_vectors = cdm_with_vectors.dropna(subset=["Definition"], ignore_index=True)
-        cdm_with_vectors["vector"] = None
-        for idx, row in cdm_with_vectors.iterrows():
+
+        descriptions = cdm_with_vectors["Definition"].tolist()
+
+        # Determine batch size based on the vectorizer type
+        if isinstance(self.vectorizer, GeminiVectorizer):
+            batch_size = 50  # Gemini embedding batch size limit is 100, but 50 is safer for rate limits
+        elif isinstance(self.vectorizer, OpenAIVectorizer):
+            batch_size = 200  # OpenAI recommends 2048, but 200 is safer for rate limits
+        else:
+            batch_size = len(descriptions)  # For other vectorizers, process all at once
+
+        all_vectors = []
+        for i in range(0, len(descriptions), batch_size):
+            batch_descriptions = descriptions[i:i + batch_size]
             try:
-                description = row["Definition"]
-                vector = self.vectorizer.get_embedding(description)
-                cdm_with_vectors.at[idx, "vector"] = vector
+                # Use get_embeddings_batch if available, otherwise fallback to individual embeddings
+                if hasattr(self.vectorizer, 'get_embeddings_batch'):
+                    batch_vectors = self.vectorizer.get_embeddings_batch(batch_descriptions)
+                else:
+                    batch_vectors = [self.vectorizer.get_embedding(desc) for desc in batch_descriptions]
+                all_vectors.extend(batch_vectors)
             except Exception as e:
-                print(f"Error processing row {idx}: {e}")
+                self.logger.error(f"Error processing batch {i} to {i + batch_size}: {e}")
+                # If batch fails, try individual for the failed batch to isolate issues
+                for desc in batch_descriptions:
+                    try:
+                        all_vectors.append(self.vectorizer.get_embedding(desc))
+                    except Exception as individual_e:
+                        self.logger.error(f"Error processing individual description '{desc}': {individual_e}")
+                        all_vectors.append(None)  # Append None if individual fails too
+
+        cdm_with_vectors["vector"] = all_vectors
+        # Drop rows where vector calculation failed (if any)
+        cdm_with_vectors = cdm_with_vectors.dropna(subset=["vector"]).reset_index(drop=True)
         return cdm_with_vectors
 
     def _compute_cohort_vectors(self, cohort_file: str) -> pd.DataFrame:
@@ -350,10 +375,39 @@ class Benchmark:
         """
         self.logger.info(f"Computing vectors for cohort from {cohort_file}...")
         cohort = pd.read_csv(cohort_file)
-        # drop rows with invalid or empty descriptions
         cohort = self._drop_cohort_records_without_descriptions(cohort)
         cohort_with_vectors = cohort.copy()
-        cohort_with_vectors["vector"] = cohort_with_vectors["Description"].apply(self.vectorizer.get_embedding)
+
+        descriptions = cohort_with_vectors["Description"].tolist()
+
+        # Determine batch size based on the vectorizer type
+        if isinstance(self.vectorizer, GeminiVectorizer):
+            batch_size = 50  # Gemini embedding batch size limit is 100, but 50 is safer for rate limits
+        elif isinstance(self.vectorizer, OpenAIVectorizer):
+            batch_size = 200  # OpenAI recommends 2048, but 200 is safer for rate limits
+        else:
+            batch_size = len(descriptions)  # For other vectorizers, process all at once
+
+        all_vectors = []
+        for i in range(0, len(descriptions), batch_size):
+            batch_descriptions = descriptions[i:i + batch_size]
+            try:
+                if hasattr(self.vectorizer, 'get_embeddings_batch'):
+                    batch_vectors = self.vectorizer.get_embeddings_batch(batch_descriptions)
+                else:
+                    batch_vectors = [self.vectorizer.get_embedding(desc) for desc in batch_descriptions]
+                all_vectors.extend(batch_vectors)
+            except Exception as e:
+                self.logger.error(f"Error processing batch {i} to {i + batch_size}: {e}")
+                for desc in batch_descriptions:
+                    try:
+                        all_vectors.append(self.vectorizer.get_embedding(desc))
+                    except Exception as individual_e:
+                        self.logger.error(f"Error processing individual description '{desc}': {individual_e}")
+                        all_vectors.append(None)
+
+        cohort_with_vectors["vector"] = all_vectors
+        cohort_with_vectors = cohort_with_vectors.dropna(subset=["vector"]).reset_index(drop=True)
         return cohort_with_vectors
 
     def _drop_cohort_records_without_descriptions(self, cohort: pd.DataFrame) -> pd.DataFrame:
@@ -370,7 +424,7 @@ class Benchmark:
             self.logger.warning(f"Dropped {len(cohort) - len(valid_rows)} records from cohort "
                                 f"due to missing descriptions.")
             dropped_rows = cohort[~cohort["Description"].notna() | (cohort["Description"] == "")]
-            self.logger.debug(f'The dropped records were: {dropped_rows}')
+            self.logger.debug(f'The dropped rows were: {dropped_rows}')
         return valid_rows
 
     def _get_accuracy(self, cohort: pd.DataFrame, cohort_name: str, n: int) -> List[float]:

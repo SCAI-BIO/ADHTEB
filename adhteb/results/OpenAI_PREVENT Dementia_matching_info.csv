@@ -1,26 +1,26 @@
 cohort_variable,cohort_definition,matched_top_1_cdm_definition,matched_top_1_cdm_variable,matched_top_1_similarity,in_top_1
-subjectID,Subject ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.4023776364952357,True
-apoe,APOE: genotype (hetorozygous/ homozygous),"Human APOE*4 allele is located in the vicinity of 19q13.2 and is approximately 4 kb in length. This allele, which encodes apolipoprotein E4, plays a role in triglyceride metabolism. The allele is associated with increased occurrence of both Alzheimer disease and coronary artery disease.",APOE e4,0.5737135726029492,False
-apoe4,APOE4: at least one allele 4,"Human APOE*4 allele is located in the vicinity of 19q13.2 and is approximately 4 kb in length. This allele, which encodes apolipoprotein E4, plays a role in triglyceride metabolism. The allele is associated with increased occurrence of both Alzheimer disease and coronary artery disease.",APOE e4,0.6793648094206549,True
-meddepr_act,"Medical history: Depression, Currently","Medical history of symptoms, physical examination results, and/or laboratory test results related to mental health.",Psychiatric,0.4557620702581144,False
-medpark_act,"Medical history: Parkinson's disease, Currently","A progressive degenerative disorder of the central nervous system characterized by loss of dopamine producing neurons in the substantia nigra and the presence of Lewy bodies in the substantia nigra and locus coeruleus. Signs and symptoms include tremor which is most pronounced during rest, muscle rigidity, slowing of the voluntary movements, a tendency to fall back, and a mask-like facial expression.",Parkinson’s Disease,0.45683958815380304,True
-meddiab_act,"Medical history: Diabetes mellitus, Currently",Medical history pertaining to the metabolic system,Metabolic,0.5929459764304273,False
-medanx_act,"Medical history: Anxiety disorder, Currently",Medical history pertaining to allergies or drug sensitivities,Allergies or Drug Sensitivities,0.4751825628834494,False
-medob_act,"Medical history: Obesity, Currently",Medical history pertaining to the metabolic system,Metabolic,0.5640966079269282,False
-medlip_act,"Medical history: Hyperlipidemia, Currently",Medical history pertaining to the metabolic system,Metabolic,0.539497923252368,False
-medhear_act,"Medical history: Hearing disorder, Currently",Medical history pertaining to major surgical procedures,Major Surgical Procedures,0.45363017850635995,False
-medcancer1,Cancer: Treatment 1,Medical history pertaining to lymph,Lymphatic,0.33786006633992405,False
-phys_cardc,"Physical examination: Cardiovascular, Clinically significant",Medical history pertaining to the heart or blood vessels.,Cardiovascular,0.45408518161006967,True
-phys_respc,"Physical examination: Respiratory, Clinically significant",Medical history pertaining to respiration.,Respiratory,0.6018788971428988,True
-phys_gastrc,"Physical examination: Gastrointestinal, Clinically significant",Medical history pertaining to the stomach and intestines.,Gastrointestinal,0.5037627477961449,True
-risk_surg,Risk factors: Had surgery?,Medical history pertaining to major surgical procedures,Major Surgical Procedures,0.5680575037362717,True
-sex,Gender,The assemblage of physical properties or qualities by which male is distinguished from female; the physical difference between male and female; the distinguishing peculiarity of male or female.,Biological Sex,0.40582613932235245,True
-age,Age of participant,The year in which a person was born.,Year of Birth,0.38971354842538974,False
-race,Race of the participant,The number of education years that a subject has competed.,Education,0.349611085914605,False
-ethnicity,Ethnicity of participant,A social group characterized by a distinctive social and cultural tradition that is maintained from generation to generation. Members share a common history and origin and a sense of identification with the group. They have similar and distinctive features in their lifestyle habits and shared experiences. They often have a common genetic heritage which may be reflected in their experience of health and disease.,Ethnicity,0.4082692656141126,True
-marital,Current marital status,A demographic parameter indicating a person's current conjugal status.,Marital Status,0.6849020308283829,True
-occup,Occupation title,A grouping of occupations and fields of study.,Profession,0.444095361431303,True
-druguse,Lifestyle interview: Drug use,Medical history pertaining to allergies or drug sensitivities,Allergies or Drug Sensitivities,0.4113501713440141,False
-alcohol,Lifestyle interview: Alcohol intake,"Consumption of liquids containing ethanol, including the behaviors associated with drinking the alcohol.",Alcohol,0.4628839203521013,True
-Left_Hippocampus,Left Hippocampus,Left_subiculum,Left Subiculum Volume,0.6748122884659619,False
-Right_Hippocampus,Right Hippocampus,Left_Whole_hippocampus,Left Whole Hippocampus Volume,0.6364482633794942,False
+subjectID,Subject ID,An alphanumeric identifier assigned to a specific patient.,Participant ID,0.40232175367057704,True
+apoe,APOE: genotype (hetorozygous/ homozygous),"Human APOE*4 allele is located in the vicinity of 19q13.2 and is approximately 4 kb in length. This allele, which encodes apolipoprotein E4, plays a role in triglyceride metabolism. The allele is associated with increased occurrence of both Alzheimer disease and coronary artery disease.",APOE,0.5735565154985551,True
+apoe4,APOE4: at least one allele 4,"Human APOE*4 allele is located in the vicinity of 19q13.2 and is approximately 4 kb in length. This allele, which encodes apolipoprotein E4, plays a role in triglyceride metabolism. The allele is associated with increased occurrence of both Alzheimer disease and coronary artery disease.",APOE,0.6793656555768457,False
+meddepr_act,"Medical history: Depression, Currently","Medical history of symptoms, physical examination results, and/or laboratory test results related to mental health.",Psychiatric,0.4557536341491455,False
+medpark_act,"Medical history: Parkinson's disease, Currently","A progressive degenerative disorder of the central nervous system characterized by loss of dopamine producing neurons in the substantia nigra and the presence of Lewy bodies in the substantia nigra and locus coeruleus. Signs and symptoms include tremor which is most pronounced during rest, muscle rigidity, slowing of the voluntary movements, a tendency to fall back, and a mask-like facial expression.",Parkinson’s Disease,0.45738871718287033,True
+meddiab_act,"Medical history: Diabetes mellitus, Currently",Medical history pertaining to the metabolic system,Metabolic,0.5929864434722649,False
+medanx_act,"Medical history: Anxiety disorder, Currently",Medical history pertaining to allergies or drug sensitivities,Allergies or Drug Sensitivities,0.4752896532257857,False
+medob_act,"Medical history: Obesity, Currently",Medical history pertaining to the metabolic system,Metabolic,0.564165514871811,False
+medlip_act,"Medical history: Hyperlipidemia, Currently",Medical history pertaining to the metabolic system,Metabolic,0.5394961608834248,False
+medhear_act,"Medical history: Hearing disorder, Currently",Medical history pertaining to major surgical procedures,Major Surgical Procedures,0.4537925908929838,False
+medcancer1,Cancer: Treatment 1,Medical history pertaining to lymph,Lymphatic,0.33784027809993084,False
+phys_cardc,"Physical examination: Cardiovascular, Clinically significant",Medical history pertaining to the heart or blood vessels.,Cardiovascular,0.45408929411643634,True
+phys_respc,"Physical examination: Respiratory, Clinically significant",Medical history pertaining to respiration.,Respiratory,0.6020255601849175,True
+phys_gastrc,"Physical examination: Gastrointestinal, Clinically significant",Medical history pertaining to the stomach and intestines.,Gastrointestinal,0.5037999171950419,True
+risk_surg,Risk factors: Had surgery?,Medical history pertaining to major surgical procedures,Major Surgical Procedures,0.5685607060774532,True
+sex,Gender,The assemblage of physical properties or qualities by which male is distinguished from female; the physical difference between male and female; the distinguishing peculiarity of male or female.,Biological Sex,0.40594910499869563,True
+age,Age of participant,The year in which a person was born.,Year of Birth,0.38976276016623534,False
+race,Race of the participant,The number of education years that a subject has competed.,Education,0.34970006033833356,False
+ethnicity,Ethnicity of participant,A social group characterized by a distinctive social and cultural tradition that is maintained from generation to generation. Members share a common history and origin and a sense of identification with the group. They have similar and distinctive features in their lifestyle habits and shared experiences. They often have a common genetic heritage which may be reflected in their experience of health and disease.,Ethnicity,0.40899360393631307,True
+marital,Current marital status,A demographic parameter indicating a person's current conjugal status.,Marital Status,0.6852310844768099,True
+occup,Occupation title,A grouping of occupations and fields of study.,Profession,0.444293177597101,True
+druguse,Lifestyle interview: Drug use,Medical history pertaining to allergies or drug sensitivities,Allergies or Drug Sensitivities,0.4113098302672788,False
+alcohol,Lifestyle interview: Alcohol intake,"Consumption of liquids containing ethanol, including the behaviors associated with drinking the alcohol.",Alcohol,0.4630014975163757,True
+Left_Hippocampus,Left Hippocampus,Left_subiculum,Left Subiculum Volume,0.6724440545912542,False
+Right_Hippocampus,Right Hippocampus,Right_Hippocampal_tail,Right Hippocampal Tail Volume,0.6354551927744123,False
