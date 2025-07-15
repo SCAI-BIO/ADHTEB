@@ -1,7 +1,8 @@
+import os
 from typing import List
 
 from matplotlib import pyplot as plt
-from pydantic import BaseModel
+from pydantic import BaseModel, computed_field
 from sklearn.metrics import auc
 
 
@@ -17,7 +18,7 @@ class BenchmarkResult(BaseModel):
 
 
 
-    @property
+    @computed_field(return_type=float)
     def auc(self) -> float:
         """
         Area under the precision-recall curve.
@@ -43,9 +44,6 @@ class BenchmarkResult(BaseModel):
         :param output_dir: Directory to save the plot.
         :return: Path to the saved plot file.
         """
-        import os
-        import matplotlib.pyplot as plt
-
         if not self.precisions or not self.recalls:
             print(f"Skipping PR curve for {self.cohort_label}: missing precision or recall.")
             return ""
