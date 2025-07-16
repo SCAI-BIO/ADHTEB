@@ -1,6 +1,5 @@
 from typing import List
 
-from matplotlib import pyplot as plt
 from pydantic import BaseModel
 from sklearn.metrics import auc
 

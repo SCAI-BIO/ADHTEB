@@ -1,6 +1,6 @@
 import os
 import pickle
-from typing import List, Tuple
+from typing import List
 
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -18,7 +18,7 @@ def plot_prauc_curves_per_cohort(
     different vectorizers. Each plot will show the PR curves for all
     benchmarked models for a specific cohort.
 
-    Applies Seaborn styling, uses a custom color scheme, and sorts legend
+    Applies Seaborn styling, uses a good qualitative color scheme, and sorts legend
     labels by AUPRC in descending order.
 
     :param benchmarks: A list of Benchmark objects, each containing results
@@ -32,18 +32,25 @@ def plot_prauc_curves_per_cohort(
     if len(benchmarks) != len(labels):
         raise ValueError("The 'benchmarks' list and 'labels' list must have the same number of elements.")
 
-    sns.set_theme(style="whitegrid", palette="deep")
+    sns.set_theme(style="whitegrid") # Keep the whitegrid style
 
-    model_specific_colors = {
-        "Qwen38B": "#B19CD9",
-        "OpenAI": "#E980A2",
-        "Gemini": "#5EB5A6",
-        "AllMiniLM": "#F29C7B",
-        "LinqEmbedMistral": "#8A2BE2"
-    }
+    # --- Use a "good" qualitative color palette from Seaborn ---
+    # sns.color_palette("tab10") is a good default.
+    # Other good options: "Set1", "Dark2", "Paired", "viridis" (for sequential data, less ideal here)
+    # Ensure the palette has enough colors for all your labels.
+    num_models = len(labels)
+    # Generate a palette with enough distinct colors
+    good_colors = sns.color_palette("tab10", n_colors=num_models)
 
-    plot_palette = sns.color_palette([model_specific_colors.get(label, "#CCCCCC") for label in labels])
-    sns.set_palette(plot_palette)
+    # Map these colors to your labels to ensure consistency
+    # Create a dictionary to map each label to a specific color
+    # This ensures "Qwen38B" always gets the same color, regardless of its position in 'labels'
+    label_color_map = {label: good_colors[i % len(good_colors)] for i, label in enumerate(labels)}
+
+    # Ensure all models are plotted with their assigned color from this map
+    plot_palette_for_ordering = [label_color_map[label] for label in labels]
+    sns.set_palette(plot_palette_for_ordering) # Set the palette for matplotlib's default cycler
+
 
     all_cohort_labels = set()
     for benchmark in benchmarks:
@@ -82,12 +89,11 @@ def plot_prauc_curves_per_cohort(
                     precisions = precisions[::-1]
 
                 auprc = current_cohort_result.auc
-                color = plot_palette[i]
+                # Get the color from the established label-color map
+                color = label_color_map.get(label_name, "#CCCCCC") # Fallback to grey if label not in map
 
                 plot_data.append((auprc, label_name, recalls, precisions, color))
             else:
-                # Changed to a more informative logging if you want to keep track
-                # Consider using Python's `logging` module for more robust logging
                 print(
                     f"INFO: No PR data for {label_name} on cohort {cohort_label}. Skipping this model for this cohort's plot."
                 )
@@ -113,7 +119,7 @@ def plot_prauc_curves_per_cohort(
         for auprc, label_name, recalls, precisions, color in plot_data:
             ax.plot(recalls, precisions, drawstyle='steps-post',
                     label=f'{label_name} (AUPRC = {auprc:.4f})',
-                    color=color,
+                    color=color, # Use the color from the sorted plot_data
                     linewidth=2)
 
         ax.legend(loc='upper right', frameon=True, fontsize=10)
@@ -141,6 +147,7 @@ except FileNotFoundError as e:
 except Exception as e:
     print(f"An unexpected error occurred while loading pickle files: {e}")
     exit()
+
 
 # Create the list of Benchmark objects
 benchmarks = [results_qwen, results_openai, results_gemini, results_allminilm, results_linq]

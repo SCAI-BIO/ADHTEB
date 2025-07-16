@@ -4,7 +4,6 @@ import os
 import pickle
 import copy
 import tempfile
-from io import StringIO
 
 import pandas as pd
 import numpy as np
@@ -15,9 +14,9 @@ from typing import List
 from cryptography.fernet import Fernet
 from tabulate import tabulate
 
-from .leaderboard import LeaderboardEntry, publish_entry
-from .vectorizers import Vectorizer, GeminiVectorizer, OpenAIVectorizer  # Import specific vectorizers for batching
-from .results import BenchmarkResult
+from adhteb.leaderboard import LeaderboardEntry, publish_entry
+from adhteb.vectorizers import Vectorizer, GeminiVectorizer, OpenAIVectorizer
+from adhteb.results import BenchmarkResult
 
 
 class Benchmark:

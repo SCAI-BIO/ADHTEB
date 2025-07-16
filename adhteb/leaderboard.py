@@ -4,7 +4,7 @@ import requests
 from pydantic import BaseModel
 from typing import List
 
-from .results import BenchmarkResult
+from adhteb.results import BenchmarkResult
 
 logger = logging.getLogger(__name__)
 
