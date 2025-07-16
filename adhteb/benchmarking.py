@@ -14,9 +14,9 @@ from typing import List
 from cryptography.fernet import Fernet
 from tabulate import tabulate
 
-from adhteb.leaderboard import LeaderboardEntry, publish_entry
-from adhteb.vectorizers import Vectorizer, GeminiVectorizer, OpenAIVectorizer
-from adhteb.results import BenchmarkResult
+from .leaderboard import LeaderboardEntry, ModelMetadata, publish_entry
+from .vectorizers import Vectorizer, GeminiVectorizer, OpenAIVectorizer  # Import specific vectorizers for batching
+from .results import BenchmarkResult
 
 
 class Benchmark:
@@ -168,17 +168,15 @@ class Benchmark:
         """
         Publish benchmark results to leaderboard.
         """
-        model_metadata = {
-            "name": self.vectorizer.model_name,
-            "url": ""
-        }
+        model_metadata = ModelMetadata(name=self.vectorizer.model_name, url="")
         entry = LeaderboardEntry(
             model=model_metadata,
+            aggregate_score=self.aggregate_score(),
             cohort_benchmarks=[
-                self.results_geras.model_dump(),
-                self.results_prevent_dementia.model_dump(),
-                self.results_prevent_ad.model_dump(),
-                self.results_emif.model_dump()
+                BenchmarkResult(**self.results_geras.model_dump()),
+                BenchmarkResult(**self.results_prevent_dementia.model_dump()),
+                BenchmarkResult(**self.results_prevent_ad.model_dump()),
+                BenchmarkResult(**self.results_emif.model_dump()),
             ]
         )
         print(entry.model_dump_json())
