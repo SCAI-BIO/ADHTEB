@@ -1,11 +1,18 @@
+import importlib
 import logging
 import os
 import pickle
 import copy
+import tempfile
+from io import StringIO
+
 import pandas as pd
 import numpy as np
+import importlib.resources as pkg_resources
 
 from typing import List
+
+from cryptography.fernet import Fernet
 from tabulate import tabulate
 
 from .leaderboard import LeaderboardEntry, publish_entry
@@ -40,45 +47,62 @@ class Benchmark:
         # tested text embedder
         self.vectorizer = vectorizer
         # common data model
-        cdm = pd.read_csv("data/AD_CDM_JPAD.csv", na_values=[""])
-        self.groundtruth = self._compute_groundtruth_vectors(cdm)
+        cdm = pd.read_csv(self.__load_data("AD_CDM_JPAD.csv", na_values=[""]))
+        self.__groundtruth = self._compute_groundtruth_vectors(cdm)
         # GERAS cohorts
-        self.geras_i = self._compute_cohort_vectors("data/GERAS_I_dict.csv")
-        self.geras_ii = self._compute_cohort_vectors("data/GERAS_II_dict.csv")
-        self.geras_us = self._compute_cohort_vectors("data/GERAS_US_dict.csv")
-        self.geras_j = self._compute_cohort_vectors("data/GERAS_J_dict.csv")
+        self.__geras_i = self._compute_cohort_vectors(self.__load_data("GERAS_I_dict.csv"))
+        self.__geras_ii = self._compute_cohort_vectors(self.__load_data("GERAS_II_dict.csv"))
+        self.__geras_us = self._compute_cohort_vectors(self.__load_data("GERAS_US_dict.csv"))
+        self.__geras_j = self._compute_cohort_vectors(self.__load_data("GERAS_J_dict.csv"))
         # other cohorts
-        self.prevent_dementia = self._compute_cohort_vectors("data/PREVENT_DEMENTIA_dict.csv")
-        self.prevent_ad = self._compute_cohort_vectors("data/PREVENT_AD_dict.csv")
-        self.emif = self._compute_cohort_vectors("data/EMIF_dict.csv")
+        self.__prevent_dementia = self._compute_cohort_vectors(self.__load_data("PREVENT_DEMENTIA_dict.csv"))
+        self.__prevent_ad = self._compute_cohort_vectors(self.__load_data("PREVENT_AD_dict.csv"))
+        self.__emif = self._compute_cohort_vectors(self.__load_data("EMIF_dict.csv"))
         # Result sets
-        self.results_prevent_dementia: BenchmarkResult = None  # n=37
-        self.results_geras: BenchmarkResult = None  # n=61
-        self.results_prevent_ad: BenchmarkResult = None  # n=54
-        self.results_emif: BenchmarkResult = None  # n=73
+        self.results_prevent_dementia: BenchmarkResult = None
+        self.results_geras: BenchmarkResult = None
+        self.results_prevent_ad: BenchmarkResult = None
+        self.results_emif: BenchmarkResult = None
+
+    def __load_key(self):
+        with importlib.resources.path('adhteb.data', 'key.bin') as data_path:
+            with open(data_path, 'rb') as f:
+                key = f.read()
+        return key
+
+    def __load_data(self, file_name: str, **read_csv_kwargs) -> str:
+        f = Fernet(self.__load_key())
+        with importlib.resources.path('adhteb.data', file_name) as data_path:
+            with open(data_path, 'rb') as encrypted_file:
+                encrypted_data = encrypted_file.read()
+                decrypted_data = f.decrypt(encrypted_data)
+        temp_file = tempfile.NamedTemporaryFile(mode='w+', suffix='.csv', delete=False)
+        temp_file.write(decrypted_data.decode('utf-8'))
+        temp_file.flush()
+        return temp_file.name
 
     def run(self) -> None:
         """
         Generate results sets for each cohort dataset for configured vectorizer.
         """
         self.logger.info("Benchmarking GERAS cohorts...")
-        self.geras_i = self._drop_cohort_records_without_groundtruth(self.geras_i, "GERAS-I")
-        self.geras_ii = self._drop_cohort_records_without_groundtruth(self.geras_ii, "GERAS-II")
-        self.geras_us = self._drop_cohort_records_without_groundtruth(self.geras_us, "GERAS-US")
-        self.geras_j = self._drop_cohort_records_without_groundtruth(self.geras_j, "GERAS-J")
+        self.__geras_i = self._drop_cohort_records_without_groundtruth(self.__geras_i, "GERAS-I")
+        self.__geras_ii = self._drop_cohort_records_without_groundtruth(self.__geras_ii, "GERAS-II")
+        self.__geras_us = self._drop_cohort_records_without_groundtruth(self.__geras_us, "GERAS-US")
+        self.__geras_j = self._drop_cohort_records_without_groundtruth(self.__geras_j, "GERAS-J")
         self.results_geras = self._benchmark_geras()
 
         self.logger.info("Benchmarking PREVENT Dementia cohort...")
-        self.prevent_dementia = self._drop_cohort_records_without_groundtruth(self.prevent_dementia, "PREVENT Dementia")
-        self.results_prevent_dementia = self._benchmark_cohort(self.prevent_dementia, "PREVENT Dementia", self.n_bins)
+        self.__prevent_dementia = self._drop_cohort_records_without_groundtruth(self.__prevent_dementia, "PREVENT Dementia")
+        self.results_prevent_dementia = self._benchmark_cohort(self.__prevent_dementia, "PREVENT Dementia", self.n_bins)
 
         self.logger.info("Benchmarking EMIF cohort...")
-        self.emif = self._drop_cohort_records_without_groundtruth(self.emif, "EMIF")
-        self.results_emif = self._benchmark_cohort(self.emif, "EMIF", self.n_bins)
+        self.__emif = self._drop_cohort_records_without_groundtruth(self.__emif, "EMIF")
+        self.results_emif = self._benchmark_cohort(self.__emif, "EMIF", self.n_bins)
 
         self.logger.info("Benchmarking PREVENT-AD cohort...")
-        self.prevent_ad = self._drop_cohort_records_without_groundtruth(self.prevent_ad, "PREVENT-AD")
-        self.results_prevent_ad = self._benchmark_cohort(self.prevent_ad, "PREVENT-AD", self.n_bins)
+        self.__prevent_ad = self._drop_cohort_records_without_groundtruth(self.__prevent_ad, "PREVENT-AD")
+        self.results_prevent_ad = self._benchmark_cohort(self.__prevent_ad, "PREVENT-AD", self.n_bins)
         self.logger.info("Benchmarking completed for all cohorts.")
 
     def save(self, path):
@@ -171,11 +195,11 @@ class Benchmark:
         """
         self.logger.debug(f"Dropping records without ground truth for cohort {cohort_name}...")
         # filter out rows where Column_Name does not exist in the ground truth for the given cohort name
-        valid_rows = cohort[cohort["Column_Name"].isin(self.groundtruth[cohort_name])]
+        valid_rows = cohort[cohort["Column_Name"].isin(self.__groundtruth[cohort_name])]
         if len(valid_rows) < len(cohort):
             self.logger.warning(f"Dropped {len(cohort) - len(valid_rows)} records from cohort {cohort_name} "
                                 f"due to missing ground truth vectors.")
-            dropped_rows = cohort[~cohort["Column_Name"].isin(self.groundtruth[cohort_name])]
+            dropped_rows = cohort[~cohort["Column_Name"].isin(self.__groundtruth[cohort_name])]
             self.logger.debug(f'The dropped records were: {dropped_rows}')
         return valid_rows
 
@@ -184,9 +208,9 @@ class Benchmark:
         Compute and combine benchmark results from all GERAS cohorts.
         """
         cohort_label = "GERAS"
-        n_variables = [len(self.geras_i), len(self.geras_ii),
-                       len(self.geras_us), len(self.geras_j)]
-        cohorts = [self.geras_i, self.geras_ii, self.geras_us, self.geras_j]
+        n_variables = [len(self.__geras_i), len(self.__geras_ii),
+                       len(self.__geras_us), len(self.__geras_j)]
+        cohorts = [self.__geras_i, self.__geras_ii, self.__geras_us, self.__geras_j]
         cohort_labels = ["GERAS-I", "GERAS-II", "GERAS-US", "GERAS-J"]
 
         total_tp = []
@@ -276,12 +300,12 @@ class Benchmark:
             fp = 0
             fn = 0
 
-            cdm_matrix = np.vstack(self.groundtruth["vector"].values)
+            cdm_matrix = np.vstack(self.__groundtruth["vector"].values)
             cdm_norms = np.linalg.norm(cdm_matrix, axis=1)
 
             for _, row in cohort.iterrows():
                 # if there is no corresponding vector in the groundtruth, skip this row
-                if self.groundtruth[self.groundtruth[cohort_name] == row["Column_Name"]].empty:
+                if self.__groundtruth[self.__groundtruth[cohort_name] == row["Column_Name"]].empty:
                     self.logger.error(f"Skipping row {row['Column_Name']} in cohort {cohort_name} "
                                       f"due to missing ground truth vector.")
                     continue
@@ -293,7 +317,7 @@ class Benchmark:
                 positive_indices = np.where(similarities >= min_similarity)[0]
 
                 # check if the current variable is in the positive indices
-                predicted_labels = self.groundtruth[cohort_name].values[positive_indices]
+                predicted_labels = self.__groundtruth[cohort_name].values[positive_indices]
                 actual_label = row["Column_Name"]
 
                 # now:
@@ -442,19 +466,19 @@ class Benchmark:
         correct_at = np.zeros(n, dtype=int)
         matching_info = []
 
-        cdm_matrix = np.vstack(self.groundtruth["vector"].values)
+        cdm_matrix = np.vstack(self.__groundtruth["vector"].values)
         cdm_norms = np.linalg.norm(cdm_matrix, axis=1)
 
         for _, row in cohort.iterrows():
             # if there is no corresponding vector in the groundtruth, skip this row
-            if self.groundtruth[self.groundtruth[cohort_name] == row["Column_Name"]].empty:
+            if self.__groundtruth[self.__groundtruth[cohort_name] == row["Column_Name"]].empty:
                 total = total - 1
                 continue
             vector = row["vector"]
             v_norm = np.linalg.norm(vector)
             similarities = (cdm_matrix @ vector) / (cdm_norms * v_norm)
             top_indices = np.argsort(similarities)[::-1][:n]
-            top_concepts = self.groundtruth.iloc[top_indices][cohort_name].values
+            top_concepts = self.__groundtruth.iloc[top_indices][cohort_name].values
 
             for i in range(n):
                 if row["Column_Name"] in top_concepts[:i + 1]:
@@ -465,8 +489,8 @@ class Benchmark:
                 matching_info.append({
                     "cohort_variable": row["Column_Name"],
                     "cohort_definition": row["Description"],
-                    "matched_top_1_cdm_definition": self.groundtruth.iloc[top_indices[0]]["Definition"],
-                    "matched_top_1_cdm_variable": self.groundtruth.iloc[top_indices[0]]["Feature"],
+                    "matched_top_1_cdm_definition": self.__groundtruth.iloc[top_indices[0]]["Definition"],
+                    "matched_top_1_cdm_variable": self.__groundtruth.iloc[top_indices[0]]["Feature"],
                     "matched_top_1_similarity": similarities[top_indices[0]],
                     **{f"in_top_{i + 1}": row["Column_Name"] in top_concepts[:i + 1] for i in range(n)}
                 })

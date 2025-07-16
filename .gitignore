@@ -211,3 +211,6 @@ __marimo__/
 
 .vscode
 *.pyc
+
+# data encryption
+key.bin
