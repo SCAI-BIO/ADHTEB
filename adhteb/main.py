@@ -16,8 +16,7 @@ logging.getLogger("benchmarking").setLevel(logging.INFO)
 
 # load the OpenAI API key from env
 openai_api_key = os.getenv("OPENAI_API_KEY")
-#gemini_api_key = os.getenv("GENAI_API_KEY")
-gemini_api_key = "AIzaSyBeOcNbzMVWZguULUvy3BLp3Xf0JbsdSYQ"
+gemini_api_key = os.getenv("GENAI_API_KEY")
 
 openai_vectorizer = OpenAIVectorizer(api_key=openai_api_key)
 gemini_vectorizer = GeminiVectorizer(api_key=gemini_api_key)
