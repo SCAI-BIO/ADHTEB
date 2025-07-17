@@ -1,7 +1,7 @@
 # Alzheimer's Disease Harmonization Text Embedding Benchmark
-# Summary
 
-This repository provides a benchmark for evaluating text embeddings in the context of Alzheimer's disease research. 
+[![DOI](https://zenodo.org/badge/987565118.svg)](https://doi.org/10.5281/zenodo.16027340)
+![tests](https://github.com/SCAI-BIO/ADHTEB/actions/workflows/tests.yaml/badge.svg)
 
 # Installation
 ```bash
