@@ -3,7 +3,7 @@ import logging
 import os
 import pickle
 import copy
-import tempfile
+from io import StringIO
 
 import pandas as pd
 import numpy as np
@@ -26,15 +26,17 @@ class Benchmark:
                  vectorizer: Vectorizer,
                  top_n: int = 20,
                  n_bins: int = 100,
-                 debug: bool = True,
+                 debug: bool = False,
                  debug_dest_dir: str = "results") -> None:
         """
         Initialize the Benchmark class.
 
         :param vectorizer: The vectorizer to be benchmarked.
-        :param cdm_source: Path to the Common Data Model (CDM) CSV file.
+        :param top_n: Number of top matches to consider for accuracy calculation.
+        Default is 20.
+        :param n_bins: Number of bins to use for similarity thresholds in confusion matrix calculation.
         :param debug: If True, enables debug mode, will write computed mappings and ground truth to target directory.
-        Default is True.
+        Default is False.
         :param debug_dest_dir: Directory to save debug files. Default is "results".
         """
         # result configuration
@@ -46,7 +48,7 @@ class Benchmark:
         # tested text embedder
         self.vectorizer = vectorizer
         # common data model
-        cdm = pd.read_csv(self.__load_data("AD_CDM_JPAD.csv", na_values=[""]))
+        cdm = self.__load_data("AD_CDM_JPAD.csv", na_values=[""])
         self.__groundtruth = self._compute_groundtruth_vectors(cdm)
         # GERAS cohorts
         self.__geras_i = self._compute_cohort_vectors(self.__load_data("GERAS_I_dict.csv"))
@@ -69,16 +71,17 @@ class Benchmark:
                 key = f.read()
         return key
 
-    def __load_data(self, file_name: str, **read_csv_kwargs) -> str:
-        f = Fernet(self.__load_key())
-        with importlib.resources.path('adhteb.data', file_name) as data_path:
-            with open(data_path, 'rb') as encrypted_file:
-                encrypted_data = encrypted_file.read()
-                decrypted_data = f.decrypt(encrypted_data)
-        temp_file = tempfile.NamedTemporaryFile(mode='w+', suffix='.csv', delete=False)
-        temp_file.write(decrypted_data.decode('utf-8'))
-        temp_file.flush()
-        return temp_file.name
+    def __load_data(self, file_name: str, **read_csv_kwargs) -> pd.DataFrame:
+        """
+        Load and decrypt an encrypted CSV file from the package, returning it as a DataFrame.
+        Decryption is performed entirely in memory using Fernet.
+        """
+        fernet = Fernet(self.__load_key())
+        data_path = pkg_resources.files('adhteb.data').joinpath(file_name)
+        with data_path.open('rb') as encrypted_file:
+            encrypted_data = encrypted_file.read()
+            decrypted_data = fernet.decrypt(encrypted_data)
+        return pd.read_csv(StringIO(decrypted_data.decode('utf-8')), **read_csv_kwargs)
 
     def run(self) -> None:
         """
@@ -92,7 +95,8 @@ class Benchmark:
         self.results_geras = self._benchmark_geras()
 
         self.logger.info("Benchmarking PREVENT Dementia cohort...")
-        self.__prevent_dementia = self._drop_cohort_records_without_groundtruth(self.__prevent_dementia, "PREVENT Dementia")
+        self.__prevent_dementia = self._drop_cohort_records_without_groundtruth(self.__prevent_dementia,
+                                                                                "PREVENT Dementia")
         self.results_prevent_dementia = self._benchmark_cohort(self.__prevent_dementia, "PREVENT Dementia", self.n_bins)
 
         self.logger.info("Benchmarking EMIF cohort...")
@@ -143,7 +147,7 @@ class Benchmark:
 
     def aggregate_score(self) -> float:
         """
-        Computes a aggregated score for all cohorts based on their AUC values and zero-shot accuracies, weighted by the
+        Computes an aggregated score for all cohorts based on their AUC values and zero-shot accuracies, weighted by the
         number of variables per cohort.
 
         :return: Composite score as a float.
@@ -164,7 +168,7 @@ class Benchmark:
 
         return total_score / total_n_variables
 
-    def publish(self, metadata:ModelMetadata) -> None:
+    def publish(self, metadata: ModelMetadata) -> None:
         """
         Publish benchmark results to leaderboard.
         """
@@ -383,7 +387,7 @@ class Benchmark:
         cdm_with_vectors = cdm_with_vectors.dropna(subset=["vector"]).reset_index(drop=True)
         return cdm_with_vectors
 
-    def _compute_cohort_vectors(self, cohort_file: str) -> pd.DataFrame:
+    def _compute_cohort_vectors(self, cohort: pd.DataFrame) -> pd.DataFrame:
         """
         Computes vectors for a given cohort DataFrame.
 
@@ -391,11 +395,10 @@ class Benchmark:
         embedding vectors for the "Description" column using the vectorizer. The resulting
         DataFrame includes the original data along with the computed vectors.
 
-        :param cohort_file: Path to the cohort CSV file.
+        :param cohort: The cohort DataFrame containing descriptions.
         :return: DataFrame with vectors for each row in the cohort.
         """
-        self.logger.info(f"Computing vectors for cohort from {cohort_file}...")
-        cohort = pd.read_csv(cohort_file)
+        self.logger.info(f"Computing cohort vectors...")
         cohort = self._drop_cohort_records_without_descriptions(cohort)
         cohort_with_vectors = cohort.copy()
 

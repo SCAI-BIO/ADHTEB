@@ -152,9 +152,16 @@ except Exception as e:
 # Create the list of Benchmark objects
 benchmarks = [results_qwen, results_openai, results_gemini, results_allminilm, results_linq]
 labels = ["Qwen38B", "OpenAI", "Gemini", "AllMiniLM", "LinqEmbedMistral"]
+urls = [
+    "https://huggingface.co/Qwen/Qwen3-8B",
+    "https://platform.openai.com/docs/models",
+    "https://ai.google.dev/gemini-api/docs/models",
+    "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2",
+    "https://huggingface.co/Linq-AI-Research/Linq-Embed-Mistral"
+]
 
-for benchmark, label in zip(benchmarks, labels):
-    metadata = ModelMetadata(name=label, url="")
+for benchmark, label, url in zip(benchmarks, labels, urls):
+    metadata = ModelMetadata(name=label, url=url)
     benchmark.publish(metadata)
 
 # Create the corresponding list of labels (ensure order matches 'benchmarks' for initial color assignment)
