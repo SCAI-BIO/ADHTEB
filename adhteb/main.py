@@ -19,13 +19,12 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 gemini_api_key = os.getenv("GENAI_API_KEY")
 
 openai_vectorizer = OpenAIVectorizer(api_key=openai_api_key)
-gemini_vectorizer = GeminiVectorizer(api_key=gemini_api_key)
-
+#gemini_vectorizer = GeminiVectorizer(api_key=gemini_api_key)
 #linq_vectorizer = LinqEmbedMistralVectorizer()
 #mini_lm_vectorizer = AllMiniLMVectorizer()
 #qwen_vectorizer = Qwen38BVectorizer()
 
-vectorizers = [gemini_vectorizer]
+vectorizers = [openai_vectorizer]
 
 for vectorizer in vectorizers:
     print(f"Running benchmark for {vectorizer.model_name}...")
@@ -37,3 +36,4 @@ for vectorizer in vectorizers:
     benchmark.results_prevent_dementia.save_pr_curve()
     benchmark.results_prevent_ad.save_pr_curve()
     benchmark.save(f'results/{vectorizer.model_name}.pkl')
+    benchmark.publish()

@@ -164,11 +164,11 @@ class Benchmark:
 
         return total_score / total_n_variables
 
-    def publish(self) -> None:
+    def publish(self, metadata:ModelMetadata) -> None:
         """
         Publish benchmark results to leaderboard.
         """
-        model_metadata = ModelMetadata(name=self.vectorizer.model_name, url="")
+        model_metadata = metadata
         entry = LeaderboardEntry(
             model=model_metadata,
             aggregate_score=self.aggregate_score(),

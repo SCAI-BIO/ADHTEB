@@ -5,7 +5,7 @@ from typing import List
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from adhteb import BenchmarkResult, Benchmark  # Assuming correct import path
+from adhteb import BenchmarkResult, Benchmark, ModelMetadata
 
 
 def plot_prauc_curves_per_cohort(
@@ -151,9 +151,13 @@ except Exception as e:
 
 # Create the list of Benchmark objects
 benchmarks = [results_qwen, results_openai, results_gemini, results_allminilm, results_linq]
+labels = ["Qwen38B", "OpenAI", "Gemini", "AllMiniLM", "LinqEmbedMistral"]
+
+for benchmark, label in zip(benchmarks, labels):
+    metadata = ModelMetadata(name=label, url="")
+    benchmark.publish(metadata)
 
 # Create the corresponding list of labels (ensure order matches 'benchmarks' for initial color assignment)
-labels = ["Qwen38B", "OpenAI", "Gemini", "AllMiniLM", "LinqEmbedMistral"]
 
 # Call the plotting function
 plot_prauc_curves_per_cohort(benchmarks, labels, output_dir="plots/benchmark_comparison")
