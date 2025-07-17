@@ -59,7 +59,7 @@ Aggregate Score: 0.39
 ## Publishing your results
 
 You can check how your results compare to other models on the public leaderboard here:
-[https:adhteb.scai.fraunhofer.de](https:adhteb.scai.fraunhofer.de)
+[https://adhteb.scai.fraunhofer.de](https:adhteb.scai.fraunhofer.de)
 
 You are also able to publish your benchmark results together with metadata on yout tested model:
 
