@@ -1,5 +1,5 @@
 # Alzheimer's Disease Harmonization Text Embedding Benchmark
-![tests](https://github.com/SCAI-BIO/adhteb/actions/workflows/tests.yml/badge.svg) ![GitHub Release](https://img.shields.io/github/v/release/SCAI-BIO/adhteb)
+![tests](https://github.com/SCAI-BIO/ADHTEB/actions/workflows/tests.yml/badge.svg) ![GitHub Release](https://img.shields.io/github/v/release/SCAI-BIO/ADHTEB)
 # Summary
 
 This repository provides a benchmark for evaluating text embeddings in the context of Alzheimer's disease research. 
