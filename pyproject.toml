@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "ADHTEB"
+version = "0.1.0"
+description = "Benchmarking vectorizer performance on Alzheimer's disease concept definitions"
+authors = [
+    "Tim Adams <tim.adams@scai.fraunhofer.de>",
+    "Mehmet Can Ay <mehmet.ay@scai.fraunhofer.de>",
+]
+readme = "README.md"
+packages = [
+    { include = "adhteb" }
+]
+
+include = [
+    { path = "adhteb/data", format = "sdist" },
+    { path = "adhteb/data", format = "wheel" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^2.0"
+numpy = "^1.24"
+sentence-transformers = "^2.2.2"
+openai = "^1.0.0"
+google-genai = "^1.16.1"
+google-cloud-aiplatform = "^1.38"
+matplotlib = "^3.10.3"
+seaborn = "^0.13.2"
+pydantic = "^2.0"
+tabulate = "^0.9.0"
+cryptography = "^45.0.5"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.1"
+
