@@ -37,9 +37,9 @@ jobs:
       - name: Install dependencies
         run: poetry install
 
-      - name: Write decryption key to file
+      - name: Write decryption key to environment
         run: |
-          echo "${{ secrets.ENCRYPTION_KEY }}" > adhteb/data/key.bin
+          export ADHTEB_DECRYPT_KEY="${{ secrets.ENCRYPTION_KEY }}"
 
       - name: Run tests
         run: poetry run pytest
