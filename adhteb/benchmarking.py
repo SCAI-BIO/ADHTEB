@@ -15,7 +15,7 @@ from cryptography.fernet import Fernet
 from tabulate import tabulate
 
 from .leaderboard import LeaderboardEntry, ModelMetadata, publish_entry
-from .vectorizers import Vectorizer, GeminiVectorizer, OpenAIVectorizer  # Import specific vectorizers for batching
+from .vectorizers import Vectorizer, GeminiVectorizer, OpenAIVectorizer
 from .results import BenchmarkResult
 
 
@@ -26,6 +26,8 @@ class Benchmark:
                  vectorizer: Vectorizer,
                  top_n: int = 20,
                  n_bins: int = 100,
+                 include_private: bool = False,
+                 decrypt_key: str = None,
                  debug: bool = False,
                  debug_dest_dir: str = "results") -> None:
         """
@@ -34,6 +36,9 @@ class Benchmark:
         :param vectorizer: The vectorizer to be benchmarked.
         :param top_n: Number of top matches to consider for accuracy calculation.
         Default is 20.
+        :param include_private: If True, includes data dictionaries from non-public cohort in the benchmark.
+        Default is False.
+        :param decrypt_key: Key to decrypt non-public cohort data-dictionaries.
         :param n_bins: Number of bins to use for similarity thresholds in confusion matrix calculation.
         :param debug: If True, enables debug mode, will write computed mappings and ground truth to target directory.
         Default is False.
@@ -47,37 +52,34 @@ class Benchmark:
         self.debug_dest_dir = debug_dest_dir
         # tested text embedder
         self.vectorizer = vectorizer
+        # decryption key for private cohorts
+        self.include_private = include_private
+        self.decrypt_key = decrypt_key
         # common data model
-        cdm = self.__load_data("AD_CDM_JPAD.csv", na_values=[""])
-        self.__groundtruth = self._compute_groundtruth_vectors(cdm)
-        # GERAS cohorts
-        self.__geras_i = self._compute_cohort_vectors(self.__load_data("GERAS_I_dict.csv"))
-        self.__geras_ii = self._compute_cohort_vectors(self.__load_data("GERAS_II_dict.csv"))
-        self.__geras_us = self._compute_cohort_vectors(self.__load_data("GERAS_US_dict.csv"))
-        self.__geras_j = self._compute_cohort_vectors(self.__load_data("GERAS_J_dict.csv"))
-        # other cohorts
-        self.__prevent_dementia = self._compute_cohort_vectors(self.__load_data("PREVENT_DEMENTIA_dict.csv"))
-        self.__prevent_ad = self._compute_cohort_vectors(self.__load_data("PREVENT_AD_dict.csv"))
-        self.__emif = self._compute_cohort_vectors(self.__load_data("EMIF_dict.csv"))
-        # Result sets
-        self.results_prevent_dementia: BenchmarkResult = None
-        self.results_geras: BenchmarkResult = None
-        self.results_prevent_ad: BenchmarkResult = None
-        self.results_emif: BenchmarkResult = None
+        self.__groundtruth = self._compute_groundtruth_vectors(self.__load_cdm())
+        # results placeholder
+        self.results: List[BenchmarkResult] = []
 
-    def __load_key(self):
-        with importlib.resources.path('adhteb.data', 'key.bin') as data_path:
-            with open(data_path, 'rb') as f:
-                key = f.read()
-        return key
+    @staticmethod
+    def __load_cdm() -> pd.DataFrame:
+        with importlib.resources.path('adhteb.data.cdm', 'CDM.csv') as cdm_path:
+            cdm = pd.read_csv(cdm_path, na_values=[""])
+            return cdm
 
-    def __load_data(self, file_name: str, **read_csv_kwargs) -> pd.DataFrame:
+    @staticmethod
+    def _load_cohort_public(file_name: str, **read_csv_kwargs) -> pd.DataFrame:
         """
-        Load and decrypt an encrypted CSV file from the package, returning it as a DataFrame.
-        Decryption is performed entirely in memory using Fernet.
+        Load public CSV files from the package, returning it as a DataFrame.
         """
-        fernet = Fernet(self.__load_key())
-        data_path = pkg_resources.files('adhteb.data').joinpath(file_name)
+        data_path = pkg_resources.files('adhteb.data.cohort.public').joinpath(file_name)
+        return pd.read_csv(data_path, **read_csv_kwargs)
+
+    def __load_cohort_encrypted(self, file_name: str, **read_csv_kwargs) -> pd.DataFrame:
+        """
+        Load encrypted CSV files from the package, returning it as a DataFrame.
+        """
+        fernet = Fernet(self.decrypt_key)
+        data_path = pkg_resources.files('adhteb.data.cohort.private').joinpath(file_name)
         with data_path.open('rb') as encrypted_file:
             encrypted_data = encrypted_file.read()
             decrypted_data = fernet.decrypt(encrypted_data)
@@ -87,25 +89,55 @@ class Benchmark:
         """
         Generate results sets for each cohort dataset for configured vectorizer.
         """
-        self.logger.info("Benchmarking GERAS cohorts...")
-        self.__geras_i = self._drop_cohort_records_without_groundtruth(self.__geras_i, "GERAS-I")
-        self.__geras_ii = self._drop_cohort_records_without_groundtruth(self.__geras_ii, "GERAS-II")
-        self.__geras_us = self._drop_cohort_records_without_groundtruth(self.__geras_us, "GERAS-US")
-        self.__geras_j = self._drop_cohort_records_without_groundtruth(self.__geras_j, "GERAS-J")
-        self.results_geras = self._benchmark_geras()
+        if self.include_private:
 
-        self.logger.info("Benchmarking PREVENT Dementia cohort...")
-        self.__prevent_dementia = self._drop_cohort_records_without_groundtruth(self.__prevent_dementia,
-                                                                                "PREVENT Dementia")
-        self.results_prevent_dementia = self._benchmark_cohort(self.__prevent_dementia, "PREVENT Dementia", self.n_bins)
+            if self.decrypt_key is None:
+                raise ValueError("decrypt_key must be provided to decrypt cohort data-dictionaries.")
 
-        self.logger.info("Benchmarking EMIF cohort...")
-        self.__emif = self._drop_cohort_records_without_groundtruth(self.__emif, "EMIF")
-        self.results_emif = self._benchmark_cohort(self.__emif, "EMIF", self.n_bins)
+            # GERAS cohorts are combined & handled separately
 
-        self.logger.info("Benchmarking PREVENT-AD cohort...")
-        self.__prevent_ad = self._drop_cohort_records_without_groundtruth(self.__prevent_ad, "PREVENT-AD")
-        self.results_prevent_ad = self._benchmark_cohort(self.__prevent_ad, "PREVENT-AD", self.n_bins)
+            geras_i = self.__load_cohort_encrypted('GERAS-I.csv')
+            geras_ii = self.__load_cohort_encrypted('GERAS-II.csv')
+            geras_us = self.__load_cohort_encrypted('GERAS-US.csv')
+            geras_j = self.__load_cohort_encrypted('GERAS-J.csv')
+
+            self.logger.info("Benchmarking GERAS cohorts...")
+
+            geras_i = self._compute_cohort_vectors(geras_i)
+            geras_ii = self._compute_cohort_vectors(geras_ii)
+            geras_us = self._compute_cohort_vectors(geras_us)
+            geras_j = self._compute_cohort_vectors(geras_j)
+            results_geras = self._benchmark_geras(geras_i, geras_ii, geras_us, geras_j)
+            self.results.append(results_geras)
+
+            # list files in the private cohort directory
+            private_cohorts = pkg_resources.files('adhteb.data.cohort.private')
+            # remove GERAS cohorts from private cohorts
+            private_cohorts = [f for f in private_cohorts.iterdir() if f.name not in
+                               ['GERAS-I.csv', 'GERAS-II.csv', 'GERAS-US.csv', 'GERAS-J.csv']]
+
+            for cohort_file in private_cohorts:
+                if cohort_file.is_file() and cohort_file.name.endswith('.csv'):
+                    # check for GERAS cohorts
+                    cohort_name = cohort_file.stem
+                    self.logger.info(f"Loading cohort: {cohort_name}")
+                    cohort_df = self.__load_cohort_encrypted(cohort_file.name)
+                    cohort_df = self._compute_cohort_vectors(cohort_df)
+                    result = self._benchmark_cohort(cohort_df, cohort_name, self.n_bins)
+                    self.results.append(result)
+
+        # public cohort files -> no decryption needed
+        public_cohorts = pkg_resources.files('adhteb.data.cohort.public')
+
+        for cohort_file in public_cohorts.iterdir():
+            if cohort_file.is_file() and cohort_file.name.endswith('.csv'):
+                cohort_name = cohort_file.stem
+                self.logger.info(f"Loading cohort: {cohort_name}")
+                cohort_df = self._load_cohort_public(cohort_file.name)
+                cohort_df = self._compute_cohort_vectors(cohort_df)
+                result = self._benchmark_cohort(cohort_df, cohort_name, self.n_bins)
+                self.results.append(result)
+
         self.logger.info("Benchmarking completed for all cohorts.")
 
     def save(self, path):
@@ -123,19 +155,10 @@ class Benchmark:
         Results are rounded to 2 decimal places and the DataFrame is transposed so that
         cohorts are rows and metrics are columns.
         """
-        if not all([
-            self.results_geras,
-            self.results_prevent_dementia,
-            self.results_prevent_ad,
-            self.results_emif
-        ]):
-            raise ValueError("Benchmark results for all cohorts must be computed before generating summary.")
 
         summary_data = {
-            "GERAS": [self.results_geras.auc, self.results_geras.top_n_accuracy[0]],
-            "PREVENT Dementia": [self.results_prevent_dementia.auc, self.results_prevent_dementia.top_n_accuracy[0]],
-            "PREVENT AD": [self.results_prevent_ad.auc, self.results_prevent_ad.top_n_accuracy[0]],
-            "EMIF": [self.results_emif.auc, self.results_emif.top_n_accuracy[0]],
+            result.cohort_label: [result.auc, result.top_n_accuracy[0]]
+            for result in self.results
         }
 
         summary_df = pd.DataFrame(summary_data, index=["AUPRC", "Zero-shot Accuracy"]).T
@@ -152,13 +175,11 @@ class Benchmark:
 
         :return: Composite score as a float.
         """
-        if not all([self.results_geras, self.results_prevent_dementia, self.results_prevent_ad, self.results_emif]):
-            raise ValueError("Benchmark results for all cohorts must be computed before aggregating score.")
 
         total_score = 0.0
         total_n_variables = 0
 
-        for results in [self.results_geras, self.results_prevent_dementia, self.results_prevent_ad, self.results_emif]:
+        for results in self.results:
             auc = results.auc
             n_variables = results.n_variables
             zero_shot_accuracy = results.top_n_accuracy[0]
@@ -204,14 +225,15 @@ class Benchmark:
             self.logger.debug(f'The dropped records were: {dropped_rows}')
         return valid_rows
 
-    def _benchmark_geras(self) -> BenchmarkResult:
+    def _benchmark_geras(self, geras_i: pd.DataFrame, geras_ii: pd.DataFrame, geras_us: pd.DataFrame,
+                         geras_j: pd.DataFrame) -> BenchmarkResult:
         """
         Compute and combine benchmark results from all GERAS cohorts.
         """
         cohort_label = "GERAS"
-        n_variables = [len(self.__geras_i), len(self.__geras_ii),
-                       len(self.__geras_us), len(self.__geras_j)]
-        cohorts = [self.__geras_i, self.__geras_ii, self.__geras_us, self.__geras_j]
+        n_variables = [len(geras_i), len(geras_ii),
+                       len(geras_us), len(geras_j)]
+        cohorts = [geras_i, geras_ii, geras_us, geras_j]
         cohort_labels = ["GERAS-I", "GERAS-II", "GERAS-US", "GERAS-J"]
 
         total_tp = []
@@ -294,7 +316,7 @@ class Benchmark:
         false_negatives = []
 
         for i in range(n_bins):
-            # all vectors with similarity of at least this are considered positives
+            # all vectors with similarity of at least these are considered positives
             min_similarity = 1 - ((1 / n_bins) * i)
 
             tp = 0
