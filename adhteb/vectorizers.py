@@ -97,7 +97,7 @@ class OpenAIVectorizer(Vectorizer):
         try:
             response = self.client.embeddings.create(input=sanitized_texts,
                                                      model=self.model)
-            return [data.embedding for data in response.data]
+            return [[float(x) for x in data.embedding] for data in response.data]
 
         except Exception as e:
             raise RuntimeError(f"Failed to get embeddings for batch: {e}")
@@ -146,7 +146,7 @@ class GeminiVectorizer(Vectorizer):
                 model=self.model,
                 contents=sanitized_texts,
             )
-            embeddings = [embedding.values for embedding in response.embeddings]
+            embeddings = [[float(x) for x in embedding.values] for embedding in response.embeddings]
 
             return embeddings
 

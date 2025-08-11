@@ -15,6 +15,7 @@ from cryptography.fernet import Fernet
 from tabulate import tabulate
 
 from .leaderboard import LeaderboardEntry, ModelMetadata, publish_entry
+from .utils import fix_blas_float_variability
 from .vectorizers import Vectorizer, GeminiVectorizer, OpenAIVectorizer  # Import specific vectorizers for batching
 from .results import BenchmarkResult
 
@@ -39,6 +40,8 @@ class Benchmark:
         Default is False.
         :param debug_dest_dir: Directory to save debug files. Default is "results".
         """
+        # reduce potential floating point arithmetic issues
+        fix_blas_float_variability(self)
         # result configuration
         self.top_n = top_n
         self.n_bins = n_bins
@@ -51,14 +54,14 @@ class Benchmark:
         cdm = self.__load_data("AD_CDM_JPAD.csv", na_values=[""])
         self.__groundtruth = self._compute_groundtruth_vectors(cdm)
         # GERAS cohorts
-        self.__geras_i = self._compute_cohort_vectors(self.__load_data("GERAS_I_dict.csv"))
-        self.__geras_ii = self._compute_cohort_vectors(self.__load_data("GERAS_II_dict.csv"))
-        self.__geras_us = self._compute_cohort_vectors(self.__load_data("GERAS_US_dict.csv"))
-        self.__geras_j = self._compute_cohort_vectors(self.__load_data("GERAS_J_dict.csv"))
+        self.__geras_i = self._compute_cohort_vectors(self.__load_encrypted_data("GERAS_I_dict.csv"))
+        self.__geras_ii = self._compute_cohort_vectors(self.__load_encrypted_data("GERAS_II_dict.csv"))
+        self.__geras_us = self._compute_cohort_vectors(self.__load_encrypted_data("GERAS_US_dict.csv"))
+        self.__geras_j = self._compute_cohort_vectors(self.__load_encrypted_data("GERAS_J_dict.csv"))
         # other cohorts
-        self.__prevent_dementia = self._compute_cohort_vectors(self.__load_data("PREVENT_DEMENTIA_dict.csv"))
-        self.__prevent_ad = self._compute_cohort_vectors(self.__load_data("PREVENT_AD_dict.csv"))
-        self.__emif = self._compute_cohort_vectors(self.__load_data("EMIF_dict.csv"))
+        self.__prevent_dementia = self._compute_cohort_vectors(self.__load_encrypted_data("PREVENT_DEMENTIA_dict.csv"))
+        self.__prevent_ad = self._compute_cohort_vectors(self.__load_encrypted_data("PREVENT_AD_dict.csv"))
+        self.__emif = self._compute_cohort_vectors(self.__load_encrypted_data("EMIF_dict.csv"))
         # Result sets
         self.results_prevent_dementia: BenchmarkResult = None
         self.results_geras: BenchmarkResult = None
@@ -71,7 +74,7 @@ class Benchmark:
                 key = f.read()
         return key
 
-    def __load_data(self, file_name: str, **read_csv_kwargs) -> pd.DataFrame:
+    def __load_encrypted_data(self, file_name: str, **read_csv_kwargs) -> pd.DataFrame:
         """
         Load and decrypt an encrypted CSV file from the package, returning it as a DataFrame.
         Decryption is performed entirely in memory using Fernet.
@@ -82,6 +85,16 @@ class Benchmark:
             encrypted_data = encrypted_file.read()
             decrypted_data = fernet.decrypt(encrypted_data)
         return pd.read_csv(StringIO(decrypted_data.decode('utf-8')), **read_csv_kwargs)
+
+
+    def __load_data(self, file_name: str, **read_csv_kwargs) -> pd.DataFrame:
+        """
+        Load a CSV file from the package, returning it as a DataFrame.
+        This method does not perform decryption, so it should only be used for non-encrypted files.
+        """
+        data_path = pkg_resources.files('adhteb.data').joinpath(file_name)
+        return pd.read_csv(data_path, **read_csv_kwargs)
+
 
     def run(self) -> None:
         """
@@ -477,7 +490,7 @@ class Benchmark:
             vector = row["vector"]
             v_norm = np.linalg.norm(vector)
             similarities = (cdm_matrix @ vector) / (cdm_norms * v_norm)
-            top_indices = np.argsort(similarities)[::-1][:n]
+            top_indices = np.argsort(similarities, kind='stable')[::-1][:n]
             top_concepts = self.__groundtruth.iloc[top_indices][cohort_name].values
 
             for i in range(n):

@@ -5,7 +5,7 @@ from adhteb.vectorizers import *
 import logging
 
 logging.basicConfig(
-    level=logging.INFO,  # Still allows INFO level from your logger
+    level=logging.INFO,
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
 )
 
@@ -28,12 +28,6 @@ vectorizers = [openai_vectorizer]
 
 for vectorizer in vectorizers:
     print(f"Running benchmark for {vectorizer.model_name}...")
-    benchmark = Benchmark(vectorizer=vectorizer)
+    benchmark = Benchmark(vectorizer=vectorizer, debug=True)
     benchmark.run()
     print(benchmark.results_summary())
-    benchmark.results_geras.save_pr_curve()
-    benchmark.results_emif.save_pr_curve()
-    benchmark.results_prevent_dementia.save_pr_curve()
-    benchmark.results_prevent_ad.save_pr_curve()
-    benchmark.save(f'results/{vectorizer.model_name}.pkl')
-    benchmark.publish()
