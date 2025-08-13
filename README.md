@@ -40,9 +40,9 @@ You can run the benchmark and display the results using only a few lines of code
 ```python
 from adhteb import Benchmark
 
-    benchmark = Benchmark(vectorizer=vectorizer)
-    benchmark.run()
-    print(benchmark.results_summary())
+benchmark = Benchmark(vectorizer=vectorizer)
+benchmark.run()
+print(benchmark.results_summary())
 ```
 ```commandline
 +------------------+-------+--------------------+
@@ -84,6 +84,4 @@ As some of the cohort metadata presented in this benchmark is not available publ
 from adhteb import Benchmark
 
 benchmark = Benchmark(vectorizer=vectorizer, include_private=True, decryption_key=KEY_STRING)
-
-
 ``` 
