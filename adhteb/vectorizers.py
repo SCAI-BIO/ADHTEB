@@ -96,7 +96,8 @@ class OpenAIVectorizer(Vectorizer):
 
         try:
             response = self.client.embeddings.create(input=sanitized_texts,
-                                                     model=self.model)
+                                                     model=self.model,
+                                                     encoding_format='float')
             return [[float(x) for x in data.embedding] for data in response.data]
 
         except Exception as e:

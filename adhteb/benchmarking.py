@@ -490,6 +490,15 @@ class Benchmark:
             vector = row["vector"]
             v_norm = np.linalg.norm(vector)
             similarities = (cdm_matrix @ vector) / (cdm_norms * v_norm)
+
+            # get indices of concepts that have the same similarity
+            # sort them in descending order to get the most similar concepts firs
+            similarities_sorted = np.sort(similarities, kind='stable')[::-1]
+
+            if similarities_sorted[0] == similarities_sorted[1]:
+                self.logger.warning(f"Multiple concepts have the same maximum similarity for {row['Column_Name']} "
+                                    f"in cohort {cohort_name}. This may affect accuracy calculation.")
+
             top_indices = np.argsort(similarities, kind='stable')[::-1][:n]
             top_concepts = self.__groundtruth.iloc[top_indices][cohort_name].values
 
