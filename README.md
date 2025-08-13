@@ -73,3 +73,17 @@ model_metadata = ModelMetadata(model_name=model_name, url=url)
 benchmark.publish(model_metadata=model_metadata)
 ```
 
+## Private Cohorts
+
+As some of the cohort metadata presented in this benchmark is not available publicly, we do by default encrypt private metadata. We are working on finding and extending our benchmark with open, publicly available data as well, which will be used by the benchmark by default. If you want to include results from the private cohorts as well, you can either:
+
+1. Open a [new issue to benchmark a specific model on private cohort data](https://github.com/SCAI-BIO/ADHTEB/issues/new/choose). We will run the benchmark on the non-public data for you and report the results based on your issue (publicly or privately).
+2. Get access to the individual cohorts by the data holders and [contact us](mailto:tim.adams@scai.fraunhofer.de) to get an decryption key for the benchmark. You can then run the private benchmark cohorts along the public ones by using the following flag and providing the key:
+
+```python
+from adhteb import Benchmark
+
+benchmark = Benchmark(vectorizer=vectorizer, include_private=True, decryption_key=KEY_STRING)
+
+
+``` 
