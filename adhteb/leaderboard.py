@@ -27,7 +27,7 @@ def publish_entry(entry: LeaderboardEntry):
     Send the leaderboard entry to the leaderboard website API.
     """
 
-    LEADERBOARD_API_URL = "http://api.adhteb.k8s.bio.scai.fraunhofer.de/leaderboard/"
+    LEADERBOARD_API_URL = "https://api.adhteb.scai.fraunhofer.de/leaderboard/"
     headers = {"Content-Type": "application/json"}
 
     response = requests.post(LEADERBOARD_API_URL, json=entry.model_dump(), headers=headers)
