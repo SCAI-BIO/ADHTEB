@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "ADHTEB"
+name = "adhteb"
 version = "0.1.0"
 description = "Benchmarking vectorizer performance on Alzheimer's disease concept definitions"
 authors = [
