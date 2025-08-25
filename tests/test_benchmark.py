@@ -32,5 +32,7 @@ class BenchmarkTest(unittest.TestCase):
             decryption_key = os.getenv("ADHTEB_DECRYPT_KEY")
             benchmark = Benchmark(vectorizer=self.vectorizer, include_private=True, decryption_key=decryption_key)
             benchmark.run()
+            benchmark.results_summary()
+            self.assertEqual(4, len(benchmark.results))
         except Exception as e:
             self.fail(f"run() raised an exception: {e}")
