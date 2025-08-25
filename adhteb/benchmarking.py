@@ -1,22 +1,20 @@
-import importlib
 import logging
 import os
 import pickle
 import copy
-from io import StringIO
 
 import pandas as pd
 import numpy as np
 import importlib.resources as pkg_resources
 
 from typing import List
-
-from cryptography.fernet import Fernet
+from io import StringIO
 from tabulate import tabulate
+from cryptography.fernet import Fernet
 
 from .leaderboard import LeaderboardEntry, ModelMetadata, publish_entry
 from .utils import fix_blas_float_variability, aggregate_score
-from .vectorizers import Vectorizer, GeminiVectorizer, OpenAIVectorizer
+from .vectorizers import Vectorizer
 from .results import BenchmarkResult
 
 
@@ -27,7 +25,7 @@ class Benchmark:
                  vectorizer: Vectorizer,
                  top_n: int = 20,
                  n_bins: int = 100,
-                 include_private = False,
+                 include_private=False,
                  decryption_key: str = None,
                  debug: bool = False,
                  debug_dest_dir: str = "results") -> None:
@@ -62,7 +60,6 @@ class Benchmark:
         # Result sets
         self.results: list[BenchmarkResult] = []
 
-
     def __load_encrypted_data(self, file_name: str, **read_csv_kwargs) -> pd.DataFrame:
         """
         Load and decrypt an encrypted CSV file from the package, returning it as a DataFrame.
@@ -76,7 +73,6 @@ class Benchmark:
             encrypted_data = encrypted_file.read()
             decrypted_data = fernet.decrypt(encrypted_data)
         return pd.read_csv(StringIO(decrypted_data.decode('utf-8')), **read_csv_kwargs)
-
 
     def __load_data(self, file_name: str, **read_csv_kwargs) -> pd.DataFrame:
         """
@@ -172,7 +168,6 @@ class Benchmark:
         score = aggregate_score(self.results)
 
         return f"{tabulate(summary_df, headers='keys', tablefmt='pretty')}\nAggregate Score: {score:.2f}"
-
 
     def publish(self, metadata: ModelMetadata) -> None:
         """
