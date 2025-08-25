@@ -1,26 +1,32 @@
 import os
 import unittest
-from typing import List
+import random
 
+from typing import List
 from adhteb.benchmarking import Benchmark
 from adhteb.vectorizers import Vectorizer
+
 import importlib.resources as pkg_resources
 
 
 class MockVectorizer(Vectorizer):
 
-    def __init__(self, model_name="MockModel"):
+    def __init__(self, model_name: str = "mock-embedding", dim: int = 32):
         self._model_name = model_name
+        self._dim = dim
 
     @property
     def model_name(self) -> str:
         return self._model_name
 
     def get_embedding(self, text: str) -> list:
-        return [float(len(text))] * 768
+        """Return a random embedding of fixed dimension."""
+        return [random.random() for _ in range(self._dim)]
 
     def get_embeddings_batch(self, texts: List[str]) -> List[list]:
-        return [[float(len(text))] * 768 for text in texts]
+        """Return a list of random embeddings for a batch of texts."""
+        return [[random.random() for _ in range(self._dim)] for text in texts]
+
 
 
 class BenchmarkTest(unittest.TestCase):
