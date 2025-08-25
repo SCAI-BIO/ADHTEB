@@ -1,0 +1,93 @@
+Unnamed: 0,tblname,Column_Name,Description,desc,CODE
+0,MMSE,ID,AMED-Pre clinical ID,AMED-Pre clinical ID,
+4,MMSE,MMSCORE,MMSE TOTAL SCORE,MMSE ���v�_,
+22,ADASSCORES,TOTAL11,ADAS Total 11,ADAS11 �g�[�^���X�R�A,
+36,ADASSCORES,TOTAL13,ADAS Total 13,ADAS13 �g�[�^���X�R�A,
+75,NEUROBAT,CLOCKSCOR,Total Score,���v���_,Total Score
+83,NEUROBAT,TRAASCOR,Part A - Time to Complete,PartA�@���s����,
+86,NEUROBAT,TRABSCOR,Part B - Time to complete,PartB�@���s����,
+108,PTDEMOG,PTGENDER,1. Participant Gender,�팱�҂̐���,0=Female;1=Male
+109,PTDEMOG,PTDOB,2. Participant Date of Birth,�팱�҂̐��N����,
+110,PTDEMOG,PTHAND,3. Participant Handedness,�팱�҂̗�����,0=Right;1=Left
+111,PTDEMOG,PTMARRY,4. Participant Marital Status,�팱�҂̍����,0=Married;1=Divorced;2=Widowed;
+112,PTDEMOG,PTEDUCAT,5. Participant Education,�팱�҂̋���N��,
+115,PTDEMOG,PTWRECNT,6b. Most recent occupation,��ԍŋ߂̐E��,
+118,PTDEMOG,PTHOME,8. Type of Participant residence,�팱�҂̋��Z�`��,0=�}���V�����E�A�p�[�g;1=�ꌬ��
+179,ADSXLIST,BCNAUSEA,1. Nausea,�f���C,1=No;2=Yes(Nausea)
+181,ADSXLIST,BCDIARRH,3. Diarrhea,����,1=No;2=Yes(Diarrhea)
+182,ADSXLIST,BCCONSTP,4. Constipation,�֔�,1=No;2=Yes(Constipation)
+183,ADSXLIST,BCABDOMN,5. Abdominal discomfort,�����s��,1=No;2=Yes(Abdominal discomfort)
+184,ADSXLIST,BCSWEATN,6. Sweating,����,1=No;2=Yes(Sweating)
+185,ADSXLIST,BCDIZZY,7. Dizziness,�߂܂�,1=No;2=Yes(Dizziness)
+186,ADSXLIST,BCENERGY,8. Low energy,�Ք�J��,1=No;2=Yes(Low energey)
+187,ADSXLIST,BCDROWSY,9. Drowsiness,���C,1=No;2=Yes(Drowsiness)
+188,ADSXLIST,BCVISION,10. Blurred vision,�ڂ̂�����,1=No;2=Yes(Blurred vision)
+189,ADSXLIST,BCHDACHE,11. Headache,����,1=No;2=Yes(Headache)
+190,ADSXLIST,BCDRYMTH,12. Dry mouth,��,1=No;2=Yes(Dry mouth)
+191,ADSXLIST,BCBREATH,13. Shortness of breath,���؂�,1=No;2=Yes(Shortness of breath)
+192,ADSXLIST,BCCOUGH,14. Coughing,�P,1=No;2=Yes(Coughing)
+193,ADSXLIST,BCPALPIT,15. Palpitations,����,1=No;2=Yes(Palpitations)
+194,ADSXLIST,BCCHEST,16. Chest pain,������,1=No;2=Yes(Chest pain)
+195,ADSXLIST,BCURNDIS,"17. Urinary discomfort (e.g., burning)",�r�A����,1=No;2=Yes(Urinary discomfort)
+196,ADSXLIST,BCURNFRQ,18. Urinary frequency,�p�A,1=No;2=Yes(Urinary frequency)
+197,ADSXLIST,BCANKLE,19. Ankle swelling,����Ԃ��̎,1=No;2=Yes(Ankle swelling)
+198,ADSXLIST,BCMUSCLE,20. Musculoskeletal pain,�ؓ��,1=No;2=Yes(Musculoskeletal pain)
+199,ADSXLIST,BCRASH,21. Rash,��],1=No;2=Yes(Rash)
+200,ADSXLIST,BCINSOMN,22. Insomnia,�s��,1=No;2=Yes(Insomnia)
+201,ADSXLIST,BCDPMOOD,23. Depressed mood,�}���C��,1=No;2=Yes(Depressed mood)
+202,ADSXLIST,BCCRYING,24. Crying,��������,1=No;2=Yes(Crying)
+203,ADSXLIST,BCELMOOD,25. Elevated mood,���g��,1=No;2=Yes(Elevated mood)
+204,ADSXLIST,BCWANDER,26. Wandering,�p�j,1=No;2=Yes(Wandering)
+205,ADSXLIST,BCFALL,27. Fall,�]�|,1=No;2=Yes(Fall)
+211,PHYSICAL,PXHEADEY,"2. Head, Eyes, Ears, Nose and Throat",�����A��A���A�@�A���,0=Normal; 1=Abnormal
+217,PHYSICAL,PXHEART,5. Heart,�S��,0=Normal; 1=Abnormal
+263,MODHACH,HMONSET,1. Abrupt Onset of Dementia,�F�m�ǂ̓ˑR�̔���,0=Absent;1=Present
+264,MODHACH,HMSTEPWS,2. Stepwise Deterioration of Dementia,�i�K�I�Ȉ���,0=Absent;1=Present
+265,MODHACH,HMSOMATC,3. Somatic Complaints,�g�̓I�i��,0=Absent;1=Present
+266,MODHACH,HMEMOTIO,4. Emotional Incontinence,�����,0=Absent;1=Present
+267,MODHACH,HMHYPERT,5. History of Hypertension,�������̊�,0=Absent;1=Present
+268,MODHACH,HMSTROKE,6. History of Stroke,�]�����̊�,0=Absent;1=Present
+269,MODHACH,HMNEURSM,7. Focal Neurologic Symptoms,�Ǐ��_�o�Ǐ�,0=Absent;1=Present
+270,MODHACH,HMNEURSG,8. Focal Neurologic Signs,�Ǐ��_�o�w�I����,0=Absent;1=Present
+328,EXCLUSIO,EXPSYCH,"4. NL - Has the participant had major depression or bipolar disorder as described in DSM-IV within the past year or a history of schizophrenia (DSM IV criteria)?<br>MCI/AD - Does the participant have a history of major depression...or a history of psychotic features, agitation, or behavioral problems within the last 3 months which could lead to difficulty complying with the protocol?",�팱�҂͉ߋ� 1 �N�ȓ�� DSM-IV �ɂ��傤�a�A�o�ɐ���Q�̐f�f��󂯂Ă��邩�A�ߋ��ɓ��������ǂ̐f�f�iDSM-IV �ɂ��j��󂯂����Ƃ�����܂����H,"1=Yes(Has the participant had major depression or bipolar disorder as described in DSM-IV within the past year or a history of schizophrenia (DSM IV criteria)?<br>MCI/AD - Does the participant have a history of major depression...or a history of psychotic features, agitation, or behavioral problems within the last 3 months which could lead to difficulty complying with the protocol?);2=No"
+329,EXCLUSIO,EXABUSE,5. Does the participant have a history of alcohol or substance abuse or dependence within the past 2 years (DSM IV criteria)?,�팱�҂͉ߋ� 2 �N�Ԃ� DSM-IV �ɂ��A���R�[����򕨈ˑ��ǂ̊�����܂����H,1=Yes(Does the participant have a history of alcohol or substance abuse or dependence within the past 2 years (DSM IV criteria)?);2=No
+344,BLCHANGE,BCPREDX,Pre-visit Diagnosis,�O�񗈉@���̗Տ��f�f,
+354,BLCHANGE,BCDEPRES,9. Clinically relevant depression based on clinical judgement or GDS?,�x�[�X���C���Ɣ�r���ėՏ��I���f������GDS �ɂ��Տ��I�Ӌ`�̂��邤������܂����H,1=Yes;2=No
+357,BLCHANGE,BCSTROKE,10. Did subject have a stroke?,�]����������܂������H,1=Yes;2=No
+426,CDR,CDRSUM,Sum of Boxes,Sum of Boxes,
+427,CDR,CDGLOBAL,Global CDR,��I CDR,
+428,CDR,CDMEMORY,Score <!--Memory-->,�L��,
+429,CDR,CDORIENT,Score <!--Orientation-->,������,
+430,CDR,CDJUDGE,Score <!--Judgment and Problem Solving-->,���f�Ɩ���,
+431,CDR,CDCOMMUN,Score <!--Community Affairs-->,�n��Љ��,
+432,CDR,CDHOME,Score <!--Home and Hobbies-->,�ƒ�Ǝ,
+433,CDR,CDCARE,Score <!--Personal Care-->,�g�̉��̂���,
+439,FAQ,FAQFINAN,"1. Writing checks, paying bills, or balancing checkbook.",1. ��s�ł����낵����A�������̎x���������A��s���̎�x��킹���肷��B,"0=Normal (0);1=Never did, but could do now (0);2=Never did, would have difficulty now (1);3=Dependent (3);4=Has difficulty, but does by self (1);"
+440,FAQ,FAQFORM,"2. Assembling tax records, business affairs, or other papers.",2. �ŋ��N��̋L�^�A�d���̏��ނ╶���𐮗�����B,"0=Normal (0);1=Never did, but could do now (0); 2=Requires assistance (2); 3=Dependent (3); 4=Never did, would have difficulty now (1);5=Has difficulty, but does by self (1);"
+441,FAQ,FAQSHOP,"3. Shopping alone for clothes, household necessities, or groceries.",3. �ЂƂ�ňߗށA��p�i��H�i�̔��������B,"0=Normal (0);1=Has difficulty, but does by self (1); 2=Never did, but could do now (0); 3=Never did, would have difficulty now (1); 4=Dependent (3); "
+442,FAQ,FAQGAME,"4. Playing a game of skill such as bridge or chess, working on a hobby.",4. ����A�����A�͌�ȂǁA�X�L���i���G�ȃ��[���̗���Ȃǁj��K�v�Ƃ���Q�[��������Ȃ��B,"0=Normal (0);1=Never did, but could do now (0); 2=Has difficulty, but does by self (1); 3=Requires assistance(2)"
+443,FAQ,FAQBEVG,"5. Heating water, making a cup of coffee, turing off the stove.",5. �R�����œ��𕦂����A��������A�΂����B,"0=Normal (0); 1=Never did, but could do now (0); 2=Never did, would have difficulty now (1); 3=Has difficulty, but does by self (1);"
+444,FAQ,FAQMEAL,6. Preparing a balanced meal.,6. �h�{�̃o�����X�̂Ƃꂽ�H����p�ӂ���B,"0=Normal (0); 1=Never did, but could do now (0); 2=Never did, would have difficulty now (1); 3=Has difficulty, but does by self (1);4=Dependent (3); "
+445,FAQ,FAQEVENT,7. Keeping track of current events.,7. �ŋ߂̏o�����̗����c������B,"0=Has difficulty, but does by self (1);1=Normal (0); 1=Never did, but could do now (0);2=Dependent (3);3=Never did, would have difficulty now (1); "
+446,FAQ,FAQTV,"8. Paying attention to and understanding a TV program, book, or magazine.",8. �e���r�A���ЁA�G���ɋ�������A��e�𗝉��B,"0=Normal (0);1=Never did, would have difficulty now (1); 2=Has difficulty, but does by self (1); 3=Requires assistance(2); "
+447,FAQ,FAQREM,"9. Remembering appointments, family occasions, holidays, medications.",9. ���l�Ƃ̖񑩁A�Ƒ��̍s���A�j��A��̓���o���Ă���B,"0=Normal (0);1=Requires assistance(2); 2=Dependent (3); 3=Has difficulty, but does by self (1); "
+448,FAQ,FAQTRAVL,"10. Traveling out of the neighborhood, driving, or arranging to take public transportation.",10. �����ւ̊O�o���ɂ́A�Ԃ�^�]������A�o�X��d�Ԃ𗘗p�����肷��B,"0=Normal (0); ;1=Never did, but could do now (0); 2=Requires assistance(2); 3=Dependent (3); 4=Has difficulty, but does by self (1); "
+449,FAQ,FAQTOTAL,Total Score,�S���_,Total Score
+454,GDSCALE,GDSATIS,1. Are you basically satisfied with your life?,1. ���Ȃ��́A�����̐l���ɁA��{�I�ɖ������Ă��܂����H,1=Yes;2=No
+455,GDSCALE,GDDROP,2. Have you dropped many of your activities and interests?,2. ��������Ă��������Ȃǂ��߂����Ƃ�����܂����H,1=Yes;2=No
+456,GDSCALE,GDEMPTY,3. Do you feel that your life is empty?,3. ���Ȃ��͎����̐l�������Ӗ����Ǝv���܂����H,1=Yes;2=No
+457,GDSCALE,GDBORED,4. Do you often get bored?,4. �悭�ދ�ɂȂ�܂����H,1=Yes;2=No
+458,GDSCALE,GDSPIRIT,5. Are you in good spirits most of the time?,5. �قƂ�ǂ���A���C�ł����H,1=Yes;2=No
+459,GDSCALE,GDAFRAID,6. Are you afraid that something bad is going to happen to you?,6. �����������Ƃ����Ȃ��ɋN����̂ł͂Ȃ����ƐS�z�ł����H,1=Yes;2=No
+460,GDSCALE,GDHAPPY,7. Do you feel happy most of the time?,7. ����K���Ɋ����Ă��܂����H,1=Yes;2=No
+461,GDSCALE,GDHELP,8. Do you often feel helpless?,8. �ǂ����悤��Ȃ��Ƃ������͊�����邱�Ƃ��悭����܂����H,1=Yes;2=No
+462,GDSCALE,GDHOME,"9. Do you prefer to stay at home, rather than going out and doing new things?",9. �Ƃ̊O�ɏo�ĐV�������Ƃ�����A�Ƃ̒��ɂ����D���ł����H,1=Yes;2=No
+463,GDSCALE,GDMEMORY,10. Do you feel you have more problems with memory than most?,10.���̐l����A���Ȃ��͋L���ɖ�肪����Ɗ����Ă��܂����H,1=Yes;2=No
+464,GDSCALE,GDALIVE,11. Do you think its wonderful to be alive now?,11.���̎����������Ă��邱�Ƃ͑f���炵�����Ƃ��Ɗ����Ă��܂����H,1=Yes;2=No
+465,GDSCALE,GDWORTH,12. Do you feel pretty worthless the way you are now?,12.���Ȃ��́A���݂̂���̂܂܂̎�����A���܂艿�l���Ȃ��Ɗ����܂����H,1=Yes;2=No
+466,GDSCALE,GDENERGY,13. Do you feel full of energy?,13.���Ȃ��͋C�͂Ɉ��Ă��܂����H,1=Yes;2=No
+467,GDSCALE,GDHOPE,14. Do you feel that your situation is hopeless?,14.�����̏󋵂͐�]�I���Ǝv���܂����H,1=Yes;2=No
+468,GDSCALE,GDBETTER,15. Do you think that most people are better off than you are?,15.���̐l�͂��Ȃ����ǂ���炵��Ă���Ǝv���܂����H,1=Yes;2=No
+469,GDSCALE,GDTOTAL,Total Score,���v,
+772,PETQUANT,FDGPET score,FDGPET score,,
+789,RECFHQ,FHQAGE,Age,���S�N��,
