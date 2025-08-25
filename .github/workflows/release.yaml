@@ -1,0 +1,42 @@
+name: Upload Python Package
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+
+    - name: Install Poetry
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 -
+
+    - name: Update package version
+      run: |
+        VERSION=${{ github.event.release.tag_name }}
+        poetry version $VERSION
+
+    - name: Install dependencies
+      run: |
+        poetry install
+
+    - name: Build package
+      run: |
+        poetry build
+
+    - name: Publish package
+      env:
+        PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+      run: |
+        poetry publish --username __token__ --password $PYPI_API_TOKEN
