@@ -1,3 +1,4 @@
+import os
 import unittest
 from typing import List
 
@@ -24,11 +25,14 @@ class MockVectorizer(Vectorizer):
 class BenchmarkTest(unittest.TestCase):
 
     def setUp(self):
-        vectorizer = MockVectorizer()
-        self.benchmark = Benchmark(vectorizer=vectorizer)
+        self.vectorizer = MockVectorizer()
 
     def test_run(self):
         try:
-            self.benchmark.run()
+            decryption_key = os.getenv("ADHTEB_DECRYPT_KEY")
+            benchmark = Benchmark(vectorizer=self.vectorizer, include_private=True, decryption_key=decryption_key)
+            benchmark.run()
+            benchmark.results_summary()
+            self.assertEqual(4, len(benchmark.results))
         except Exception as e:
             self.fail(f"run() raised an exception: {e}")

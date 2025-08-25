@@ -18,6 +18,9 @@ logging.getLogger("benchmarking").setLevel(logging.INFO)
 openai_api_key = os.getenv("OPENAI_API_KEY")
 gemini_api_key = os.getenv("GENAI_API_KEY")
 
+# load decrypt key for private cohort data
+decryption_key = os.getenv("ADHTEB_DECRYPT_KEY")
+
 openai_vectorizer = OpenAIVectorizer(api_key=openai_api_key)
 #gemini_vectorizer = GeminiVectorizer(api_key=gemini_api_key)
 #linq_vectorizer = LinqEmbedMistralVectorizer()
@@ -28,6 +31,6 @@ vectorizers = [openai_vectorizer]
 
 for vectorizer in vectorizers:
     print(f"Running benchmark for {vectorizer.model_name}...")
-    benchmark = Benchmark(vectorizer=vectorizer, debug=True)
+    benchmark = Benchmark(vectorizer=vectorizer, debug=True, include_private=True, decryption_key=decryption_key)
     benchmark.run()
     print(benchmark.results_summary())
