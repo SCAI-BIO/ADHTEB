@@ -15,8 +15,8 @@ from cryptography.fernet import Fernet
 from tabulate import tabulate
 
 from .leaderboard import LeaderboardEntry, ModelMetadata, publish_entry
-from .utils import fix_blas_float_variability
-from .vectorizers import Vectorizer, GeminiVectorizer, OpenAIVectorizer  # Import specific vectorizers for batching
+from .utils import fix_blas_float_variability, aggregate_score
+from .vectorizers import Vectorizer, GeminiVectorizer, OpenAIVectorizer
 from .results import BenchmarkResult
 
 
@@ -43,7 +43,7 @@ class Benchmark:
         :param debug_dest_dir: Directory to save debug files. Default is "results".
         """
         # reduce potential floating point arithmetic issues
-        fix_blas_float_variability(self)
+        fix_blas_float_variability()
         # result configuration
         self.top_n = top_n
         self.n_bins = n_bins
@@ -161,39 +161,18 @@ class Benchmark:
             raise ValueError("Benchmark results are empty. Please run the benchmark first.")
 
         summary_data = {
-            result.cohort_label: [result.auc, result.top_n_accuracy[0]]
+            result.cohort_label: [result.auc, result.top_n_accuracy[0], int(result.n_variables)]
             for result in self.results
         }
 
-        summary_df = pd.DataFrame(summary_data, index=["AUPRC", "Zero-shot Accuracy"]).T
-        summary_df = summary_df.round(2)
+        summary_df = pd.DataFrame(summary_data, index=["AUPRC", "Zero-shot Accuracy", "n_variables"]).T
+        summary_df[["AUPRC", "Zero-shot Accuracy"]] = summary_df[["AUPRC", "Zero-shot Accuracy"]].round(2)
+        summary_df["n_variables"] = summary_df["n_variables"].astype(int).astype(str)
 
-        aggregate_score = self.aggregate_score()
+        score = aggregate_score(self.results)
 
-        return f"{tabulate(summary_df, headers='keys', tablefmt='pretty')}\nAggregate Score: {aggregate_score:.2f}"
+        return f"{tabulate(summary_df, headers='keys', tablefmt='pretty')}\nAggregate Score: {score:.2f}"
 
-    def aggregate_score(self) -> float:
-        """
-        Computes an aggregated score for all cohorts based on their AUC values and zero-shot accuracies, weighted by the
-        number of variables per cohort.
-
-        :return: Composite score as a float.
-        """
-        if self.results is None or len(self.results) == 0:
-            raise ValueError("Benchmark results are empty. Please run the benchmark first.")
-
-        total_score = 0.0
-        total_n_variables = 0
-
-        for results in self.results:
-            auc = results.auc
-            n_variables = results.n_variables
-            zero_shot_accuracy = results.top_n_accuracy[0]
-            score = ((0.5 * auc) + (0.5 * zero_shot_accuracy)) * n_variables
-            total_score += score
-            total_n_variables += n_variables
-
-        return total_score / total_n_variables
 
     def publish(self, metadata: ModelMetadata) -> None:
         """
@@ -202,7 +181,7 @@ class Benchmark:
         model_metadata = metadata
         entry = LeaderboardEntry(
             model=model_metadata,
-            aggregate_score=self.aggregate_score(),
+            aggregate_score=aggregate_score(self.results),
             cohort_benchmarks=[BenchmarkResult(**result.model_dump()) for result in self.results]
         )
         print(entry.model_dump_json())
