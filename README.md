@@ -2,6 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/987565118.svg)](https://doi.org/10.5281/zenodo.16027340)
 ![tests](https://github.com/SCAI-BIO/ADHTEB/actions/workflows/tests.yaml/badge.svg)
+![version](https://img.shields.io/pypi/v/adhteb)
 
 # About
 
