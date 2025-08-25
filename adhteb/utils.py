@@ -26,10 +26,10 @@ def aggregate_score(results: List[BenchmarkResult]) -> float:
     total_score = 0.0
     total_n_variables = 0
 
-    for results in results:
-        auc = results.auc
-        n_variables = results.n_variables
-        zero_shot_accuracy = results.top_n_accuracy[0]
+    for result in results:
+        auc = result.auc
+        n_variables = result.n_variables
+        zero_shot_accuracy = result.top_n_accuracy[0]
         score = ((0.5 * auc) + (0.5 * zero_shot_accuracy)) * n_variables
         total_score += score
         total_n_variables += n_variables

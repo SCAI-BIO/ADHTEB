@@ -14,7 +14,7 @@ from cryptography.fernet import Fernet
 
 from .leaderboard import LeaderboardEntry, ModelMetadata, publish_entry
 from .utils import fix_blas_float_variability, aggregate_score
-from .vectorizers import Vectorizer
+from .vectorizers import Vectorizer, GeminiVectorizer, OpenAIVectorizer
 from .results import BenchmarkResult
 
 
