@@ -1,0 +1,26 @@
+ID,Column_Name,TBLNAME,CRFNAME,QUESTION,Description,STATUS,DEPRULE,TYPE,LENGTH,DECIML,RANGEVAL,RANGESQL,RANGEPRL,UNITS,CODE,NOTES,OBJID,COLID,RANGEJSCPT,NAVJSCPT,FTYPE,TAB,DE,MC,VISIBLE,LOGVISIBLE,MTBLNAME,SUBTBLNAME,POPJSCPT,GRID,DEF,update_stamp
+,PTID,ADNIMERGE,Key variables merged into one data table,-4,Original study protocol,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,ABETA,ADNIMERGE,Key variables merged into one data table,-4,CSF ABETA,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,VISCODE,ADNIMERGE,Key variables merged into one data table,-4,Visit code,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,AGE,ADNIMERGE,Key variables merged into one data table,-4,Age,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,PTGENDER,ADNIMERGE,Key variables merged into one data table,-4,Sex,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,PTEDUCAT,ADNIMERGE,Key variables merged into one data table,-4,Education,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,PTETHCAT,ADNIMERGE,Key variables merged into one data table,-4,Ethnicity,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,PTRACCAT,ADNIMERGE,Key variables merged into one data table,-4,Race,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,PTMARRY,ADNIMERGE,Key variables merged into one data table,-4,Marital,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,APOE4,ADNIMERGE,Key variables merged into one data table,-4,ApoE4,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,FDG,ADNIMERGE,Key variables merged into one data table,-4,"Average FDG-PET of angular, temporal, and posterior cingulate",-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,PIB,ADNIMERGE,Key variables merged into one data table,-4,"Average PIB SUVR of frontal cortex, anterior cingulate, precuneus cortex, and parietal cortex",-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,AV45,ADNIMERGE,Key variables merged into one data table,-4,Reference region - florbetapir mean of whole cerebellum.  Regions defined by Freesurfer; see Jagust lab PDF on LONI for details,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,CDRSB,ADNIMERGE,Key variables merged into one data table,-4,CDR-SB,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,ADAS11,ADNIMERGE,Key variables merged into one data table,-4,ADAS 11,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,ADAS13,ADNIMERGE,Key variables merged into one data table,-4,ADAS 13,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,MMSE,ADNIMERGE,Key variables merged into one data table,-4,MMSE,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,MOCA,ADNIMERGE,Key variables merged into one data table,-4,MOCA,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,FSVERSION,ADNIMERGE,Key variables merged into one data table,-4,FreeSurfer Software Version,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,ICV,ADNIMERGE,Key variables merged into one data table,-4,UCSF ICV,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,DX,ADNIMERGE,Key variables merged into one data table,-4,Diagnosis,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,TAU,ADNIMERGE,Key variables merged into one data table,-4,CSF TAU,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,PTAU,ADNIMERGE,Key variables merged into one data table,-4,CSF PTAU,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,LDELTOTAL,ADNIMERGE,Key variables merged into one data table,-4,Logical Memory - Delayed Recall,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
+,TRABSCOR,ADNIMERGE,Key variables merged into one data table,-4,Trails B,-4,-4,-4,-4,,-4,-4,-4,,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,2017-12-08 11:42:47.0
