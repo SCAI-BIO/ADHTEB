@@ -27,6 +27,8 @@ class Benchmark:
                  vectorizer: Vectorizer,
                  top_n: int = 20,
                  n_bins: int = 100,
+                 include_private = False,
+                 decryption_key: str = None,
                  debug: bool = False,
                  debug_dest_dir: str = "results") -> None:
         """
@@ -50,6 +52,9 @@ class Benchmark:
         self.debug_dest_dir = debug_dest_dir
         # tested text embedder
         self.vectorizer = vectorizer
+        # private cohorts configuration
+        self.include_private = include_private
+        self.decryption_key = decryption_key
         # common data model
         cdm = self.__load_data("AD_CDM_JPAD.csv", na_values=[""])
         self.__groundtruth = self._compute_groundtruth_vectors(cdm)
@@ -68,18 +73,14 @@ class Benchmark:
         self.results_prevent_ad: BenchmarkResult = None
         self.results_emif: BenchmarkResult = None
 
-    def __load_key(self):
-        with importlib.resources.path('adhteb.data', 'key.bin') as data_path:
-            with open(data_path, 'rb') as f:
-                key = f.read()
-        return key
-
     def __load_encrypted_data(self, file_name: str, **read_csv_kwargs) -> pd.DataFrame:
         """
         Load and decrypt an encrypted CSV file from the package, returning it as a DataFrame.
         Decryption is performed entirely in memory using Fernet.
         """
-        fernet = Fernet(self.__load_key())
+        if not self.decryption_key:
+            raise ValueError("Decryption key is required to load encrypted data.")
+        fernet = Fernet(self.decryption_key)
         data_path = pkg_resources.files('adhteb.data').joinpath(file_name)
         with data_path.open('rb') as encrypted_file:
             encrypted_data = encrypted_file.read()
