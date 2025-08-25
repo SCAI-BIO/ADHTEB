@@ -4,6 +4,7 @@ from typing import List
 
 from adhteb.benchmarking import Benchmark
 from adhteb.vectorizers import Vectorizer
+import importlib.resources as pkg_resources
 
 
 class MockVectorizer(Vectorizer):
@@ -26,13 +27,31 @@ class BenchmarkTest(unittest.TestCase):
 
     def setUp(self):
         self.vectorizer = MockVectorizer()
+        data_path_public = pkg_resources.files('adhteb.data.cohorts.public')
+        cohorts_files = [entry for entry in data_path_public.iterdir()
+                         if entry.is_file() and entry.name.endswith(".csv")]
+        self.n_cohorts_public = len(cohorts_files)
+        data_path_private = pkg_resources.files('adhteb.data.cohorts.private')
+        private_cohorts_files = [entry for entry in data_path_private.iterdir()
+                                 if entry.is_file() and entry.name.endswith(".csv")]
+        self.n_cohorts_private = len(private_cohorts_files) + 1
+        # +1 for combined GERAS studies in geras subdir
 
-    def test_run(self):
+    def test_run_public_only(self):
+        try:
+            benchmark = Benchmark(vectorizer=self.vectorizer)
+            benchmark.run()
+            benchmark.results_summary()
+            self.assertEqual(self.n_cohorts_public, len(benchmark.results))
+        except Exception as e:
+            self.fail(f"run() raised an exception: {e}")
+
+    def test_run_private_and_public(self):
         try:
             decryption_key = os.getenv("ADHTEB_DECRYPT_KEY")
             benchmark = Benchmark(vectorizer=self.vectorizer, include_private=True, decryption_key=decryption_key)
             benchmark.run()
             benchmark.results_summary()
-            self.assertEqual(4, len(benchmark.results))
+            self.assertEqual(self.n_cohorts_public + self.n_cohorts_private, len(benchmark.results))
         except Exception as e:
             self.fail(f"run() raised an exception: {e}")
