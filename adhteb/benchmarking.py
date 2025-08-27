@@ -194,7 +194,7 @@ class Benchmark:
         # filter out rows where Column_Name does not exist in the ground truth for the given cohort name
         valid_rows = cohort[cohort["Column_Name"].isin(self.__groundtruth[cohort_name])]
         if len(valid_rows) < len(cohort):
-            self.logger.warning(f"Dropped {len(cohort) - len(valid_rows)} records from cohort {cohort_name} "
+            self.logger.debug(f"Dropped {len(cohort) - len(valid_rows)} records from cohort {cohort_name} "
                                 f"due to missing ground truth vectors.")
             dropped_rows = cohort[~cohort["Column_Name"].isin(self.__groundtruth[cohort_name])]
             self.logger.debug(f'The dropped records were: {dropped_rows}')
@@ -440,7 +440,7 @@ class Benchmark:
         # filter out rows where Description is NaN or empty
         valid_rows = cohort[cohort["Description"].notna() & (cohort["Description"] != "")]
         if len(valid_rows) < len(cohort):
-            self.logger.warning(f"Dropped {len(cohort) - len(valid_rows)} records from cohort "
+            self.logger.debug(f"Dropped {len(cohort) - len(valid_rows)} records from cohort "
                                 f"due to missing descriptions.")
             dropped_rows = cohort[~cohort["Description"].notna() | (cohort["Description"] == "")]
             self.logger.debug(f'The dropped rows were: {dropped_rows}')
