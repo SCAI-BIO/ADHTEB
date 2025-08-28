@@ -1,0 +1,56 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: ADHTEB
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Tim
+    family-names: Adams
+    affiliation: >-
+      Fraunhofer Institute for Algorithms and Scientific
+      Computing
+    orcid: 'https://orcid.org/0000-0002-2823-0102'
+    email: tim.adams@scai.fraunhofer.de
+  - given-names: ' Mehmet Can'
+    family-names: Ay
+    email: mehmet.ay@scai.fraunhofer.de
+    affiliation: >-
+      Fraunhofer Institute for Algorithms and Scientific
+      Computing
+    orcid: 'https://orcid.org/0000-0002-2977-7695'
+  - given-names: Yasamin
+    family-names: Salimi
+    email: yasamin.salimi@scai.fraunhofer.de
+    affiliation: >-
+      Fraunhofer Institute for Algorithms and Scientific
+      Computing     orcid:
+      https://orcid.org/0000-0002-7773-7786
+    orcid: 'https://orcid.org/0000-0002-7773-7786'
+  - {}
+repository-code: 'https://github.com/SCAI-BIO/ADHTEB'
+url: 'https://adhteb.scai.fraunhofer.de'
+repository-artifact: 'https://pypi.org/project/adhteb/'
+abstract: >-
+  ADHTEB (Alzheimer’s Disease Harmonization Text Embedding
+  Benchmark) is a Python package designed to evaluate the
+  performance of text-embedding models in harmonizing
+  variable descriptions from diverse cohorts in the context
+  of Alzheimer’s disease.
+
+
+  As general purpose benchmarks often lack domain-specific
+  evaluation for clinical data, this benchmark is
+  specifically designed to evaluate the performance of
+  embedding models for harmonization or clustering of data
+  descriptins in a clinical setting.
+keywords:
+  - benchmark
+  - alzheimers disease
+  - text embeddings
+  - large language models
+  - LLM
+license: Apache-2.0
