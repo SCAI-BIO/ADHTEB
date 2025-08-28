@@ -179,7 +179,6 @@ class Benchmark:
             aggregate_score=aggregate_score(self.results),
             cohort_benchmarks=[BenchmarkResult(**result.model_dump()) for result in self.results]
         )
-        print(entry.model_dump_json())
         self.logger.info("Publishing benchmark results to leaderboard...")
         publish_entry(entry)
 
