@@ -37,6 +37,12 @@ jobs:
       - name: Install dependencies
         run: poetry install
 
+      - name: Debug env var presence
+        run: |
+          echo "ADHTEB_DECRYPT_KEY is set? -> ${ADHTEB_DECRYPT_KEY:+yes}"
+        env:
+          ADHTEB_DECRYPT_KEY: ${{ secrets.ENCRYPTION_KEY }}
+
       - name: Run tests
         env:
           ADHTEB_DECRYPT_KEY: ${{ secrets.ENCRYPTION_KEY }}
