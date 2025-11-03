@@ -1,6 +1,7 @@
 import os
 import unittest
 import random
+import warnings
 
 from typing import List
 from adhteb.benchmarking import Benchmark
@@ -55,6 +56,10 @@ class BenchmarkTest(unittest.TestCase):
     def test_run_private_and_public(self):
         try:
             decryption_key = os.getenv("ADHTEB_DECRYPT_KEY")
+            # for automated dependency updates, secrets are hidden -> skip this test to enable these updates
+            if not decryption_key:
+                warnings.warn("Environment variable 'ADHTEB_DECRYPT_KEY' not set — skipping test.")
+                self.skipTest("Missing ADHTEB_DECRYPT_KEY environment variable")
             benchmark = Benchmark(vectorizer=self.vectorizer, include_private=True, decryption_key=decryption_key)
             benchmark.run()
             benchmark.results_summary()
