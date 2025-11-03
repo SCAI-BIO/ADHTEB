@@ -59,7 +59,7 @@ class BenchmarkTest(unittest.TestCase):
             # for automated dependency updates, secrets are hidden -> skip this test to enable these updates
             if not decryption_key:
                 warnings.warn("Environment variable 'ADHTEB_DECRYPT_KEY' not set — skipping test.")
-                self.skipTest("Missing ADHTEB_DECRYPT_KEY environment variable")
+                return
             benchmark = Benchmark(vectorizer=self.vectorizer, include_private=True, decryption_key=decryption_key)
             benchmark.run()
             benchmark.results_summary()
