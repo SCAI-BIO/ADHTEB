@@ -1,0 +1,59 @@
+Form,Column_Name,Description,Variable type,Source
+Form header,NACCID,Subject ID number,NACC derived variable,v1-3
+Form header,NACCVNUM,UDS visit number (order),NACC derived variable,v1-3
+A1 Subject Demographics,NACCREFR,Principal referral source,NACC derived variable,v1-3
+A1 Subject Demographics,BIRTHMO,Subject's month of birth,Original UDS question,v1-3
+A1 Subject Demographics,BIRTHYR,Subject's year of birth,Original UDS question,v1-3
+A1 Subject Demographics,SEX,Subject's sex,Original UDS question,v1-3
+A1 Subject Demographics,RACE,Race,Original UDS question,v1-3
+A1 Subject Demographics,EDUC,Years of education,Original UDS question,v1-3
+A1 Subject Demographics,MARISTAT,Marital status,Original UDS question,v1-3
+A1 Subject Demographics,NACCLIVS,Living situation,NACC derived variable,v1-3
+A1 Subject Demographics,HANDED,Is the subject left- or right-handed?,Original UDS question,v1-3
+A1 Subject Demographics,NACCAGE,Subject's age at visit,NACC derived variable,v1-3
+A2 Co-participant Demographics,INLIVWTH,Does the co-participant live with the subject?,Original UDS question,v1-3
+A3 Subject Family History,NACCFAM,Indicator of first-degree family member with cognitive impairment,NACC derived variable,v1-3
+A3 Subject Family History,NACCMOM,Indicator of mother with cognitive impairment,NACC derived variable,v1-3
+A3 Subject Family History,NACCDAD,Indicator of father with cognitive impairment,NACC derived variable,v1-3
+A4 Subject Medications,NACCAHTN,Reported current use of any type of antihypertensive or blood pressure medication,NACC derived variable,v1-3
+A5 Subject Health History,TOBAC30,Smoked cigarettes in last 30 days,Original UDS question,v1-3
+A5 Subject Health History,PACKSPER,Average number of packs smoked per day,Original UDS question,v1-3
+A5 Subject Health History,QUITSMOK,"If the subject quit smoking, age at which he/she last smoked (i.e., quit)",Original UDS question,v1-3
+A5 Subject Health History,ALCOCCAS,"In the past three months, has the subject consumed any alcohol?",Original UDS question,v3
+A5 Subject Health History,CVCHF,Congestive heart failure,Original UDS question,v1-3
+A5 Subject Health History,CBSTROKE,Stroke,Original UDS question,v1-3
+A5 Subject Health History,PD,Parkinson's disease (PD),Original UDS question,v1-3
+A5 Subject Health History,TBI,Traumatic brain injury (TBI),Original UDS question,v3
+A5 Subject Health History,DIABETES,Diabetes,Original UDS question,v1-3
+A5 Subject Health History,THYROID,Thyroid disease,Original UDS question,v1-3
+A5 Subject Health History,ALCOHOL,"Alcohol abuse — clinically significant occurring over a 12-month period manifested in one of the following areas: work, driving, legal, or social",Original UDS question,v1-3
+A5 Subject Health History,ABUSOTHR,"Other abused substances — clinically significant impairment occurring over a 12-month period manifested in one of the following areas: work, driving, legal, or social",Original UDS question,v1-3
+A5 Subject Health History,BIPOLAR,Bipolar disorder,Original UDS question,v3
+A5 Subject Health History,SCHIZ,Schizophrenia,Original UDS question,v3
+A5 Subject Health History,DEP2YRS,Active depression in the last two years,Original UDS question,v1-3
+A5 Subject Health History,ANXIETY,Anxiety,Original UDS question,v3
+B1 Physical,HEIGHT,Subject's height (inches),Original UDS question,v1-3
+B1 Physical,WEIGHT,Subject's weight (lbs),Original UDS question,v1-3
+B1 Physical,NACCBMI,Body mass index (BMI),NACC derived variable,v1-3
+B1 Physical,HRATE,Subject resting heart rate (pulse),Original UDS question,v1-3
+B1 Physical,VISION,"Without corrective lenses, is the subject's vision functionally normal?",Original UDS question,v1-3
+B1 Physical,HEARING,"Without a hearing aid(s), is the subject's hearing functionally normal?",Original UDS question,v1-3
+B2 HIS and CVD,HACHIN,Hachinski ischemic score,Original UDS question,v1-2
+B4 CDR® Plus NACC FTLD,CDRSUM,CDR® sum of boxes,Original UDS question,v1-3
+B4 CDR® Plus NACC FTLD,CDRGLOB,Global CDR®,Original UDS question,v1-3
+B6 Geriatric Depression Scale (GDS),NACCGDS,Total GDS Score,NACC derived variable,v1-3
+C1 Neuropsychological Battery Summary Scores,NACCMMSE,Total MMSE score (using D-L-R-O-W),NACC derived variable,v1-3
+C1 Neuropsychological Battery Summary Scores,DIGIF,Digit span forward trials correct,Original UDS question,v1-3
+C1 Neuropsychological Battery Summary Scores,DIGIB,Digit span backward trials correct,Original UDS question,v1-3
+C1 Neuropsychological Battery Summary Scores,ANIMALS,Animals — Total number of animals named in 60 seconds,Original UDS question,v1-3
+C1 Neuropsychological Battery Summary Scores,VEG,Vegetable — Total number of vegetables named in 60 seconds,Original UDS question,v1-3
+C1 Neuropsychological Battery Summary Scores,TRAILA,Trail Making Test Part A — Total number of seconds to complete,Original UDS question,v1-3
+C1 Neuropsychological Battery Summary Scores,TRAILB,Trail Making Test Part B — Total number of seconds to complete,Original UDS question,v1-3
+C1 Neuropsychological Battery Summary Scores,BOSTON,Boston Naming Test (30) — Total score,Original UDS question,v1-3
+C1 Neuropsychological Battery Summary Scores,UDSVERFC,Number of correct F-words generated in 1 minute,Original UDS question,v3
+C1 Neuropsychological Battery Summary Scores,UDSVERLC,Number of correct L-words generated in 1 minute,Original UDS question,v3
+C2 Neuropsychological Battery Scores,MOCATOTS,MoCA Total Raw Score — uncorrected,Original UDS question,v3
+D1 Clinician Diagnosis,AMYLPET,Abnormally elevated amyloid on PET,Original UDS question,v3
+D1 Clinician Diagnosis,FDGAD,FDG-PET pattern of AD,Original UDS question,v3
+D1 Clinician Diagnosis,NACCETPR,"Primary etiologic diagnosis (MCI); impaired, not MCI; or dementia",NACC derived variable,v1-3
+D2 Clinician-assessed Medical Conditions,CANCER,"Cancer present in the last 12 months (excluding non-melanoma skin cancer), primary or metastatic",Original UDS question,v3
