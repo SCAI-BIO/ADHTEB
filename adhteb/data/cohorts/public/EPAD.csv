@@ -1,0 +1,64 @@
+Column_Name,TYPE,CONSTRAINTS,Description
+patient_id,Integer,,Patient ID
+visit,Text,,Visit Number
+sex,Text,SEX,What is the sex of the subject?
+age_years,Integer,,What is the subject's age?
+handedness,Text,HANDEDNESS,Handedness
+years_education,Integer,,Number of years of formal education
+marital_status,Text,MARITAL_STATUS,Marital status
+ethnicity,Text,ETHNICITY,What is the ethnicity of the subject?
+family_dementia_history,Text,FAMILY_DEMENTIA_HISTORY,Any family history compatible with Alzheimer's disease or other cause of dementia?
+age_at_diagnosis,Integer,,Age at diagnosis
+abdomen_results,Text,RESULT,Abdomen - Results
+chest_results,Text,RESULT,Chest - Results
+ears_nose_throat_results,Text,RESULT,Ears Nose Throat - Results
+eyes_results,Text,RESULT,Eyes - Results
+heart_results,Text,RESULT,Heart - Results
+heart_abnormal_findings,Text,,Heart - Abnormal Findings
+musculoskeletal_results,Text,RESULT,Musculoskeletal - Results
+height,Decimal,,Height
+weight,Decimal,,Weight
+medical_history_term,Text,TERM,Medical History Term
+high_level_term,Text,,High Level Term
+high_level_group_term,Text,,High Level Group Term
+physical activity,Text,PHYSICAL_ACTIVITY,How often do you participate in leisure-time physical activity that lasts at least 20-30 minutes and causes breathlessness and sweating?
+smoking,Text,SMOKING,Smoking
+drug_abuse,Text,DRUG_ABUSE,Drug abuse/misuse
+lcs22,Text,LCS22,Q22. How many units of alcohol do you usually drink per week?
+dementia_diagnosed,Text,DIAGNOSED,Dementia diagnosed by the participant's physician?
+mmse_total,Decimal,,Total Score
+cdr_global_score,Decimal,,Global CDR Score
+cdr_sum_of_box,Decimal,,CDR Sum of Boxes
+cdr_community_affairs,Text,COMMUNITY_AFFAIRS,Community Affairs
+cdr_home_hobbies,Text,HOME_HOBBIES,Home and Hobbies
+cdr_judgement,Text,JUDGEMENT,Judgement and Problem Solving
+cdr_memory,Text,MEMORY,Memory
+cdr_orientation,Text,ORIENTATION,Orientation
+cdr_personal_care,Text,PERSONAL_CARE,Personal Care
+rbans_total_scale,Decimal,,Total Scale
+dotcount_total,Integer,,Total number of correct responses across all trials
+flanker_score,Decimal,,All trials: Global score that combines accuracy and reaction time scores
+gds_total,Decimal,,GDS Total Score
+gds_1,Text,ANSWER,Are you basically satisfied with your life?
+gds_2,Text,ANSWER,Have you dropped many of your activities and interests?
+gds_3,Text,ANSWER,Do you feel that your life is empty?
+gds_4,Text,ANSWER,Do you often get bored?
+gds_7,Text,ANSWER,Are you in good spirits most of the time?
+gds_8,Text,ANSWER,Are you afraid that something bad is going to happen to you?
+gds_9,Text,ANSWER,Do you feel happy most of the time?
+gds_10,Text,ANSWER,Do you often feel helpless?
+gds_12,Text,ANSWER,"Do you prefer to stay at home, rather than going out and doing new things?"
+gds_14,Text,ANSWER,Do you feel you have more problems with memory than most?
+gds_15,Text,ANSWER,Do you think it is wonderful to be alive now?
+gds_17,Text,ANSWER,Do you feel pretty worthless the way you are now?
+gds_21,Text,ANSWER,Do you feel full of energy?
+gds_22,Text,ANSWER,Do you feel that your situation is hopeless?
+gds_23,Text,ANSWER,Do you think that most people are better off than you are?
+stai_40_total_score,Integer,,STAI Total Score
+psqi_total,Integer,,PSQI Total
+psqi_item5_e,Text,ITEM5,5e. Cough or snore loudly
+total_score,Decimal,,Total Score
+apoe_result,Text,APOE,Result
+ptau_result,Text,,pTau Result
+ttau_result,Text,,tTau Result
+abeta_1_42_result,Text,,Abeta(1-42) Result
