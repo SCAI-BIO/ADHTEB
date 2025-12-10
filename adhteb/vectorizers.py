@@ -1,7 +1,7 @@
 from abc import ABC
 import re
 import time
-from typing import List
+from typing import List, Union
 
 from openai import OpenAI
 from google import genai
@@ -158,10 +158,16 @@ class GeminiVectorizer(Vectorizer):
 class HuggingFaceVectorizer(Vectorizer):
     """
     Shared base for HF models.
+    Can be initialized with a model name or an existing SentenceTransformer instance.
     """
 
-    def __init__(self, model_name: str):
-        self.model = SentenceTransformer(model_name)
+    def __init__(self, model: Union[str, SentenceTransformer]):
+        if isinstance(model, str):
+            self.model = SentenceTransformer(model)
+        elif isinstance(model, SentenceTransformer):
+            self.model = model
+        else:
+            raise ValueError("model must be a string or a SentenceTransformer instance")
 
     def get_embedding(self, text: str) -> list:
         embedding = self.model.encode(self.sanitize_text(text))
