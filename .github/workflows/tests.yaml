@@ -19,23 +19,20 @@ jobs:
         python-version: ["3.11", "3.12"]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install Poetry
-        run: curl -sSL https://install.python-poetry.org | python3 -
-
-      - name: Configure Poetry environment
-        run: |
-          poetry config virtualenvs.create true
-          poetry env use python${{ matrix.python-version }}
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies
-        run: poetry install
+        run: uv sync --locked --all-extras --dev
 
       - name: Debug env var presence
         run: |
@@ -46,4 +43,4 @@ jobs:
       - name: Run tests
         env:
           ADHTEB_DECRYPT_KEY: ${{ secrets.ENCRYPTION_KEY }}
-        run: poetry run pytest
+        run: uv run pytest tests
