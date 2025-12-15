@@ -1,8 +1,7 @@
 import logging
-import requests
 
+import requests
 from pydantic import BaseModel
-from typing import List
 
 from adhteb.results import BenchmarkResult
 
@@ -11,15 +10,17 @@ logger = logging.getLogger(__name__)
 
 class ModelMetadata(BaseModel):
     """Metadata for a model."""
+
     name: str
     url: str
 
 
 class LeaderboardEntry(BaseModel):
     """Leaderboard entry for a model."""
+
     model: ModelMetadata
     aggregate_score: float
-    cohort_benchmarks: List[BenchmarkResult]
+    cohort_benchmarks: list[BenchmarkResult]
 
 
 def publish_entry(entry: LeaderboardEntry):
@@ -28,7 +29,8 @@ def publish_entry(entry: LeaderboardEntry):
     """
 
     LEADERBOARD_API_URL = "https://api.adhteb.scai.fraunhofer.de/leaderboard/"
-    headers = {"Content-Type": "application/json"}
+    PUBLISH_TOKEN = "adhteb-leaderboard"
+    headers = {"Content-Type": "application/json", "X-Adhteb-Publish-Token": PUBLISH_TOKEN}
 
     response = requests.post(LEADERBOARD_API_URL, json=entry.model_dump(), headers=headers)
 
