@@ -5,7 +5,8 @@ message: >-
   Adams, T., Salimi, Y., Ay, M. C., Valderrama, D. F., Jacobs, M., & Fröhlich, H. (2025).
   A benchmark of text embedding models for semantic harmonization of Alzheimer's disease cohorts.
   The Journal of Prevention of Alzheimer's Disease, 13(1).
-  https://doi.org/10.1016/j.tjpad.2025.100420type: software
+  https://doi.org/10.1016/j.tjpad.2025.100420
+type: software
 title: ADHTEB
 authors:
   - given-names: Tim
