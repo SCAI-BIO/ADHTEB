@@ -23,11 +23,16 @@ Models that are published on huggingface can be directly imported using the Hugg
 
 ```python
 from adhteb import HuggingFaceVectorizer
+from sentence_transformers import SentenceTransformer
 
 # pass model name or SentenceTransformer object instance (in case of additional params)
 vectorizer = HuggingFaceVectorizer(
     model_name="sentence-transformers/all-MiniLM-L6-v2",
 )
+
+# alternative
+sentence_transformer = SentenceTransformer(...)
+vectorizer = HuggingFaceVectorizer(sentence_transformer)
 ```
 
 Alternatively, you can implement your own vectorizer by implementing the `get_embedding` method of the base class.
