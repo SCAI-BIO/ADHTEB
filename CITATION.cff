@@ -1,6 +1,11 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite the paper below."
-type: software
+message: >-
+  If you use this software, please cite as:
+
+  Adams, T., Salimi, Y., Ay, M. C., Valderrama, D. F., Jacobs, M., & Fröhlich, H. (2025).
+  A benchmark of text embedding models for semantic harmonization of Alzheimer's disease cohorts.
+  The Journal of Prevention of Alzheimer's Disease, 13(1).
+  https://doi.org/10.1016/j.tjpad.2025.100420type: software
 title: ADHTEB
 authors:
   - given-names: Tim
