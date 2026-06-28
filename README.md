@@ -3,6 +3,7 @@
 [![DOI](https://zenodo.org/badge/987565118.svg)](https://doi.org/10.5281/zenodo.16027340)
 ![tests](https://github.com/SCAI-BIO/ADHTEB/actions/workflows/tests.yaml/badge.svg)
 ![version](https://img.shields.io/pypi/v/adhteb)
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/adhteb?period=total&units=INTERNATIONAL_SYSTEM&left_color=GREY&right_color=BLUE&left_text=downloads)](https://pepy.tech/projects/adhteb)
 
 # About
 
