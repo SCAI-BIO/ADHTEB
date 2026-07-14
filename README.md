@@ -1,9 +1,6 @@
 # Alzheimer's Disease Harmonization Text Embedding Benchmark
 
-[![DOI](https://zenodo.org/badge/987565118.svg)](https://doi.org/10.5281/zenodo.16027340)
-![tests](https://github.com/SCAI-BIO/ADHTEB/actions/workflows/tests.yaml/badge.svg)
-![version](https://img.shields.io/pypi/v/adhteb)
-[![PyPI Downloads](https://static.pepy.tech/personalized-badge/adhteb?period=total&units=INTERNATIONAL_SYSTEM&left_color=GREY&right_color=BLUE&left_text=downloads)](https://pepy.tech/projects/adhteb)
+<a href="https://doi.org/10.5281/zenodo.16027340"><img src="https://img.shields.io/badge/DOI-10.5281%2Fzenodo.16027340-blue.svg" alt="DOI"></a>&nbsp;<a href="https://github.com/SCAI-BIO/ADHTEB/actions/workflows/tests.yaml"><img src="https://github.com/SCAI-BIO/ADHTEB/actions/workflows/tests.yaml/badge.svg" alt="tests"></a>&nbsp;<a href="https://pypi.org/project/adhteb/"><img src="https://img.shields.io/pypi/v/adhteb" alt="version"></a>&nbsp;<a href="https://pepy.tech/projects/adhteb"><img src="https://static.pepy.tech/personalized-badge/adhteb?period=total&units=INTERNATIONAL_SYSTEM&left_color=GREY&right_color=BLUE&left_text=downloads" alt="PyPI Downloads"></a>
 
 # About
 
