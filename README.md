@@ -98,3 +98,25 @@ from adhteb import Benchmark
 
 benchmark = Benchmark(vectorizer=vectorizer, include_private=True, decryption_key=KEY_STRING)
 ``` 
+
+# Citation
+
+If you use this work in your research, please cite as:
+
+```bibtex
+@article{Adams_A_benchmark_of_2025,
+  author  = {Adams, Tim and Salimi, Yasamin and Ay, Mehmet Can and
+             Valderrama, Diego Felipe and Jacobs, Marc and
+             Fröhlich, Holger},
+  title   = {A benchmark of text embedding models for semantic harmonization of Alzheimer's disease cohorts},
+  journal = {The Journal of Prevention of Alzheimer's Disease},
+  volume  = {13},
+  number  = {1},
+  year    = {2025},
+  doi     = {10.1016/j.tjpad.2025.100420}
+}
+```
+
+**Reference**
+
+Adams T, Salimi Y, Ay MC, Valderrama DF, Jacobs M, Fröhlich H. *A benchmark of text embedding models for semantic harmonization of Alzheimer's disease cohorts*. **The Journal of Prevention of Alzheimer's Disease**. 2025;13(1). https://doi.org/10.1016/j.tjpad.2025.100420
