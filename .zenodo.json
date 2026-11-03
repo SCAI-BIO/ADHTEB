@@ -1,0 +1,80 @@
+{
+  "title": "ADHTEB",
+  "description": "ADHTEB (Alzheimer's Disease Harmonization Text Embedding Benchmark) is a Python package designed to evaluate the performance of text-embedding models in harmonizing variable descriptions from diverse cohorts in the context of Alzheimer's disease.\nAs general purpose benchmarks often lack domain-specific evaluation for clinical data, this benchmark is specifically designed to evaluate the performance of embedding models for harmonization or clustering of data descriptions in a clinical setting.",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "apache2.0",
+  "language": "eng",
+  "creators": [
+    {
+      "name": "Adams, Tim",
+      "orcid": "0000-0002-2823-0102",
+      "affiliation": "Fraunhofer Institute for Algorithms and Scientific Computing"
+    },
+    {
+      "name": "Ay, Mehmet Can",
+      "orcid": "0000-0002-2977-7695",
+      "affiliation": "Fraunhofer Institute for Algorithms and Scientific Computing"
+    },
+    {
+      "name": "Salimi, Yasamin",
+      "orcid": "0000-0002-7773-7786",
+      "affiliation": "Fraunhofer Institute for Algorithms and Scientific Computing"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Fröhlich, Holger",
+      "orcid": "0000-0002-5328-1243",
+      "affiliation": "Fraunhofer Institute for Algorithms and Scientific Computing",
+      "type": "Supervisor"
+    },
+    {
+      "name": "Valderrama, Diego Felipe",
+      "orcid": "0000-0002-3450-0359",
+      "affiliation": "Fraunhofer Institute for Algorithms and Scientific Computing",
+      "type": "Researcher"
+    },
+    {
+      "name": "Jacobs, Marc",
+      "orcid": "0000-0003-4153-3930",
+      "affiliation": "Fraunhofer Institute for Algorithms and Scientific Computing",
+      "type": "Researcher"
+    }
+  ],
+  "keywords": [
+    "benchmark",
+    "alzheimers disease",
+    "text embeddings",
+    "large language models"
+  ],
+  "notes": "If you use this software, please cite as:\nAdams, T., Salimi, Y., Ay, M. C., Valderrama, D. F., Jacobs, M., & Fröhlich, H. (2025). A benchmark of text embedding models for semantic harmonization of Alzheimer's disease cohorts. The Journal of Prevention of Alzheimer's Disease, 13(1). https://doi.org/10.1016/j.tjpad.2025.100420",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/SCAI-BIO/ADHTEB",
+      "relation": "isSupplementTo",
+      "resource_type": "software",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.1016/j.tjpad.2025.100420",
+      "relation": "isSupplementTo",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "https://pypi.org/project/adhteb/",
+      "relation": "isIdenticalTo",
+      "resource_type": "software",
+      "scheme": "url"
+    }
+  ],
+  "grants": [
+    {
+      "id": "10.13039/501100000780::101172872"
+    },
+    {
+      "id": "10.13039/100014013::10132181"
+    }
+  ]
+}
