@@ -1,0 +1,196 @@
+{
+  "$schema": "https://raw.githubusercontent.com/tiadams/zenodo-schema-sync/main/schema/zenodo-sync.schema.json",
+  "concept": "16027340",
+  "repository": "https://github.com/SCAI-BIO/ADHTEB",
+  "access": {
+    "record": "public",
+    "files": "public",
+    "embargo": {
+      "active": false
+    }
+  },
+  "files": {
+    "enabled": true
+  },
+  "metadata": {
+    "resource_type": "software",
+    "title": "ADHTEB",
+    "description": "ADHTEB (Alzheimer's Disease Harmonization Text Embedding Benchmark) is a Python package designed to evaluate the performance of text-embedding models in harmonizing variable descriptions from diverse cohorts in the context of Alzheimer's disease.\nAs general purpose benchmarks often lack domain-specific evaluation for clinical data, this benchmark is specifically designed to evaluate the performance of embedding models for harmonization or clustering of data descriptions in a clinical setting.",
+    "creators": [
+      {
+        "person_or_org": {
+          "type": "personal",
+          "name": "Adams, Tim",
+          "given_name": "Tim",
+          "family_name": "Adams",
+          "identifiers": [
+            {
+              "identifier": "0000-0002-2823-0102",
+              "scheme": "orcid"
+            }
+          ]
+        },
+        "role": "researcher",
+        "affiliations": [
+          "Fraunhofer Institute for Algorithms and Scientific Computing"
+        ]
+      },
+      {
+        "person_or_org": {
+          "type": "personal",
+          "name": "Ay, Mehmet Can",
+          "given_name": "Mehmet Can",
+          "family_name": "Ay",
+          "identifiers": [
+            {
+              "identifier": "0000-0002-2977-7695",
+              "scheme": "orcid"
+            }
+          ]
+        },
+        "role": "researcher",
+        "affiliations": [
+          "Fraunhofer Institute for Algorithms and Scientific Computing"
+        ]
+      },
+      {
+        "person_or_org": {
+          "type": "personal",
+          "name": "Salimi, Yasamin",
+          "given_name": "Yasamin",
+          "family_name": "Salimi",
+          "identifiers": [
+            {
+              "identifier": "0000-0002-7773-7786",
+              "scheme": "orcid"
+            }
+          ]
+        },
+        "role": "researcher",
+        "affiliations": [
+          "Fraunhofer Institute for Algorithms and Scientific Computing"
+        ]
+      }
+    ],
+    "contributors": [
+      {
+        "person_or_org": {
+          "type": "personal",
+          "name": "Fröhlich, Holger",
+          "given_name": "Holger",
+          "family_name": "Fröhlich",
+          "identifiers": [
+            {
+              "identifier": "0000-0002-5328-1243",
+              "scheme": "orcid"
+            }
+          ]
+        },
+        "role": "supervisor",
+        "affiliations": [
+          "Fraunhofer Institute for Algorithms and Scientific Computing"
+        ]
+      },
+      {
+        "person_or_org": {
+          "type": "personal",
+          "name": "Valderrama, Diego Felipe",
+          "given_name": "Diego Felipe",
+          "family_name": "Valderrama",
+          "identifiers": [
+            {
+              "identifier": "0000-0002-3450-0359",
+              "scheme": "orcid"
+            }
+          ]
+        },
+        "role": "researcher",
+        "affiliations": [
+          "Fraunhofer Institute for Algorithms and Scientific Computing"
+        ]
+      },
+      {
+        "person_or_org": {
+          "type": "personal",
+          "name": "Jacobs, Marc",
+          "given_name": "Marc",
+          "family_name": "Jacobs",
+          "identifiers": [
+            {
+              "identifier": "0000-0003-4153-3930",
+              "scheme": "orcid"
+            }
+          ]
+        },
+        "role": "researcher",
+        "affiliations": [
+          "Fraunhofer Institute for Algorithms and Scientific Computing"
+        ]
+      }
+    ],
+    "additional_descriptions": [
+      {
+        "description": "If you use this software, please cite as:\nAdams, T., Salimi, Y., Ay, M. C., Valderrama, D. F., Jacobs, M., & Fröhlich, H. (2025). A benchmark of text embedding models for semantic harmonization of Alzheimer's disease cohorts. The Journal of Prevention of Alzheimer's Disease, 13(1). https://doi.org/10.1016/j.tjpad.2025.100420",
+        "type": "notes"
+      }
+    ],
+    "subjects": [
+      "benchmark",
+      "alzheimers disease",
+      "text embeddings",
+      "large language models"
+    ],
+    "languages": [
+      "eng"
+    ],
+    "rights": [
+      "apache-2.0"
+    ],
+    "copyright": "Copyright 2025 Fraunhofer SCAI Bioinformatics Department",
+    "related_identifiers": [
+      {
+        "identifier": "https://github.com/SCAI-BIO/ADHTEB",
+        "scheme": "url",
+        "relation_type": "issupplementto",
+        "resource_type": "software"
+      },
+      {
+        "identifier": "10.1016/j.tjpad.2025.100420",
+        "scheme": "doi",
+        "relation_type": "issupplementto",
+        "resource_type": "publication-article"
+      },
+      {
+        "identifier": "https://pypi.org/project/adhteb/",
+        "scheme": "url",
+        "relation_type": "isidenticalto",
+        "resource_type": "software"
+      }
+    ],
+    "funding": [
+      {
+        "funder": {
+          "id": "00k4n6c32"
+        },
+        "award": {
+          "id": "00k4n6c32::101172872"
+        }
+      },
+      {
+        "funder": {
+          "id": "001aqnf71"
+        },
+        "award": {
+          "id": "001aqnf71::10132181"
+        }
+      }
+    ]
+  },
+  "custom_fields": {
+    "code:codeRepository": "https://github.com/SCAI-BIO/ADHTEB",
+    "code:programmingLanguage": [
+      "python"
+    ],
+    "code:developmentStatus": "active"
+  }
+}
